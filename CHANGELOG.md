@@ -14,6 +14,18 @@ All notable changes to Hydra are documented here.
   still no persistent Dock icon. With Crash Protection turned off, the plugin
   runs in-process and its editor is a normal Hydra window, just like Settings.
 
+### Auto-update — hardened
+- The update check no longer collapses every failure into "Could not reach the
+  update server": it now distinguishes **no release yet** (404, treated as up to
+  date), **rate-limiting** (403/429, with a clear "try again later" message) and
+  other HTTP errors (shown with their status code), so a failed check is
+  self-diagnosing.
+- Checks now **bypass the URL cache** and use a timeout, so a 404 cached before a
+  release was published can never hide a release published later.
+- **Automatic** (launch) checks are throttled to once every 6 hours, so frequent
+  relaunches don't burn GitHub's unauthenticated rate limit (60/h per IP). A
+  manual "Check for Updates" still runs immediately.
+
 ## [1.0.0] — 2026-06-25
 
 First stable release. Hydra is now a single app process, ships eight selectable

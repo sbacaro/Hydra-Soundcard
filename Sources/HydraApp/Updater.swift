@@ -39,6 +39,10 @@ final class Updater: ObservableObject {
     }
 
     private static let autoKey = "audio.hydra.autoUpdate"
+    /// Last time an AUTOMATIC check ran, to throttle launch checks (the manual
+    /// "Check for Updates" is never throttled).
+    private static let lastAutoCheckKey = "audio.hydra.lastUpdateCheck"
+    private static let autoCheckMinInterval: TimeInterval = 6 * 3600
 
     /// One automatic install attempt per launch, so a cancelled password prompt
     /// doesn't re-trigger on every scheduled check.
@@ -72,6 +76,14 @@ final class Updater: ObservableObject {
 
     private func runCheck(userInitiated: Bool) async {
         guard !checking else { return }
+        // Throttle AUTOMATIC checks so frequent relaunches don't burn the
+        // unauthenticated GitHub rate limit (60/h per IP). A user-initiated check
+        // always runs.
+        if !userInitiated {
+            let last = UserDefaults.standard.object(forKey: Self.lastAutoCheckKey) as? Date
+            if let last, Date().timeIntervalSince(last) < Self.autoCheckMinInterval { return }
+            UserDefaults.standard.set(Date(), forKey: Self.lastAutoCheckKey)
+        }
         checking = true
         defer { checking = false }
 
@@ -126,10 +138,30 @@ final class Updater: ObservableObject {
         var request = URLRequest(url: Self.latestReleaseAPI)
         request.setValue("application/vnd.github+json", forHTTPHeaderField: "Accept")
         request.setValue("Hydra-Updater", forHTTPHeaderField: "User-Agent")
+        // Always fetch a FRESH result: a 404 cached while no release existed yet
+        // must never hide a release published later — and a slow link must not
+        // hang the check forever.
+        request.cachePolicy = .reloadIgnoringLocalCacheData
+        request.timeoutInterval = 20
 
         let (data, response) = try await URLSession.shared.data(for: request)
-        guard let http = response as? HTTPURLResponse, http.statusCode == 200 else {
+        guard let http = response as? HTTPURLResponse else {
             throw UpdateError.network("Could not reach the update server.")
+        }
+        // Distinguish the cases instead of collapsing every non-200 into one
+        // misleading "could not reach" — so the failure is self-diagnosing.
+        switch http.statusCode {
+        case 200:
+            break
+        case 404:
+            // No published, non-draft, non-prerelease release yet — nothing to
+            // update to. Treated as "up to date", not an error.
+            return nil
+        case 403, 429:
+            // The unauthenticated GitHub API allows 60 requests/hour per IP.
+            throw UpdateError.network("GitHub is rate-limiting update checks. Please try again in a little while.")
+        default:
+            throw UpdateError.network("The update server returned HTTP \(http.statusCode).")
         }
         let gh = try JSONDecoder().decode(GHRelease.self, from: data)
 
@@ -170,9 +202,12 @@ final class Updater: ObservableObject {
     private func get(_ url: URL) async throws -> (Data, URLResponse) {
         var request = URLRequest(url: url)
         request.setValue("Hydra-Updater", forHTTPHeaderField: "User-Agent")
+        request.cachePolicy = .reloadIgnoringLocalCacheData
+        request.timeoutInterval = 60
         let (data, response) = try await URLSession.shared.data(for: request)
         guard let http = response as? HTTPURLResponse, (200..<300).contains(http.statusCode) else {
-            throw UpdateError.network("Download failed.")
+            let code = (response as? HTTPURLResponse)?.statusCode ?? -1
+            throw UpdateError.network("Download failed (HTTP \(code)).")
         }
         return (data, response)
     }
