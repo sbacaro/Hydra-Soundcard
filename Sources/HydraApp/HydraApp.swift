@@ -106,17 +106,26 @@ private struct MenuBarStatusLabel: View {
     @Environment(DaemonClient.self) private var client
     @Environment(\.openWindow) private var openWindow
 
+    /// Built once — a template image the menu bar tints (white when highlighted).
+    private static let waveImage = IconPack.menuBarWave()
+
     var body: some View {
-        Image(systemName: symbol)
+        glyph
             .onReceive(NotificationCenter.default.publisher(for: .hydraOpenMainWindow)) { _ in
                 openWindow(id: "main")
             }
     }
 
-    private var symbol: String {
-        guard client.connectionState == .connected else { return "waveform.slash" }
-        if client.status?.backplaneInstalled != true { return "exclamationmark.triangle.fill" }
-        return "waveform.path"
+    /// Live status glyph: offline → slashed, problem → warning, otherwise the
+    /// Hydra waveform (the brand mark, from IconPack — same wave as the app icon).
+    @ViewBuilder private var glyph: some View {
+        if client.connectionState != .connected {
+            Image(systemName: "waveform.slash")
+        } else if client.status?.backplaneInstalled != true {
+            Image(systemName: "exclamationmark.triangle.fill")
+        } else {
+            Image(nsImage: Self.waveImage)
+        }
     }
 }
 

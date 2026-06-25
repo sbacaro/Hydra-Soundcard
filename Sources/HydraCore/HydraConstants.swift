@@ -6,7 +6,7 @@ import Foundation
 
 public enum Hydra {
     // MARK: Version
-    public static let version = "1.0.1"
+    public static let version = "1.0.2"
     /// Pre-release qualifier (e.g. "beta"). Empty for a stable release.
     public static let stage = ""
     public static var versionString: String {
@@ -98,10 +98,6 @@ public enum Hydra {
     /// Where the complete corresponding source lives (GPL §6). Update when
     /// the public repository is published.
     public static let sourceURL = "https://github.com/sbacaro/Hydra-Soundcard"
-
-    // MARK: UI
-    /// Accent color (Apple system indigo) as hex, used by the app.
-    public static let accentHex = "#5856D6"
 
     // MARK: Engine
     /// Node ID of the backplane in the unified grid.

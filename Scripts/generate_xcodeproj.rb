@@ -24,8 +24,8 @@ require 'xcodeproj'
 ROOT       = File.expand_path('..', __dir__)
 PROJ_PATH  = File.join(ROOT, 'Hydra.xcodeproj')
 DEPLOY     = '26.0'
-MARKETING  = '1.0.1'
-BUILD_NUM  = '1.0.1'
+MARKETING  = '1.0.2'
+BUILD_NUM  = '1.0.2'
 SRC_EXT    = %w[.swift .c .m .mm .cpp .cc].freeze
 
 project = Xcodeproj::Project.new(PROJ_PATH)
@@ -281,6 +281,9 @@ common!(pluginhost, 'audio.hydra.pluginhost', {
   # the same library-validation exception the app has, or the signed release build
   # can't open plugin editors (works in a dev build, fails from the .pkg).
   'CODE_SIGN_ENTITLEMENTS' => 'Sources/hydra-plugin-host/hydra-plugin-host.entitlements',
+  # App icon (Hydra waveform on dark gray) so the editor window/Dock shows the
+  # brand instead of a generic icon while the host is foreground.
+  'ASSETCATALOG_COMPILER_APPICON_NAME' => 'AppIcon',
   'LD_RUNPATH_SEARCH_PATHS'=> "$(inherited) #{RPATH}",
   'PRODUCT_NAME'           => 'hydra-plugin-host'
 })
@@ -480,6 +483,13 @@ common!(rtTests, 'audio.hydra.rt.tests', {
 project.targets.each do |t|
   t.build_configurations.each do |c|
     c.build_settings['ENABLE_MODULE_VERIFIER'] = 'NO'
+    # Follow the macOS SYSTEM accent: with the brand mark now neutral (gray +
+    # white), the UI tint should be the accent the user chose in System Settings.
+    # The xcodeproj gem defaults this to "AccentColor" (a fixed indigo asset);
+    # clearing it makes Color.accentColor == the system accent, matching the grid
+    # (which already uses controlAccentColor). The indigo AccentColor.colorset is
+    # left inert.
+    c.build_settings['ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME'] = ''
   end
 end
 

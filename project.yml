@@ -37,8 +37,8 @@ settings:
     SWIFT_VERSION: "6.0"
     SWIFT_APPROACHABLE_CONCURRENCY: YES
     SWIFT_STRICT_CONCURRENCY: complete
-    MARKETING_VERSION: "1.0.1"
-    CURRENT_PROJECT_VERSION: "1.0.1"
+    MARKETING_VERSION: "1.0.2"
+    CURRENT_PROJECT_VERSION: "1.0.2"
     ALWAYS_SEARCH_USER_PATHS: NO
     CLANG_ENABLE_OBJC_WEAK: YES
     GENERATE_INFOPLIST_FILE: YES
@@ -255,6 +255,8 @@ targets:
         # exception under the hardened runtime, or the signed release build can't
         # open plugin editors (works in a dev build, fails from the .pkg).
         CODE_SIGN_ENTITLEMENTS: Sources/hydra-plugin-host/hydra-plugin-host.entitlements
+        # App icon (Hydra waveform on dark gray) for the editor window / Dock.
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
         LD_RUNPATH_SEARCH_PATHS: "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks"
 
   HydraApp:
@@ -300,6 +302,9 @@ targets:
         ENABLE_HARDENED_RUNTIME: YES
         LD_RUNPATH_SEARCH_PATHS: "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks"
         ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        # Follow the macOS system accent (neutral brand mark) — don't pin the app
+        # to the indigo AccentColor asset; Color.accentColor == the user's accent.
+        ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME: ""
         SWIFT_EMIT_LOC_STRINGS: YES
         SWIFT_DEFAULT_ACTOR_ISOLATION: MainActor
 

@@ -2,6 +2,17 @@
 
 All notable changes to Hydra are documented here.
 
+## [1.0.2] — 2026-06-25
+
+### Brand & appearance
+- **New Hydra logo** — a clean waveform on an Apple "Space Black" gradient (a deep
+  near-black charcoal with a subtle warm sheen). The app icon, the plugin-host
+  icon, every in-app mark and the menu-bar glyph now share this one design, all
+  served from a single source (`IconPack`) so the look changes in one place.
+- **Follows the macOS accent.** With the brand mark now neutral, the UI tint is
+  the accent the user chose in System Settings instead of a hard-coded indigo —
+  and the patch grid, selections and toggles are finally all consistent.
+
 ## [1.0.1] — 2026-06-25
 
 ### Fixed

@@ -57,14 +57,9 @@ enum Theme {
     static let clip        = Color.red
     static let meterYellow = Color.yellow
 
-    // MARK: - Brand (logo mark only)
-    static let brandGradient = LinearGradient(
-        colors: [
-            Color(red: 0x7D / 255, green: 0x7A / 255, blue: 0xFF / 255),
-            Color(red: 0x58 / 255, green: 0x56 / 255, blue: 0xD6 / 255),
-            Color(red: 0x3F / 255, green: 0x3D / 255, blue: 0xA8 / 255),
-        ],
-        startPoint: .topLeading, endPoint: .bottomTrailing)
+    // The brand mark (logo) now lives in IconPack.swift — the single source of
+    // the Hydra waveform used by the app icon, the plugin-host icon and every
+    // in-app appearance of the logo.
 
     // MARK: - Grid Canvas tokens (explicit, appearance-adaptive)
     // For use inside Canvas { } draw calls and the frozen-pane grid. Each token
@@ -97,23 +92,4 @@ enum Theme {
     }
 }
 
-// MARK: - Brand mark
-
-/// The Hydra logo — the only place indigo survives in the UI.
-struct BrandMark: View {
-    var size: CGFloat = 20
-
-    var body: some View {
-        RoundedRectangle(cornerRadius: size * 0.26)
-            .fill(Theme.brandGradient)
-            .frame(width: size, height: size)
-            .overlay(
-                Image(systemName: "waveform.path")
-                    .font(.system(size: size * 0.55, weight: .semibold))
-                    .foregroundStyle(.white)
-            )
-            .shadow(
-                color: Color(red: 0x58 / 255, green: 0x56 / 255, blue: 0xD6 / 255).opacity(0.45),
-                radius: 5)
-    }
-}
+// The Hydra brand mark (BrandMark) lives in IconPack.swift.
