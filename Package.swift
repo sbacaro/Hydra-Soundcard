@@ -70,6 +70,15 @@ let package = Package(
             name: "HydraPluginHostABI",
             path: "Sources/HydraPluginHostABI"
         ),
+        // Control-surface bridge: HiQnet (Soundcraft Si console) ↔ Mackie HUI
+        // (DAW). Pure, platform-independent codecs + CoreMIDI/Network I/O, with NO
+        // Hydra/daemon dependency (diagnostics go through the `onLog` hook). The
+        // daemon consumes it. Codecs are unit-tested in HydraSurfaceTests.
+        .target(
+            name: "HydraSurface",
+            path: "Sources/HydraSurface",
+            swiftSettings: v6
+        ),
         // Out-of-process VST chain host: a plugin crash kills this, not hydrad.
         .executableTarget(
             name: "hydra-plugin-host",
@@ -82,9 +91,9 @@ let package = Package(
         // rather than as a separate `hydrad` process. Path stays Sources/hydrad.
         .target(
             name: "HydraDaemon",
-            dependencies: ["HydraCore", "HydraRT", "HydraVST", "HydraNDIShim", "HydraModuleABI", "HydraPluginHostABI"],
+            dependencies: ["HydraCore", "HydraRT", "HydraVST", "HydraNDIShim", "HydraModuleABI", "HydraPluginHostABI", "HydraSurface"],
             path: "Sources/hydrad",
-            exclude: ["Info.plist", "hydrad.entitlements"],
+            exclude: ["Info.plist", "hydrad.entitlements", "main.swift"],
             swiftSettings: v5
         ),
         // SwiftUI app + the in-process audio engine (HydraDaemon).
@@ -106,6 +115,13 @@ let package = Package(
             name: "HydraRTTests",
             dependencies: ["HydraRT"],
             path: "Tests/HydraRTTests",
+            swiftSettings: v6
+        ),
+        // Control-surface codec tests (HiQnet/HUI round-trips, Swift Testing).
+        .testTarget(
+            name: "HydraSurfaceTests",
+            dependencies: ["HydraSurface"],
+            path: "Tests/HydraSurfaceTests",
             swiftSettings: v6
         )
     ],

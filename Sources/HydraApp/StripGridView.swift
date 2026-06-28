@@ -88,12 +88,19 @@ struct StripCardView: View {
                 HStack(spacing: 4) {
                     Image(systemName: strip.stereo ? "speaker.2" : "speaker.1")
                         .font(.system(size: 11, weight: .semibold))
-                    Text(strip.key)
+                    Text("\(strip.nodeID):\(strip.channelIndex)")
                         .font(.system(size: 13, weight: .bold))
                         .monospacedDigit()
+                    Text(strip.side == .destination ? "RX" : "TX")
+                        .font(.system(size: 9, weight: .heavy))
+                        .padding(.horizontal, 5)
+                        .padding(.vertical, 1)
+                        .background(strip.side == .destination ? Theme.accent.opacity(0.25) : Color(.controlBackgroundColor))
+                        .clipShape(Capsule())
+                        .help(strip.side == .destination ? "Receiver-side inserts" : "Transmitter-side inserts")
                 }
                 .foregroundStyle(.primary)
-                
+
                 Text(channelDescription)
                     .font(.system(size: 10))
                     .foregroundStyle(.secondary)

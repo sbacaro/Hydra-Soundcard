@@ -319,14 +319,26 @@ public struct PluginFavoritePayload: Codable, Sendable, Equatable {
     public init(id: String, favorite: Bool) { self.id = id; self.favorite = favorite }
 }
 
-/// A channel strip (Logic-style): a source channel (or stereo pair) with
-/// insert slots and trim. Keyed by (nodeID, channelIndex); stereo strips
-/// cover channelIndex and channelIndex+1.
+/// Which side of the patch a strip's inserts process.
+/// `.source` — the transmitter side: audio leaving the source passes through
+/// the inserts before reaching any destination (the historical behaviour).
+/// `.destination` — the receiver side: everything patched INTO the destination
+/// is summed, processed by the inserts, then delivered to the receiving channel.
+public enum StripSide: String, Codable, Sendable, Equatable {
+    case source
+    case destination
+}
+
+/// A channel strip (Logic-style): a source OR destination channel (or stereo
+/// pair) with insert slots and trim. Keyed by (nodeID, channelIndex, side);
+/// stereo strips cover channelIndex and channelIndex+1.
 public struct StripInfo: Codable, Sendable, Equatable, Identifiable {
     public var id: UUID
     public var nodeID: String
     public var channelIndex: Int
     public var stereo: Bool
+    /// Which side of the patch these inserts sit on (source/destination).
+    public var side: StripSide
     /// Channel trim, linear (applied before the inserts).
     public var trim: Float
     /// Ordered insert slots.
@@ -337,36 +349,44 @@ public struct StripInfo: Codable, Sendable, Equatable, Identifiable {
     public var isolated: Bool
 
     public init(id: UUID = UUID(), nodeID: String, channelIndex: Int,
-                stereo: Bool, trim: Float = 1.0, inserts: [VSTPlugin] = [],
+                stereo: Bool, side: StripSide = .source,
+                trim: Float = 1.0, inserts: [VSTPlugin] = [],
                 isolated: Bool = true) {
         self.id = id
         self.nodeID = nodeID
         self.channelIndex = channelIndex
         self.stereo = stereo
+        self.side = side
         self.trim = trim
         self.inserts = inserts
         self.isolated = isolated
     }
 
     private enum CodingKeys: String, CodingKey {
-        case id, nodeID, channelIndex, stereo, trim, inserts, isolated
+        case id, nodeID, channelIndex, stereo, side, trim, inserts, isolated
     }
 
-    // Backward compatible: strips persisted before this field default to
-    // isolated (crash-protected).
+    // Backward compatible: strips persisted before these fields existed default
+    // to isolated (crash-protected) and the source (transmitter) side.
     public init(from decoder: Decoder) throws {
         let c = try decoder.container(keyedBy: CodingKeys.self)
         id = try c.decode(UUID.self, forKey: .id)
         nodeID = try c.decode(String.self, forKey: .nodeID)
         channelIndex = try c.decode(Int.self, forKey: .channelIndex)
         stereo = try c.decode(Bool.self, forKey: .stereo)
+        side = try c.decodeIfPresent(StripSide.self, forKey: .side) ?? .source
         trim = try c.decode(Float.self, forKey: .trim)
         inserts = try c.decode([VSTPlugin].self, forKey: .inserts)
         isolated = try c.decodeIfPresent(Bool.self, forKey: .isolated) ?? true
     }
 
-    /// Storage/lookup key.
-    public var key: String { "\(nodeID):\(channelIndex)" }
+    /// Storage/lookup key. Source keeps the historical "node:ch" form (so old
+    /// persisted strips and existing lookups still resolve); a destination strip
+    /// gets a ":rx" suffix so it can coexist with a source strip on the same
+    /// channel.
+    public var key: String {
+        side == .source ? "\(nodeID):\(channelIndex)" : "\(nodeID):\(channelIndex):rx"
+    }
 }
 
 /// Daemon → app: all configured strips.
@@ -892,6 +912,154 @@ public struct SetBridgeEnabledPayload: Codable, Sendable, Equatable {
     public init(id: String, enabled: Bool) { self.id = id; self.enabled = enabled }
 }
 
+// MARK: - Control surface (HiQnet ↔ HUI)
+
+/// A console seen on the LAN — either dialed into the bridge (HiQnet is inbound)
+/// or via a DiscoInfo UDP reply to the invite broadcast.
+public struct SurfaceConsoleInfo: Codable, Sendable, Equatable, Identifiable {
+    /// IPv4 address — stable identifier.
+    public var id: String
+    public var host: String
+    /// Best-effort label (reverse-DNS or model), nil when only the IP is known.
+    public var name: String?
+
+    public init(id: String, host: String, name: String? = nil) {
+        self.id = id
+        self.host = host
+        self.name = name
+    }
+}
+
+/// Daemon → app: full control-surface state (pushed on connect and on change).
+/// Fully automatic: Hydra publishes N virtual HUI ports, listens on TCP/3804 and
+/// broadcasts a HiQnet invite — the console dials back in (HiQnet is inbound). The
+/// `faders`/`mutes`/… arrays span ALL units (length = unitCount*8).
+public struct SurfacePayload: Codable, Sendable, Equatable {
+    /// The bridge is started (MIDI side live; emitting the HUI heartbeat).
+    public var enabled: Bool
+    /// HUI heartbeat is running → the DAW sees the surface as online.
+    public var onlineToDAW: Bool
+    /// A HiQnet session with the console is established.
+    public var consoleConnected: Bool
+    /// Console IP currently connected (peer of the inbound HiQnet session; empty =
+    /// inviting/none).
+    public var consoleIP: String
+    /// Selected DAW preset id (see `Hydra.surfacePresets`) — affects heartbeat.
+    public var presetID: String
+    /// Number of HUI units published (each = 8 strips). Si Expression 3 → 4.
+    public var unitCount: Int
+    /// Names of the virtual HUI ports Hydra published — the DAW adds one HUI
+    /// controller per name (the single setup step that lives inside the DAW).
+    public var portNames: [String]
+    /// Strip offset of the console's active bank/layer (slot = strip+1+offset).
+    public var bankOffset: Int
+    /// Diagnostic logging on (logs HiQnet frames + meter dumps to the daemon log).
+    public var diagnostics: Bool
+    /// Live state of ALL strips (a monitor for the UI), length = unitCount*8.
+    public var faders: [Int]
+    public var mutes: [Bool]
+    public var solos: [Bool]
+    public var selects: [Bool]
+    /// Track names from the DAW (HUI scribble), per strip — shown on the console
+    /// LCD and in the monitor. Length = unitCount*8 (empty string = no name yet).
+    public var channelNames: [String]
+    public var lastError: String?
+    /// A HiQnet invite broadcast is in progress (waiting for the console to dial in).
+    public var discovering: Bool
+    /// Consoles seen via the last/ongoing invite (UDP DiscoInfo replies).
+    public var discovered: [SurfaceConsoleInfo]
+
+    /// Total strips across all units.
+    public var stripCount: Int { unitCount * 8 }
+
+    public init(enabled: Bool = false,
+                onlineToDAW: Bool = false,
+                consoleConnected: Bool = false,
+                consoleIP: String = "",
+                presetID: String = "protools",
+                unitCount: Int = 4,
+                portNames: [String] = [],
+                bankOffset: Int = 0,
+                diagnostics: Bool = false,
+                faders: [Int] = [],
+                mutes: [Bool] = [],
+                solos: [Bool] = [],
+                selects: [Bool] = [],
+                channelNames: [String] = [],
+                lastError: String? = nil,
+                discovering: Bool = false,
+                discovered: [SurfaceConsoleInfo] = []) {
+        self.enabled = enabled
+        self.onlineToDAW = onlineToDAW
+        self.consoleConnected = consoleConnected
+        self.consoleIP = consoleIP
+        self.presetID = presetID
+        self.unitCount = unitCount
+        self.portNames = portNames
+        self.bankOffset = bankOffset
+        self.diagnostics = diagnostics
+        self.faders = faders
+        self.mutes = mutes
+        self.solos = solos
+        self.selects = selects
+        self.channelNames = channelNames
+        self.lastError = lastError
+        self.discovering = discovering
+        self.discovered = discovered
+    }
+
+    // Tolerate payloads from older daemons (missing keys → defaults).
+    public init(from decoder: Decoder) throws {
+        let c = try decoder.container(keyedBy: CodingKeys.self)
+        enabled = try c.decodeIfPresent(Bool.self, forKey: .enabled) ?? false
+        onlineToDAW = try c.decodeIfPresent(Bool.self, forKey: .onlineToDAW) ?? false
+        consoleConnected = try c.decodeIfPresent(Bool.self, forKey: .consoleConnected) ?? false
+        consoleIP = try c.decodeIfPresent(String.self, forKey: .consoleIP) ?? ""
+        presetID = try c.decodeIfPresent(String.self, forKey: .presetID) ?? "protools"
+        unitCount = try c.decodeIfPresent(Int.self, forKey: .unitCount) ?? 4
+        portNames = try c.decodeIfPresent([String].self, forKey: .portNames) ?? []
+        bankOffset = try c.decodeIfPresent(Int.self, forKey: .bankOffset) ?? 0
+        diagnostics = try c.decodeIfPresent(Bool.self, forKey: .diagnostics) ?? false
+        faders = try c.decodeIfPresent([Int].self, forKey: .faders) ?? []
+        mutes = try c.decodeIfPresent([Bool].self, forKey: .mutes) ?? []
+        solos = try c.decodeIfPresent([Bool].self, forKey: .solos) ?? []
+        selects = try c.decodeIfPresent([Bool].self, forKey: .selects) ?? []
+        channelNames = try c.decodeIfPresent([String].self, forKey: .channelNames) ?? []
+        lastError = try c.decodeIfPresent(String.self, forKey: .lastError)
+        discovering = try c.decodeIfPresent(Bool.self, forKey: .discovering) ?? false
+        discovered = try c.decodeIfPresent([SurfaceConsoleInfo].self, forKey: .discovered) ?? []
+    }
+}
+
+/// App → daemon: enable/disable the (automatic) bridge and pick the DAW.
+/// Everything else — MIDI ports, console connection, banking — is automatic.
+public struct SurfaceConfigPayload: Codable, Sendable, Equatable {
+    public var enabled: Bool
+    public var presetID: String
+    public var diagnostics: Bool
+    public init(enabled: Bool, presetID: String, diagnostics: Bool = false) {
+        self.enabled = enabled
+        self.presetID = presetID
+        self.diagnostics = diagnostics
+    }
+
+    // Tolerate older clients without the diagnostics field.
+    public init(from decoder: Decoder) throws {
+        let c = try decoder.container(keyedBy: CodingKeys.self)
+        enabled = try c.decode(Bool.self, forKey: .enabled)
+        presetID = try c.decode(String.self, forKey: .presetID)
+        diagnostics = try c.decodeIfPresent(Bool.self, forKey: .diagnostics) ?? false
+    }
+}
+
+/// App → daemon: connect to a console at this IP manually (empty = disconnect).
+/// Fallback for when auto-discovery can't reach the console (e.g. a direct
+/// link-local Ethernet connection).
+public struct SurfaceConsoleRefPayload: Codable, Sendable, Equatable {
+    public var ip: String
+    public init(ip: String) { self.ip = ip }
+}
+
 // MARK: - Envelope
 
 /// All messages on the wire. Adding a case is a deliberate protocol change.
@@ -969,6 +1137,12 @@ public enum WSMessage: Codable, Sendable {
     case recordings(RecordingsPayload)
     case startRecording(InterfaceRefPayload)
     case stopRecording(InterfaceRefPayload)
+    // Control surface (HiQnet ↔ HUI) — automatic multi-unit
+    case getSurface
+    case surface(SurfacePayload)
+    case setSurfaceConfig(SurfaceConfigPayload)
+    case discoverSurfaces
+    case connectSurfaceConsole(SurfaceConsoleRefPayload)
 
     private enum CodingKeys: String, CodingKey { case type, payload }
     private enum Kind: String, Codable {
@@ -988,6 +1162,7 @@ public enum WSMessage: Codable, Sendable {
         case getNdi, ndi, subscribeNdi
         case getModules, modules, subscribeModuleSource
         case getRecordings, recordings, startRecording, stopRecording
+        case getSurface, surface, setSurfaceConfig, discoverSurfaces, connectSurfaceConsole
     }
 
     public init(from decoder: Decoder) throws {
@@ -1051,6 +1226,11 @@ public enum WSMessage: Codable, Sendable {
         case .recordings:       self = .recordings(try c.decode(RecordingsPayload.self, forKey: .payload))
         case .startRecording:   self = .startRecording(try c.decode(InterfaceRefPayload.self, forKey: .payload))
         case .stopRecording:    self = .stopRecording(try c.decode(InterfaceRefPayload.self, forKey: .payload))
+        case .getSurface:       self = .getSurface
+        case .surface:          self = .surface(try c.decode(SurfacePayload.self, forKey: .payload))
+        case .setSurfaceConfig: self = .setSurfaceConfig(try c.decode(SurfaceConfigPayload.self, forKey: .payload))
+        case .discoverSurfaces: self = .discoverSurfaces
+        case .connectSurfaceConsole: self = .connectSurfaceConsole(try c.decode(SurfaceConsoleRefPayload.self, forKey: .payload))
         }
     }
 
@@ -1120,6 +1300,11 @@ public enum WSMessage: Codable, Sendable {
         case .recordings(let p):        try put(.recordings, p)
         case .startRecording(let p):    try put(.startRecording, p)
         case .stopRecording(let p):     try put(.stopRecording, p)
+        case .getSurface:               try put(.getSurface)
+        case .surface(let p):           try put(.surface, p)
+        case .setSurfaceConfig(let p):  try put(.setSurfaceConfig, p)
+        case .discoverSurfaces:         try put(.discoverSurfaces)
+        case .connectSurfaceConsole(let p): try put(.connectSurfaceConsole, p)
         }
     }
 

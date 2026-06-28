@@ -41,5 +41,7 @@
 	     prompt. (Moved here from the old hydrad Info.plist.) -->
 	<key>NSAudioCaptureUsageDescription</key>
 	<string>Hydra captures the audio of apps you choose so it can be routed in the patch grid.</string>
+	<key>NSLocalNetworkUsageDescription</key>
+	<string>Hydra finds and connects to your Soundcraft console on the local network to use it as a control surface for your DAW.</string>
 </dict>
 </plist>

@@ -5,9 +5,12 @@
 # The installer places:
 #   • Hydra.app                        → /Applications
 #   • HydraVirtualSoundcard.driver     → /Library/Audio/Plug-Ins/HAL
-# and a postinstall script fixes ownership and restarts coreaudiod so the
-# virtual soundcard appears immediately. The audio engine runs in-process inside
-# Hydra.app (no separate daemon / LaunchAgent), so the pkg only ships the app + driver.
+#   • HydraAudioBridge{2A,2B,4,8,16,32,64,128}.driver → /Library/Audio/Plug-Ins/HAL
+# and a postinstall script fixes ownership and restarts coreaudiod so every
+# device appears immediately. The audio engine runs in-process inside Hydra.app
+# (no separate daemon / LaunchAgent). The pkg ships the app, the engine-hub driver
+# AND all 8 bridge drivers, so a single install sets up everything — the user never
+# runs a script or installs a bridge by hand.
 #
 # Usage:
 #   bash Packaging/build_pkg.sh
@@ -57,19 +60,60 @@ DRIVER="$PRODUCTS/$DRIVER_NAME.driver"
 VERSION="$(/usr/libexec/PlistBuddy -c 'Print :CFBundleShortVersionString' "$APP/Contents/Info.plist")"
 log "Version $VERSION"
 
-# 2. Optional Developer ID re-sign (required before notarization).
+# 1b. Build the Hydra Audio Bridge drivers. These are separate bundle targets
+#     (SKIP_INSTALL=YES) that the HydraApp scheme does NOT build, so we build each
+#     explicitly and drop every .driver into one folder. They install alongside the
+#     engine-hub driver, so the single pkg sets up all Hydra devices in one shot.
+BRIDGES_OUT="$BUILD_DIR/bridges"
+rm -rf "$BRIDGES_OUT"; mkdir -p "$BRIDGES_OUT"
+BRIDGE_TARGETS=(HydraBridge2A HydraBridge2B HydraBridge4 HydraBridge8 \
+                HydraBridge16 HydraBridge32 HydraBridge64 HydraBridge128)
+log "Building ${#BRIDGE_TARGETS[@]} Hydra Audio Bridge drivers (universal) ..."
+for t in "${BRIDGE_TARGETS[@]}"; do
+  # -target (not -scheme) so CONFIGURATION_BUILD_DIR drops the .driver straight
+  # into $BRIDGES_OUT. Signing is done below (uniformly with the main driver).
+  xcodebuild build \
+    -project "$PROJ" -target "$t" -configuration Release \
+    CONFIGURATION_BUILD_DIR="$BRIDGES_OUT" \
+    ARCHS="arm64 x86_64" ONLY_ACTIVE_ARCH=NO CODE_SIGNING_ALLOWED=NO \
+    >/dev/null || fail "xcodebuild failed for bridge target $t (build once in Xcode to surface errors)"
+done
+
+# Collect the built bridge bundles (set -u / bash 3.2 safe — no globbing into arrays).
+BRIDGE_DRIVERS=()
+while IFS= read -r d; do BRIDGE_DRIVERS+=("$d"); done \
+  < <(find "$BRIDGES_OUT" -maxdepth 1 -type d -name 'HydraAudioBridge*.driver' | sort)
+[ "${#BRIDGE_DRIVERS[@]}" -ge 1 ] || fail "no bridge drivers were built into $BRIDGES_OUT"
+log "Built ${#BRIDGE_DRIVERS[@]} bridge driver(s)."
+
+# 2. Sign the drivers + app. The bridges were built unsigned (CODE_SIGNING_ALLOWED=NO),
+#    and Apple Silicon refuses to load an unsigned HAL bundle — so they ALWAYS need at
+#    least an ad-hoc signature, even for an unsigned local pkg. With a Developer ID they
+#    get the same hardened-runtime signature as the main driver (required to notarize).
 if [ -n "${APP_SIGN_ID:-}" ]; then
-  log "Codesigning driver + app with: $APP_SIGN_ID"
+  log "Codesigning driver + bridges + app with: $APP_SIGN_ID"
   codesign --force --options runtime --timestamp --sign "$APP_SIGN_ID" "$DRIVER"
+  for drv in "${BRIDGE_DRIVERS[@]}"; do
+    codesign --force --options runtime --timestamp --sign "$APP_SIGN_ID" "$drv"
+  done
   codesign --force --options runtime --timestamp --deep --sign "$APP_SIGN_ID" "$APP"
+else
+  log "Ad-hoc signing bridge drivers (required to load on Apple Silicon) ..."
+  for drv in "${BRIDGE_DRIVERS[@]}"; do
+    codesign --force -s - "$drv"
+  done
 fi
 
-# 3. Stage the install layout.
+# 3. Stage the install layout: app + engine-hub driver + every bridge driver.
 log "Staging payload ..."
 rm -rf "$STAGE"
 mkdir -p "$STAGE/Applications" "$STAGE/$HAL"
 cp -R "$APP"    "$STAGE/Applications/"
 cp -R "$DRIVER" "$STAGE/$HAL/"
+for drv in "${BRIDGE_DRIVERS[@]}"; do
+  cp -R "$drv" "$STAGE/$HAL/"
+done
+log "Staged $(( ${#BRIDGE_DRIVERS[@]} + 1 )) HAL driver(s) (engine hub + bridges)."
 
 # 4. Component pkg (carries the postinstall).
 chmod +x "$PKG_DIR/scripts/postinstall"

@@ -37,8 +37,8 @@ settings:
     SWIFT_VERSION: "6.0"
     SWIFT_APPROACHABLE_CONCURRENCY: YES
     SWIFT_STRICT_CONCURRENCY: complete
-    MARKETING_VERSION: "1.0.6"
-    CURRENT_PROJECT_VERSION: "1.0.6"
+    MARKETING_VERSION: "1.0.7"
+    CURRENT_PROJECT_VERSION: "1.0.7"
     ALWAYS_SEARCH_USER_PATHS: NO
     CLANG_ENABLE_OBJC_WEAK: YES
     GENERATE_INFOPLIST_FILE: YES
@@ -182,6 +182,21 @@ targets:
         CLANG_ENABLE_MODULES: YES
         MODULEMAP_FILE: Sources/HydraPluginHostABI/module.modulemap
 
+  # Control-surface bridge (HiQnet ↔ Mackie HUI) for Soundcraft Si consoles.
+  # Pure Swift codecs + CoreMIDI/Network I/O; no Hydra dependency (logs via the
+  # onLog hook). Consumed by HydraDaemon; codecs unit-tested in HydraSurfaceTests.
+  HydraSurface:
+    type: framework
+    platform: macOS
+    sources: [Sources/HydraSurface]
+    dependencies:
+      - sdk: CoreMIDI.framework
+      - sdk: Network.framework
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: audio.hydra.surface
+        DEFINES_MODULE: YES
+
   HydraVST:
     type: framework
     platform: macOS
@@ -230,6 +245,7 @@ targets:
       - target: HydraNDIShim
       - target: HydraModuleABI
       - target: HydraPluginHostABI
+      - target: HydraSurface
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: audio.hydra.daemon
@@ -278,6 +294,7 @@ targets:
       - target: HydraNDIShim
       - target: HydraModuleABI
       - target: HydraPluginHostABI
+      - target: HydraSurface
       # Driver bundle → Contents/Resources (code-signed on copy).
       - target: HydraVirtualSoundcard
         embed: false
@@ -363,6 +380,17 @@ targets:
         PRODUCT_BUNDLE_IDENTIFIER: audio.hydra.rt.tests
         LD_RUNPATH_SEARCH_PATHS: "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks"
 
+  HydraSurfaceTests:
+    type: bundle.unit-test
+    platform: macOS
+    sources: [Tests/HydraSurfaceTests]
+    dependencies:
+      - target: HydraSurface
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: audio.hydra.surface.tests
+        LD_RUNPATH_SEARCH_PATHS: "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks"
+
 # ── Aggregate targets ────────────────────────────────────────────────────────
 # Fetches the Steinberg VST3 SDK before HydraVST compiles. It lives on its OWN
 # target (not HydraVST) so the unsandboxed fetch script doesn't trip the "Copy
@@ -388,13 +416,13 @@ schemes:
     run:
       config: Debug
     test:
-      targets: [HydraCoreTests, HydraRTTests]
+      targets: [HydraCoreTests, HydraRTTests, HydraSurfaceTests]
   HydraDaemon:
     build:
       targets:
         HydraDaemon: all
     test:
-      targets: [HydraCoreTests, HydraRTTests]
+      targets: [HydraCoreTests, HydraRTTests, HydraSurfaceTests]
   HydraCore:
     build:
       targets:

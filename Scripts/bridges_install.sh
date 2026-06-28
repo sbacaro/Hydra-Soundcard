@@ -1,8 +1,9 @@
 #!/bin/bash
 # Hydra Audio — GPL-3.0
 # DEV helper: build + install all 8 Hydra Audio Bridge drivers, then restart
-# coreaudiod so they appear in Audio MIDI Setup. For iterating during the
-# multi-bridge migration — the shipping app will embed + install these itself.
+# coreaudiod so they appear in Audio MIDI Setup. For iterating locally during
+# development. The SHIPPING installer builds and installs these for end users —
+# see Packaging/build_pkg.sh (the .pkg lays down every bridge + the engine hub).
 #
 # Usage:
 #   bash Scripts/bridges_install.sh          # build + install all 8

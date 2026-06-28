@@ -186,6 +186,17 @@ publish() {
 }
 run "Publish GitHub Release (.pkg + .dmg)" publish
 
+# Tidy up local build artifacts. The build leaves full Hydra.app copies under
+# build/ (Build/Products/Release and pkgroot/Applications) and driver bundles
+# under .bridgebuild/. macOS indexes those bundles, so the app's per-app capture
+# list — which scans installed apps — would otherwise show several stray "Hydra"
+# entries. The release assets are already uploaded; dist/ is kept for manual
+# installs. Set RELEASE_KEEP_BUILD=1 to skip this.
+tidy_build() { rm -rf build .bridgebuild; }
+if [ "${RELEASE_KEEP_BUILD:-0}" != "1" ]; then
+    run "Clean build artifacts" tidy_build
+fi
+
 REMOTE_URL="$(git remote get-url origin 2>/dev/null || true)"
 REL_URL="$(printf '%s' "$REMOTE_URL" | sed -E 's#git@github.com:#https://github.com/#; s#\.git$##')/releases/tag/$TAG"
 printf '\n%s  ✓ Release %s published — .pkg + .dmg + SHA-256 attached.%s\n' "$GREEN$BOLD" "$TAG" "$RESET"

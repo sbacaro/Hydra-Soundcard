@@ -35,7 +35,7 @@ public enum DaemonRuntime {
     /// The scan worker is spawned via `Bundle.main.executableURL`, which — now
     /// that the daemon is folded into the app — is the Hydra.app executable; the
     /// app's `main.swift` calls this before SwiftUI starts.
-    public static func runScanWorkerIfRequested() -> Bool {
+    public nonisolated static func runScanWorkerIfRequested() -> Bool {
         let args = CommandLine.arguments
         guard let bi = args.firstIndex(of: "--scan-bundle"), bi + 1 < args.count,
               let oi = args.firstIndex(of: "--out"), oi + 1 < args.count else {
@@ -54,6 +54,14 @@ public enum DaemonRuntime {
         let ctx = DaemonContext()
         context = ctx
         ctx.start()
+    }
+
+    /// Tear down the in-process runtime on app quit. Critically, this terminates
+    /// the out-of-process `hydra-plugin-host` children so they don't orphan to
+    /// launchd. Call from `applicationWillTerminate`.
+    public static func shutdown() {
+        context?.shutdown()
+        context = nil
     }
 }
 
@@ -79,6 +87,7 @@ final class DaemonContext {
     let configStore = ConfigStore()
     let interfaceStore = InterfaceStore()
     let bridgeManager: BridgeManager
+    let surfaceManager: SurfaceManager
 
     /// Set in `start()` once the socket is open.
     var server: WebSocketServer!
@@ -98,6 +107,7 @@ final class DaemonContext {
         recordingManager = RecordingManager(store: store)
         aes67TxManager = Aes67TxManager(store: store)
         bridgeManager = BridgeManager(store: store)
+        surfaceManager = SurfaceManager()
     }
 
     // MARK: - Status helpers
@@ -138,6 +148,17 @@ final class DaemonContext {
         server.send(.modules(moduleManager.payload()), to: connection)
         server.send(.recordings(recordingManager.payload()), to: connection)
         server.send(.bridges(BridgesPayload(bridges: bridgeManager.infos())), to: connection)
+        server.send(.surface(surfaceManager.payload()), to: connection)
+    }
+
+    /// Tear down on app quit. Most state dies with the process, but the
+    /// out-of-process `hydra-plugin-host` children would otherwise orphan to
+    /// launchd — terminate them explicitly. Also stops the surface bridge so its
+    /// virtual MIDI ports and HiQnet session close cleanly.
+    func shutdown() {
+        log("Hydra engine shutting down — terminating plugin hosts")
+        stripManager.shutdownAllHosts()
+        surfaceManager.stop()
     }
 
     // MARK: - Startup
@@ -233,6 +254,13 @@ final class DaemonContext {
         }
         ndiManager.start()
         ndiManager.syncTx(bridges: bridgeManager.infos())
+
+        // Control surface (HiQnet ↔ HUI). The manager owns the bridge and only
+        // broadcasts when its serialised state actually changes (see its tick).
+        surfaceManager.onChange = { [weak self] payload in
+            Task { @MainActor in self?.server.broadcast(.surface(payload)) }
+        }
+        surfaceManager.start()
 
         moduleManager.onChange = { [weak self] payload in
             Task { @MainActor in self?.server.broadcast(.modules(payload)) }

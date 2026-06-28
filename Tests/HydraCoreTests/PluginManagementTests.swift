@@ -91,4 +91,38 @@ struct PluginManagementTests {
         }
         #expect(p == PluginFavoritePayload(id: "bundle#2", favorite: true))
     }
+
+    // MARK: Strip side (transmitter / receiver inserts).
+
+    @Test func stripDefaultsToSourceSide() {
+        let strip = StripInfo(nodeID: "bp", channelIndex: 4, stereo: false)
+        #expect(strip.side == .source)
+    }
+
+    @Test func decodeLegacyStripWithoutSideIsSource() throws {
+        // A strip persisted before the `side` field must decode as the source
+        // (transmitter) side — its historical, only behaviour.
+        let json = Data(#"""
+        {"id":"00000000-0000-0000-0000-000000000001","nodeID":"bp",
+         "channelIndex":2,"stereo":false,"trim":1.0,"inserts":[]}
+        """#.utf8)
+        let strip = try JSONDecoder().decode(StripInfo.self, from: json)
+        #expect(strip.side == .source)
+        #expect(strip.isolated)            // also defaulted
+    }
+
+    @Test func sideRoundTripsAndKeysDiffer() throws {
+        // A source and a destination strip can sit on the SAME channel: their
+        // keys must differ so both persist and resolve independently.
+        let tx = StripInfo(nodeID: "bp", channelIndex: 6, stereo: false, side: .source)
+        let rx = StripInfo(nodeID: "bp", channelIndex: 6, stereo: false, side: .destination)
+        #expect(tx.key != rx.key)
+        #expect(tx.key == "bp:6")          // unchanged historical form
+        #expect(rx.key == "bp:6:rx")
+
+        let decoded = try JSONDecoder().decode(StripInfo.self,
+                                               from: JSONEncoder().encode(rx))
+        #expect(decoded.side == .destination)
+        #expect(decoded.key == "bp:6:rx")
+    }
 }

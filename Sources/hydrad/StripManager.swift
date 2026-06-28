@@ -31,9 +31,11 @@ final class ChainTap: EngineTap {
 
     /// Plugin instances aligned with `info.plugins` (nil = failed to load).
     private var instances: [UnsafeMutableRawPointer?] = []
-    /// Opt-in: when set, the chain runs in a separate process (crash isolation)
-    /// and `instances` stays empty. Enable with HYDRA_REMOTE_PLUGINS=1.
-    private let remoteHost: RemotePluginHost?
+    /// When set, this chain runs in the SHARED out-of-process host (crash
+    /// isolation) and `instances` stays empty; render/editor delegate to it.
+    private let chainHandle: ChainHandle?
+    /// The shared host that owns `chainHandle` (to remove the chain on teardown).
+    private let sharedHost: SharedPluginHost?
     private var inPeakScratch: Float = 0
     private var outPeakScratch: Float = 0
     /// Deinterleaved ping-pong buffers (2 × channel pointers).
@@ -53,9 +55,10 @@ final class ChainTap: EngineTap {
     /// Counts render calls whose plugin process() FAILED (bypassed block).
     private(set) var bypassedBlocks: Int = 0
 
-    init(info: VSTChainInfo, sampleRate: Double) {
+    init(info: VSTChainInfo, sampleRate: Double, sharedHost: SharedPluginHost?) {
         self.info = info
         self.nodeID = Hydra.vstNodeID(chainID: info.id)
+        self.sharedHost = sharedHost
 
         let channels = Hydra.vstChainChannels
         let capacity = Hydra.maxIOFrames * channels
@@ -83,27 +86,26 @@ final class ChainTap: EngineTap {
             argB[ch] = bufB[ch]
         }
 
-        // Out-of-process hosting is per-strip (info.isolated, on by default): a
-        // crashing plugin then takes down only its host, not the daemon. The
-        // local `instances` array stays empty and render() delegates to the
-        // remote host. HYDRA_REMOTE_PLUGINS=0 is a global kill-switch (force the
-        // legacy in-process path everywhere). Falls back to in-process if the
-        // host binary can't be located.
+        // Out-of-process hosting (info.isolated, on by default): the chain runs in
+        // the SHARED host process (all plugins together → one editor window, one
+        // Dock icon; a crash takes down the host but not the daemon). The local
+        // `instances` array stays empty and render()/editor delegate to the chain
+        // handle. HYDRA_REMOTE_PLUGINS=0 forces the legacy in-process path; we also
+        // fall back to in-process if the shared host isn't available.
         if info.isolated,
            ProcessInfo.processInfo.environment["HYDRA_REMOTE_PLUGINS"] != "0",
            !info.plugins.isEmpty,
-           let hostURL = RemotePluginHost.defaultHostURL(),
-           let host = RemotePluginHost(channels: channels,
-                                       maxFrames: Hydra.maxIOFrames,
-                                       sampleRate: sampleRate,
-                                       plugins: info.plugins.map(\.id),
-                                       titles: info.plugins.map { "\($0.name) — \(info.name)" },
-                                       hostURL: hostURL) {
-            remoteHost = host
-            log("Strip \"\(info.name)\": hosting \(info.plugins.count) plugin(s) out-of-process (crash-isolated)")
+           let sharedHost,
+           let handle = sharedHost.addChain(plugins: info.plugins.map(\.id),
+                                            titles: info.plugins.map { "\($0.name) — \(info.name)" },
+                                            channels: channels,
+                                            maxFrames: Hydra.maxIOFrames,
+                                            rate: sampleRate) {
+            chainHandle = handle
+            log("Strip \"\(info.name)\": hosting \(info.plugins.count) plugin(s) in the shared host")
             return
         }
-        remoteHost = nil
+        chainHandle = nil
 
         for plugin in info.plugins {
             let parts = plugin.id.split(separator: "#")
@@ -133,22 +135,23 @@ final class ChainTap: EngineTap {
     /// If this chain is hosted out-of-process, ask the host to open plugin
     /// `index`'s editor window. Returns true when handled remotely.
     func openEditorRemotely(index: Int) -> Bool {
-        guard let remoteHost else { return false }
-        remoteHost.openEditor(index: index)
+        guard let chainHandle else { return false }
+        chainHandle.openEditor(index: index)
         return true
     }
 
     /// Out-of-process counterpart of the close path. Returns true when handled
     /// remotely (so the caller skips the in-process close).
     func closeEditorRemotely(index: Int) -> Bool {
-        guard let remoteHost else { return false }
-        remoteHost.closeEditor(index: index)
+        guard let chainHandle else { return false }
+        chainHandle.closeEditor(index: index)
         return true
     }
 
     deinit {
-        // Out-of-process chain: tear down the child + shared memory.
-        remoteHost?.shutdown()
+        // Out-of-process chain: remove it from the shared host (closes its editor,
+        // stops its audio, frees its shm) — does NOT touch other chains.
+        if let chainHandle { sharedHost?.removeChain(chainHandle) }
         // Waves (and some other) VST3 plugins call NSView/NSWindow APIs during
         // destruction (DisposeSystemWindow). Must run on the main thread.
         // We may arrive here from hydra.matrix.control or hydra.strips — both
@@ -192,8 +195,8 @@ final class ChainTap: EngineTap {
 
         // Out-of-process chain (opt-in): RT-safe, never blocks, passes dry on a
         // slow/crashed host. A plugin crash can't reach this thread.
-        if let remoteHost {
-            remoteHost.process(input: input, output: output, frames: n)
+        if let chainHandle {
+            chainHandle.process(input: input, output: output, frames: n)
             vDSP_maxmgv(output, 1, &outPeakScratch, vDSP_Length(n * channels))
             outPeak = outPeakScratch
             return
@@ -240,13 +243,17 @@ final class ChainTap: EngineTap {
 
 // MARK: - StripManager
 
-/// Routing instruction for the engine: source channel → strip tap channel.
+/// Routing instruction for the engine: maps a backplane channel to a strip tap
+/// channel. `side` says whether the strip processes the channel as a SOURCE
+/// (transmitter: raw source → inserts → connections) or a DESTINATION
+/// (receiver: connections → inserts → real receiver channel).
 struct StripRoute {
     let nodeID: String
     let channelIndex: Int
     let chainID: UUID
     let stripChannel: Int32
     let trim: Float
+    let side: StripSide
 }
 
 final class StripManager: @unchecked Sendable {
@@ -262,11 +269,17 @@ final class StripManager: @unchecked Sendable {
     private var customRoot = ""
     private var strips: [String: StripInfo] = [:]   // key → strip
     private var active: [UUID: ChainTap] = [:]      // strip id → tap
-    /// The one non-pinned ("transient") editor currently open. Opening another
-    /// editor without Shift closes this one first, so only a single editor window
-    /// is up at a time; Shift-opened windows are pinned (left out of this slot) and
-    /// stay until closed by hand. `queue`-only.
-    private var transientEditor: (stripID: UUID, index: Int)?
+    /// One shared out-of-process plugin host for ALL isolated chains (so every
+    /// plugin editor lives in a single process — one window, one Dock icon).
+    private let sharedHost: SharedPluginHost?
+    /// A loaded plugin editor we believe is on screen (a strip insert).
+    private struct EditorRef: Hashable { let stripID: UUID; let index: Int }
+    /// Every editor we've opened → whether it's pinned. DAW single-window model:
+    /// a plain (non-pinned) open closes ALL other NON-pinned editors first, so at
+    /// most one shared window is up at a time; Shift-opened (pinned) windows stay
+    /// open alongside. Closing a window only hides the editor — the plugin keeps
+    /// processing audio. `queue`-only.
+    private var openEditors: [EditorRef: Bool] = [:]
     /// User plugin-management choices (Settings → Plugins): hidden (opt-out) and
     /// starred plugin IDs. Persisted separately from the scan cache.
     private var disabledIDs: Set<String> = []
@@ -306,6 +319,9 @@ final class StripManager: @unchecked Sendable {
 
     init(store: MatrixStore) {
         self.store = store
+        // Spawn the single shared plugin host up front (nil if its binary isn't
+        // found — chains then fall back to in-process hosting).
+        self.sharedHost = SharedPluginHost.defaultHostURL().map { SharedPluginHost(hostURL: $0) }
         if let data = try? Data(contentsOf: Self.persistURL),
            let loaded = try? JSONDecoder().decode([StripInfo].self, from: data) {
             strips = Dictionary(uniqueKeysWithValues: loaded.map { ($0.key, $0) })
@@ -320,6 +336,12 @@ final class StripManager: @unchecked Sendable {
             disabledIDs = Set(prefs.disabledIDs)
             favoriteIDs = Set(prefs.favoriteIDs)
         }
+    }
+
+    /// Terminate every out-of-process plugin-host child. Called on app quit so
+    /// the `hydra-plugin-host` processes don't orphan to launchd.
+    func shutdownAllHosts() {
+        sharedHost?.shutdown()
     }
 
     func start() {
@@ -468,17 +490,21 @@ final class StripManager: @unchecked Sendable {
     /// Opens the editor window of a loaded insert (in-process, or routed to the
     /// out-of-process host when the chain runs remotely).
     enum EditorTarget { case remote, local(UnsafeMutableRawPointer, String), none }
-    /// Open an insert's editor. By default this is the single "transient" window:
-    /// the previously-open transient editor (wherever it is) is closed first, so at
-    /// most one editor is up. With `pinned` (Shift-open) the window is left to stand
-    /// on its own — it isn't closed by the next open and stays until closed by hand.
+    /// Open an insert's editor. DAW single-window model: a plain open closes EVERY
+    /// other non-pinned editor first (so one shared window is up at a time), and
+    /// becomes the new shared window. With `pinned` (Shift-open) the window stands
+    /// on its own — it doesn't close others and isn't closed by the next open.
+    /// Closing an editor only hides the GUI; the plugin keeps processing.
     func openEditor(stripID: UUID, index: Int, pinned: Bool) {
         let target: EditorTarget = queue.sync {
-            // Single-window policy: a plain open first dismisses the current
-            // transient editor (unless it's this very one).
-            if !pinned, let prev = transientEditor,
-               !(prev.stripID == stripID && prev.index == index) {
-                closeEditorLocked(stripID: prev.stripID, index: prev.index)
+            let this = EditorRef(stripID: stripID, index: index)
+            // Single-window policy: a plain open dismisses every OTHER non-pinned
+            // editor (robust against tracking drift — there should be ≤1).
+            if !pinned {
+                for (ref, isPinned) in openEditors where ref != this && !isPinned {
+                    closeEditorLocked(stripID: ref.stripID, index: ref.index)
+                    openEditors[ref] = nil
+                }
             }
 
             guard let tap = active[stripID] else { return .none }
@@ -494,10 +520,14 @@ final class StripManager: @unchecked Sendable {
                 resolved = .none
             }
 
-            // A plain open becomes the new transient; a pinned open is independent.
-            if case .none = resolved {} else if !pinned {
-                transientEditor = (stripID, index)
+            // Record the now-open editor with its pinned state (drives the
+            // single-window close above on the next plain open).
+            if case .none = resolved {} else {
+                openEditors[this] = pinned
             }
+            let resolvedDesc: String
+            switch resolved { case .remote: resolvedDesc = "remote"; case .local: resolvedDesc = "local"; case .none: resolvedDesc = "none" }
+            log("Editor open \(stripID)#\(index) pinned=\(pinned) → \(resolvedDesc) (open: \(openEditors.count))")
             return resolved
         }
         switch target {
@@ -520,8 +550,15 @@ final class StripManager: @unchecked Sendable {
     /// Close one insert's editor window wherever it lives (remote host or
     /// in-process). `queue`-only; the in-process close hops to the main thread.
     private func closeEditorLocked(stripID: UUID, index: Int) {
-        guard let tap = active[stripID] else { return }
-        if tap.closeEditorRemotely(index: index) { return }
+        guard let tap = active[stripID] else {
+            log("Editor close \(stripID)#\(index): no active tap (stale transient — window may linger)")
+            return
+        }
+        if tap.closeEditorRemotely(index: index) {
+            log("Editor close \(stripID)#\(index): remote")
+            return
+        }
+        log("Editor close \(stripID)#\(index): in-process")
         guard let handle = tap.instanceHandle(at: index) else { return }
         let handleAddr = UInt(bitPattern: handle)
         DispatchQueue.main.async {
@@ -715,8 +752,9 @@ final class StripManager: @unchecked Sendable {
         var next: [UUID: ChainTap] = [:]
         var routes: [StripRoute] = []
         for strip in strips.values where !strip.inserts.isEmpty {
+            let sideTag = strip.side == .destination ? " RX" : ""
             let chainInfo = VSTChainInfo(id: strip.id,
-                                         name: "\(strip.nodeID):\(strip.channelIndex + 1)",
+                                         name: "\(strip.nodeID):\(strip.channelIndex + 1)\(sideTag)",
                                          plugins: strip.inserts,
                                          isolated: strip.isolated)
             let tap: ChainTap
@@ -730,10 +768,10 @@ final class StripManager: @unchecked Sendable {
                 // deadlock. At runtime we're on hydra.strips queue with main
                 // free in its RunLoop, so the sync dispatch is safe.
                 if Thread.isMainThread {
-                    tap = ChainTap(info: chainInfo, sampleRate: engineRate)
+                    tap = ChainTap(info: chainInfo, sampleRate: engineRate, sharedHost: sharedHost)
                 } else {
                     tap = DispatchQueue.main.sync {
-                        ChainTap(info: chainInfo, sampleRate: engineRate)
+                        ChainTap(info: chainInfo, sampleRate: engineRate, sharedHost: sharedHost)
                     }
                 }
             }
@@ -745,7 +783,8 @@ final class StripManager: @unchecked Sendable {
                                          channelIndex: strip.channelIndex + offset,
                                          chainID: strip.id,
                                          stripChannel: Int32(offset),
-                                         trim: strip.trim))
+                                         trim: strip.trim,
+                                         side: strip.side))
             }
         }
         active = next

@@ -576,6 +576,7 @@ private struct AdvancedSettingsPane: View {
     @State private var confirmReset   = false
     @State private var exportResult: String?
     @AppStorage("hasSeenWelcome") private var hasSeenWelcome = false
+    @AppStorage("experimentalModules") private var experimentalModules = false
     @State private var welcomeReset = false
 
     private var dataFolder: URL {
@@ -661,6 +662,18 @@ private struct AdvancedSettingsPane: View {
                 Text(welcomeReset
                      ? "The welcome screen will appear the next time Hydra starts."
                      : "Replay the first-run welcome and installation flow.")
+            }
+
+            Section {
+                LabeledContent("Experimental features") {
+                    Toggle("", isOn: $experimentalModules)
+                        .labelsHidden()
+                }
+                .help("Reveals in-progress network features: the external Modules host and the HiQnet Control Surface bridge.")
+            } header: {
+                Text("Experimental")
+            } footer: {
+                Text("Shows in-progress, personal-use network features in the sidebar — the Modules host and the HiQnet Control Surface bridge. These are unfinished and may change or need calibration with real hardware.")
             }
 
             Section {

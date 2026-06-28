@@ -197,6 +197,13 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
     // It's a menu bar app: closing the last window must not quit it.
     func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool { false }
 
+    /// On quit, tear down the in-process engine so the out-of-process
+    /// `hydra-plugin-host` children are terminated too (otherwise they orphan to
+    /// launchd and a plugin editor stays open after Hydra is gone).
+    func applicationWillTerminate(_ notification: Notification) {
+        daemon.shutdown()
+    }
+
     /// Clicking Hydra in Finder/Applications/Dock while it's already running as a
     /// menu-bar accessory must OPEN the main window (not just no-op). First launch
     /// already shows the window via the App's `.defaultLaunchBehavior`.

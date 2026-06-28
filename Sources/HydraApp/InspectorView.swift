@@ -194,35 +194,40 @@ private struct SingleChannelStrip: View {
         client.stereoLinked(nodeID: entry.nodeID, evenChannel: base)
     }
     private var strip: StripInfo {
-        client.effectiveStrip(forNode: entry.nodeID, channel: entry.channel, stereo: isStereoLinked)
+        client.effectiveStrip(forNode: entry.nodeID, channel: entry.channel,
+                              stereo: isStereoLinked,
+                              side: focus.scope == .input ? .source : .destination)
     }
 
+    private var isInput: Bool { focus.scope == .input }
+
     var body: some View {
-        VStack(alignment: .leading, spacing: 16) {
-            VStack(alignment: .leading, spacing: 3) {
-                Text(focus.scope == .input ? "Transmitter" : "Receiver")
-                    .font(.caption.weight(.semibold))
-                    .textCase(.uppercase)
-                    .foregroundStyle(.secondary)
-                RenameableChannelLabel(entry: entry, scope: focus.scope,
-                                       font: .title3.weight(.semibold))
-                Text(channelNodeName(entry.nodeID, client: client))
+        VStack(alignment: .leading, spacing: 14) {
+            SidePanel(title: isInput ? "Transmitter" : "Receiver",
+                      systemImage: isInput ? "arrow.up.forward" : "arrow.down.forward",
+                      tint: isInput ? Theme.live : Theme.accent) {
+                VStack(alignment: .leading, spacing: 3) {
+                    RenameableChannelLabel(entry: entry, scope: focus.scope,
+                                           font: .title3.weight(.semibold))
+                    Text(channelNodeName(entry.nodeID, client: client))
+                        .font(.callout)
+                        .foregroundStyle(.secondary)
+                        .lineLimit(1)
+                }
+
+                Toggle("Stereo (\(base + 1)–\(base + 2))", isOn: Binding(
+                    get: { isStereoLinked },
+                    set: { client.setStereoLink(nodeID: entry.nodeID, channel: entry.channel, linked: $0) }))
+                    .toggleStyle(.switch)
+                    .controlSize(.small)
                     .font(.callout)
-                    .foregroundStyle(.secondary)
-                    .lineLimit(1)
-            }
+                    .help("Links these two channels as one stereo pair (L/R) — they patch and unpatch together.")
 
-            Toggle("Stereo (\(base + 1)–\(base + 2))", isOn: Binding(
-                get: { isStereoLinked },
-                set: { client.setStereoLink(nodeID: entry.nodeID, channel: entry.channel, linked: $0) }))
-                .toggleStyle(.switch)
-                .controlSize(.small)
-                .font(.callout)
-                .help("Links these two channels as one stereo pair (L/R) — they patch and unpatch together.")
+                Divider().opacity(0.5)
 
-            // Inserts (Audio FX) live on the transmitter (source) side only.
-            if focus.scope == .input {
-                Divider()
+                // Inserts (Audio FX): on the transmitter side audio is processed on
+                // its way OUT; on the receiver side everything patched in is summed
+                // and processed on its way IN.
                 InsertsSection(strip: strip)
             }
         }
@@ -308,6 +313,48 @@ private struct InsertsSection: View {
     }
 }
 
+// MARK: - Side panel (Transmitter / Receiver zone)
+
+/// One side of a patch, drawn as a tinted card with a left accent stripe and a
+/// badged header. The stripe + tint are the strongest visual cue separating the
+/// Transmitter zone from the Receiver zone at a glance.
+private struct SidePanel<Content: View>: View {
+    let title: String
+    let systemImage: String
+    let tint: Color
+    @ViewBuilder var content: () -> Content
+
+    var body: some View {
+        HStack(spacing: 0) {
+            // Accent stripe down the leading edge — frames the whole zone.
+            RoundedRectangle(cornerRadius: 1.5)
+                .fill(tint)
+                .frame(width: 3)
+                .padding(.vertical, 10)
+
+            VStack(alignment: .leading, spacing: 12) {
+                HStack(spacing: 6) {
+                    Image(systemName: systemImage)
+                        .font(.system(size: 10, weight: .bold))
+                        .foregroundStyle(.white)
+                        .frame(width: 18, height: 18)
+                        .background(tint, in: RoundedRectangle(cornerRadius: 5))
+                    Text(title)
+                        .font(.caption.weight(.bold))
+                        .textCase(.uppercase)
+                        .tracking(0.5)
+                        .foregroundStyle(tint)
+                    Spacer()
+                }
+                content()
+            }
+            .padding(12)
+        }
+        .background(RoundedRectangle(cornerRadius: 10).fill(tint.opacity(0.06)))
+        .overlay(RoundedRectangle(cornerRadius: 10).stroke(tint.opacity(0.25), lineWidth: 0.75))
+    }
+}
+
 // MARK: - Channel strip
 
 private struct ChannelStrip: View {
@@ -315,7 +362,6 @@ private struct ChannelStrip: View {
     let selection: GridSelection
     let clearSelection: () -> Void
 
-    @State private var pickerSlotPresented = false
     // Inline feedback-loop notice: shown at the Connect button when the patch the
     // user is about to make would howl, instead of a floating toast after the fact.
     @State private var feedbackNotice = false
@@ -335,14 +381,13 @@ private struct ChannelStrip: View {
     private var destStereoLinked: Bool {
         client.stereoLinked(nodeID: selection.destination.nodeID, evenChannel: destBase)
     }
-
-    /// Small uppercase caption that labels each end of the patch (Transmitter /
-    /// Receiver), so it's always clear which side you're configuring.
-    private func sectionCaption(_ text: String) -> some View {
-        Text(text)
-            .font(.caption.weight(.semibold))
-            .textCase(.uppercase)
-            .foregroundStyle(.secondary)
+    /// Receiver-side strip: inserts here process everything summed INTO the
+    /// destination channel before it reaches the receiving app/device.
+    private var destStrip: StripInfo {
+        client.effectiveStrip(forNode: selection.destination.nodeID,
+                              channel: selection.destination.channel,
+                              stereo: destStereoLinked,
+                              side: .destination)
     }
 
     /// A labeled stereo switch for one end of the patch. Linking pairs the even+odd
@@ -377,100 +422,42 @@ private struct ChannelStrip: View {
     }
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 16) {
+        VStack(alignment: .leading, spacing: 14) {
 
             // ── Transmitter (source of the selected cell) ───────────────
-            VStack(alignment: .leading, spacing: 3) {
-                sectionCaption("Transmitter")
-                RenameableChannelLabel(entry: selection.source, scope: .input,
-                                       font: .title3.weight(.semibold))
-                Text(nodeName)
-                    .font(.callout)
-                    .foregroundStyle(.secondary)
-                    .lineLimit(1)
+            SidePanel(title: "Transmitter", systemImage: "arrow.up.forward", tint: Theme.live) {
+                VStack(alignment: .leading, spacing: 3) {
+                    RenameableChannelLabel(entry: selection.source, scope: .input,
+                                           font: .title3.weight(.semibold))
+                    Text(nodeName)
+                        .font(.callout)
+                        .foregroundStyle(.secondary)
+                        .lineLimit(1)
+                }
+
+                // Stereo pairing for the transmitter (odd+even). A linked pair
+                // becomes one stereo lane in the grid and feeds stereo inserts L/R.
+                stereoToggle(nodeID: selection.source.nodeID,
+                             channel: selection.source.channel,
+                             base: sourceBase,
+                             linked: isStereoLinked,
+                             hint: "Links these two transmitter channels as one stereo pair (L/R) — they patch and unpatch together, and stereo inserts process both.")
+
+                Divider().opacity(0.5)
+
+                // Inserts process the source on its way OUT, before the patch.
+                InsertsSection(strip: strip)
             }
-
-            // Stereo pairing for the transmitter (odd+even). A linked pair becomes
-            // one stereo lane in the grid and feeds stereo inserts L/R.
-            stereoToggle(nodeID: selection.source.nodeID,
-                         channel: selection.source.channel,
-                         base: sourceBase,
-                         linked: isStereoLinked,
-                         hint: "Links these two transmitter channels as one stereo pair (L/R) — they patch and unpatch together, and stereo inserts process both.")
-
-            Divider()
-
-            // ── Inserts (Audio FX) ──────────────────────────────────────
-            VStack(alignment: .leading, spacing: 8) {
-                Text("Audio FX")
-                    .font(.callout)
-                    .foregroundStyle(.secondary)
-
-                ForEach(Array(strip.inserts.enumerated()), id: \.offset) { index, plugin in
-                    HStack(spacing: 6) {
-                        Button {
-                            client.openPluginEditor(stripID: strip.id, index: index,
-                                                pinned: NSEvent.modifierFlags.contains(.shift))
-                        } label: {
-                            Text(plugin.name)
-                                .font(.callout.weight(.semibold))
-                                .lineLimit(1)
-                                .frame(maxWidth: .infinity)
-                        }
-                        .buttonStyle(.borderedProminent)
-                        .controlSize(.small)
-                        .help("Open \(plugin.name)'s editor")
-
-                        Button {
-                            var updated = strip
-                            guard updated.inserts.indices.contains(index) else { return }
-                            updated.inserts.remove(at: index)
-                            client.setStrip(updated)
-                        } label: {
-                            Image(systemName: "xmark.circle.fill")
-                                .foregroundStyle(.secondary)
-                        }
-                        .buttonStyle(.plain)
-                        .help("Remove insert")
-                    }
-                }
-
-                // Empty slot — dashed outline follows the system's bordered style.
-                Button {
-                    pickerSlotPresented = true
-                } label: {
-                    Label("Insert…", systemImage: "plus")
-                        .frame(maxWidth: .infinity)
-                }
-                .buttonStyle(.bordered)
-                .controlSize(.small)
-                .help("Add a plugin to this channel")
-                .popover(isPresented: $pickerSlotPresented) {
-                    PluginPicker { plugin in
-                        var updated = strip
-                        updated.inserts.append(plugin)
-                        client.setStrip(updated)
-                        // Open the new insert's editor immediately (see note above).
-                        client.openPluginEditor(stripID: strip.id, index: updated.inserts.count - 1)
-                        pickerSlotPresented = false
-                    }
-                    .environment(client)
-                }
-            }
-
-            Divider()
 
             // ── Receiver (destination of the selected cell) ─────────────
-            VStack(alignment: .leading, spacing: 12) {
-                VStack(alignment: .leading, spacing: 4) {
-                    sectionCaption("Receiver")
-                    HStack(spacing: 5) {
-                        Image(systemName: "arrow.turn.down.right")
-                            .font(.system(size: 12))
-                            .foregroundStyle(Color.accentColor)
-                        RenameableChannelLabel(entry: selection.destination, scope: .output,
-                                               font: .callout.weight(.semibold))
-                    }
+            SidePanel(title: "Receiver", systemImage: "arrow.down.forward", tint: Theme.accent) {
+                VStack(alignment: .leading, spacing: 3) {
+                    RenameableChannelLabel(entry: selection.destination, scope: .output,
+                                           font: .title3.weight(.semibold))
+                    Text(channelNodeName(selection.destination.nodeID, client: client))
+                        .font(.callout)
+                        .foregroundStyle(.secondary)
+                        .lineLimit(1)
                 }
 
                 // The other half of a true stereo patch. Turn Stereo on at BOTH
@@ -481,66 +468,93 @@ private struct ChannelStrip: View {
                              linked: destStereoLinked,
                              hint: "Links these two receiver channels as one stereo pair — they patch and unpatch together (L→L, R→R).")
 
-                let cellConns = client.cellConnections(source: selection.source,
-                                                       destination: selection.destination)
-                if !cellConns.isEmpty {
-                    VStack(alignment: .leading, spacing: 10) {
-                        CellGainSlider(connections: cellConns, selection: selection)
-                        SignalIndicator(meters: client.meters, connectionIDs: cellConns.map(\.id))
-                            .frame(maxWidth: .infinity)
-                    }
+                Divider().opacity(0.5)
 
-                    Button(role: .destructive) {
-                        client.disconnectCell(source: selection.source,
-                                              destination: selection.destination)
-                        clearSelection()
-                    } label: {
-                        Label("Remove connection", systemImage: "trash")
-                            .frame(maxWidth: .infinity)
-                    }
-                    .buttonStyle(.bordered)
-                    .controlSize(.regular)
-                } else {
-                    VStack(alignment: .leading, spacing: 8) {
-                        if feedbackNotice {
-                            // Inline, at the point of action — the reason the patch
-                            // was refused, instead of a floating toast after the fact.
-                            Label("This patch would feed back on itself and is blocked.",
-                                  systemImage: "exclamationmark.triangle.fill")
-                                .font(.callout)
-                                .foregroundStyle(Theme.warning)
-                                .fixedSize(horizontal: false, vertical: true)
-                                .transition(.opacity)
-                        } else {
-                            Text("No connection at this cross-point yet.")
-                                .font(.callout)
-                                .foregroundStyle(.tertiary)
-                        }
-                        Button {
-                            if client.cellWouldFeedback(source: selection.source,
-                                                        destination: selection.destination) {
-                                withAnimation(.easeOut(duration: 0.2)) { feedbackNotice = true }
-                                withAnimation(.default) { shake += 1 }
-                            } else {
-                                feedbackNotice = false
-                                client.connectCell(source: selection.source,
-                                                   destination: selection.destination)
-                            }
-                        } label: {
-                            Label("Connect", systemImage: "cable.connector")
-                                .frame(maxWidth: .infinity)
-                        }
-                        .buttonStyle(.borderedProminent)
-                        .controlSize(.regular)
-                        .tint(feedbackNotice ? Theme.warning : .accentColor)
-                        .modifier(ShakeEffect(animatableData: CGFloat(shake)))
-                        .help("Patch \(selection.source.label) → \(selection.destination.label)\(selection.source.isStereo || selection.destination.isStereo ? " (stereo)" : "").")
-                    }
-                    // Clear the notice when the user moves to a different cross-point.
-                    .onChange(of: selection) { _, _ in feedbackNotice = false }
+                // Inserts process everything summed INTO this destination on its
+                // way IN, before it reaches the receiving app/device.
+                InsertsSection(strip: destStrip)
+            }
+
+            // ── Connection (the cross-point linking the two zones) ──────
+            connectionPanel
+        }
+    }
+
+    /// The patch itself — gain, signal, connect/disconnect. It sits below both
+    /// side cards because it belongs to neither: it's the link between them.
+    @ViewBuilder private var connectionPanel: some View {
+        VStack(alignment: .leading, spacing: 12) {
+            HStack(spacing: 6) {
+                Image(systemName: "cable.connector")
+                    .font(.system(size: 10, weight: .bold))
+                    .foregroundStyle(.secondary)
+                Text("Connection")
+                    .font(.caption.weight(.bold))
+                    .textCase(.uppercase)
+                    .tracking(0.5)
+                    .foregroundStyle(.secondary)
+                Spacer()
+            }
+
+            let cellConns = client.cellConnections(source: selection.source,
+                                                    destination: selection.destination)
+            if !cellConns.isEmpty {
+                CellGainSlider(connections: cellConns, selection: selection)
+                SignalIndicator(meters: client.meters, connectionIDs: cellConns.map(\.id))
+                    .frame(maxWidth: .infinity)
+
+                Button(role: .destructive) {
+                    client.disconnectCell(source: selection.source,
+                                          destination: selection.destination)
+                    clearSelection()
+                } label: {
+                    Label("Remove connection", systemImage: "trash")
+                        .frame(maxWidth: .infinity)
                 }
+                .buttonStyle(.bordered)
+                .controlSize(.regular)
+            } else {
+                if feedbackNotice {
+                    // Inline, at the point of action — the reason the patch was
+                    // refused, instead of a floating toast after the fact.
+                    Label("This patch would feed back on itself and is blocked.",
+                          systemImage: "exclamationmark.triangle.fill")
+                        .font(.callout)
+                        .foregroundStyle(Theme.warning)
+                        .fixedSize(horizontal: false, vertical: true)
+                        .transition(.opacity)
+                } else {
+                    Text("No connection at this cross-point yet.")
+                        .font(.callout)
+                        .foregroundStyle(.tertiary)
+                }
+                Button {
+                    if client.cellWouldFeedback(source: selection.source,
+                                                destination: selection.destination) {
+                        withAnimation(.easeOut(duration: 0.2)) { feedbackNotice = true }
+                        withAnimation(.default) { shake += 1 }
+                    } else {
+                        feedbackNotice = false
+                        client.connectCell(source: selection.source,
+                                           destination: selection.destination)
+                    }
+                } label: {
+                    Label("Connect", systemImage: "cable.connector")
+                        .frame(maxWidth: .infinity)
+                }
+                .buttonStyle(.borderedProminent)
+                .controlSize(.regular)
+                .tint(feedbackNotice ? Theme.warning : .accentColor)
+                .modifier(ShakeEffect(animatableData: CGFloat(shake)))
+                .help("Patch \(selection.source.label) → \(selection.destination.label)\(selection.source.isStereo || selection.destination.isStereo ? " (stereo)" : "").")
             }
         }
+        .padding(12)
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .background(RoundedRectangle(cornerRadius: 10).fill(Color(.controlBackgroundColor).opacity(0.4)))
+        .overlay(RoundedRectangle(cornerRadius: 10).stroke(.separator, lineWidth: 0.5))
+        // Clear the notice when the user moves to a different cross-point.
+        .onChange(of: selection) { _, _ in feedbackNotice = false }
     }
 }
 

@@ -27,6 +27,7 @@ struct SidebarView: View {
     /// Selected bridge → its config shows in the inspector (master/detail).
     @Binding var selectedBridge: String?
     @State private var showManageBridges = false
+    @State private var showSurfaceConfig = false
     @AppStorage("experimentalModules") private var experimentalModules = false
 
     var body: some View {
@@ -104,36 +105,6 @@ struct SidebarView: View {
                         ptpStatusFooter
                     }
 
-                    if experimentalModules {
-                        Section {
-                            if client.aes67.devices.isEmpty {
-                                emptyHint("No devices on the network yet.")
-                            } else {
-                                ForEach(client.aes67.devices) { device in
-                                    HStack(spacing: 8) {
-                                        Circle().fill(Theme.live).frame(width: 6, height: 6)
-                                        Text(device.name)
-                                            .font(.callout.weight(.semibold))
-                                            .lineLimit(1)
-                                        if device.channels > 0 {
-                                            Text("\(device.channels) ch")
-                                                .font(.caption)
-                                                .foregroundStyle(.secondary)
-                                        }
-                                        Spacer()
-                                        Text("On network")
-                                            .font(.caption.weight(.semibold))
-                                            .foregroundStyle(.secondary)
-                                    }
-                                    .help("Discovered via _netaudio mDNS.")
-                                }
-                            }
-                        } header: {
-                            sectionHeader("Inferno Protocol",
-                                          info: "Dante-compatible devices on the network via _netaudio mDNS. Reverse-engineered interop for personal use.")
-                        }
-                    }
-
                     Section {
                         if !client.ndi.runtimeAvailable {
                             ndiRuntimeNotice
@@ -148,6 +119,21 @@ struct SidebarView: View {
                     } header: {
                         sectionHeader("NDI Sources",
                                       info: "NDI audio sources on the network. Mark a bridge as NDI TX to broadcast it.")
+                    }
+
+                    if experimentalModules {
+                        Section {
+                            surfaceStatusRow
+                            Button {
+                                showSurfaceConfig = true
+                            } label: {
+                                Label("Configure…", systemImage: "slider.horizontal.3")
+                            }
+                            .tint(.accentColor)
+                        } header: {
+                            sectionHeader("Control Surface · HiQnet",
+                                          info: "Uses the HiQnet protocol (exclusive to Soundcraft / Harman consoles such as the Si series). Hydra bridges the console over HiQnet to a HUI DAW (Pro Tools, Logic…) via virtual MIDI. Interoperability-only, personal use.")
+                        }
                     }
 
                     if experimentalModules {
@@ -175,6 +161,9 @@ struct SidebarView: View {
                 }
         }
         .listStyle(.sidebar)
+        .sheet(isPresented: $showSurfaceConfig) {
+            SurfaceConfigSheet().environment(client)
+        }
         // The bottom status bar (Daemon · Backplane · Engine · CPU) is applied as
         // a safeAreaInset on the NavigationSplitView, but that inset doesn't reach
         // the sidebar column's scrolling list — so its last rows slide under the
@@ -605,6 +594,50 @@ struct SidebarView: View {
                 .labelsHidden()
                 .tint(.accentColor)
         }
+    }
+
+    // MARK: - Control surface status row
+
+    private var surfaceStatusRow: some View {
+        let s = client.surface
+        return HStack(spacing: 8) {
+            Image(systemName: "pianokeys")
+                .foregroundStyle(s.enabled ? .secondary : .tertiary)
+                .frame(width: 18)
+                .help(s.enabled ? "Bridge running" : "Bridge off")
+            VStack(alignment: .leading, spacing: 1) {
+                Text("Soundcraft Si · HiQnet")
+                    .foregroundStyle(s.enabled ? .primary : .secondary)
+                    .lineLimit(1)
+                    .help("HiQnet control-surface bridge (Soundcraft/Harman) → HUI DAW")
+                Text(surfaceSubtitle(s))
+                    .font(.caption2)
+                    .foregroundStyle(.tertiary)
+                    .lineLimit(1)
+            }
+            Spacer(minLength: 6)
+            // Quick on/off — keeps the current DAW; everything else is automatic.
+            Toggle("", isOn: Binding(
+                get: { s.enabled },
+                set: { client.setSurfaceConfig(enabled: $0, presetID: s.presetID, diagnostics: s.diagnostics) }))
+                .toggleStyle(.switch)
+                .controlSize(.mini)
+                .labelsHidden()
+                .tint(.accentColor)
+                .help("Start or stop the control-surface bridge")
+        }
+    }
+
+    private func surfaceSubtitle(_ s: SurfacePayload) -> String {
+        let preset = Hydra.surfacePreset(id: s.presetID)?.name ?? "DAW"
+        guard s.enabled else { return "Off · \(preset)" }
+        // Keep to three short segments so the sidebar row never truncates.
+        let state: String
+        if s.consoleConnected      { state = "console connected" }
+        else if s.discovering      { state = "searching…" }
+        else if s.onlineToDAW      { state = "DAW online" }
+        else                       { state = "starting…" }
+        return "\(preset) · \(s.stripCount) ch · \(state)"
     }
 
 }

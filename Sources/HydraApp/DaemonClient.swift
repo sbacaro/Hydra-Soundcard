@@ -83,6 +83,8 @@ final class DaemonClient {
     /// NDI runtime state + discovered network sources.
     private(set) var ndi = NdiPayload()
     private(set) var modules = ModulesPayload()
+    /// Control-surface bridge (HiQnet console ↔ HUI DAW) state.
+    private(set) var surface = SurfacePayload()
     /// Active disk recordings (keyed by interface).
     private(set) var recordings: [RecordingInfo] = []
 
@@ -197,37 +199,42 @@ final class DaemonClient {
 
     // MARK: - Channel strips (Logic-style)
 
-    /// The configured strip covering a source channel, if any
+    /// The configured strip covering a channel on the given side, if any
     /// (stereo strips own their base channel and the next one).
-    func strip(forNode nodeID: String, channel: Int) -> StripInfo? {
+    func strip(forNode nodeID: String, channel: Int, side: StripSide = .source) -> StripInfo? {
         let base = channel & ~1
-        if let stereo = strips.first(where: { $0.nodeID == nodeID && $0.channelIndex == base && $0.stereo }) {
+        if let stereo = strips.first(where: { $0.nodeID == nodeID && $0.channelIndex == base && $0.stereo && $0.side == side }) {
             return stereo
         }
-        return strips.first(where: { $0.nodeID == nodeID && $0.channelIndex == channel && !$0.stereo })
+        return strips.first(where: { $0.nodeID == nodeID && $0.channelIndex == channel && !$0.stereo && $0.side == side })
     }
 
-    /// The strip to display/edit for a source channel — falls back to an
-    /// unsaved default. ALL channels are mono (stereo lanes are disabled).
-    func effectiveStrip(forNode nodeID: String, channel: Int, stereo: Bool = false) -> StripInfo {
+    /// The strip to display/edit for a channel on the given side (source =
+    /// transmitter, destination = receiver) — falls back to an unsaved default.
+    /// ALL channels are mono (stereo lanes are disabled).
+    func effectiveStrip(forNode nodeID: String, channel: Int, stereo: Bool = false,
+                        side: StripSide = .source) -> StripInfo {
         let base = stereo ? (channel & ~1) : channel
-        if let existing = strips.first(where: { $0.nodeID == nodeID && $0.channelIndex == base && $0.stereo == stereo }) {
+        if let existing = strips.first(where: { $0.nodeID == nodeID && $0.channelIndex == base && $0.stereo == stereo && $0.side == side }) {
             return existing
         }
-        return StripInfo(nodeID: nodeID, channelIndex: base, stereo: stereo)
+        return StripInfo(nodeID: nodeID, channelIndex: base, stereo: stereo, side: side)
     }
 
     /// Console-style stereo link: true when `evenChannel` and `evenChannel+1`
-    /// are paired as one stereo channel (a stereo strip sits on the even base).
+    /// are paired as one stereo channel. The pairing is a property of the channel
+    /// pair itself, stored canonically on the SOURCE-side strip (so a receiver
+    /// strip on the same channel can't shadow or fork the stereo state).
     func stereoLinked(nodeID: String, evenChannel: Int) -> Bool {
-        strips.contains { $0.nodeID == nodeID && $0.channelIndex == evenChannel && $0.stereo }
+        strips.contains { $0.nodeID == nodeID && $0.channelIndex == evenChannel && $0.stereo && $0.side == .source }
     }
 
-    /// Link / unlink a source channel's console pair (odd+even) as stereo.
+    /// Link / unlink a channel's console pair (odd+even) as stereo. Always
+    /// recorded on the source-side strip — its single canonical home.
     func setStereoLink(nodeID: String, channel: Int, linked: Bool) {
         let base = channel & ~1
-        var strip = strips.first { $0.nodeID == nodeID && $0.channelIndex == base }
-            ?? StripInfo(nodeID: nodeID, channelIndex: base, stereo: linked)
+        var strip = strips.first { $0.nodeID == nodeID && $0.channelIndex == base && $0.side == .source }
+            ?? StripInfo(nodeID: nodeID, channelIndex: base, stereo: linked, side: .source)
         strip.channelIndex = base
         strip.stereo = linked
         setStrip(strip)
@@ -366,6 +373,21 @@ final class DaemonClient {
         send(.subscribeModuleSource(SubscribeModuleSourcePayload(id: id, subscribed: subscribed)))
     }
 
+    // MARK: Control surface (automatic)
+
+    func setSurfaceConfig(enabled: Bool, presetID: String, diagnostics: Bool = false) {
+        send(.setSurfaceConfig(SurfaceConfigPayload(
+            enabled: enabled, presetID: presetID, diagnostics: diagnostics)))
+    }
+
+    func discoverSurfaces() {
+        send(.discoverSurfaces)
+    }
+
+    func connectSurfaceConsole(ip: String) {
+        send(.connectSurfaceConsole(SurfaceConsoleRefPayload(ip: ip)))
+    }
+
     func startRecording(_ interfaceID: UUID) {
         send(.startRecording(InterfaceRefPayload(id: interfaceID)))
     }
@@ -476,6 +498,8 @@ final class DaemonClient {
             ndi = payload
         case .modules(let payload):
             modules = payload
+        case .surface(let payload):
+            surface = payload
         case .recordings(let payload):
             recordings = payload.active
         case .events(let payload):
@@ -494,7 +518,8 @@ final class DaemonClient {
              .getBridges, .setBridgeEnabled, .setBridgeRole, .setBridgeNetworkTX,
              .getNdi, .subscribeNdi,
              .getModules, .subscribeModuleSource,
-             .getRecordings, .startRecording, .stopRecording:
+             .getRecordings, .startRecording, .stopRecording,
+             .getSurface, .setSurfaceConfig, .discoverSurfaces, .connectSurfaceConsole:
             break // client → daemon only
         }
     }

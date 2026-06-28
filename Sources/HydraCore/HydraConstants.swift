@@ -6,7 +6,7 @@ import Foundation
 
 public enum Hydra {
     // MARK: Version
-    public static let version = "1.0.6"
+    public static let version = "1.0.7"
     /// Pre-release qualifier (e.g. "beta"). Empty for a stable release.
     public static let stage = ""
     public static var versionString: String {
@@ -72,6 +72,82 @@ public enum Hydra {
         BridgeSpec(id: "64",  name: "Hydra Audio Bridge 64",  uid: "HydraAudioBridge64_UID",  channels: 64),
         BridgeSpec(id: "128", name: "Hydra Audio Bridge 128", uid: "HydraAudioBridge128_UID", channels: 128),
     ]
+
+    // MARK: Control surface (HiQnet ↔ HUI) — DAW presets
+    /// A per-DAW starting point for the control-surface bridge. HUI itself is a
+    /// fixed protocol, but DAWs differ in which virtual MIDI ports they expect
+    /// the surface on and in handshake details. A preset just seeds those fields;
+    /// the user can still override them. "Custom" carries no defaults.
+    public struct SurfacePreset: Sendable, Equatable, Identifiable {
+        /// Stable key (also the persistence value).
+        public let id: String
+        /// DAW name shown in the picker.
+        public let name: String
+        /// Virtual MIDI port the DAW SENDS HUI on (Hydra receives) — a substring
+        /// matched against the IAC/virtual port list (e.g. "Bus 1").
+        public let midiInName: String
+        /// Virtual MIDI port the DAW LISTENS on (Hydra sends) — substring match.
+        public let midiOutName: String
+        /// Emit the HUI keep-alive heartbeat (~2×/s). Required by Pro Tools; most
+        /// HUI-emulating DAWs tolerate it.
+        public let heartbeat: Bool
+        /// One-line setup note shown under the picker.
+        public let note: String
+        public init(id: String, name: String, midiInName: String, midiOutName: String,
+                    heartbeat: Bool, note: String) {
+            self.id = id; self.name = name
+            self.midiInName = midiInName; self.midiOutName = midiOutName
+            self.heartbeat = heartbeat; self.note = note
+        }
+    }
+
+    /// DAW presets in display order. The default IAC bus names ("Bus 1"/"Bus 2")
+    /// are the common macOS IAC Driver defaults; adjust per setup. [CALIBRAR] the
+    /// per-DAW specifics against real software.
+    public static let surfacePresets: [SurfacePreset] = [
+        SurfacePreset(id: "protools", name: "Pro Tools", midiInName: "Bus 1", midiOutName: "Bus 2",
+                      heartbeat: true,
+                      note: "Native HUI. Add a HUI controller in Setup ▸ Peripherals ▸ MIDI Controllers on these ports."),
+        SurfacePreset(id: "logic", name: "Logic Pro", midiInName: "Bus 1", midiOutName: "Bus 2",
+                      heartbeat: true,
+                      note: "Control Surfaces ▸ Setup ▸ New ▸ Mackie HUI on these ports."),
+        SurfacePreset(id: "studioone", name: "Studio One", midiInName: "Bus 1", midiOutName: "Bus 2",
+                      heartbeat: true,
+                      note: "Options ▸ External Devices ▸ Add ▸ Mackie HUI."),
+        SurfacePreset(id: "cubase", name: "Cubase / Nuendo", midiInName: "Bus 1", midiOutName: "Bus 2",
+                      heartbeat: true,
+                      note: "Studio ▸ Studio Setup ▸ add a Mackie HUI remote device."),
+        SurfacePreset(id: "ableton", name: "Ableton Live", midiInName: "Bus 1", midiOutName: "Bus 2",
+                      heartbeat: true,
+                      note: "Needs a HUI control-surface script; map the ports in Preferences ▸ Link/MIDI."),
+        SurfacePreset(id: "custom", name: "Other / Custom", midiInName: "", midiOutName: "",
+                      heartbeat: true,
+                      note: "Add the published Hydra HUI ports as Mackie HUI controllers in your DAW."),
+    ]
+
+    public static func surfacePreset(id: String) -> SurfacePreset? {
+        surfacePresets.first { $0.id == id }
+    }
+
+    // MARK: Control surface — multi-unit (HUI is 8 faders per device)
+    /// Soundcraft Si Expression 3: 32 physical channel faders across the bay.
+    public static let siExpression3Faders = 32
+    /// HUI units needed to expose `faders` strips at once (8 per unit; DAWs such
+    /// as Pro Tools/Logic accept up to 4 HUI devices = 32 channels).
+    public static func surfaceUnitCount(forFaders faders: Int) -> Int {
+        max(1, min((faders + 7) / 8, 4))
+    }
+    /// Default unit count when the console isn't yet identified: cover the Si
+    /// Expression 3's 32 faders → 4 HUI units.
+    public static let surfaceDefaultUnitCount = surfaceUnitCount(forFaders: siExpression3Faders)
+    /// Base name for the virtual HUI ports Hydra publishes ("Hydra HUI 1"…).
+    public static let surfaceHUIPortBaseName = "Hydra HUI"
+
+    /// HiQnet control port (TCP + UDP, 3804). NOTE: the Soundcraft Si console does
+    /// NOT listen here — HiQnet is inverse. The controller listens on TCP/3804 and
+    /// broadcasts a DiscoInfo invite on UDP/3804; the console then dials back in.
+    /// See docs/HydraSurface/PROTOCOL.md.
+    public static let hiqnetTCPPort: UInt16 = 3804
 
     public static func bridgeSpec(id: String) -> BridgeSpec? {
         bridgeCatalog.first { $0.id == id }

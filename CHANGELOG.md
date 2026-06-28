@@ -2,6 +2,26 @@
 
 All notable changes to Hydra are documented here.
 
+## [1.0.7] — 2026-06-28
+
+### Plug-ins
+- **Inserts on the receiver side.** Plug-ins used to live only on the transmitter
+  (source) side — audio was processed on its way out of a source. You can now also
+  add inserts on the **receiver** (destination) side: everything patched into a
+  destination is summed, run through that channel's inserts, then delivered to the
+  receiving app or device. Open a destination channel (or select a patch cell) and
+  the Receiver section now has its own Audio FX slots. The strip grid tags each card
+  **TX** or **RX** so the two are easy to tell apart. Existing strips keep working
+  unchanged — they default to the transmitter side.
+
+### Refinements
+- **Clearer Transmitter / Receiver split in the channel inspector.** The two ends of
+  a patch are now separate tinted cards — a green **Transmitter** zone and an accent
+  **Receiver** zone, each with a badged header, an accent stripe down its edge, and
+  its own Audio FX. The patch's gain, signal and connect/remove controls moved into a
+  dedicated **Connection** panel below both, so it's always obvious which side each
+  control belongs to.
+
 ## [1.0.6] — 2026-06-26
 
 ### Plug-ins

@@ -176,9 +176,18 @@ func handleWSMessage(_ message: WSMessage, from connection: NWConnection) {
     case .subscribeModuleSource(let payload):
         moduleManager.setSubscribed(id: payload.id, subscribed: payload.subscribed)
         // onChange broadcasts the refreshed module state.
+    case .getSurface:
+        server.send(.surface(surfaceManager.payload()), to: connection)
+    case .setSurfaceConfig(let payload):
+        surfaceManager.applyConfig(payload)
+        // onChange broadcasts the refreshed surface state.
+    case .discoverSurfaces:
+        surfaceManager.discover()
+    case .connectSurfaceConsole(let payload):
+        surfaceManager.connectConsole(ip: payload.ip)
     case .status, .matrix, .levels, .labels, .scenes, .devices, .apps, .aes67,
          .vst, .strips, .events, .event, .config, .interfaces, .ndi, .recordings,
-         .modules, .bridges:
+         .modules, .bridges, .surface:
         break // daemon → app only; ignore if echoed
     }
 }

@@ -33,6 +33,13 @@ final class DaemonService: ObservableObject {
         log.info("Hydra audio engine started in-process")
     }
 
+    /// Tear down the in-process engine on app quit — terminates the
+    /// out-of-process plugin-host children so nothing orphans to launchd.
+    func shutdown() {
+        DaemonRuntime.shutdown()
+        isEnabled = false
+    }
+
     /// Open System Settings → Login Items, where the user can toggle "Open Hydra
     /// at login" (the app itself — there is no separate helper anymore).
     func openLoginItemsSettings() { SMAppService.openSystemSettingsLoginItems() }

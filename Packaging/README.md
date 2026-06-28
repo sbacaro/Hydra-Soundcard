@@ -1,15 +1,18 @@
 # Packaging — Hydra `.pkg` installer
 
-Builds a macOS installer that places **Hydra.app** in `/Applications` and the
-**Hydra Virtual Soundcard** driver in `/Library/Audio/Plug-Ins/HAL`, then
-reloads `coreaudiod` so the device appears immediately. The audio engine runs
+Builds a macOS installer that places **Hydra.app** in `/Applications` and **every
+Hydra HAL driver** in `/Library/Audio/Plug-Ins/HAL` — the engine-hub driver
+(`HydraVirtualSoundcard.driver`) plus all 8 Hydra Audio Bridge drivers
+(`HydraAudioBridge{2A,2B,4,8,16,32,64,128}.driver`) — then reloads `coreaudiod`
+so all the devices appear immediately. One install sets up everything; the user
+never runs a script or installs a bridge by hand. The audio engine runs
 in-process inside Hydra.app (no separate daemon / LaunchAgent).
 
 ```
 Packaging/
-├── build_pkg.sh        # builds the app+driver and assembles the .pkg
+├── build_pkg.sh        # builds the app + all HAL drivers and assembles the .pkg
 ├── distribution.xml    # installer UI / license / OS requirement
-├── scripts/postinstall # root: fix ownership + restart coreaudiod
+├── scripts/postinstall # root: fix ownership of every Hydra driver + restart coreaudiod
 └── resources/          # welcome.html, conclusion.html
 ```
 

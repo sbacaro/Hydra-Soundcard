@@ -413,22 +413,34 @@ final class MatrixStore {
             }
         }
 
-        // Strip routing: source channel → (strip tap buffer, strip channel). We
-        // resolve the map first, but DON'T feed the strips yet — a strip's inserts
-        // must only process audio that is actually routed somewhere. The pre-legs
-        // (raw source → trim → strip input) are emitted below, gated on a strip
-        // being read by at least one connection.
+        // Strip routing, split by side. A SOURCE strip reroutes a connection's
+        // source to the chain's processed output; a DESTINATION strip reroutes a
+        // connection's destination INTO the chain's input. We resolve the maps
+        // first but DON'T feed the strips yet — a strip's inserts must only
+        // process audio that is actually routed somewhere. The internal legs are
+        // emitted below, each gated on the strip being touched by ≥1 connection.
         var stripBySource: [String: (buf: Int32, stripCh: Int32)] = [:]
+        var stripByDest: [String: (buf: Int32, stripCh: Int32)] = [:]
         for route in stripRoutes {
-            guard let chain = chainIndexByID[route.chainID],
-                  let src = sourceMap[route.nodeID],
-                  route.channelIndex < src.channels else { continue }
-            stripBySource["\(route.nodeID):\(route.channelIndex)"] = (chain.buf, route.stripChannel)
+            guard let chain = chainIndexByID[route.chainID] else { continue }
+            switch route.side {
+            case .source:
+                guard let src = sourceMap[route.nodeID],
+                      route.channelIndex < src.channels else { continue }
+                stripBySource["\(route.nodeID):\(route.channelIndex)"] = (chain.buf, route.stripChannel)
+            case .destination:
+                guard let dst = destinationMap[route.nodeID],
+                      route.channelIndex < dst.channels else { continue }
+                stripByDest["\(route.nodeID):\(route.channelIndex)"] = (chain.buf, route.stripChannel)
+            }
         }
 
         var conns = ContiguousArray<Snapshot.Conn>()
+        // Connections mixed BEFORE the chains render: source-strip trim legs AND
+        // connections whose destination is a receiver strip (they fill its input).
+        var connsPre = ContiguousArray<Snapshot.Conn>()
         var reroutedCount = 0
-        var usedChainBufs = Set<Int32>()   // strips actually read by a connection
+        var usedChainBufs = Set<Int32>()   // strips actually touched by a connection
         conns.reserveCapacity(matrix.connections.count)
         for c in matrix.connections {
             guard let src = sourceMap[c.source.nodeID],
@@ -437,27 +449,40 @@ final class MatrixStore {
                   c.destination.channelIndex < dst.channels,
                   let slot = slotByID[c.id] else { continue } // absent device: waits to re-bind
 
+            // Source side: read the strip's processed output instead of the raw
+            // source (a source strip's output is its inStaging, rendered last pass).
+            var srcBuf = src.buf
+            var srcCh = Int32(c.source.channelIndex)
             if let strip = stripBySource["\(c.source.nodeID):\(c.source.channelIndex)"] {
-                // Read the strip's processed output instead of the raw source.
-                reroutedCount += 1
+                srcBuf = strip.buf
+                srcCh = strip.stripCh
                 usedChainBufs.insert(strip.buf)
-                conns.append(.init(srcBuf: strip.buf, srcCh: strip.stripCh,
-                                   dstBuf: dst.buf, dstCh: Int32(c.destination.channelIndex),
-                                   gain: c.gain, slot: slot))
+                reroutedCount += 1
+            }
+
+            // Destination side: write into the receiver strip's input. The chain
+            // renders between the connsPre and conns passes, and a post-leg (below)
+            // drains its output to the real receiver channel — so this connection
+            // must mix PRE-render, into the chain's input buffer.
+            if let strip = stripByDest["\(c.destination.nodeID):\(c.destination.channelIndex)"] {
+                usedChainBufs.insert(strip.buf)
+                reroutedCount += 1
+                connsPre.append(.init(srcBuf: srcBuf, srcCh: srcCh,
+                                      dstBuf: strip.buf, dstCh: strip.stripCh,
+                                      gain: c.gain, slot: slot))
             } else {
-                conns.append(.init(srcBuf: src.buf, srcCh: Int32(c.source.channelIndex),
+                conns.append(.init(srcBuf: srcBuf, srcCh: srcCh,
                                    dstBuf: dst.buf, dstCh: Int32(c.destination.channelIndex),
                                    gain: c.gain, slot: slot))
             }
         }
 
-        // Pre-legs: feed raw source → trim → strip input, but ONLY for strips a
-        // connection reads from. An unconnected strip therefore gets a cleared
-        // (silent) input each block (step 4 zeroes every tap's input), so its
-        // inserts process silence — no audio reaches the plugin, and its editor
+        // Source pre-legs: raw source → trim → source-strip input, but ONLY for
+        // strips a connection reads from. An unconnected strip therefore gets a
+        // cleared (silent) input each block (step 4 zeroes every tap's input), so
+        // its inserts process silence — no audio reaches the plugin, and its editor
         // shows no signal, until the source is actually patched somewhere.
-        var connsPre = ContiguousArray<Snapshot.Conn>()
-        for route in stripRoutes {
+        for route in stripRoutes where route.side == .source {
             guard let chain = chainIndexByID[route.chainID],
                   usedChainBufs.contains(chain.buf),
                   let src = sourceMap[route.nodeID],
@@ -467,13 +492,27 @@ final class MatrixStore {
                                   gain: route.trim, slot: -1)) // no meter on internal legs
         }
 
+        // Destination post-legs: receiver-strip output → trim → the real receiver
+        // channel, mixed AFTER the chain renders. Gated the same way — only strips
+        // a connection actually writes to. The strip's input was already filled by
+        // the connsPre pass above and processed by the chain render in between.
+        for route in stripRoutes where route.side == .destination {
+            guard let chain = chainIndexByID[route.chainID],
+                  usedChainBufs.contains(chain.buf),
+                  let dst = destinationMap[route.nodeID],
+                  route.channelIndex < dst.channels else { continue }
+            conns.append(.init(srcBuf: chain.buf, srcCh: route.stripChannel,
+                               dstBuf: dst.buf, dstCh: Int32(route.channelIndex),
+                               gain: route.trim, slot: -1)) // no meter on internal legs
+        }
+
         // Only render strips that are in use — an unconnected strip does zero
         // plugin work (and its analyzer stays quiet).
         let activeChains = chainTaps.filter {
             chainIndexByID[$0.info.id].map { usedChainBufs.contains($0.buf) } ?? false
         }
         if !stripRoutes.isEmpty {
-            log("Matrix rebuilt: \(conns.count) conns (\(reroutedCount) through strips), \(connsPre.count) strip legs, \(activeChains.count)/\(chainTaps.count) strips active, \(stripRoutes.count) routes")
+            log("Matrix rebuilt: \(conns.count) conns + \(connsPre.count) pre (\(reroutedCount) through strips), \(activeChains.count)/\(chainTaps.count) strips active, \(stripRoutes.count) routes")
         }
         // Lazy bridge attach: which bridges are actually patched? Notify on change
         // so BridgeManager only opens IOProcs (ASRC) for those.
