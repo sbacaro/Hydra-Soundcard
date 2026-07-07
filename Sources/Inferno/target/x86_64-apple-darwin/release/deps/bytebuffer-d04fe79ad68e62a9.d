@@ -1,0 +1,9 @@
+/Users/samuelbacaro/GitHub/Hydra-Soundcard/Sources/Inferno/target/x86_64-apple-darwin/release/deps/bytebuffer-d04fe79ad68e62a9.d: /Users/samuelbacaro/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/bytebuffer-2.3.0/src/lib.rs /Users/samuelbacaro/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/bytebuffer-2.3.0/src/buffer.rs /Users/samuelbacaro/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/bytebuffer-2.3.0/src/reader.rs
+
+/Users/samuelbacaro/GitHub/Hydra-Soundcard/Sources/Inferno/target/x86_64-apple-darwin/release/deps/libbytebuffer-d04fe79ad68e62a9.rlib: /Users/samuelbacaro/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/bytebuffer-2.3.0/src/lib.rs /Users/samuelbacaro/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/bytebuffer-2.3.0/src/buffer.rs /Users/samuelbacaro/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/bytebuffer-2.3.0/src/reader.rs
+
+/Users/samuelbacaro/GitHub/Hydra-Soundcard/Sources/Inferno/target/x86_64-apple-darwin/release/deps/libbytebuffer-d04fe79ad68e62a9.rmeta: /Users/samuelbacaro/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/bytebuffer-2.3.0/src/lib.rs /Users/samuelbacaro/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/bytebuffer-2.3.0/src/buffer.rs /Users/samuelbacaro/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/bytebuffer-2.3.0/src/reader.rs
+
+/Users/samuelbacaro/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/bytebuffer-2.3.0/src/lib.rs:
+/Users/samuelbacaro/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/bytebuffer-2.3.0/src/buffer.rs:
+/Users/samuelbacaro/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/bytebuffer-2.3.0/src/reader.rs:

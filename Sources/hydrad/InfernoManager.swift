@@ -30,27 +30,34 @@ final class InfernoManager {
     /// Falls back to the name if resolution fails.
     private func resolveIP(for interfaceName: String) -> String {
         var addr: String?
+        var fallbackAddr: String?
         var ifaddr: UnsafeMutablePointer<ifaddrs>?
-        guard getifaddrs(&ifaddr) == 0, let first = ifaddr else { return interfaceName }
+        guard getifaddrs(&ifaddr) == 0, let first = ifaddr else { return "127.0.0.1" }
         defer { freeifaddrs(first) }
         var cursor: UnsafeMutablePointer<ifaddrs>? = first
         while let ifa = cursor {
             let sa = ifa.pointee.ifa_addr
             if sa?.pointee.sa_family == UInt8(AF_INET) {
                 let name = String(cString: ifa.pointee.ifa_name)
-                if name == interfaceName {
-                    var hostname = [CChar](repeating: 0, count: Int(NI_MAXHOST))
-                    if getnameinfo(sa, socklen_t(MemoryLayout<sockaddr_in>.size),
-                                   &hostname, socklen_t(hostname.count),
-                                   nil, 0, NI_NUMERICHOST) == 0 {
-                        addr = String(cString: hostname)
-                        break
+                var hostname = [CChar](repeating: 0, count: Int(NI_MAXHOST))
+                if getnameinfo(sa, socklen_t(MemoryLayout<sockaddr_in>.size),
+                               &hostname, socklen_t(hostname.count),
+                               nil, 0, NI_NUMERICHOST) == 0 {
+                    let ipStr = String(cString: hostname)
+                    if !ipStr.hasPrefix("127.") {
+                        if name == interfaceName {
+                            addr = ipStr
+                            break
+                        }
+                        if fallbackAddr == nil {
+                            fallbackAddr = ipStr
+                        }
                     }
                 }
             }
             cursor = ifa.pointee.ifa_next
         }
-        return addr ?? interfaceName
+        return addr ?? fallbackAddr ?? "127.0.0.1"
     }
 
     private func start(config: ConfigPayload) {
@@ -62,34 +69,46 @@ final class InfernoManager {
             log("InfernoManager: Auto-enabled bridge \(config.infernoBridgeID)")
         }
 
-        let infernoDir = findInfernoDir()
-        let binaryPath = infernoDir
-            .appendingPathComponent("target")
-            .appendingPathComponent("release")
-            .appendingPathComponent("hydra-inferno-bridge")
+        // 1. Look for pre-compiled binary in the App Bundle Resources (production)
+        var binaryPath = Bundle.main.url(forResource: "hydra-inferno-bridge", withExtension: nil)
 
-        // Build first if binary doesn't exist
-        if !FileManager.default.fileExists(atPath: binaryPath.path) {
-            log("InfernoManager: Building hydra-inferno-bridge...")
-            let buildProc = Process()
-            buildProc.executableURL = URL(fileURLWithPath: "/usr/bin/env")
-            buildProc.arguments = ["cargo", "build", "--release", "-p", "hydra-inferno-bridge"]
-            buildProc.currentDirectoryURL = infernoDir
-            do {
-                try buildProc.run()
-                buildProc.waitUntilExit()
-                guard buildProc.terminationStatus == 0 else {
-                    log("InfernoManager: cargo build failed with status \(buildProc.terminationStatus)")
+        // 2. If not found in Bundle (dev/Xcode run), compile/fallback to workspace build
+        if binaryPath == nil || !FileManager.default.fileExists(atPath: binaryPath!.path) {
+            let infernoDir = findInfernoDir()
+            let devBinary = infernoDir
+                .appendingPathComponent("target")
+                .appendingPathComponent("release")
+                .appendingPathComponent("hydra-inferno-bridge")
+
+            // Build first if dev binary doesn't exist
+            if !FileManager.default.fileExists(atPath: devBinary.path) {
+                log("InfernoManager: Building hydra-inferno-bridge in dev workspace...")
+                let buildProc = Process()
+                buildProc.executableURL = URL(fileURLWithPath: "/usr/bin/env")
+                buildProc.arguments = ["cargo", "build", "--release", "-p", "hydra-inferno-bridge"]
+                buildProc.currentDirectoryURL = infernoDir
+                do {
+                    try buildProc.run()
+                    buildProc.waitUntilExit()
+                    guard buildProc.terminationStatus == 0 else {
+                        log("InfernoManager: cargo build failed with status \(buildProc.terminationStatus)")
+                        return
+                    }
+                } catch {
+                    log("InfernoManager: Failed to run cargo build: \(error)")
                     return
                 }
-            } catch {
-                log("InfernoManager: Failed to run cargo build: \(error)")
-                return
             }
+            binaryPath = devBinary
+        }
+
+        guard let executablePath = binaryPath else {
+            log("InfernoManager: Could not resolve hydra-inferno-bridge binary path.")
+            return
         }
 
         let proc = Process()
-        proc.executableURL = binaryPath
+        proc.executableURL = executablePath
 
         let bridgeSpec = Hydra.bridgeCatalog.first { $0.id == config.infernoBridgeID }
         let bridgeName = bridgeSpec?.name ?? "Hydra Audio Bridge \(config.infernoBridgeID)"

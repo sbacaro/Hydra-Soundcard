@@ -60,6 +60,16 @@ DRIVER="$PRODUCTS/$DRIVER_NAME.driver"
 VERSION="$(/usr/libexec/PlistBuddy -c 'Print :CFBundleShortVersionString' "$APP/Contents/Info.plist")"
 log "Version $VERSION"
 
+# 1a. Build the universal Rust Dante bridge and copy it into the App Resources folder.
+log "Building Dante Virtual Soundcard bridge (universal) ..."
+cargo build --manifest-path "$PROJECT_DIR/Sources/Inferno/Cargo.toml" --release --target aarch64-apple-darwin -p hydra-inferno-bridge >/dev/null || fail "Failed to build Dante bridge for arm64"
+cargo build --manifest-path "$PROJECT_DIR/Sources/Inferno/Cargo.toml" --release --target x86_64-apple-darwin -p hydra-inferno-bridge >/dev/null || fail "Failed to build Dante bridge for x86_64"
+mkdir -p "$APP/Contents/Resources"
+lipo -create \
+  "$PROJECT_DIR/Sources/Inferno/target/aarch64-apple-darwin/release/hydra-inferno-bridge" \
+  "$PROJECT_DIR/Sources/Inferno/target/x86_64-apple-darwin/release/hydra-inferno-bridge" \
+  -output "$APP/Contents/Resources/hydra-inferno-bridge" || fail "Failed to create universal Dante bridge binary"
+
 # 1b. Build the Hydra Audio Bridge drivers. These are separate bundle targets
 #     (SKIP_INSTALL=YES) that the HydraApp scheme does NOT build, so we build each
 #     explicitly and drop every .driver into one folder. They install alongside the
@@ -96,12 +106,14 @@ if [ -n "${APP_SIGN_ID:-}" ]; then
   for drv in "${BRIDGE_DRIVERS[@]}"; do
     codesign --force --options runtime --timestamp --sign "$APP_SIGN_ID" "$drv"
   done
+  codesign --force --options runtime --timestamp --sign "$APP_SIGN_ID" "$APP/Contents/Resources/hydra-inferno-bridge"
   codesign --force --options runtime --timestamp --deep --sign "$APP_SIGN_ID" "$APP"
 else
-  log "Ad-hoc signing bridge drivers (required to load on Apple Silicon) ..."
+  log "Ad-hoc signing bridge drivers and helper binaries (required to load on Apple Silicon) ..."
   for drv in "${BRIDGE_DRIVERS[@]}"; do
     codesign --force -s - "$drv"
   done
+  codesign --force -s - "$APP/Contents/Resources/hydra-inferno-bridge"
 fi
 
 # 3. Stage the install layout: app + engine-hub driver + every bridge driver.

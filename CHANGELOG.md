@@ -2,6 +2,12 @@
 
 All notable changes to Hydra are documented here.
 
+## [2.0.1] — 2026-07-07
+
+### Fixed
+- **Dante Subprocess Deployment**: Embed the precompiled universal bridge binary inside the app bundle, eliminating the runtime compile dependency on Rust/Cargo on end-user machines.
+- **Auto-Interface Fallback**: Scan system interfaces at startup to dynamically bind Dante to the first active network interface with a valid IPv4 address, preventing initialization lockups when configured interface is absent.
+
 ## [2.0.0] — 2026-07-07
 
 ### Added

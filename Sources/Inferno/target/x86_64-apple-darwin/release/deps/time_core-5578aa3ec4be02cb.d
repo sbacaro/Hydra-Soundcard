@@ -1,0 +1,10 @@
+/Users/samuelbacaro/GitHub/Hydra-Soundcard/Sources/Inferno/target/x86_64-apple-darwin/release/deps/time_core-5578aa3ec4be02cb.d: /Users/samuelbacaro/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/time-core-0.1.9/src/lib.rs /Users/samuelbacaro/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/time-core-0.1.9/src/hint.rs /Users/samuelbacaro/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/time-core-0.1.9/src/unit.rs /Users/samuelbacaro/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/time-core-0.1.9/src/util.rs
+
+/Users/samuelbacaro/GitHub/Hydra-Soundcard/Sources/Inferno/target/x86_64-apple-darwin/release/deps/libtime_core-5578aa3ec4be02cb.rlib: /Users/samuelbacaro/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/time-core-0.1.9/src/lib.rs /Users/samuelbacaro/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/time-core-0.1.9/src/hint.rs /Users/samuelbacaro/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/time-core-0.1.9/src/unit.rs /Users/samuelbacaro/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/time-core-0.1.9/src/util.rs
+
+/Users/samuelbacaro/GitHub/Hydra-Soundcard/Sources/Inferno/target/x86_64-apple-darwin/release/deps/libtime_core-5578aa3ec4be02cb.rmeta: /Users/samuelbacaro/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/time-core-0.1.9/src/lib.rs /Users/samuelbacaro/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/time-core-0.1.9/src/hint.rs /Users/samuelbacaro/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/time-core-0.1.9/src/unit.rs /Users/samuelbacaro/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/time-core-0.1.9/src/util.rs
+
+/Users/samuelbacaro/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/time-core-0.1.9/src/lib.rs:
+/Users/samuelbacaro/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/time-core-0.1.9/src/hint.rs:
+/Users/samuelbacaro/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/time-core-0.1.9/src/unit.rs:
+/Users/samuelbacaro/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/time-core-0.1.9/src/util.rs:

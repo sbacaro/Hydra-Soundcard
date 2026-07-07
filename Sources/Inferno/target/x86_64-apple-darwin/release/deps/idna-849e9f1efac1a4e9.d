@@ -1,0 +1,10 @@
+/Users/samuelbacaro/GitHub/Hydra-Soundcard/Sources/Inferno/target/x86_64-apple-darwin/release/deps/idna-849e9f1efac1a4e9.d: /Users/samuelbacaro/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/idna-0.2.3/src/lib.rs /Users/samuelbacaro/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/idna-0.2.3/src/punycode.rs /Users/samuelbacaro/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/idna-0.2.3/src/uts46.rs /Users/samuelbacaro/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/idna-0.2.3/src/uts46_mapping_table.rs
+
+/Users/samuelbacaro/GitHub/Hydra-Soundcard/Sources/Inferno/target/x86_64-apple-darwin/release/deps/libidna-849e9f1efac1a4e9.rlib: /Users/samuelbacaro/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/idna-0.2.3/src/lib.rs /Users/samuelbacaro/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/idna-0.2.3/src/punycode.rs /Users/samuelbacaro/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/idna-0.2.3/src/uts46.rs /Users/samuelbacaro/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/idna-0.2.3/src/uts46_mapping_table.rs
+
+/Users/samuelbacaro/GitHub/Hydra-Soundcard/Sources/Inferno/target/x86_64-apple-darwin/release/deps/libidna-849e9f1efac1a4e9.rmeta: /Users/samuelbacaro/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/idna-0.2.3/src/lib.rs /Users/samuelbacaro/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/idna-0.2.3/src/punycode.rs /Users/samuelbacaro/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/idna-0.2.3/src/uts46.rs /Users/samuelbacaro/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/idna-0.2.3/src/uts46_mapping_table.rs
+
+/Users/samuelbacaro/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/idna-0.2.3/src/lib.rs:
+/Users/samuelbacaro/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/idna-0.2.3/src/punycode.rs:
+/Users/samuelbacaro/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/idna-0.2.3/src/uts46.rs:
+/Users/samuelbacaro/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/idna-0.2.3/src/uts46_mapping_table.rs:
