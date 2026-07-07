@@ -1,0 +1,10 @@
+/Users/samuelbacaro/GitHub/Hydra-Soundcard/Sources/Inferno/target/release/deps/dasp_sample-ee917920f37f7857.d: /Users/samuelbacaro/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/dasp_sample-0.11.0/src/lib.rs /Users/samuelbacaro/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/dasp_sample-0.11.0/src/conv.rs /Users/samuelbacaro/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/dasp_sample-0.11.0/src/ops.rs /Users/samuelbacaro/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/dasp_sample-0.11.0/src/types.rs
+
+/Users/samuelbacaro/GitHub/Hydra-Soundcard/Sources/Inferno/target/release/deps/libdasp_sample-ee917920f37f7857.rlib: /Users/samuelbacaro/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/dasp_sample-0.11.0/src/lib.rs /Users/samuelbacaro/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/dasp_sample-0.11.0/src/conv.rs /Users/samuelbacaro/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/dasp_sample-0.11.0/src/ops.rs /Users/samuelbacaro/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/dasp_sample-0.11.0/src/types.rs
+
+/Users/samuelbacaro/GitHub/Hydra-Soundcard/Sources/Inferno/target/release/deps/libdasp_sample-ee917920f37f7857.rmeta: /Users/samuelbacaro/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/dasp_sample-0.11.0/src/lib.rs /Users/samuelbacaro/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/dasp_sample-0.11.0/src/conv.rs /Users/samuelbacaro/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/dasp_sample-0.11.0/src/ops.rs /Users/samuelbacaro/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/dasp_sample-0.11.0/src/types.rs
+
+/Users/samuelbacaro/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/dasp_sample-0.11.0/src/lib.rs:
+/Users/samuelbacaro/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/dasp_sample-0.11.0/src/conv.rs:
+/Users/samuelbacaro/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/dasp_sample-0.11.0/src/ops.rs:
+/Users/samuelbacaro/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/dasp_sample-0.11.0/src/types.rs:

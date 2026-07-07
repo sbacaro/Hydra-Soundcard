@@ -98,6 +98,7 @@ func handleWSMessage(_ message: WSMessage, from connection: NWConnection) {
         store.feedbackProtectionEnabled = payload.feedbackProtection
         tapManager.setMakeup(dB: payload.appTapMakeupDB)
         oscServer.apply(enabled: payload.oscEnabled, port: payload.oscPort)
+        infernoManager.applyConfig(payload)
         server.broadcast(.config(payload))
         log("Config updated: feedbackProtection=\(payload.feedbackProtection)")
     case .getInterfaces:

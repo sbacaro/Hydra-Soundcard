@@ -8,7 +8,7 @@
 
 Route any source to any destination — apps, hardware, plug‑ins and the network — in one visual matrix.
 
-[![Version](https://img.shields.io/badge/version-1.0.8-2997ff)](CHANGELOG.md)
+[![Version](https://img.shields.io/badge/version-2.0.0-2997ff)](CHANGELOG.md)
 [![License](https://img.shields.io/badge/license-GPL--3.0-blue)](LICENSE)
 [![Platform](https://img.shields.io/badge/macOS-26%20Tahoe-1d1d1f)](#system-requirements)
 [![Swift](https://img.shields.io/badge/Swift-6-orange)](#build--run)
@@ -33,7 +33,7 @@ visual matrix. Per‑app capture, capture flows, VST3 in the signal path, AES67
 a customized [BlackHole](https://github.com/ExistentialAudio/BlackHole) driver (see
 [`THIRD_PARTY_NOTICES.md`](THIRD_PARTY_NOTICES.md)).
 
-Current version: **1.0.8** · Requires **macOS 26 (Tahoe)** · Architecture overview in
+Current version: **2.0.0** · Requires **macOS 26 (Tahoe)** · Architecture overview in
 [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md).
 
 ## Features
@@ -57,17 +57,17 @@ Current version: **1.0.8** · Requires **macOS 26 (Tahoe)** · Architecture over
 Download the installer from the latest [GitHub release](https://github.com/sbacaro/Hydra-Soundcard/releases/latest):
 
 ```bash
-curl -L https://github.com/sbacaro/Hydra-Soundcard/releases/download/v1.0.8/Hydra-1.0.8.pkg -o Hydra.pkg
+curl -L https://github.com/sbacaro/Hydra-Soundcard/releases/download/v2.0.0/Hydra-2.0.0.pkg -o Hydra.pkg
 open Hydra.pkg
 ```
 
 ### Manual installation
 
-Download the [ZIP archive](https://github.com/sbacaro/Hydra-Soundcard/releases/download/v1.0.8/Hydra-1.0.8.zip) and run:
+Download the [ZIP archive](https://github.com/sbacaro/Hydra-Soundcard/releases/download/v2.0.0/Hydra-2.0.0.zip) and run:
 
 ```bash
-unzip Hydra-1.0.8.zip
-cd Hydra-1.0.8
+unzip Hydra-2.0.0.zip
+cd Hydra-2.0.0
 sudo bash install.sh
 ```
 
@@ -222,7 +222,7 @@ sponsored by, or endorsed by Apple Inc., Audinate, Vizrt or Steinberg.
 
 <div align="center">
 
-**Latest release:** [Hydra 1.0.8](https://github.com/sbacaro/Hydra-Soundcard/releases/tag/v1.0.8) · Released June 29, 2026
+**Latest release:** [Hydra 2.0.0](https://github.com/sbacaro/Hydra-Soundcard/releases/tag/v2.0.0) · Released July 7, 2026
 
 © 2026 Hydra Audio · Free software under the GNU General Public License v3.0
 

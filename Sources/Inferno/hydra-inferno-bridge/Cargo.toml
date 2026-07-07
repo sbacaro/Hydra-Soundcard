@@ -1,0 +1,13 @@
+[package]
+name = "hydra-inferno-bridge"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+inferno_aoip = { path = "../inferno_aoip" }
+usrvclock = { path = "../usrvclock-rs" }
+tokio = { version = "1.36", features = ["net", "time", "sync", "signal", "macros", "rt-multi-thread"] }
+cpal = "0.15"
+clap = { version = "4.4", features = ["derive"] }
+log = "0.4"
+env_logger = "0.11"

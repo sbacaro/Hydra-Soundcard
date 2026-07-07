@@ -88,6 +88,7 @@ final class DaemonContext {
     let interfaceStore = InterfaceStore()
     let bridgeManager: BridgeManager
     let surfaceManager: SurfaceManager
+    let infernoManager = InfernoManager()
     let routeManager: RouteManager
 
     /// Set in `start()` once the socket is open.
@@ -129,6 +130,7 @@ final class DaemonContext {
         // Rounded so identical-idle payloads stay identical (broadcast skip).
         status.cpuLoad = (engine.cpuLoad * 100).rounded() / 100
         status.xruns = engine.xruns
+        status.infernoRunning = infernoManager.running
         return status
     }
 
@@ -161,6 +163,7 @@ final class DaemonContext {
         log("Hydra engine shutting down — terminating plugin hosts")
         stripManager.shutdownAllHosts()
         surfaceManager.stop()
+        infernoManager.stop()
     }
 
     // MARK: - Startup
@@ -370,6 +373,15 @@ final class DaemonContext {
             }
         }
         PtpClock.shared.start()
+
+        infernoManager.bridgeManager = bridgeManager
+        infernoManager.onChange = { [weak self] running in
+            Task { @MainActor in
+                guard let self else { return }
+                self.server.broadcast(.status(self.currentStatus()))
+            }
+        }
+        infernoManager.applyConfig(configStore.current())
 
         startProbeTimer(initial: initial)
         startMeterTimer()

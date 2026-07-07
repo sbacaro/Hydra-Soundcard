@@ -29,6 +29,8 @@ struct SidebarView: View {
     @State private var showManageBridges = false
     @State private var showSurfaceConfig = false
     @AppStorage("experimentalModules") private var experimentalModules = false
+    @AppStorage("expControlSurface") private var expControlSurface = true
+    @AppStorage("expModules") private var expModules = true
 
     var body: some View {
         List {
@@ -121,7 +123,15 @@ struct SidebarView: View {
                                       info: "NDI audio sources on the network. Mark a bridge as NDI TX to broadcast it.")
                     }
 
-                    if experimentalModules {
+                    // MARK: Dante Virtual Soundcard (Inferno)
+                    Section {
+                        infernoSection
+                    } header: {
+                        sectionHeader("Dante Virtual Soundcard",
+                                      info: "Dante audio-over-IP using the Inferno engine. Select a Hydra Bridge, network interface, and latency, then turn it on. The device will appear as \"Hydra Soundcard\" in Dante Controller. Settings are locked while running.")
+                    }
+
+                    if experimentalModules && expControlSurface {
                         Section {
                             surfaceStatusRow
                             Button {
@@ -136,7 +146,7 @@ struct SidebarView: View {
                         }
                     }
 
-                    if experimentalModules {
+                    if experimentalModules && expModules {
                         Section {
                             if client.modules.modules.isEmpty {
                                 emptyHint("No modules loaded. Drop a .dylib into ~/Library/Application Support/Hydra/modules/ and restart the daemon.")
@@ -216,6 +226,138 @@ struct SidebarView: View {
             .frame(maxWidth: .infinity, alignment: .leading)
             .listRowSeparator(.hidden)
             .help(text)
+    }
+
+    // MARK: - Inferno Dante Virtual Soundcard
+
+    /// Network interfaces available on the machine (IPv4 only).
+    private var networkInterfaces: [(name: String, ip: String)] {
+        var results: [(String, String)] = []
+        var ifaddr: UnsafeMutablePointer<ifaddrs>?
+        guard getifaddrs(&ifaddr) == 0, let first = ifaddr else { return results }
+        defer { freeifaddrs(first) }
+        var cursor: UnsafeMutablePointer<ifaddrs>? = first
+        while let ifa = cursor {
+            let sa = ifa.pointee.ifa_addr
+            if sa?.pointee.sa_family == UInt8(AF_INET) {
+                let name = String(cString: ifa.pointee.ifa_name)
+                var hostname = [CChar](repeating: 0, count: Int(NI_MAXHOST))
+                if getnameinfo(sa, socklen_t(MemoryLayout<sockaddr_in>.size),
+                               &hostname, socklen_t(hostname.count),
+                               nil, 0, NI_NUMERICHOST) == 0 {
+                    let ip = String(cString: hostname)
+                    if !ip.hasPrefix("127.") {
+                        results.append((name, ip))
+                    }
+                }
+            }
+            cursor = ifa.pointee.ifa_next
+        }
+        return results
+    }
+
+    /// Whether the Inferno bridge is currently running.
+    private var infernoIsRunning: Bool {
+        client.status?.infernoRunning ?? false
+    }
+
+    /// Whether the given bridge ID is locked by Dante (cannot be disabled).
+    private func isBridgeLockedByDante(_ bridgeID: String) -> Bool {
+        client.config.infernoEnabled && client.config.infernoBridgeID == bridgeID
+    }
+
+    /// The Dante Virtual Soundcard control panel (Inferno).
+    @ViewBuilder
+    private var infernoSection: some View {
+        let locked = infernoIsRunning
+        let ifaces = networkInterfaces
+        let selectedIP = ifaces.first { $0.name == client.config.infernoInterface }?.ip
+            ?? ifaces.first?.ip ?? "—"
+
+        // Source bridge
+        LabeledContent("Source Bridge") {
+            Picker("", selection: Binding(
+                get: { client.config.infernoBridgeID },
+                set: { value in client.updateConfig { $0.infernoBridgeID = value } }
+            )) {
+                ForEach(Hydra.bridgeCatalog, id: \.id) { spec in
+                    Text(spec.name).tag(spec.id)
+                }
+            }
+            .labelsHidden()
+            .pickerStyle(.menu)
+            .disabled(locked)
+        }
+        .font(.callout)
+
+        // Network interface
+        LabeledContent("Network Interface") {
+            Picker("", selection: Binding(
+                get: { client.config.infernoInterface },
+                set: { value in client.updateConfig { $0.infernoInterface = value } }
+            )) {
+                if ifaces.isEmpty {
+                    Text("No interfaces").tag("")
+                } else {
+                    ForEach(ifaces, id: \.name) { iface in
+                        Text("\(iface.name) (\(iface.ip))").tag(iface.name)
+                    }
+                }
+            }
+            .labelsHidden()
+            .pickerStyle(.menu)
+            .disabled(locked)
+        }
+        .font(.callout)
+
+        // Interface IP (read-only)
+        LabeledContent("Interface IP") {
+            Text(selectedIP)
+                .foregroundStyle(.secondary)
+                .monospacedDigit()
+        }
+        .font(.callout)
+
+        // Latency
+        LabeledContent("Latency") {
+            Picker("", selection: Binding(
+                get: { client.config.infernoLatencyMs },
+                set: { value in client.updateConfig { $0.infernoLatencyMs = value } }
+            )) {
+                Text("4 ms").tag(4)
+                Text("10 ms").tag(10)
+                Text("20 ms").tag(20)
+            }
+            .labelsHidden()
+            .pickerStyle(.menu)
+            .disabled(locked)
+        }
+        .font(.callout)
+
+        // Start / Stop button
+        Button {
+            client.updateConfig { $0.infernoEnabled = !locked }
+        } label: {
+            Label(locked ? "Stop Dante" : "Start Dante",
+                  systemImage: locked ? "stop.fill" : "play.fill")
+                .frame(maxWidth: .infinity)
+        }
+        .controlSize(.large)
+        .buttonStyle(.borderedProminent)
+        .tint(locked ? .red : .accentColor)
+        .padding(.top, 4)
+
+        // Status line
+        HStack(spacing: 6) {
+            Circle()
+                .fill(locked ? Color.green : Color.secondary.opacity(0.4))
+                .frame(width: 7, height: 7)
+            Text(locked ? "\"Hydra Soundcard\" on Dante network" : "Stopped")
+                .font(.caption)
+                .foregroundStyle(locked ? .primary : .secondary)
+        }
+        .listRowSeparator(.hidden)
+        .padding(.top, 2)
     }
 
     // MARK: - Network empty placeholder (calm, centered — Apple's empty-state)
@@ -856,9 +998,15 @@ struct InfoPopoverButton<Content: View>: View {
 // MARK: - Manage Bridges sheet
 
 /// Turn the 8 fixed bridges on/off. Enabled ones appear in the sidebar list.
+/// Bridges in use by Dante are locked and cannot be disabled.
 struct ManageBridgesSheet: View {
     @Environment(DaemonClient.self) private var client
     @Environment(\.dismiss) private var dismiss
+
+    /// Whether the given bridge is locked by Dante (in use as the DVS source).
+    private func lockedByDante(_ bridge: BridgeInfo) -> Bool {
+        client.config.infernoEnabled && client.config.infernoBridgeID == bridge.id
+    }
 
     var body: some View {
         VStack(spacing: 0) {
@@ -875,16 +1023,29 @@ struct ManageBridgesSheet: View {
 
             List {
                 ForEach(client.bridges) { bridge in
+                    let isDanteLocked = lockedByDante(bridge)
                     HStack(spacing: 11) {
                         Image(systemName: "cable.connector")
                             .foregroundStyle(bridge.enabled ? Color.accentColor : .secondary)
                             .frame(width: 20)
                         VStack(alignment: .leading, spacing: 1) {
-                            Text(bridge.name)
-                            Text("\(bridge.channels) in · \(bridge.channels) out")
+                            HStack(spacing: 5) {
+                                Text(bridge.name)
+                                if isDanteLocked {
+                                    Text("Dante")
+                                        .font(.caption2.weight(.semibold))
+                                        .foregroundStyle(.white)
+                                        .padding(.horizontal, 5)
+                                        .padding(.vertical, 1)
+                                        .background(Color.accentColor, in: Capsule())
+                                }
+                            }
+                            Text(isDanteLocked
+                                 ? "\(bridge.channels) ch · in use by Dante — stop DVS to release"
+                                 : "\(bridge.channels) in · \(bridge.channels) out")
                                 .font(.caption)
                                 .monospacedDigit()
-                                .foregroundStyle(.secondary)
+                                .foregroundStyle(isDanteLocked ? .orange : .secondary)
                         }
                         Spacer()
                         Toggle("", isOn: Binding(
@@ -892,6 +1053,7 @@ struct ManageBridgesSheet: View {
                             set: { client.setBridgeEnabled(bridge.id, enabled: $0) }))
                             .labelsHidden()
                             .toggleStyle(.switch)
+                            .disabled(isDanteLocked)
                     }
                     .padding(.vertical, 2)
                 }

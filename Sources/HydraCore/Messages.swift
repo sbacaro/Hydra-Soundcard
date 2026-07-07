@@ -22,6 +22,8 @@ public struct StatusPayload: Codable, Sendable, Equatable {
     public var cpuLoad: Double
     /// CoreAudio processor-overload count since the engine started (XRUNs).
     public var xruns: Int
+    /// True when the Inferno Dante Virtual Soundcard process is running.
+    public var infernoRunning: Bool
 
     public init(daemonVersion: String,
                 backplaneInstalled: Bool,
@@ -31,7 +33,8 @@ public struct StatusPayload: Codable, Sendable, Equatable {
                 sampleRate: Double = 0,
                 engineRunning: Bool = false,
                 cpuLoad: Double = 0,
-                xruns: Int = 0) {
+                xruns: Int = 0,
+                infernoRunning: Bool = false) {
         self.daemonVersion = daemonVersion
         self.backplaneInstalled = backplaneInstalled
         self.backplaneDeviceName = backplaneDeviceName
@@ -41,12 +44,13 @@ public struct StatusPayload: Codable, Sendable, Equatable {
         self.engineRunning = engineRunning
         self.cpuLoad = cpuLoad
         self.xruns = xruns
+        self.infernoRunning = infernoRunning
     }
 
     private enum CodingKeys: String, CodingKey {
         case daemonVersion, backplaneInstalled, backplaneDeviceName
         case inputChannels, outputChannels, sampleRate, engineRunning
-        case cpuLoad, xruns
+        case cpuLoad, xruns, infernoRunning
     }
     public init(from decoder: Decoder) throws {
         let c = try decoder.container(keyedBy: CodingKeys.self)
@@ -59,6 +63,7 @@ public struct StatusPayload: Codable, Sendable, Equatable {
         engineRunning = try c.decodeIfPresent(Bool.self, forKey: .engineRunning) ?? false
         cpuLoad = try c.decodeIfPresent(Double.self, forKey: .cpuLoad) ?? 0
         xruns = try c.decodeIfPresent(Int.self, forKey: .xruns) ?? 0
+        infernoRunning = try c.decodeIfPresent(Bool.self, forKey: .infernoRunning) ?? false
     }
 }
 
@@ -753,6 +758,12 @@ public struct ConfigPayload: Codable, Sendable, Equatable {
     /// Extra VST3 folder to scan; empty = only the standard locations
     /// (/Library/Audio/Plug-Ins/VST3 and ~/Library/Audio/Plug-Ins/VST3).
     public var vstFolderPath: String
+    
+    // Inferno Dante Virtual Soundcard configuration
+    public var infernoEnabled: Bool
+    public var infernoInterface: String
+    public var infernoBridgeID: String
+    public var infernoLatencyMs: Int
 
     public init(feedbackProtection: Bool = true,
                 appTapMakeupDB: Float = Hydra.appTapMakeupDB,
@@ -760,7 +771,11 @@ public struct ConfigPayload: Codable, Sendable, Equatable {
                 oscPort: Int = Hydra.defaultOSCPort,
                 recordingFormat: String = "float32",
                 recordingFolderPath: String = "",
-                vstFolderPath: String = "") {
+                vstFolderPath: String = "",
+                infernoEnabled: Bool = false,
+                infernoInterface: String = "",
+                infernoBridgeID: String = "4",
+                infernoLatencyMs: Int = 10) {
         self.feedbackProtection = feedbackProtection
         self.appTapMakeupDB = appTapMakeupDB
         self.oscEnabled = oscEnabled
@@ -768,6 +783,15 @@ public struct ConfigPayload: Codable, Sendable, Equatable {
         self.recordingFormat = recordingFormat
         self.recordingFolderPath = recordingFolderPath
         self.vstFolderPath = vstFolderPath
+        self.infernoEnabled = infernoEnabled
+        self.infernoInterface = infernoInterface
+        self.infernoBridgeID = infernoBridgeID
+        self.infernoLatencyMs = infernoLatencyMs
+    }
+
+    private enum CodingKeys: String, CodingKey {
+        case feedbackProtection, appTapMakeupDB, oscEnabled, oscPort, recordingFormat, recordingFolderPath, vstFolderPath
+        case infernoEnabled, infernoInterface, infernoBridgeID, infernoLatencyMs
     }
 
     // Tolerate configs saved by older versions (missing keys → defaults).
@@ -780,6 +804,10 @@ public struct ConfigPayload: Codable, Sendable, Equatable {
         recordingFormat = try c.decodeIfPresent(String.self, forKey: .recordingFormat) ?? "float32"
         recordingFolderPath = try c.decodeIfPresent(String.self, forKey: .recordingFolderPath) ?? ""
         vstFolderPath = try c.decodeIfPresent(String.self, forKey: .vstFolderPath) ?? ""
+        infernoEnabled = try c.decodeIfPresent(Bool.self, forKey: .infernoEnabled) ?? false
+        infernoInterface = try c.decodeIfPresent(String.self, forKey: .infernoInterface) ?? ""
+        infernoBridgeID = try c.decodeIfPresent(String.self, forKey: .infernoBridgeID) ?? "4"
+        infernoLatencyMs = try c.decodeIfPresent(Int.self, forKey: .infernoLatencyMs) ?? 10
     }
 }
 

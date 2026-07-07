@@ -577,6 +577,8 @@ private struct AdvancedSettingsPane: View {
     @State private var exportResult: String?
     @AppStorage("hasSeenWelcome") private var hasSeenWelcome = false
     @AppStorage("experimentalModules") private var experimentalModules = false
+    @AppStorage("expControlSurface") private var expControlSurface = true
+    @AppStorage("expModules") private var expModules = true
     @State private var welcomeReset = false
 
     private var dataFolder: URL {
@@ -669,11 +671,20 @@ private struct AdvancedSettingsPane: View {
                     Toggle("", isOn: $experimentalModules)
                         .labelsHidden()
                 }
-                .help("Reveals in-progress network features: the external Modules host and the HiQnet Control Surface bridge.")
+                .help("Reveals in-progress network features in the sidebar.")
+
+                if experimentalModules {
+                    Toggle("Control Surface · HiQnet Bridge", isOn: $expControlSurface)
+                        .toggleStyle(.checkbox)
+                        .padding(.leading, 12)
+                    Toggle("External Modules Host (.dylib)", isOn: $expModules)
+                        .toggleStyle(.checkbox)
+                        .padding(.leading, 12)
+                }
             } header: {
                 Text("Experimental")
             } footer: {
-                Text("Shows in-progress, personal-use network features in the sidebar — the Modules host and the HiQnet Control Surface bridge. These are unfinished and may change or need calibration with real hardware.")
+                Text("Shows in-progress, personal-use network features in the sidebar. These are unfinished and may change or need calibration with real hardware.")
             }
 
             Section {

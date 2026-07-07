@@ -1,0 +1,8 @@
+[workspace]
+members = [
+    "inferno_aoip",
+    "searchfire",
+    "usrvclock-rs",
+    "hydra-inferno-bridge"
+]
+resolver = "2"

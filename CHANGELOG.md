@@ -2,6 +2,13 @@
 
 All notable changes to Hydra are documented here.
 
+## [2.0.0] — 2026-07-07
+
+### Added
+- **Dante Virtual Soundcard integration via Inferno.** Directly bridge Hydra Audio Bridges to the Dante network.
+- **Auto-enable bridge integration.** Turning on Dante now automatically activates the selected Hydra Audio Bridge.
+- **Experimental sub-toggles**. Configured checkboxes to individually enable/disable the "Control Surface" and "External Modules Host" views.
+
 ## [1.0.8] — 2026-06-29
 
 ### Capture
