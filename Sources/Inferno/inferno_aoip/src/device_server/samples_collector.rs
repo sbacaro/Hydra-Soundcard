@@ -4,9 +4,11 @@ use crate::{
   common::*,
   device_info::DeviceInfo,
   media_clock::{ClockOverlay, MediaClock},
-  ring_buffer::{ProxyToBuffer, ProxyToSamplesBuffer, RBOutput},
+  ring_buffer::{ProxyToSamplesBuffer, RBOutput},
   util::real_time_box_channel::{self, RealTimeBoxReceiver, RealTimeBoxSender},
 };
+#[allow(unused_imports)]
+use crate::ring_buffer::ProxyToBuffer;
 use futures::{Future, FutureExt};
 
 use itertools::Itertools;
@@ -143,6 +145,7 @@ impl<P: ProxyToSamplesBuffer> RealTimeSamplesReceiver<P> {
 }
 
 enum Command<P: ProxyToSamplesBuffer> {
+  #[allow(dead_code)]
   NoOp,
   Shutdown,
   ConnectChannel { channel_index: usize, source: RBOutput<Sample, P>, latency_samples: usize },
@@ -349,7 +352,7 @@ impl<P: ProxyToSamplesBuffer + Sync + Send + 'static> SamplesCollector<P> {
   ) -> (Self, Pin<Box<dyn Future<Output = ()> + Send + 'static>>, RealTimeSamplesReceiver<P>) {
     let (tx, rx) = mpsc::channel(100);
     let (senders, receivers) =
-      (0..self_info.rx_channels.len()).map(|chi| real_time_box_channel::channel(Box::new(None))).unzip();
+      (0..self_info.rx_channels.len()).map(|_chi| real_time_box_channel::channel(Box::new(None))).unzip();
 
     let mut internal = ToRealTime { commands_receiver: rx, senders };
 
@@ -383,6 +386,7 @@ impl<P: ProxyToSamplesBuffer + Sync + Send + 'static> SamplesCollector<P> {
   pub async fn disconnect_channel(&self, channel_index: usize) {
     self.commands_sender.send(Command::DisconnectChannel { channel_index }).await.log_and_forget();
   }
+  #[allow(dead_code)]
   pub async fn shutdown(&self) {
     self.commands_sender.send(Command::Shutdown).await.log_and_forget();
   }

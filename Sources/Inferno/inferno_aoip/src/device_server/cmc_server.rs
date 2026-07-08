@@ -6,7 +6,6 @@ use crate::device_info::DeviceInfo;
 use crate::net_utils::UdpSocketWrapper;
 use crate::protocol::proto_cmc::*;
 use crate::protocol::req_resp;
-use bytebuffer::ByteBuffer;
 use tokio::sync::broadcast::Receiver as BroadcastReceiver;
 
 pub async fn run_server(self_info: Arc<DeviceInfo>, shutdown: BroadcastReceiver<()>) {

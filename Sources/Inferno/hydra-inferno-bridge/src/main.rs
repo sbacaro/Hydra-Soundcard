@@ -7,7 +7,7 @@ use log::{error, info};
 use cpal::traits::{DeviceTrait, HostTrait, StreamTrait};
 
 use inferno_aoip::device_server::{
-    DeviceServer, ExternalBufferParameters, RealTimeSamplesReceiver, Settings, AtomicSample
+    DeviceServer, ExternalBufferParameters, Settings, AtomicSample
 };
 
 #[derive(Parser, Debug)]
@@ -231,7 +231,7 @@ async fn main() {
         &input_config,
         move |data: &[f32], _: &cpal::InputCallbackInfo| {
             let frames = data.len() / channels;
-            let mut write_pos = current_timestamp_capture.load(Ordering::Relaxed);
+            let write_pos = current_timestamp_capture.load(Ordering::Relaxed);
             
             for f in 0..frames {
                 let idx = (write_pos + f) % ring_buffer_size;

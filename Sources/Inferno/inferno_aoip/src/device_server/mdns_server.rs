@@ -12,7 +12,7 @@ use std::{
 use super::flows_tx::{FPP_MAX_ADVERTISED, FPP_MIN, MAX_CHANNELS_IN_FLOW};
 use crate::{
   device_info::DeviceInfo,
-  mdns_client::{self_origin_from_self_info, MdnsClient, PointerToMulticast},
+  mdns_client::{self_origin_from_self_info, PointerToMulticast},
   utils::LogAndForget,
 };
 

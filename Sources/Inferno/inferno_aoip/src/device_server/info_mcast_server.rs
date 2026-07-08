@@ -1,5 +1,4 @@
 use super::channels_subscriber::ChannelsSubscriber;
-use crate::byte_utils::*;
 use crate::common::*;
 use crate::media_clock::MediaClock;
 use crate::net_utils::UdpSocketWrapper;
@@ -32,6 +31,7 @@ struct Multicaster<'s> {
   pub server: UdpSocketWrapper,
   seqnum: u16,
   vendor: [u8; 8],
+  #[allow(dead_code)]
   firmware_version_bytes: [u8; 4],
   product_version_bytes: [u8; 4],
   device_info_destination: SocketAddr,
@@ -49,7 +49,7 @@ impl<'s> Multicaster<'s> {
     server: UdpSocketWrapper,
     clock: Arc<RwLock<MediaClock>>,
     get_peaks: PeaksCallback,
-  ) -> Multicaster {
+  ) -> Multicaster<'s> {
     let mut r = Multicaster {
       self_info,
       server,

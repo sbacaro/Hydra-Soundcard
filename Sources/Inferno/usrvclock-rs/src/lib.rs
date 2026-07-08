@@ -9,7 +9,7 @@
 
 use std::{os::unix::net::{SocketAddr, UnixDatagram}, path::PathBuf, sync::Mutex, time::Duration};
 use custom_error::custom_error;
-use nix::{fcntl::OFlag, libc::{O_RDONLY, S_IFCHR, S_IFMT}, sys::stat::Mode, time::ClockId, libc};
+use nix::{fcntl::OFlag, libc::{S_IFCHR, S_IFMT}, sys::stat::Mode, libc};
 
 
 const OVERLAY_SIZE_BYTES: usize = 40;
@@ -99,6 +99,7 @@ pub const EMPTY_TIMEX: libc::timex = libc::timex {
     __padding: [0; 11],
 };
 
+#[allow(dead_code)]
 fn errno() -> libc::c_int {
     #[cfg(target_os = "linux")]
     unsafe {
@@ -450,8 +451,8 @@ impl AsyncClient {
                 freq_scale: 0.0
             }));
             tokio::spawn(async move {
-                shutdown_rx.await;
-                nix::unistd::close(fd); // TODO FIXME ClockOverlay.now() may still use this clock!!!
+                let _ = shutdown_rx.await;
+                let _ = nix::unistd::close(fd); // TODO FIXME ClockOverlay.now() may still use this clock!!!
             })
         } else {
             tokio::spawn(async move {

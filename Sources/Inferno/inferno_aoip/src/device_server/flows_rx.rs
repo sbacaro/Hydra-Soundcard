@@ -28,7 +28,9 @@ pub const KEEPALIVE_INTERVAL: Duration = Duration::from_millis(250);
 pub const CLOSING_SAMPLES_INTERVAL: Duration = Duration::from_millis(1);
 const KEEPALIVE_CONTENT: [u8; 2] = [0x13, 0x37];
 
+#[allow(dead_code)]
 const SILENCE_BURST_LEN: usize = 64;
+#[allow(dead_code)]
 const SILENCE_SAMPLES: [Sample; SILENCE_BURST_LEN] = [0; SILENCE_BURST_LEN];
 
 //pub type PacketCallback = Box<dyn FnMut(SocketAddr, &[u8]) + Send + 'static>;
@@ -170,6 +172,7 @@ impl<P: ProxyToSamplesBuffer> FlowsReceiverInternal<P> {
     }
     return Command::NoOp;
   }
+  #[allow(dead_code)]
   async fn take_command(receiver: &mut mpsc::Receiver<Command<P>>) -> Command<P> {
     receiver.recv().await.unwrap_or(Command::Shutdown)
   }
@@ -192,7 +195,7 @@ impl<P: ProxyToSamplesBuffer> FlowsReceiverInternal<P> {
     let mut may_have_command = false;
     let mut start_timestamp = None;
 
-    set_current_thread_realtime(80);
+    let _ = set_current_thread_realtime(80);
     loop {
       let write_to_rbs =
         self.sockets.iter().find(|opt| opt.is_some()).is_some() || self.silence_writers.len() > 0;

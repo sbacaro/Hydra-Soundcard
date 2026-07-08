@@ -1,11 +1,11 @@
 use crate::common::*;
 use crate::device_server::flows_tx::FlowInfo;
 use itertools::Itertools;
-use std::net::{IpAddr, Ipv4Addr, SocketAddr};
+use std::net::Ipv4Addr;
 use std::sync::Arc;
 use tokio::sync::Mutex;
 
-use super::flows_tx::{FlowsTransmitter, FPP_MAX, MAX_FLOWS};
+use super::flows_tx::{FlowsTransmitter, FPP_MAX};
 use crate::protocol::flows_control::{FlowControlError, FlowHandle};
 use crate::{
   byte_utils::{make_u16, read_0term_str_from_buffer},
@@ -114,7 +114,7 @@ pub async fn run_server(
             .add_flow(flow_info, fpp as usize, (bits_per_sample / 8) as usize, None, false)
             .await;
           match result {
-            Ok((flow_index, handle)) => {
+            Ok((_flow_index, handle)) => {
               conn.respond(&handle).await;
             }
             Err(e) => {
@@ -131,7 +131,7 @@ pub async fn run_server(
             error!("packet too short: {}", hex::encode(request.content()));
             continue;
           };
-          if let Ok(flow_index) = flows_tx.lock().await.as_mut().unwrap().remove_flow(handle).await {
+          if let Ok(_flow_index) = flows_tx.lock().await.as_mut().unwrap().remove_flow(handle).await {
             info!("stopped flow {handle:?}");
             conn.respond(&[]).await;
           } else {

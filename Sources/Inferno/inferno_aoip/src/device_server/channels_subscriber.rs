@@ -34,12 +34,14 @@ use tokio::{sync::mpsc, time::sleep, time::timeout};
 
 use super::flows_rx::{FlowInfo, FlowsReceiver};
 
+#[allow(dead_code)]
 const REORDER_WAIT_SAMPLES: usize = 4800;
 
 enum Command {
   Shutdown,
   Subscribe { local_channel_index: usize, tx_channel_name: String, tx_hostname: String },
   Unsubscribe { local_channel_index: usize },
+  #[allow(dead_code)]
   ForceRefresh,
 }
 
@@ -47,6 +49,7 @@ enum Command {
 pub enum SubscriptionStatus {
   Unresolved = 1,
   InProgress = 8,
+  #[allow(dead_code)]
   TooManyTxFlows = 0x14, // TODO propagate error from tx's reply
   TxFail = 0x15,
   ReceivingUnicast = 0x01010009,
@@ -54,6 +57,7 @@ pub enum SubscriptionStatus {
 }
 
 impl SubscriptionStatus {
+  #[allow(dead_code)]
   pub fn is_receiving(&self) -> bool {
     *self == Self::ReceivingUnicast || *self == Self::ReceivingMulticast
   }
@@ -144,6 +148,7 @@ impl ChannelsSubscriber {
   pub async fn unsubscribe(&self, local_channel_index: usize) {
     self.commands_sender.send(Command::Unsubscribe { local_channel_index }).await.log_and_forget();
   }
+  #[allow(dead_code)]
   pub async fn save_state(&self) {
     self.commands_sender.send(Command::ForceRefresh).await.log_and_forget();
   }
@@ -230,6 +235,7 @@ impl ChannelsBuffering<OwnedBuffer<Atomic<Sample>>> for OwnedBuffering {
 }
 
 pub struct ExternalBuffering {
+  #[allow(dead_code)]
   channels: Vec<ExternalBufferParameters<Sample>>,
   hole_fix_wait: usize,
   pub(crate) ring_buffers: Vec<Arc<RingBufferShared<Sample, ExternalBuffer<Atomic<Sample>>>>>,
@@ -248,8 +254,8 @@ impl ExternalBuffering {
 impl ChannelsBuffering<ExternalBuffer<Atomic<Sample>>> for ExternalBuffering {
   fn connect_channel(
     &mut self,
-    start_time: Clock,
-    start_time_shift: ClockDiff,
+    _start_time: Clock,
+    _start_time_shift: ClockDiff,
     rb_output: &mut Option<RBOutput<Sample, ExternalBuffer<Atomic<Sample>>>>,
     channel_index: usize,
     _latency_samples: usize,
@@ -1161,7 +1167,7 @@ impl<P: ProxyToSamplesBuffer + Sync + Send + 'static, B: ChannelsBuffering<P>>
                     let rem_addr = uf.control_remote_addr;
                     let dbcp1 = uf.dbcp1;
                     let handle = uf.handle.unwrap();
-                    let flow_id = flow.local_id;
+                    let _flow_id = flow.local_id;
                     destroy_futures_per_remote.entry(uf.control_remote_addr).or_default().push(
                       async move {
                         info!("removing no longer needed flow index={flow_index}, remote={rem_addr:?}");
@@ -1172,7 +1178,7 @@ impl<P: ProxyToSamplesBuffer + Sync + Send + 'static, B: ChannelsBuffering<P>>
                       .boxed(),
                     );
                   }
-                  FlowSource::Multicast(mf) => {
+                  FlowSource::Multicast(_mf) => {
                     let flows_recv = self.flows_recv.clone();
                     tokio::spawn(async move {
                       flows_recv.remove_socket(flow_index).await;

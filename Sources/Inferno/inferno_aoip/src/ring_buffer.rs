@@ -146,6 +146,7 @@ impl<T, P: ProxyToBuffer<Atomic<T>>> RingBufferShared<T, P> {
       readable_pos_dest,
     })
   }
+  #[allow(dead_code)]
   #[inline(always)]
   fn item_to_buffer_index(&self, i: usize) -> usize {
     // a % b == a & (b-1) if b is power of 2
@@ -473,27 +474,32 @@ pub fn new_owned<T: Default>(
   )
 }
 
+#[allow(dead_code)]
 pub struct ExternalRBInput<T> {
   rb: Arc<RingBufferShared<T, ExternalBuffer<Atomic<T>>>>,
   margin: usize,
 }
 
 impl<T> ExternalRBInput<T> {
+  #[allow(dead_code)]
   fn advance(&self, new_position: usize) {
     self.rb.writing_pos.store(new_position, Ordering::Release);
     self.rb.readable_pos.store(new_position.wrapping_sub(self.margin), Ordering::Release);
     self.rb.commit_readable_pos();
   }
+  #[allow(dead_code)]
   fn position(&self, clock: usize) -> usize {
     clock
   }
 }
 
+#[allow(dead_code)]
 pub struct ExternalRBOutput<T> {
   rb: Arc<RingBufferShared<T, ExternalBuffer<Atomic<T>>>>,
 }
 
 impl<T> ExternalRBOutput<T> {
+  #[allow(dead_code)]
   fn position(&self, _clock: usize) -> usize {
     self.rb.readable_pos.load(Ordering::Acquire)
     // TODO when no data is received and so readable_pos can't be advanced by normal means, fill with silence
@@ -541,6 +547,7 @@ pub fn wrap_external_source<T: Default>(
   RBOutput { rb: shared_from_external(par, start_time) }
 }
 
+#[allow(dead_code)]
 pub fn wrap_external_sink<T: Default>(
   par: &ExternalBufferParameters<T>,
   start_time: usize,

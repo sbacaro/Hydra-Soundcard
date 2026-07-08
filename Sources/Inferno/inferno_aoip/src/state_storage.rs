@@ -3,10 +3,9 @@ use std::{
   fs::{create_dir_all, File},
   io::{Read, Write},
   path::MAIN_SEPARATOR_STR,
-  sync::Arc,
 };
 
-use crate::{common::*, device_info, device_info::DeviceInfo};
+use crate::{common::*, device_info::DeviceInfo};
 use platform_dirs::AppDirs;
 use serde::{Deserialize, Serialize};
 use toml;

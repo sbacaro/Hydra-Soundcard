@@ -2,6 +2,7 @@ use crate::mdns_client::{MdnsClient, PointerToMulticast};
 use crate::media_clock::{
   async_clock_receiver_to_realtime, make_shared_media_clock, start_clock_receiver, ClockReceiver,
 };
+#[allow(unused_imports)]
 use crate::ring_buffer::{self, OwnedBuffer, ProxyToBuffer, ProxyToSamplesBuffer, RBOutput};
 use crate::state_storage::StateStorage;
 use atomic::Atomic;
@@ -13,6 +14,7 @@ use tokio::task::JoinHandle;
 use tx_multicasts::TransmitMulticasts;
 
 use std::collections::BTreeMap;
+#[allow(unused_imports)]
 use std::io::Write;
 use std::pin::Pin;
 use std::sync::atomic::AtomicUsize;
@@ -51,7 +53,9 @@ use peaks::peaks_of_buffers;
 pub use samples_collector::RealTimeSamplesReceiver;
 use samples_collector::{SamplesCallback, SamplesCollector};
 
+#[allow(dead_code)]
 const PEAKS_BUFFER_LEN: usize = 24000;
+#[allow(dead_code)]
 const PEAKS_ITER_SLEEP: Duration = Duration::from_millis(100);
 
 pub struct TransferNotifier {
@@ -299,7 +303,7 @@ impl DeviceServer {
     current_timestamp: Arc<AtomicUsize>,
     on_transfer: Option<TransferNotifier>,
   ) {
-    let clock_rx = self.clock_receiver.subscribe();
+    let _clock_rx = self.clock_receiver.subscribe();
 
     let (flows_tx_handle, flows_tx_thread) = flows_tx::FlowsTransmitter::start(
       self.self_info.clone(),

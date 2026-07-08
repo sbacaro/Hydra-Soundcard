@@ -1,7 +1,6 @@
 use std::net::{IpAddr, Ipv4Addr, UdpSocket};
-use std::num::Wrapping;
 use std::sync::atomic::{AtomicBool, AtomicUsize};
-use std::sync::{Arc, RwLock};
+use std::sync::Arc;
 use std::thread::JoinHandle;
 use std::{collections::BTreeMap, net::SocketAddr, sync::atomic::AtomicU32, time::Duration};
 
@@ -10,13 +9,11 @@ use futures::FutureExt;
 use itertools::Itertools;
 use rand::rngs::SmallRng;
 use rand::{thread_rng, Rng, SeedableRng};
-use tokio::sync::watch;
 use tokio::{select, sync::mpsc};
 
 use super::samples_utils::*;
 use super::tx_multicasts::MEDIA_PORT;
 use crate::device_server::TransferNotifier;
-use crate::media_clock::async_clock_receiver_to_realtime;
 use crate::ring_buffer::{ProxyToSamplesBuffer, RBOutput};
 use crate::util::os::set_current_thread_realtime;
 use crate::util::real_time_box_channel::RealTimeBoxReceiver;
@@ -36,14 +33,17 @@ pub const MAX_FLOWS: u32 = 32;
 pub const MAX_CHANNELS_IN_FLOW: u16 = 8;
 pub const KEEPALIVE_TIMEOUT_SECONDS: Clock = 4;
 pub const DISCONTINUITY_THRESHOLD_SAMPLES: usize = 192000;
+#[allow(dead_code)]
 const BUFFERED_SAMPLES_PER_CHANNEL: usize = 65536;
 pub const SELECT_THRESHOLD: Duration = Duration::from_millis(100);
+#[allow(dead_code)]
 pub const PROCESS_EVENTS_INTERVAL: Duration = Duration::from_millis(33);
 pub const MIN_SLEEP: Duration = Duration::from_millis(0); // to save CPU cycles, TODO: make it configurable via some "eco mode" flag
 
 // it's better to have the clock in the past than in the future - otherwise Dante devices receiving from us go mad and fart
 const CLOCK_OFFSET_NS: ClockDiff = -500_000;
 
+#[allow(dead_code)]
 pub type SamplesRequestCallback = Box<dyn FnMut(Clock, usize, &mut [Sample]) + Send + 'static>;
 
 struct Flow {
@@ -270,9 +270,9 @@ impl<P: ProxyToSamplesBuffer> FlowsTransmitterInternal<P> {
     };
     let mut next_on_transfer = now as Clock;
     let mut next_process_events = now as Clock;
-    drop(now);
+    let _ = now;
 
-    set_current_thread_realtime(81);
+    let _ = set_current_thread_realtime(81);
     loop {
       let min_next_ts = self
         .flows
@@ -507,7 +507,7 @@ impl FlowsTransmitter {
     on_transfer: Option<TransferNotifier>,
   ) -> (Self, JoinHandle<()>) {
     let (tx, rx) = mpsc::channel(100);
-    let tx1 = tx.clone();
+    let _tx1 = tx.clone();
     let srate = self_info.sample_rate;
     // TODO dehardcode latency_ns
     let thread_join = run_future_in_new_thread("flows TX", move || {
@@ -720,6 +720,7 @@ impl FlowsTransmitter {
       self.remove_flow_internal(id).await;
     }
   }
+  #[allow(dead_code)]
   pub fn is_empty(&self) -> bool {
     self.flows.is_empty()
   }

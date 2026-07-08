@@ -5,9 +5,11 @@ use std::str;
 
 use bytebuffer::ByteBuffer;
 
+#[allow(non_snake_case)]
 pub fn H(u: u16) -> u8 {
   return (u >> 8) as u8;
 }
+#[allow(non_snake_case)]
 pub fn L(u: u16) -> u8 {
   return u as u8;
 }

@@ -4,7 +4,6 @@ use std::sync::RwLock;
 
 pub use usrvclock::AsyncClient as ClockReceiver;
 pub use usrvclock::ClockOverlay;
-use usrvclock::SafeClock;
 
 use crate::common::*;
 use crate::util::real_time_box_channel::{self, RealTimeBoxReceiver};
@@ -22,6 +21,7 @@ pub struct MediaClock {
 }
 
 #[inline(always)]
+#[allow(dead_code)]
 fn timestamp_to_clock_value(ts: clock_steering::Timestamp) -> FineClock {
   (ts.seconds as FineClock).wrapping_mul(1_000_000_000).wrapping_add(ts.nanos as FineClock)
 }

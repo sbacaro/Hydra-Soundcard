@@ -222,6 +222,7 @@ pub mod create_multicast_tx_flow {
   }
 
   #[derive(Debug, binary_serde::BinarySerde, Default)]
+  #[allow(dead_code)]
   pub struct MostlyZeros {
     pub unknown1_a00: u16,
     pub unknown2_0: [u8; 14],
@@ -337,7 +338,7 @@ pub fn extract_start_index(request_payload: &[u8]) -> Option<usize> {
 }
 
 pub fn paginate_make_response<InItem, OutItem>(
-  connection: &mut Connection,
+  _connection: &mut Connection,
   request_payload: &[u8],
   space_items: u8,
   source: impl IntoIterator<Item = InItem>,

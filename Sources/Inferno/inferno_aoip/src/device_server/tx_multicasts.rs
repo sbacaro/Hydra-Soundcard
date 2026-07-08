@@ -1,5 +1,5 @@
 use std::collections::BTreeMap;
-use std::sync::atomic::{AtomicBool, AtomicU32, AtomicUsize};
+use std::sync::atomic::{AtomicBool, AtomicU32};
 use std::sync::RwLock;
 use std::{net::Ipv4Addr, sync::Arc};
 
@@ -344,6 +344,7 @@ impl TransmitMulticasts {
     };
     self.state_storage.save("tx_multicasts", &to_save).log_and_forget();
   }
+  #[allow(dead_code)]
   pub fn get_multicast_by_channel(&self, channel_index: usize) -> Option<PointerToMulticast> {
     self.multicasts_by_channel.read().unwrap().get(&channel_index).map(|p| p.clone())
   }

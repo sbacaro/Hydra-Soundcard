@@ -36,8 +36,10 @@ pub struct PointerToMulticast {
 #[derive(Debug, Clone)]
 pub struct AdvertisedBundle {
   pub tx_channels_per_flow: usize,
+  #[allow(dead_code)]
   pub tx_bundle_id: u16,
   pub bits_per_sample: u32,
+  #[allow(dead_code)]
   pub fpp: u16,
   pub min_rx_latency_ns: usize,
   pub media_addr: SocketAddr,
@@ -50,6 +52,7 @@ pub struct AdvertisedChannel {
   pub tx_channel_id: u16,
   pub bits_per_sample: u32,
   pub dbcp1: u16,
+  #[allow(dead_code)]
   /// minimum Frames Per Packet supported by transmitter (Frame = single samples of all channels)
   pub fpp_min: u16,
   /// maximum Frames Per Packet supported by transmitter (Frame = single samples of all channels)
@@ -65,6 +68,7 @@ pub fn self_origin_from_self_info(self_info: &DeviceInfo) -> Vec<u8> {
 pub struct MdnsClient {
   listen_ip: Ipv4Addr,
   self_origin: Vec<u8>,
+  #[allow(dead_code)]
   self_info: Arc<DeviceInfo>,
 }
 

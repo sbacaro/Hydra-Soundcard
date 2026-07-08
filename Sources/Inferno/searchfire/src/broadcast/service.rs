@@ -375,6 +375,7 @@ impl ServiceBuilder {
 		self
 	}
 
+	#[allow(missing_docs)]
 	#[inline(always)]
 	pub fn add_additional_txt(mut self, name: DnsName, data: Vec<u8>) -> Self {
 		self.0.additional_txt = Some((name, data));

@@ -181,6 +181,7 @@ impl Discovery {
 			.block_on(self.impl_run(Arc::new(handler), None))
 	}
 
+	#[allow(missing_docs)]
 	pub async fn single_query(
 		self,
 		types: &[DnsRecordType],

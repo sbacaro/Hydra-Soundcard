@@ -3,7 +3,7 @@ use binary_layout::prelude::*;
 use binary_serde::recursive_array::RecursiveArray as _;
 use binary_serde::BinarySerde;
 use std::net::SocketAddr;
-use std::{borrow::BorrowMut, io::Cursor};
+use std::borrow::BorrowMut;
 
 use crate::net_utils::{ReceiveBuffer, UdpSocketWrapper, MTU};
 

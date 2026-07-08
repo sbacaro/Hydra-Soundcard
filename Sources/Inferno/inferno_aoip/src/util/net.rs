@@ -19,10 +19,12 @@ impl ReceiveBuffer {
 
 pub struct UdpSocketWrapper {
   socket: Option<UdpSocket>,
+  #[allow(dead_code)]
   listen_addr: Ipv4Addr,
   listen_port: u16,
   shutdown: Receiver<()>,
   dowork: bool,
+  #[allow(dead_code)]
   recv_buff: [u8; PACKET_BUFFER_SIZE],
 }
 

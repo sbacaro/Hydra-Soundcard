@@ -267,7 +267,7 @@ impl AsyncMdnsSocket {
 		}
 	}
 
-	pub fn recv(&self, buffer: Vec<u8>) -> MdnsSocketRecv {
+	pub fn recv(&self, buffer: Vec<u8>) -> MdnsSocketRecv<'_> {
 		match self {
 			#[rustfmt::skip]
 			Self::V4(InterfacedMdnsSocket::UniInterface(socket) | InterfacedMdnsSocket::MultiInterface { socket, .. }) => {
