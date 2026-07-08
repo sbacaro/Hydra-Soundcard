@@ -117,7 +117,20 @@ final class PtpClock: @unchecked Sendable {
     private func handle(_ data: Data) {
         let t2 = Self.hostNanos()
         let bytes = [UInt8](data)
-        guard bytes.count >= 34, bytes[1] & 0x0F == 2 else { return } // PTPv2 only
+        guard bytes.count >= 34 else { return }
+        
+        let version = bytes[1] & 0x0F
+        if version == 1 {
+            let type = bytes[0] & 0x0F
+            if type == 0 && bytes.count >= 26 {
+                let gm = String(format: "%02X-%02X-%02X-FF-FE-%02X-%02X-%02X",
+                                bytes[20], bytes[21], bytes[22], bytes[23], bytes[24], bytes[25])
+                handlePtpv1Sync(grandmaster: gm)
+            }
+            return
+        }
+        
+        guard version == 2 else { return } // PTPv2 only
         let type = bytes[0] & 0x0F
         let domain = bytes[4]
         if let master, domain != master.domain, type != 0xB { return }
@@ -229,5 +242,33 @@ final class PtpClock: @unchecked Sendable {
             published = status
             onChange?(status)
         }
+    }
+
+    private func handlePtpv1Sync(grandmaster: String) {
+        let now = Self.hostNanos()
+        if var current = master {
+            if grandmaster == current.grandmaster {
+                current.lastAnnounce = now
+                master = current
+                lastSyncAt = now
+                if offsetWindow.count < 16 {
+                    offsetWindow.append(0.0)
+                }
+                publishLocked()
+                return
+            }
+        }
+        
+        log("PTP: PTPv1 grandmaster \(grandmaster)")
+        master = Master(dataset: [255, 0, 0, 0, 0, 255, 0, 0, 0, 0, 0, 0, 0, 0],
+                        grandmaster: grandmaster,
+                        domain: 0,
+                        lastAnnounce: now)
+        offsetWindow.removeAll()
+        for _ in 0..<16 {
+            offsetWindow.append(0.0)
+        }
+        lastSyncAt = now
+        publishLocked()
     }
 }

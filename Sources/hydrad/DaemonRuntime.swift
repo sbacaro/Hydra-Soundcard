@@ -504,7 +504,7 @@ final class DaemonContext {
                     
                     let clockId: String
                     if status.locked && !status.grandmaster.isEmpty {
-                        clockId = status.grandmaster.lowercased()
+                        clockId = status.grandmaster.replacingOccurrences(of: "-", with: "").lowercased()
                     } else {
                         let prefix = macPart.prefix(6)
                         let suffix = macPart.suffix(6)
