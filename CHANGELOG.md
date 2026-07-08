@@ -2,6 +2,13 @@
 
 All notable changes to Hydra are documented here.
 
+## [2.1.1] — 2026-07-08
+
+### Fixed
+- **mDNS Goodbye Packets**: Emits instant TTL=0 multicast goodbye frames for all Dante and Inferno advertiser records upon Hydra shutdown. This instructs Dante Controller to clear the cached device immediately from its network list instead of displaying a greyed-out offline row.
+- **Dante Diagnostics & Status**: Fully activated the mock parameter queries (opcodes `0x1100` and `0x1102`), allowing Dante Controller to successfully fetch clock sync leader status, network bandwidth (B/W) measurements, and latency statuses.
+- **Dynamic Latency Reporting**: Serializes the user-selected Dante latency setting (e.g. 4 ms) into the diagnostics response payload instead of returning a hardcoded 1 ms value. This speeds up the connection handshake and transitions channel subscriptions from "Unresolved" to "Connected" instantly.
+
 ## [2.1.0] — 2026-07-08
 
 ### Added
