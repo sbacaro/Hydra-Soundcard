@@ -153,7 +153,28 @@ impl Broadcaster {
 			tokio::select! {
 				biased;
 				_ = Self::recv_loop(tx, &mut rx, &config) => (),
-				_ = shutdown_rx => (),
+				_ = shutdown_rx => {
+					let config_guard = config.read().unwrap();
+					let mut send_buf = vec![0u8; 4096];
+					for service_resp in config_guard.services.iter() {
+						let mut goodbye_msg = service_resp.dns_response.clone();
+						for record in goodbye_msg.answers_mut() {
+							record.set_ttl(0);
+						}
+						for record in goodbye_msg.additionals_mut() {
+							record.set_ttl(0);
+						}
+						for record in goodbye_msg.name_servers_mut() {
+							record.set_ttl(0);
+						}
+						send_buf.clear();
+						if goodbye_msg.emit(&mut BinEncoder::new(&mut send_buf)).is_ok() {
+							if let Err(err) = tx.send_multicast(&send_buf).await {
+								log::warn!("Failed to send goodbye multicast mDNS response: {err}");
+							}
+						}
+					}
+				},
 			}
 		} else {
 			Self::recv_loop(tx, &mut rx, &config).await
