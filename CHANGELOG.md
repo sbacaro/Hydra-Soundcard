@@ -2,6 +2,11 @@
 
 All notable changes to Hydra are documented here.
 
+## [2.1.2] — 2026-07-08
+
+### Fixed
+- **Clock Leader Conflict**: Corrected the clock synchronization architecture by dynamically scanning and writing the network PTP Grandmaster Clock ID to the device clock-stats files in `/tmp` when the PTP state changes. This informs Dante Controller that Hydra Soundcard is correctly following the leader (`Follower`) instead of advertising itself as a secondary leader, resolving the clock conflict ("AllenHeathSQ-7, Unknown Device*") and establishing channel subscriptions instantly.
+
 ## [2.1.1] — 2026-07-08
 
 ### Fixed
