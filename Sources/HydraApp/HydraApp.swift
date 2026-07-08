@@ -31,6 +31,7 @@ struct HydraApp: App {
     var body: some Scene {
         WindowGroup("Hydra Soundcard", id: "main") {
             ContentView()
+                .frame(minWidth: 800, minHeight: 550)
                 .environment(client)
                 .environment(client.signals)
                 .environment(client.meters)
