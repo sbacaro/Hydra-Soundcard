@@ -283,13 +283,58 @@ struct SidebarView: View {
         client.config.infernoEnabled && client.config.infernoBridgeID == bridgeID
     }
 
+    /// Resolves the link speed of a given network interface on macOS by running `ifconfig`.
+    private func getLinkSpeed(for interfaceName: String) -> String {
+        guard !interfaceName.isEmpty else { return "—" }
+        let process = Process()
+        process.executableURL = URL(fileURLWithPath: "/sbin/ifconfig")
+        process.arguments = [interfaceName]
+        let pipe = Pipe()
+        process.standardOutput = pipe
+        do {
+            try process.run()
+            process.waitUntilExit()
+            let data = pipe.fileHandleForReading.readDataToEndOfFile()
+            if let output = String(data: data, encoding: .utf8) {
+                if output.contains("status: inactive") {
+                    return "Inactive"
+                }
+                for line in output.components(separatedBy: .newlines) {
+                    if line.contains("media:") {
+                        if line.contains("1000base") || line.contains("1000Base") {
+                            return "1 Gbps"
+                        } else if line.contains("10Gbase") || line.contains("10gbase") || line.contains("10G-") {
+                            return "10 Gbps"
+                        } else if line.contains("2500base") || line.contains("2.5G") {
+                            return "2.5 Gbps"
+                        } else if line.contains("5000base") || line.contains("5G") {
+                            return "5 Gbps"
+                        } else if line.contains("100base") || line.contains("100Base") {
+                            return "100 Mbps"
+                        } else if line.contains("10base") || line.contains("10Base") {
+                            return "10 Mbps"
+                        }
+                        if let start = line.range(of: "(")?.upperBound,
+                           let end = line.range(of: " <")?.lowerBound {
+                            return String(line[start..<end])
+                        }
+                        if line.contains("autoselect") {
+                            return "1 Gbps"
+                        }
+                    }
+                }
+            }
+        } catch {
+            // ignore
+        }
+        return "1 Gbps"
+    }
+
     /// The Dante Virtual Soundcard control panel (Inferno).
     @ViewBuilder
     private var infernoSection: some View {
         let locked = infernoIsRunning
         let ifaces = networkInterfaces
-        let selectedIP = ifaces.first { $0.name == client.config.infernoInterface }?.ip
-            ?? ifaces.first?.ip ?? "—"
 
         // Source bridge
         LabeledContent("Source Bridge") {
@@ -327,14 +372,6 @@ struct SidebarView: View {
         }
         .font(.callout)
 
-        // Interface IP (read-only)
-        LabeledContent("Interface IP") {
-            Text(selectedIP)
-                .foregroundStyle(.secondary)
-                .monospacedDigit()
-        }
-        .font(.callout)
-
         // Latency
         LabeledContent("Latency") {
             Picker("", selection: Binding(
@@ -348,6 +385,16 @@ struct SidebarView: View {
             .labelsHidden()
             .pickerStyle(.menu)
             .disabled(locked)
+        }
+        .font(.callout)
+
+        // Link Speed (read-only)
+        LabeledContent("Link Speed") {
+            let selectedInterfaceName = client.config.infernoInterface.isEmpty
+                ? (ifaces.first?.name ?? "")
+                : client.config.infernoInterface
+            Text(getLinkSpeed(for: selectedInterfaceName))
+                .foregroundStyle(.secondary)
         }
         .font(.callout)
 
