@@ -14,6 +14,7 @@
 
 import SwiftUI
 import HydraCore
+import SystemConfiguration
 
 enum SidebarTab: String, CaseIterable {
     case devices = "Devices"
@@ -230,12 +231,28 @@ struct SidebarView: View {
 
     // MARK: - Inferno Dante Virtual Soundcard
 
-    /// Network interfaces available on the machine (IPv4 only).
+    /// Names of network interfaces that are Wi-Fi (IEEE80211).
+    private var wifiInterfaces: Set<String> {
+        var names = Set<String>()
+        if let interfaces = SCNetworkInterfaceCopyAll() as? [SCNetworkInterface] {
+            for interface in interfaces {
+                if let bsdName = SCNetworkInterfaceGetBSDName(interface) as String?,
+                   let type = SCNetworkInterfaceGetInterfaceType(interface) as String?,
+                   type == kSCNetworkInterfaceTypeIEEE80211 as String {
+                    names.insert(bsdName)
+                }
+            }
+        }
+        return names
+    }
+
+    /// Network interfaces available on the machine (IPv4 only, excluding Wi-Fi).
     private var networkInterfaces: [(name: String, ip: String)] {
         var results: [(String, String)] = []
         var ifaddr: UnsafeMutablePointer<ifaddrs>?
         guard getifaddrs(&ifaddr) == 0, let first = ifaddr else { return results }
         defer { freeifaddrs(first) }
+        let wifiIfaces = wifiInterfaces
         var cursor: UnsafeMutablePointer<ifaddrs>? = first
         while let ifa = cursor {
             let sa = ifa.pointee.ifa_addr
@@ -246,7 +263,7 @@ struct SidebarView: View {
                                &hostname, socklen_t(hostname.count),
                                nil, 0, NI_NUMERICHOST) == 0 {
                     let ip = String(cString: hostname)
-                    if !ip.hasPrefix("127.") {
+                    if !ip.hasPrefix("127.") && !wifiIfaces.contains(name) {
                         results.append((name, ip))
                     }
                 }

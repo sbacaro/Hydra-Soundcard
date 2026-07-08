@@ -138,6 +138,14 @@ struct MenuBarPanel: View {
                 }
                 .buttonStyle(.bordered)
                 .controlSize(.large)
+                Button(role: .destructive) {
+                    NSApplication.shared.terminate(nil)
+                } label: {
+                    Label("Quit Hydra", systemImage: "power")
+                        .frame(maxWidth: .infinity)
+                }
+                .buttonStyle(.bordered)
+                .controlSize(.large)
             }
         }
         .padding(14)

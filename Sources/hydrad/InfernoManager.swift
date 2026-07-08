@@ -4,6 +4,7 @@
 
 import Foundation
 import HydraCore
+import SystemConfiguration
 
 @MainActor
 final class InfernoManager {
@@ -26,14 +27,26 @@ final class InfernoManager {
 
     var running: Bool { isRunning }
 
-    /// Resolve interface name to IPv4 address (e.g. "en0" -> "192.168.1.10").
-    /// Falls back to the name if resolution fails.
+    /// Resolve interface name to IPv4 address (e.g. "en1" -> "192.168.1.10").
+    /// Only considers wired connections (excludes Wi-Fi) for both matching and fallback.
     private func resolveIP(for interfaceName: String) -> String {
         var addr: String?
         var fallbackAddr: String?
         var ifaddr: UnsafeMutablePointer<ifaddrs>?
         guard getifaddrs(&ifaddr) == 0, let first = ifaddr else { return "127.0.0.1" }
         defer { freeifaddrs(first) }
+        
+        var wifiIfaces = Set<String>()
+        if let interfaces = SCNetworkInterfaceCopyAll() as? [SCNetworkInterface] {
+            for interface in interfaces {
+                if let bsdName = SCNetworkInterfaceGetBSDName(interface) as String?,
+                   let type = SCNetworkInterfaceGetInterfaceType(interface) as String?,
+                   type == kSCNetworkInterfaceTypeIEEE80211 as String {
+                    wifiIfaces.insert(bsdName)
+                }
+            }
+        }
+
         var cursor: UnsafeMutablePointer<ifaddrs>? = first
         while let ifa = cursor {
             let sa = ifa.pointee.ifa_addr
@@ -44,7 +57,7 @@ final class InfernoManager {
                                &hostname, socklen_t(hostname.count),
                                nil, 0, NI_NUMERICHOST) == 0 {
                     let ipStr = String(cString: hostname)
-                    if !ipStr.hasPrefix("127.") {
+                    if !ipStr.hasPrefix("127.") && !wifiIfaces.contains(name) {
                         if name == interfaceName {
                             addr = ipStr
                             break
