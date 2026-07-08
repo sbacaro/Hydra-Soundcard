@@ -83,12 +83,14 @@ final class PtpClock: @unchecked Sendable {
 
     // MARK: Lifecycle
 
-    func start() {
-        eventRx = MulticastReceiver(address: "224.0.1.129", port: 319,
+    func start(interfaceIP: String? = nil) {
+        stop()
+        
+        eventRx = MulticastReceiver(address: "224.0.1.129", port: 319, bindIP: interfaceIP,
                                     queue: queue) { [weak self] data in
             self?.handle(data)
         }
-        generalRx = MulticastReceiver(address: "224.0.1.129", port: 320,
+        generalRx = MulticastReceiver(address: "224.0.1.129", port: 320, bindIP: interfaceIP,
                                       queue: queue) { [weak self] data in
             self?.handle(data)
         }
@@ -96,13 +98,25 @@ final class PtpClock: @unchecked Sendable {
             log("PTP: could not open sockets (319/320) — TX stays on the free-running clock")
             return
         }
-        log("PTP: listening on 224.0.1.129:319/320 (software-timestamp slave)")
+        log("PTP: listening on 224.0.1.129:319/320 (software-timestamp slave) via \(interfaceIP ?? "any")")
 
         let timer = DispatchSource.makeTimerSource(queue: queue)
         timer.schedule(deadline: .now() + 5, repeating: 5)
         timer.setEventHandler { [weak self] in self?.expireLocked() }
         timer.resume()
         expiryTimer = timer
+    }
+
+    func stop() {
+        eventRx?.stop()
+        eventRx = nil
+        generalRx?.stop()
+        generalRx = nil
+        expiryTimer?.cancel()
+        expiryTimer = nil
+        master = nil
+        offsetWindow.removeAll()
+        pendingSync = nil
     }
 
     // MARK: Wire parsing (queue only)

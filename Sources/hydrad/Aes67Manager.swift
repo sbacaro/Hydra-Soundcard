@@ -31,7 +31,7 @@ final class MulticastReceiver {
     private let fd: Int32
     private let source: DispatchSourceRead
 
-    init?(address: String, port: UInt16, queue: DispatchQueue,
+    init?(address: String, port: UInt16, bindIP: String? = nil, queue: DispatchQueue,
           handler: @escaping (Data) -> Void) {
         let fd = socket(AF_INET, SOCK_DGRAM, 0)
         guard fd >= 0 else { return nil }
@@ -43,7 +43,11 @@ final class MulticastReceiver {
         addr.sin_len = UInt8(MemoryLayout<sockaddr_in>.size)
         addr.sin_family = sa_family_t(AF_INET)
         addr.sin_port = port.bigEndian
-        addr.sin_addr.s_addr = INADDR_ANY
+        if let bip = bindIP, !bip.isEmpty {
+            addr.sin_addr.s_addr = inet_addr(bip)
+        } else {
+            addr.sin_addr.s_addr = INADDR_ANY
+        }
         let bound = withUnsafePointer(to: &addr) {
             $0.withMemoryRebound(to: sockaddr.self, capacity: 1) {
                 bind(fd, $0, socklen_t(MemoryLayout<sockaddr_in>.size))
@@ -52,7 +56,8 @@ final class MulticastReceiver {
         // Join on EVERY IPv4 interface (INADDR_ANY joins only the default
         // multicast route, which may not be where the packets arrive).
         var joins = 0
-        for ifaceIP in Self.localIPv4Interfaces() + ["0.0.0.0"] {
+        let interfaces = (bindIP != nil && !bindIP!.isEmpty) ? [bindIP!] : (Self.localIPv4Interfaces() + ["0.0.0.0"])
+        for ifaceIP in interfaces {
             var mreq = ip_mreq()
             mreq.imr_multiaddr.s_addr = inet_addr(address)
             mreq.imr_interface.s_addr = inet_addr(ifaceIP)

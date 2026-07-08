@@ -26,6 +26,7 @@ final class InfernoManager {
     }
 
     var running: Bool { isRunning }
+    public private(set) var activeIP: String = "127.0.0.1"
 
     /// Resolve interface name to IPv4 address (e.g. "en1" -> "192.168.1.10").
     /// Only considers wired connections (excludes Wi-Fi) for both matching and fallback.
@@ -161,6 +162,7 @@ final class InfernoManager {
             try proc.run()
             process = proc
             isRunning = true
+            self.activeIP = resolvedIP
             log("InfernoManager: Started hydra-inferno-bridge (PID \(proc.processIdentifier)) — bridge=\(bridgeName), ip=\(resolvedIP), latency=\(config.infernoLatencyMs)ms")
             onChange?(true)
         } catch {
@@ -173,6 +175,7 @@ final class InfernoManager {
         proc.terminate()
         process = nil
         isRunning = false
+        activeIP = "127.0.0.1"
         log("InfernoManager: Stopped")
         onChange?(false)
     }
@@ -180,6 +183,7 @@ final class InfernoManager {
     private func handleExit(status: Int32) {
         process = nil
         isRunning = false
+        activeIP = "127.0.0.1"
         log("InfernoManager: Process exited with status \(status)")
         onChange?(false)
     }

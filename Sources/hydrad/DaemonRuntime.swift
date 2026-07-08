@@ -381,7 +381,14 @@ final class DaemonContext {
                 guard let self else { return }
                 self.server.broadcast(.status(self.currentStatus()))
                 if running {
+                    let ip = self.infernoManager.activeIP
+                    log("DaemonRuntime: Inferno bridge running. Configuring PTP clock on IP \(ip)")
+                    PtpClock.shared.start(interfaceIP: ip)
                     self.updateClockStatsFiles(status: PtpClock.shared.status())
+                } else {
+                    log("DaemonRuntime: Inferno bridge stopped. Stopping PTP clock")
+                    PtpClock.shared.stop()
+                    self.updateClockStatsFiles(status: PtpStatus())
                 }
             }
         }

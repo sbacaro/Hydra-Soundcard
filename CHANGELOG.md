@@ -2,6 +2,11 @@
 
 All notable changes to Hydra are documented here.
 
+## [2.1.3] — 2026-07-08
+
+### Fixed
+- **Interface-Specific PTP Binding**: Resolved macOS wildcard routing restrictions by binding the daemon's PTP sockets directly to the active interface IP used by the Dante bridge rather than `0.0.0.0` (INADDR_ANY). This prevents Audinate's native clock services from overshadowing the sniffer, enabling reliable reception of network PTP packets and establishing correct master clock mapping.
+
 ## [2.1.2] — 2026-07-08
 
 ### Fixed
