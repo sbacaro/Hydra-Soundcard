@@ -49,7 +49,17 @@ class DanteClockBrowser: NSObject, NetServiceBrowserDelegate, NetServiceDelegate
         guard let txtData = sender.txtRecordData() else { return }
         let dict = NetService.dictionary(fromTXTRecord: txtData)
         
-        if let idData = dict["id"], let idStr = String(data: idData, encoding: .utf8) {
+        let idData = dict["id"] ?? dict["ID"]
+        if let idData = idData {
+            let idStr: String
+            if idData.count == 8 {
+                idStr = idData.map { String(format: "%02hhx", $0) }.joined()
+            } else if let str = String(data: idData, encoding: .utf8) {
+                idStr = str
+            } else {
+                return
+            }
+            
             let name = sender.name
             // Ignore ourselves and other virtual/software instances running on the same Mac
             let localHostName = ProcessInfo.processInfo.hostName

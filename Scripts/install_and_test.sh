@@ -33,7 +33,7 @@ bash Packaging/build_pkg.sh
 
 # 4. Instalar o pacote .pkg
 log "Instalando o Hydra no macOS (será solicitada a senha sudo)..."
-sudo installer -pkg dist/Hydra-2.1.5.pkg -target /
+sudo installer -pkg dist/Hydra-2.1.6.pkg -target /
 
 # 5. Abrir a versão atualizada
 log "Iniciando a versão atualizada do Hydra..."

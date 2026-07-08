@@ -2,6 +2,11 @@
 
 All notable changes to Hydra are documented here.
 
+## [2.1.6] — 2026-07-08
+
+### Fixed
+- **Bonjour Binary Clock ID Resolution**: Fixed binary parsing of the mDNS service TXT records (`id` / `ID` fields) in `DanteClockBrowser`. Real Audinate hardware devices serialize the clock ID as raw 8-byte binary values (rather than ASCII hex strings) which previously resulted in a `nil` string parsing failure. Both binary and hex string serialization models are now supported natively.
+
 ## [2.1.5] — 2026-07-08
 
 ### Fixed
