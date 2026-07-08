@@ -46,16 +46,7 @@ fn create_self_info(
   let process_id: u16 =
     settings.get("PROCESS_ID").map(|s| s.parse().expect("PROCESS_ID must be u16")).unwrap_or(0);
 
-  let mut devid = [0u8; 8];
-  settings
-    .get("DEVICE_ID")
-    .map(|idstr| {
-      hex::decode_to_slice(idstr, &mut devid).expect("invalid DEVICE_ID, should contain hex data");
-    })
-    .unwrap_or_else(|| {
-      devid[2..6].copy_from_slice(&my_ipv4.octets());
-      devid[6..8].copy_from_slice(&process_id.to_be_bytes());
-    });
+
 
   // TODO make hostname and sample rate configurable from DC
   let friendly_hostname = settings
@@ -107,6 +98,24 @@ fn create_self_info(
       break;
     }
   }
+
+  let mut devid = [0u8; 8];
+  settings
+    .get("DEVICE_ID")
+    .map(|idstr| {
+      hex::decode_to_slice(idstr, &mut devid).expect("invalid DEVICE_ID, should contain hex data");
+    })
+    .unwrap_or_else(|| {
+      let octets = mac_address.octets();
+      devid[0] = octets[0];
+      devid[1] = octets[1];
+      devid[2] = octets[2];
+      devid[3] = 0xff;
+      devid[4] = 0xfe;
+      devid[5] = octets[3];
+      devid[6] = octets[4];
+      devid[7] = octets[5].wrapping_add(1);
+    });
 
   let latency_ns = settings
     .get("RX_LATENCY_NS")

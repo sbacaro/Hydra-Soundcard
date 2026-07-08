@@ -170,38 +170,6 @@ async fn main() {
         }
     });
 
-    // Get interface MAC address to derive a unique clock ID
-    let mut interface_mac = [0u8; 6];
-    let interfaces = netdev::get_interfaces();
-    for iface in &interfaces {
-        let mut match_found = false;
-        for network in &iface.ipv4 {
-            if network.addr().to_string() == args.interface_name {
-                match_found = true;
-                break;
-            }
-        }
-        if match_found {
-            if let Some(mac) = iface.mac_addr {
-                interface_mac = mac.octets();
-            }
-            break;
-        }
-    }
-    
-    // Generate a unique clock ID by tweaking the last byte to avoid conflicts with Audinate DVS on the same Mac
-    let mut devid_bytes = [0u8; 8];
-    devid_bytes[0] = interface_mac[0];
-    devid_bytes[1] = interface_mac[1];
-    devid_bytes[2] = interface_mac[2];
-    devid_bytes[3] = 0xff;
-    devid_bytes[4] = 0xfe;
-    devid_bytes[5] = interface_mac[3];
-    devid_bytes[6] = interface_mac[4];
-    devid_bytes[7] = interface_mac[5].wrapping_add(1);
-    let device_id_hex = hex::encode(devid_bytes);
-    config_map.insert("DEVICE_ID".to_string(), device_id_hex.clone());
-
     let mut settings = Settings::new("Hydra Soundcard", "HydraSC", None, &config_map);
     settings.make_rx_channels(args.channels);
     settings.make_tx_channels(args.channels);
@@ -213,7 +181,11 @@ async fn main() {
         "/tmp/clock-stats.{:02x}{:02x}{:02x}{:02x}{:02x}{:02x}0000",
         octets[0], octets[1], octets[2], octets[3], octets[4], octets[5]
     );
-    let clock_identity_hex = device_id_hex.clone();
+    let devid = settings.self_info.factory_device_id;
+    let clock_identity_hex = format!(
+        "{:02x}{:02x}{:02x}{:02x}{:02x}{:02x}{:02x}{:02x}",
+        devid[0], devid[1], devid[2], devid[3], devid[4], devid[5], devid[6], devid[7]
+    );
     if let Err(e) = std::fs::write(&clock_stats_filename, &clock_identity_hex) {
         error!("Failed to write clock-stats file: {:?}", e);
     } else {
