@@ -210,6 +210,7 @@ struct SidebarView: View {
             Text(title)
             InfoButton(text: info)
         }
+        .padding(.leading, 16)
     }
 
     // MARK: - Empty hint
@@ -337,7 +338,9 @@ struct SidebarView: View {
         let ifaces = networkInterfaces
 
         // Source bridge
-        LabeledContent("Source Bridge") {
+        VStack(alignment: .leading, spacing: 4) {
+            Text("Source Bridge")
+                .foregroundStyle(.secondary)
             Picker("", selection: Binding(
                 get: { client.config.infernoBridgeID },
                 set: { value in client.updateConfig { $0.infernoBridgeID = value } }
@@ -349,11 +352,14 @@ struct SidebarView: View {
             .labelsHidden()
             .pickerStyle(.menu)
             .disabled(locked)
+            .frame(maxWidth: .infinity, alignment: .leading)
         }
         .font(.callout)
 
         // Network interface
-        LabeledContent("Network Interface") {
+        VStack(alignment: .leading, spacing: 4) {
+            Text("Network Interface")
+                .foregroundStyle(.secondary)
             Picker("", selection: Binding(
                 get: { client.config.infernoInterface },
                 set: { value in client.updateConfig { $0.infernoInterface = value } }
@@ -369,11 +375,14 @@ struct SidebarView: View {
             .labelsHidden()
             .pickerStyle(.menu)
             .disabled(locked)
+            .frame(maxWidth: .infinity, alignment: .leading)
         }
         .font(.callout)
 
         // Latency
-        LabeledContent("Latency") {
+        VStack(alignment: .leading, spacing: 4) {
+            Text("Latency")
+                .foregroundStyle(.secondary)
             Picker("", selection: Binding(
                 get: { client.config.infernoLatencyMs },
                 set: { value in client.updateConfig { $0.infernoLatencyMs = value } }
@@ -385,16 +394,20 @@ struct SidebarView: View {
             .labelsHidden()
             .pickerStyle(.menu)
             .disabled(locked)
+            .frame(maxWidth: .infinity, alignment: .leading)
         }
         .font(.callout)
 
         // Link Speed (read-only)
-        LabeledContent("Link Speed") {
+        HStack {
+            Text("Link Speed")
+                .foregroundStyle(.secondary)
+            Spacer()
             let selectedInterfaceName = client.config.infernoInterface.isEmpty
                 ? (ifaces.first?.name ?? "")
                 : client.config.infernoInterface
             Text(getLinkSpeed(for: selectedInterfaceName))
-                .foregroundStyle(.secondary)
+                .foregroundStyle(.primary)
         }
         .font(.callout)
 
