@@ -2,6 +2,20 @@
 
 All notable changes to Hydra are documented here.
 
+## [2.1.0] — 2026-07-08
+
+### Added
+- **Dante Status Indicator**: Integrated a dedicated Dante Virtual Soundcard status light in the application footer alongside Daemon, Backplane, and Engine. Displays a green checkmark when running and a clean, neutral grey circle when stopped.
+- **Network Link Speed**: Replaced the redundant IP address text in the Dante configuration sidebar with the active network interface's real-time link speed (e.g. 1 Gbps, 10 Gbps, 100 Mbps).
+
+### Changed
+- **Window Size Constraints**: Synced window limits and enforced a minimum window size of 1080x660 points using native macOS content-size resizability. This prevents sidebar, matrix grid, and inspector panels from clipping or overlapping under any window configuration.
+- **Off-Thread Network Queries**: Moved `ifconfig` link speed subprocess calls entirely off the main Swift thread into asynchronous background tasks, preventing UI freezes and lockups when refreshing network interface info.
+
+### Fixed
+- **Engine Startup Sincronization**: Fixed a critical bug where the Tokio broadcast receiver was early-dropped in the audio transmitter, resolving startup offline issues for the Engine and Backplane.
+- **Rust Warning Cleanups**: Cleared all 72 compiler warnings (dead code, unused results/imports, lifetime issues) in the Dante Virtual Soundcard/Inferno crates for maximum performance and stability.
+
 ## [2.0.1] — 2026-07-07
 
 ### Fixed
