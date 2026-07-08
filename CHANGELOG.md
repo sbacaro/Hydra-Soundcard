@@ -2,6 +2,12 @@
 
 All notable changes to Hydra are documented here.
 
+## [2.1.7] — 2026-07-08
+
+### Fixed
+- **Slave-Only Mode Enforcement**: Completely removed the `Preferred Leader` (`0x0022`) and `Enable Sync To External` (`0x0023`) parameters from the advertised capabilities configuration. This forces Dante Controller to display these fields as `N/A`, preventing Hydra from ever participating in clock leader elections and ensuring it remains a passive follower, identical to Audinate DVS.
+- **Bonjour TXT Event-Driven Refresh**: Added delegate listener for Bonjour `didUpdateTXTRecord` to ensure clock ID metadata updates are parsed asynchronously as soon as the TXT data arrives from the network.
+
 ## [2.1.6] — 2026-07-08
 
 ### Fixed

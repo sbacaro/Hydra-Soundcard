@@ -46,9 +46,17 @@ class DanteClockBrowser: NSObject, NetServiceBrowserDelegate, NetServiceDelegate
     }
     
     func netServiceDidResolveAddress(_ sender: NetService) {
-        guard let txtData = sender.txtRecordData() else { return }
+        if let txtData = sender.txtRecordData() {
+            processTxtData(txtData, from: sender)
+        }
+    }
+    
+    func netService(_ sender: NetService, didUpdateTXTRecord data: Data) {
+        processTxtData(data, from: sender)
+    }
+    
+    private func processTxtData(_ txtData: Data, from sender: NetService) {
         let dict = NetService.dictionary(fromTXTRecord: txtData)
-        
         let idData = dict["id"] ?? dict["ID"]
         if let idData = idData {
             let idStr: String
