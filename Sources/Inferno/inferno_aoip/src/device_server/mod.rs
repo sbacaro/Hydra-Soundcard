@@ -303,7 +303,8 @@ impl DeviceServer {
     current_timestamp: Arc<AtomicUsize>,
     on_transfer: Option<TransferNotifier>,
   ) {
-    let _clock_rx = self.clock_receiver.subscribe();
+    #[allow(unused_variables)]
+    let clock_rx = self.clock_receiver.subscribe();
 
     let (flows_tx_handle, flows_tx_thread) = flows_tx::FlowsTransmitter::start(
       self.self_info.clone(),
