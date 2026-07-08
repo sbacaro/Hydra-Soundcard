@@ -16,11 +16,9 @@ log() {
 }
 
 # 1. Terminar processos antigos
-log "Encerrando instâncias ativas do Hydra e desativando daemons conflitantes do Dante..."
+log "Encerrando instâncias ativas do Hydra..."
 killall Hydra 2>/dev/null || true
 killall hydra-inferno-bridge 2>/dev/null || true
-sudo launchctl unload /Library/LaunchDaemons/com.audinate.dante.ConMon.plist 2>/dev/null || true
-sudo launchctl unload /Library/LaunchDaemons/com.audinate.dante.DanteVirtualSoundcard.plist 2>/dev/null || true
 
 # 2. Executar testes unitários
 log "Executando os testes unitários do Hydra..."
@@ -35,7 +33,7 @@ bash Packaging/build_pkg.sh
 
 # 4. Instalar o pacote .pkg
 log "Instalando o Hydra no macOS (será solicitada a senha sudo)..."
-sudo installer -pkg dist/Hydra-2.1.4.pkg -target /
+sudo installer -pkg dist/Hydra-2.1.5.pkg -target /
 
 # 5. Abrir a versão atualizada
 log "Iniciando a versão atualizada do Hydra..."

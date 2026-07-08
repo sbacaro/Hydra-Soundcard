@@ -2,6 +2,12 @@
 
 All notable changes to Hydra are documented here.
 
+## [2.1.5] — 2026-07-08
+
+### Fixed
+- **mDNS Clock Fallback**: Implemented a fallback mechanism utilizing an mDNS Bonjour browser to discover the network's active physical grandmaster clock ID from other Dante devices (like mixing consoles) when system sockets on ports 319/320 are locked by other running Dante tools. This establishes the proper Follower role in Dante Controller without disabling Audinate system services.
+- **Unique DEVICE_ID**: Tweaked the generated PTP clock ID by incrementing the last byte of the MAC address to prevent clock ID collisions in Dante Controller when both Audinate DVS and Hydra run simultaneously on the same network interface.
+
 ## [2.1.4] — 2026-07-08
 
 ### Fixed

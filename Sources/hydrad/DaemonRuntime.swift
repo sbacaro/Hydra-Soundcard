@@ -375,6 +375,16 @@ final class DaemonContext {
         }
         PtpClock.shared.start()
 
+        DanteClockBrowser.shared.onMasterDiscovered = { [weak self] clockID in
+            Task { @MainActor in
+                guard let self else { return }
+                if !PtpClock.shared.status().locked {
+                    log("DaemonRuntime: PTP sniffer is unlocked. Falling back to mDNS-discovered master: \(clockID)")
+                    self.writeClockStatsFallback(clockID: clockID)
+                }
+            }
+        }
+
         infernoManager.bridgeManager = bridgeManager
         infernoManager.onChange = { [weak self] running in
             Task { @MainActor in
@@ -384,10 +394,12 @@ final class DaemonContext {
                     let ip = self.infernoManager.activeIP
                     log("DaemonRuntime: Inferno bridge running. Configuring PTP clock on IP \(ip)")
                     PtpClock.shared.start(interfaceIP: ip)
+                    DanteClockBrowser.shared.start()
                     self.updateClockStatsFiles(status: PtpClock.shared.status())
                 } else {
                     log("DaemonRuntime: Inferno bridge stopped. Stopping PTP clock")
                     PtpClock.shared.stop()
+                    DanteClockBrowser.shared.stop()
                     self.updateClockStatsFiles(status: PtpStatus())
                 }
             }
@@ -524,6 +536,24 @@ final class DaemonContext {
             }
         } catch {
             log("PTP: Failed to scan /tmp directory: \(error)")
+        }
+    }
+
+    private func writeClockStatsFallback(clockID: String) {
+        let fileManager = FileManager.default
+        let tmpDir = URL(fileURLWithPath: "/tmp")
+        do {
+            let files = try fileManager.contentsOfDirectory(at: tmpDir, includingPropertiesForKeys: nil)
+            for file in files {
+                let filename = file.lastPathComponent
+                if filename.hasPrefix("clock-stats.") && filename.hasSuffix("0000") {
+                    let cleanClockID = clockID.replacingOccurrences(of: "-", with: "").lowercased()
+                    try? cleanClockID.write(to: file, atomically: true, encoding: .utf8)
+                    log("PTP: Written fallback master clock ID \(cleanClockID) to \(filename)")
+                }
+            }
+        } catch {
+            log("PTP: Failed to write fallback clock ID: \(error)")
         }
     }
 }
