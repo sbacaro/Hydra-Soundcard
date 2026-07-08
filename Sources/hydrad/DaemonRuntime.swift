@@ -370,6 +370,7 @@ final class DaemonContext {
                 guard let self else { return }
                 self.aes67TxManager.ptpChanged(locked: status.locked)
                 self.server.broadcast(.aes67(self.aes67FullPayload()))
+                self.updateClockStatsFiles(status: status)
             }
         }
         PtpClock.shared.start()
@@ -379,6 +380,9 @@ final class DaemonContext {
             Task { @MainActor in
                 guard let self else { return }
                 self.server.broadcast(.status(self.currentStatus()))
+                if running {
+                    self.updateClockStatsFiles(status: PtpClock.shared.status())
+                }
             }
         }
         infernoManager.applyConfig(configStore.current())
@@ -485,6 +489,34 @@ final class DaemonContext {
             self.server.broadcast(.levels(payload))
         } }
         timer.resume()
-        meterTimer = timer
+    }
+
+    private func updateClockStatsFiles(status: PtpStatus) {
+        let fileManager = FileManager.default
+        let tmpDir = URL(fileURLWithPath: "/tmp")
+        do {
+            let files = try fileManager.contentsOfDirectory(at: tmpDir, includingPropertiesForKeys: nil)
+            for file in files {
+                let filename = file.lastPathComponent
+                if filename.hasPrefix("clock-stats.") && filename.hasSuffix("0000") {
+                    let macPart = String(filename.dropFirst(12).dropLast(4))
+                    guard macPart.count == 12 else { continue }
+                    
+                    let clockId: String
+                    if status.locked && !status.grandmaster.isEmpty {
+                        clockId = status.grandmaster.lowercased()
+                    } else {
+                        let prefix = macPart.prefix(6)
+                        let suffix = macPart.suffix(6)
+                        clockId = "\(prefix)fffe\(suffix)"
+                    }
+                    
+                    try? clockId.write(to: file, atomically: true, encoding: .utf8)
+                    log("PTP: Updated \(filename) with clock ID \(clockId)")
+                }
+            }
+        } catch {
+            log("PTP: Failed to scan /tmp directory: \(error)")
+        }
     }
 }
