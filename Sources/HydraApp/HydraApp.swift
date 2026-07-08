@@ -31,13 +31,14 @@ struct HydraApp: App {
     var body: some Scene {
         WindowGroup("Hydra Soundcard", id: "main") {
             ContentView()
-                .frame(minWidth: 800, minHeight: 550)
+                .frame(minWidth: 1080, minHeight: 660)
                 .environment(client)
                 .environment(client.signals)
                 .environment(client.meters)
                 .environmentObject(daemon)
                 .environmentObject(updater)
         }
+        .windowResizability(.contentSize)
         // Don't auto-open the main window at launch: login should leave just the
         // menu bar. The user opens it on demand from the menu bar ("Open Hydra").
         // Exception: the very first run presents it so onboarding can appear.

@@ -174,6 +174,24 @@ async fn main() {
     settings.make_rx_channels(args.channels);
     settings.make_tx_channels(args.channels);
 
+    // Write the clock-stats file so info_mcast_server can read the master clock identity.
+    let mac = settings.self_info.mac_address;
+    let octets = mac.octets();
+    let clock_stats_filename = format!(
+        "/tmp/clock-stats.{:02x}{:02x}{:02x}{:02x}{:02x}{:02x}0000",
+        octets[0], octets[1], octets[2], octets[3], octets[4], octets[5]
+    );
+    let clock_identity_hex = format!(
+        "{:02x}{:02x}{:02x}fffe{:02x}{:02x}{:02x}", 
+        octets[0], octets[1], octets[2], octets[3], octets[4], octets[5]
+    );
+    if let Err(e) = std::fs::write(&clock_stats_filename, &clock_identity_hex) {
+        error!("Failed to write clock-stats file: {:?}", e);
+    } else {
+        info!("Wrote clock-stats file {} with clock identity {}", clock_stats_filename, clock_identity_hex);
+    }
+
+
     // 4. Dante Transmitter Ring Buffers (lock-free Atomic arrays)
     // Allocated contiguous arrays of AtomicSample
     let ring_buffer_size = 65536; // power of 2
@@ -325,10 +343,15 @@ async fn main() {
         }
     });
 
+    let mut sigterm = tokio::signal::unix::signal(tokio::signal::unix::SignalKind::terminate()).unwrap();
+
     info!("Dante Virtual Soundcard bridge is running. Press Ctrl+C to stop.");
     tokio::select! {
         _ = tokio::signal::ctrl_c() => {
-            info!("Shutting down...");
+            info!("Shutting down via Ctrl+C...");
+        }
+        _ = sigterm.recv() => {
+            info!("Shutting down via SIGTERM...");
         }
     }
 
@@ -336,5 +359,9 @@ async fn main() {
     let _ = input_stream.pause();
     let _ = output_stream.pause();
     server.shutdown().await;
+
+    // Clean up clock-stats file
+    let _ = std::fs::remove_file(&clock_stats_filename);
+
     info!("Hydra Inferno Bridge stopped cleanly.");
 }

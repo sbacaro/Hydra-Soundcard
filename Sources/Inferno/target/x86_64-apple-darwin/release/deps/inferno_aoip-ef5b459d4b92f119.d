@@ -38,7 +38,3 @@ inferno_aoip/src/util/net.rs:
 inferno_aoip/src/util/os.rs:
 inferno_aoip/src/util/real_time_box_channel.rs:
 inferno_aoip/src/util/thread.rs:
-
-# env-dep:CARGO_PKG_VERSION_MAJOR=0
-# env-dep:CARGO_PKG_VERSION_MINOR=5
-# env-dep:CARGO_PKG_VERSION_PATCH=0
