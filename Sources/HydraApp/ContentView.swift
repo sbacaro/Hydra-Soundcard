@@ -39,6 +39,7 @@ struct ContentView: View {
     var body: some View {
         NavigationSplitView(columnVisibility: $columnVisibility) {
             SidebarView(tab: $sidebarTab, selectedBridge: $selectedBridge)
+                .navigationSplitViewColumnWidth(min: 240, ideal: 260, max: 320)
         } detail: {
             GridView(selection: $selection, channelFocus: $channelFocus)
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
