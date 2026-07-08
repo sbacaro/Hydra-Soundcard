@@ -218,6 +218,11 @@ struct ContentView: View {
                 label: "Engine",
                 help: "Patch matrix IOProc"
             )
+            featureDot(
+                active: client.status?.infernoRunning == true,
+                label: "Dante",
+                help: "Dante Virtual Soundcard (Inferno)"
+            )
             if client.status?.engineRunning == true {
                 Divider().frame(height: 14)
                 let xruns = client.status?.xruns ?? 0
@@ -257,6 +262,21 @@ struct ContentView: View {
         .help(help)
         .accessibilityElement(children: .combine)
         .accessibilityLabel(Text("\(label): \(ok ? "OK" : "needs attention")"))
+    }
+
+    private func featureDot(active: Bool, label: String, help: String) -> some View {
+        HStack(spacing: 6) {
+            Image(systemName: active ? "checkmark.circle.fill" : "circle")
+                .font(.body)
+                .symbolRenderingMode(.hierarchical)
+                .foregroundStyle(active ? Theme.live : .secondary)
+            Text(label)
+                .font(.body)
+                .foregroundStyle(.secondary)
+        }
+        .help(help)
+        .accessibilityElement(children: .combine)
+        .accessibilityLabel(Text("\(label): \(active ? "Active" : "Inactive")"))
     }
 
     // MARK: - Event bell
