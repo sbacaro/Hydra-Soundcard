@@ -89,9 +89,10 @@ fn create_self_info(
       }
     }
     if our_iface {
-      speed =
+      let reported_speed =
         [iface.transmit_speed.unwrap_or(0), iface.receive_speed.unwrap_or(0)].iter().max().unwrap_or(&0)
           / 1_000_000;
+      speed = if reported_speed == 0 { 1000 } else { reported_speed };
       if let Some(gws) = iface.gateway {
         for gw in gws.ipv4 {
           if (gw.to_bits() & netmask.to_bits()) == (my_ipv4.to_bits() & netmask.to_bits()) {
