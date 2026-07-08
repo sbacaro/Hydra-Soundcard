@@ -2,6 +2,11 @@
 
 All notable changes to Hydra are documented here.
 
+## [2.1.4] — 2026-07-08
+
+### Fixed
+- **Audinate Daemons Conflict Resolution**: Added automatic unloading of conflicting Audinate background system services (`ConMon` and `DanteVirtualSoundcard`) to the installation helper script. This releases exclusive system locks on PTP ports 319/320 and control ports, enabling Hydra's PtpClock to bind, receive network sync packets, and report the correct Grandmaster Clock ID.
+
 ## [2.1.3] — 2026-07-08
 
 ### Fixed
