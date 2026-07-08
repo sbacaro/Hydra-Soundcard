@@ -32,6 +32,9 @@ struct SidebarView: View {
     @AppStorage("experimentalModules") private var experimentalModules = false
     @AppStorage("expControlSurface") private var expControlSurface = true
     @AppStorage("expModules") private var expModules = true
+    // Cached off-thread results to avoid blocking the main thread
+    @State private var cachedLinkSpeed: String = "—"
+    @State private var cachedInterfaces: [(name: String, ip: String)] = []
 
     var body: some View {
         List {
@@ -285,13 +288,15 @@ struct SidebarView: View {
     }
 
     /// Resolves the link speed of a given network interface on macOS by running `ifconfig`.
-    private func getLinkSpeed(for interfaceName: String) -> String {
+    /// MUST be called off the main thread — spawns a subprocess and blocks until it exits.
+    nonisolated private func getLinkSpeed(for interfaceName: String) -> String {
         guard !interfaceName.isEmpty else { return "—" }
         let process = Process()
         process.executableURL = URL(fileURLWithPath: "/sbin/ifconfig")
         process.arguments = [interfaceName]
         let pipe = Pipe()
         process.standardOutput = pipe
+        process.standardError = Pipe() // suppress stderr
         do {
             try process.run()
             process.waitUntilExit()
@@ -328,14 +333,33 @@ struct SidebarView: View {
         } catch {
             // ignore
         }
-        return "1 Gbps"
+        return "—"
+    }
+
+    /// Refreshes cached link speed and interface list on a background thread.
+    private func refreshNetworkInfo() {
+        Task.detached(priority: .utility) {
+            // Compute interfaces off-main-thread
+            let ifaces = await MainActor.run { self.networkInterfaces }
+            let selectedName = await MainActor.run {
+                self.client.config.infernoInterface.isEmpty
+                    ? (ifaces.first?.name ?? "")
+                    : self.client.config.infernoInterface
+            }
+            // getLinkSpeed blocks — run on background thread
+            let speed = self.getLinkSpeed(for: selectedName)
+            await MainActor.run {
+                self.cachedInterfaces = ifaces
+                self.cachedLinkSpeed = speed
+            }
+        }
     }
 
     /// The Dante Virtual Soundcard control panel (Inferno).
     @ViewBuilder
     private var infernoSection: some View {
         let locked = infernoIsRunning
-        let ifaces = networkInterfaces
+        let ifaces = cachedInterfaces
 
         // Source bridge
         VStack(alignment: .leading, spacing: 4) {
@@ -398,18 +422,17 @@ struct SidebarView: View {
         }
         .font(.callout)
 
-        // Link Speed (read-only)
+        // Link Speed (read-only) — populated asynchronously to avoid main-thread block
         HStack {
             Text("Link Speed")
                 .foregroundStyle(.secondary)
             Spacer()
-            let selectedInterfaceName = client.config.infernoInterface.isEmpty
-                ? (ifaces.first?.name ?? "")
-                : client.config.infernoInterface
-            Text(getLinkSpeed(for: selectedInterfaceName))
+            Text(cachedLinkSpeed)
                 .foregroundStyle(.primary)
         }
         .font(.callout)
+        .onAppear { refreshNetworkInfo() }
+        .onChange(of: client.config.infernoInterface) { refreshNetworkInfo() }
 
         // Start / Stop button
         Button {
