@@ -1,6 +1,13 @@
 # Changelog
 
-All notable changes to Hydra are documented here.
+## [2.1.9] — 2026-07-16
+
+### Added
+- **Native SwiftUI Installer App**: Replaced the default macOS `.pkg` installer with a custom, native macOS SwiftUI installer application (`Hydra Installer.app`), packaged inside a `.dmg` file. It features step-by-step navigation, a modern translucent sidebar, components catalog checkboxes to custom-select which loopback bridges to install, a live console progress log viewer, and a "Launch Hydra" button.
+
+### Fixed
+- **Applications Shortcut Removal**: Cleaned up the `.dmg` packaging structure by removing the `/Applications` symlink to prevent users from accidentally dragging the installer wizard into their applications folder instead of running it.
+- **Centralized Version Automation**: Integrated the SwiftUI installer into our release automation framework (`release.sh`), compiling both the updated background `.pkg` and the new inter-process `.dmg` installers.
 
 ## [2.1.8] — 2026-07-16
 
