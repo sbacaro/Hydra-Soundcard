@@ -690,7 +690,7 @@ mod tests {
         let epsilon_ns = 5 * NS_IN_MS;
         let tolerance = epsilon_ns as f64 / (150f64 * NS_IN_MS as f64);
         let mut overlay = ClockOverlay {
-            clock_id: nix::time::ClockId::CLOCK_MONOTONIC_RAW.as_raw() as i64,
+            clock_id: nix::time::ClockId::CLOCK_MONOTONIC.as_raw() as i64,
             last_sync: 0,
             shift: 0,
             freq_scale: 0.0

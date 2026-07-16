@@ -121,6 +121,18 @@ impl<P: ProxyToSamplesBuffer> FlowsReceiverInternal<P> {
 
           // can be wrapping because used only for latency calculation
           if let Some(now) = clock.wrapping_now_in_timebase(sample_rate.into()) {
+            let diff = wrapped_diff(timestamp, now);
+            let abs_diff = if diff < 0 { -diff } else { diff };
+            if abs_diff > (sample_rate as isize / 4) {
+              let offset_sec = diff as f64 / sample_rate as f64;
+              let current_offset = if let Ok(offset_str) = std::fs::read_to_string("/tmp/ptp-offset") {
+                offset_str.trim().parse::<f64>().unwrap_or(0.0)
+              } else {
+                0.0
+              };
+              let new_offset = current_offset + offset_sec;
+              let _ = std::fs::write("/tmp/ptp-offset", format!("{:.6}", new_offset));
+            }
             let latency = wrapped_diff(now, timestamp).clamp(0, i32::MAX as _);
             sd.actual_latency_samples.fetch_max(latency as _, Ordering::Relaxed);
           }

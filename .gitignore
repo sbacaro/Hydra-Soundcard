@@ -31,3 +31,9 @@ Hydra.xcodeproj/
 
 # Legacy Sparkle private key (no longer used) — never commit it.
 sparkle_private_key*
+
+# Rust target directories
+**/target/
+
+# Local modules test directory
+Modules/

@@ -58,6 +58,7 @@ final class PtpClock: @unchecked Sendable {
     private var pendingSync: (seq: UInt16, t2: UInt64, source: [UInt8])?
     private var offsetWindow: [Double] = []
     private var lastSyncAt: UInt64 = 0
+    private var lastPtpv1SyncAt: UInt64 = 0
     private var published = PtpStatus()
 
     // Lock-free snapshot for the RT/sender threads.
@@ -88,11 +89,11 @@ final class PtpClock: @unchecked Sendable {
         
         eventRx = MulticastReceiver(address: "224.0.1.129", port: 319, bindIP: interfaceIP,
                                     queue: queue) { [weak self] data in
-            self?.handle(data)
+            self?.handle(data, port: 319)
         }
         generalRx = MulticastReceiver(address: "224.0.1.129", port: 320, bindIP: interfaceIP,
                                       queue: queue) { [weak self] data in
-            self?.handle(data)
+            self?.handle(data, port: 320)
         }
         if eventRx == nil && generalRx == nil {
             log("PTP: could not open sockets (319/320) — TX stays on the free-running clock")
@@ -128,17 +129,18 @@ final class PtpClock: @unchecked Sendable {
         Double(hostNanos()) / 1_000_000_000
     }
 
-    private func handle(_ data: Data) {
+    private func handle(_ data: Data, port: Int) {
         let t2 = Self.hostNanos()
         let bytes = [UInt8](data)
         guard bytes.count >= 34 else { return }
         
         let version = bytes[1] & 0x0F
         if version == 1 {
+            guard port == 319 else { return }
             let type = bytes[0] & 0x0F
-            if type == 0 && bytes.count >= 26 {
+            if type == 0 && bytes.count >= 60 {
                 let gm = String(format: "%02X-%02X-%02X-FF-FE-%02X-%02X-%02X",
-                                bytes[20], bytes[21], bytes[22], bytes[23], bytes[24], bytes[25])
+                                bytes[54], bytes[55], bytes[56], bytes[57], bytes[58], bytes[59])
                 handlePtpv1Sync(grandmaster: gm)
             }
             return
@@ -150,9 +152,15 @@ final class PtpClock: @unchecked Sendable {
         if let master, domain != master.domain, type != 0xB { return }
 
         switch type {
-        case 0xB: handleAnnounce(bytes, domain: domain)
-        case 0x0: handleSync(bytes, t2: t2)
-        case 0x8: handleFollowUp(bytes)
+        case 0xB:
+            guard port == 320 else { return }
+            handleAnnounce(bytes, domain: domain)
+        case 0x0:
+            guard port == 319 else { return }
+            handleSync(bytes, t2: t2)
+        case 0x8:
+            guard port == 320 else { return }
+            handleFollowUp(bytes)
         default: break
         }
     }
@@ -165,11 +173,14 @@ final class PtpClock: @unchecked Sendable {
     }
 
     private func handleAnnounce(_ b: [UInt8], domain: UInt8) {
+        let now = Self.hostNanos()
+        if now &- lastPtpv1SyncAt < 10_000_000_000 {
+            return
+        }
         guard let parsed = PtpParsing.announceDataset(b) else { return }
         // BMCA comparison tuple, in standard precedence order.
         let dataset = parsed.dataset
         let gm = parsed.grandmaster
-        let now = Self.hostNanos()
 
         if var current = master {
             if gm == current.grandmaster {
@@ -195,6 +206,9 @@ final class PtpClock: @unchecked Sendable {
 
     private func handleSync(_ b: [UInt8], t2: UInt64) {
         guard master != nil else { return }
+        if Self.hostNanos() &- lastPtpv1SyncAt < 10_000_000_000 {
+            return
+        }
         let seq = (UInt16(b[30]) << 8) | UInt16(b[31])
         let twoStep = (b[6] & 0x02) != 0
         if twoStep {
@@ -209,6 +223,9 @@ final class PtpClock: @unchecked Sendable {
               (UInt16(b[30]) << 8) | UInt16(b[31]) == pending.seq,
               sourceIdentity(b) == pending.source,
               let t1 = timestamp(b, at: 34) else { return }
+        if Self.hostNanos() &- lastPtpv1SyncAt < 10_000_000_000 {
+            return
+        }
         pendingSync = nil
         ingest(t1: t1, t2: pending.t2)
     }
@@ -260,15 +277,20 @@ final class PtpClock: @unchecked Sendable {
 
     private func handlePtpv1Sync(grandmaster: String) {
         let now = Self.hostNanos()
+        let wasLocked = published.locked
         if var current = master {
             if grandmaster == current.grandmaster {
                 current.lastAnnounce = now
                 master = current
                 lastSyncAt = now
+                lastPtpv1SyncAt = now
                 if offsetWindow.count < 16 {
                     offsetWindow.append(0.0)
                 }
                 publishLocked()
+                if !wasLocked && published.locked {
+                    log(String(format: "PTP: locked to PTPv1 grandmaster %@", grandmaster))
+                }
                 return
             }
         }
@@ -283,6 +305,10 @@ final class PtpClock: @unchecked Sendable {
             offsetWindow.append(0.0)
         }
         lastSyncAt = now
+        lastPtpv1SyncAt = now
         publishLocked()
+        if !wasLocked && published.locked {
+            log(String(format: "PTP: locked to PTPv1 grandmaster %@", grandmaster))
+        }
     }
 }

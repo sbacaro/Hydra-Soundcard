@@ -2,6 +2,17 @@
 
 All notable changes to Hydra are documented here.
 
+## [2.1.8] — 2026-07-16
+
+### Added
+- **Dante Module Visibility Setting**: Added a configuration setting in preferences (Audio > Modules > "Show Dante module") allowing users to show or hide the Dante Virtual Soundcard control interface in the sidebar.
+
+### Fixed
+- **NDI Audio Starvation**: Reconfigured the NDI receiver thread loop (`hydra_ndi.c`) to continuously capture and drain video and metadata frames until an audio block is received. This prevents video frame queues from starving audio data, allowing NDI devices to instantly discover and register their audio channels in the Grid and Flows layout.
+- **Audinate Services Coexistence**: Enabled the Dante bridge's ConMon server to gracefully fall back to an ephemeral UDP port when binding to the default port `8700` fails. This prevents the bridge from panicking and crashing when official Audinate services (`conmon_cmm`) are running concurrently.
+- **Standard Dante Controller Communication**: Restored official Dante communication ports (`4440` for ARC and `8800` for CMC) by removing the custom `ALT_PORT` binding, allowing external Dante Controllers to fetch device and channel information successfully.
+- **Bonjour Clock ID Sincronization**: Aligned the virtual device's fallback master clock ID generation and file output path in Swift (`DaemonRuntime.swift`) to correctly register the last-byte incremented clock ID, resolving clock status red domain conflicts in Dante Controller.
+
 ## [2.1.7] — 2026-07-08
 
 ### Fixed

@@ -43,11 +43,7 @@ final class MulticastReceiver {
         addr.sin_len = UInt8(MemoryLayout<sockaddr_in>.size)
         addr.sin_family = sa_family_t(AF_INET)
         addr.sin_port = port.bigEndian
-        if let bip = bindIP, !bip.isEmpty {
-            addr.sin_addr.s_addr = inet_addr(bip)
-        } else {
-            addr.sin_addr.s_addr = INADDR_ANY
-        }
+        addr.sin_addr.s_addr = INADDR_ANY
         let bound = withUnsafePointer(to: &addr) {
             $0.withMemoryRebound(to: sockaddr.self, capacity: 1) {
                 bind(fd, $0, socklen_t(MemoryLayout<sockaddr_in>.size))

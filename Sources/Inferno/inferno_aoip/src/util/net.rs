@@ -35,9 +35,44 @@ impl UdpSocketWrapper {
     shutdown: Receiver<()>,
   ) -> UdpSocketWrapper {
     let listen_addr = listen_addr.unwrap_or(Ipv4Addr::new(0, 0, 0, 0));
-    let socket_opt =
-      UdpSocket::bind(SocketAddr::new(std::net::IpAddr::V4(listen_addr), listen_port)).await;
-    let socket = socket_opt.expect("error starting really needed listener");
+    let sock = socket2::Socket::new(socket2::Domain::IPV4, socket2::Type::DGRAM, None)
+      .expect("failed to create socket");
+    
+    sock.set_reuse_address(true).ok();
+    #[cfg(unix)]
+    {
+      use std::os::unix::io::AsRawFd;
+      let fd = sock.as_raw_fd();
+      let optval: libc::c_int = 1;
+      unsafe {
+        let _ = libc::setsockopt(
+          fd,
+          libc::SOL_SOCKET,
+          libc::SO_REUSEPORT,
+          &optval as *const _ as *const libc::c_void,
+          std::mem::size_of::<libc::c_int>() as libc::socklen_t,
+        );
+      }
+    }
+    
+    if listen_addr != Ipv4Addr::new(0, 0, 0, 0) {
+      if let Err(e) = sock.set_multicast_if_v4(&listen_addr) {
+        error!("error setting multicast interface: {:?}", e);
+      }
+    }
+    
+    let addr = SocketAddr::new(IpAddr::V4(listen_addr), listen_port);
+    if let Err(e) = sock.bind(&addr.into()) {
+      error!(
+        "Failed to bind socket to {}:{}, falling back to ephemeral port: {:?}",
+        listen_addr, listen_port, e
+      );
+      let fallback_addr = SocketAddr::new(IpAddr::V4(Ipv4Addr::new(0, 0, 0, 0)), 0);
+      sock.bind(&fallback_addr.into()).expect("failed to bind fallback socket");
+    }
+    
+    let std_socket: std::net::UdpSocket = sock.into();
+    let socket = UdpSocket::from_std(std_socket).expect("error converting std socket to tokio");
     // TODO MAY PANIC: this error should be non-fatal because some apps may use Inferno as an optional audio I/O
     let listen_port = socket.local_addr().unwrap().port();
     UdpSocketWrapper {

@@ -29,11 +29,12 @@ echo -e "${GREEN}✓ Todos os testes passaram!${RESET}"
 
 # 3. Compilar e gerar o pacote installer
 log "Compilando o aplicativo e gerando o pacote .pkg..."
+rm -f dist/Hydra-*.pkg
 bash Packaging/build_pkg.sh
 
 # 4. Instalar o pacote .pkg
-log "Instalando o Hydra no macOS (será solicitada a senha sudo)..."
-sudo installer -pkg dist/Hydra-2.1.7.pkg -target /
+log "Instalando o Hydra no macOS (será solicitada a senha)..."
+osascript -e "do shell script \"installer -pkg '$(pwd)'/dist/Hydra-*.pkg -target /\" with administrator privileges"
 
 # 5. Abrir a versão atualizada
 log "Iniciando a versão atualizada do Hydra..."

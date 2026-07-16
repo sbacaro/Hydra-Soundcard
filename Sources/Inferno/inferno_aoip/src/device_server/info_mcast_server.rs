@@ -298,11 +298,7 @@ impl<'s> Multicaster<'s> {
   }
 
   async fn send_clock_stats(&mut self) {
-    let freq_offset = if let Some(f) = self.get_freq_offset_ppb() {
-      f
-    } else {
-      return;
-    };
+    let freq_offset = self.get_freq_offset_ppb().unwrap_or(0);
     let required_prefix = format!("clock-stats.{}0000", hex::encode(self.self_info.mac_address.octets()));
     let mut master_clock = None;
     if let Ok(readdir) = std::fs::read_dir("/tmp") {
@@ -322,29 +318,38 @@ impl<'s> Multicaster<'s> {
         }
       }
     }
-    if let Some(mc) = master_clock {
-      assert_eq!(mc.len(), 8);
-      let mut bytes = ByteBuffer::new();
-      bytes.set_endian(bytebuffer::Endian::BigEndian);
-      bytes.write_bytes(&[
-        0x00, 0x03, 0x00, 0x03, /* 0x01 = PLL not locked */
-        0x00, 0x00, 0x00, 0x9f, /* was 0xff */
-      ]);
-      bytes.write_i32(freq_offset);
-      bytes.write_bytes(&self.self_info.mac_address.octets());
-      bytes.write_u16(0);
-      bytes.write_bytes(&mc);
-      bytes.write_bytes(&mc);
-      bytes.write_bytes(&[0u8; 76]);
-      self
-        .send(
-          self.device_info_destination,
-          0xffff,
-          [0x07, 0x2a, 0x00, 0x20, 0x00, 0x00, 0x00, 0x00],
-          bytes.as_bytes(),
-        )
-        .await;
-    }
+    let mc = if let Some(mc) = master_clock {
+      mc
+    } else {
+      let mut fallback_id = vec![];
+      let mut mac_bytes = self.self_info.mac_address.octets();
+      mac_bytes[5] = mac_bytes[5].wrapping_add(1);
+      fallback_id.extend_from_slice(&mac_bytes[0..3]);
+      fallback_id.extend_from_slice(&[0xff, 0xfe]);
+      fallback_id.extend_from_slice(&mac_bytes[3..6]);
+      fallback_id
+    };
+    assert_eq!(mc.len(), 8);
+    let mut bytes = ByteBuffer::new();
+    bytes.set_endian(bytebuffer::Endian::BigEndian);
+    bytes.write_bytes(&[
+      0x00, 0x03, 0x00, 0x03, /* 0x01 = PLL not locked */
+      0x00, 0x00, 0x00, 0x9f, /* was 0xff */
+    ]);
+    bytes.write_i32(freq_offset);
+    bytes.write_bytes(&self.self_info.mac_address.octets());
+    bytes.write_u16(0);
+    bytes.write_bytes(&mc);
+    bytes.write_bytes(&mc);
+    bytes.write_bytes(&[0u8; 76]);
+    self
+      .send(
+        self.device_info_destination,
+        0xffff,
+        [0x07, 0x2a, 0x00, 0x20, 0x00, 0x00, 0x00, 0x00],
+        bytes.as_bytes(),
+      )
+      .await;
   }
 
   async fn send_network_info(&mut self) {
@@ -437,6 +442,7 @@ pub async fn run_server(
       },
       _ = heartbeat_interval.tick() => {
         mcaster.send_heartbeat().await;
+        mcaster.send_clock_stats().await;
       },
       _ = channels_sub_rx.changed() => {
         mcaster.channels_subscriber = channels_sub_rx.borrow_and_update().clone();

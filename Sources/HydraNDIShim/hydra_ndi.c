@@ -189,29 +189,40 @@ int hndi_recv_audio(void *recv, float *interleaved, int max_frames,
                     uint32_t timeout_ms) {
     if (!g_lib || !recv) return 0;
     NDIlib_audio_frame_v3_t frame;
-    memset(&frame, 0, sizeof(frame));
-    int type = p_recv_capture_v3(recv, NULL, &frame, NULL, timeout_ms);
-    if (type != NDI_frame_type_audio || !frame.p_data) return 0;
-    if (frame.FourCC != NDI_FOURCC_FLTP) {  // only planar float is defined for v3
-        p_recv_free_audio_v3(recv, &frame);
-        return 0;
-    }
+    
+    // Loop to drain non-audio frames (video, metadata) until we get an audio frame or timeout
+    for (int attempt = 0; attempt < 50; attempt++) {
+        memset(&frame, 0, sizeof(frame));
+        int type = p_recv_capture_v3(recv, NULL, &frame, NULL, timeout_ms);
+        if (type == NDI_frame_type_audio) {
+            if (!frame.p_data) return 0;
+            if (frame.FourCC != NDI_FOURCC_FLTP) {  // only planar float is defined for v3
+                p_recv_free_audio_v3(recv, &frame);
+                return 0;
+            }
 
-    int channels = frame.no_channels < max_channels ? frame.no_channels : max_channels;
-    int frames = frame.no_samples < max_frames ? frame.no_samples : max_frames;
-    int stride_floats = frame.channel_stride_in_bytes / (int)sizeof(float);
+            int channels = frame.no_channels < max_channels ? frame.no_channels : max_channels;
+            int frames = frame.no_samples < max_frames ? frame.no_samples : max_frames;
+            int stride_floats = frame.channel_stride_in_bytes / (int)sizeof(float);
 
-    const float *planar = (const float *)frame.p_data;
-    for (int ch = 0; ch < channels; ch++) {
-        const float *src = planar + ch * stride_floats;
-        for (int f = 0; f < frames; f++) {
-            interleaved[f * channels + ch] = src[f];
+            const float *planar = (const float *)frame.p_data;
+            for (int ch = 0; ch < channels; ch++) {
+                const float *src = planar + ch * stride_floats;
+                for (int f = 0; f < frames; f++) {
+                    interleaved[f * channels + ch] = src[f];
+                }
+            }
+            if (out_channels) *out_channels = channels;
+            if (out_rate) *out_rate = frame.sample_rate;
+            p_recv_free_audio_v3(recv, &frame);
+            return frames;
+        } else if (type == 0) { // NDIlib_frame_type_none (timeout)
+            return 0;
         }
+        // If type is video or metadata, NDIlib frees it automatically because we passed NULL.
+        // We continue the loop to capture the next frame.
     }
-    if (out_channels) *out_channels = channels;
-    if (out_rate) *out_rate = frame.sample_rate;
-    p_recv_free_audio_v3(recv, &frame);
-    return frames;
+    return 0;
 }
 
 // MARK: - Send

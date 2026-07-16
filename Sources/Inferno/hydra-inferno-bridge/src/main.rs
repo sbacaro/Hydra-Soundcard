@@ -84,6 +84,19 @@ async fn main() {
     let args = Args::parse();
     info!("Starting Hydra Inferno Bridge with settings: {:?}", args);
 
+    #[cfg(unix)]
+    {
+        std::thread::spawn(|| {
+            loop {
+                std::thread::sleep(Duration::from_secs(1));
+                if unsafe { libc::getppid() } == 1 {
+                    info!("Parent process died (adopted by launchd). Exiting...");
+                    std::process::exit(0);
+                }
+            }
+        });
+    }
+
     // 1. Locate CoreAudio devices (retry — the bridge may not be enabled yet)
     let host = cpal::host_from_id(cpal::HostId::CoreAudio).expect("CoreAudio not available");
     let bridge_name_lower = args.bridge_name.to_lowercase();
@@ -151,20 +164,25 @@ async fn main() {
     config_map.insert("RX_LATENCY_NS".to_string(), latency_ns.to_string());
     config_map.insert("TX_LATENCY_NS".to_string(), latency_ns.to_string());
 
-    // Use ALT_PORT to prevent port conflicts with Audinate's DVS daemon (dvsd)
-    config_map.insert("ALT_PORT".to_string(), "18700".to_string());
+
 
     // Start a local fake usrvclock server to drive the media clock on macOS
     let clock_path_thread = clock_path.clone();
     std::thread::spawn(move || {
         let mut server = usrvclock::Server::new(clock_path_thread.into()).expect("Failed to start usrvclock server");
-        let overlay = usrvclock::ClockOverlay {
+        let mut overlay = usrvclock::ClockOverlay {
             clock_id: 6i64, // CLOCK_MONOTONIC on macOS (fixes panic on .now())
             last_sync: 0,
             shift: 0,
             freq_scale: 0.0,
         };
         loop {
+            if let Ok(offset_str) = std::fs::read_to_string("/tmp/ptp-offset") {
+                if let Ok(offset_sec) = offset_str.trim().parse::<f64>() {
+                    let offset_ns = (offset_sec * 1_000_000_000.0) as i64;
+                    overlay.shift = offset_ns;
+                }
+            }
             server.send(overlay);
             std::thread::sleep(Duration::from_millis(100));
         }
@@ -346,6 +364,18 @@ async fn main() {
 
     let mut sigterm = tokio::signal::unix::signal(tokio::signal::unix::SignalKind::terminate()).unwrap();
 
+    // Parent death monitoring task
+    let parent_check = tokio::spawn(async {
+        let mut interval = tokio::time::interval(Duration::from_secs(1));
+        loop {
+            interval.tick().await;
+            if unsafe { libc::getppid() } == 1 {
+                info!("Parent process has exited. Shutting down bridge...");
+                break;
+            }
+        }
+    });
+
     info!("Dante Virtual Soundcard bridge is running. Press Ctrl+C to stop.");
     tokio::select! {
         _ = tokio::signal::ctrl_c() => {
@@ -354,12 +384,13 @@ async fn main() {
         _ = sigterm.recv() => {
             info!("Shutting down via SIGTERM...");
         }
+        _ = parent_check => {}
     }
 
     poll_task.abort();
     let _ = input_stream.pause();
     let _ = output_stream.pause();
-    server.shutdown().await;
+    let _ = tokio::time::timeout(Duration::from_millis(500), server.shutdown()).await;
 
     // Clean up clock-stats file
     let _ = std::fs::remove_file(&clock_stats_filename);

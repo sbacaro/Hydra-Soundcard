@@ -96,6 +96,7 @@ final class DaemonContext {
 
     private var probeTimer: DispatchSourceTimer?
     private var meterTimer: DispatchSourceTimer?
+    private var lastMdnsMasterClockID: String?
 
     init() {
         store.loadFromDisk()
@@ -378,6 +379,7 @@ final class DaemonContext {
         DanteClockBrowser.shared.onMasterDiscovered = { [weak self] clockID in
             Task { @MainActor in
                 guard let self else { return }
+                self.lastMdnsMasterClockID = clockID
                 if !PtpClock.shared.status().locked {
                     log("DaemonRuntime: PTP sniffer is unlocked. Falling back to mDNS-discovered master: \(clockID)")
                     self.writeClockStatsFallback(clockID: clockID)
@@ -398,13 +400,16 @@ final class DaemonContext {
                     self.updateClockStatsFiles(status: PtpClock.shared.status())
                 } else {
                     log("DaemonRuntime: Inferno bridge stopped. Stopping PTP clock")
+                    self.lastMdnsMasterClockID = nil
                     PtpClock.shared.stop()
                     DanteClockBrowser.shared.stop()
                     self.updateClockStatsFiles(status: PtpStatus())
                 }
             }
         }
-        infernoManager.applyConfig(configStore.current())
+        let currentConfig = configStore.current()
+        log("DaemonRuntime: applyConfig currentConfig.infernoEnabled = \(currentConfig.infernoEnabled), bridgeID = \(currentConfig.infernoBridgeID), interface = \(currentConfig.infernoInterface)")
+        infernoManager.applyConfig(currentConfig)
 
         startProbeTimer(initial: initial)
         startMeterTimer()
@@ -511,6 +516,10 @@ final class DaemonContext {
     }
 
     private func updateClockStatsFiles(status: PtpStatus) {
+        let offsetFile = URL(fileURLWithPath: "/tmp/ptp-offset")
+        let offsetStr = String(format: "%.6f", status.locked ? status.offset : 0.0)
+        try? offsetStr.write(to: offsetFile, atomically: true, encoding: .utf8)
+
         let fileManager = FileManager.default
         let tmpDir = URL(fileURLWithPath: "/tmp")
         do {
@@ -524,10 +533,15 @@ final class DaemonContext {
                     let clockId: String
                     if status.locked && !status.grandmaster.isEmpty {
                         clockId = status.grandmaster.replacingOccurrences(of: "-", with: "").lowercased()
+                    } else if let fallbackId = self.lastMdnsMasterClockID {
+                        clockId = fallbackId.replacingOccurrences(of: "-", with: "").lowercased()
                     } else {
                         let prefix = macPart.prefix(6)
-                        let suffix = macPart.suffix(6)
-                        clockId = "\(prefix)fffe\(suffix)"
+                        var lastByte = UInt8(macPart.suffix(2), radix: 16) ?? 0
+                        lastByte = lastByte.addingReportingOverflow(1).partialValue
+                        let baseSuffix = macPart.suffix(6).prefix(4)
+                        let incrementedSuffix = String(format: "%@%02x", String(baseSuffix), lastByte)
+                        clockId = "\(prefix)fffe\(incrementedSuffix)"
                     }
                     
                     try? clockId.write(to: file, atomically: true, encoding: .utf8)

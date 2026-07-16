@@ -764,6 +764,7 @@ public struct ConfigPayload: Codable, Sendable, Equatable {
     public var infernoInterface: String
     public var infernoBridgeID: String
     public var infernoLatencyMs: Int
+    public var showDanteModule: Bool
 
     public init(feedbackProtection: Bool = true,
                 appTapMakeupDB: Float = Hydra.appTapMakeupDB,
@@ -775,7 +776,8 @@ public struct ConfigPayload: Codable, Sendable, Equatable {
                 infernoEnabled: Bool = false,
                 infernoInterface: String = "",
                 infernoBridgeID: String = "4",
-                infernoLatencyMs: Int = 10) {
+                infernoLatencyMs: Int = 10,
+                showDanteModule: Bool = true) {
         self.feedbackProtection = feedbackProtection
         self.appTapMakeupDB = appTapMakeupDB
         self.oscEnabled = oscEnabled
@@ -787,11 +789,12 @@ public struct ConfigPayload: Codable, Sendable, Equatable {
         self.infernoInterface = infernoInterface
         self.infernoBridgeID = infernoBridgeID
         self.infernoLatencyMs = infernoLatencyMs
+        self.showDanteModule = showDanteModule
     }
 
     private enum CodingKeys: String, CodingKey {
         case feedbackProtection, appTapMakeupDB, oscEnabled, oscPort, recordingFormat, recordingFolderPath, vstFolderPath
-        case infernoEnabled, infernoInterface, infernoBridgeID, infernoLatencyMs
+        case infernoEnabled, infernoInterface, infernoBridgeID, infernoLatencyMs, showDanteModule
     }
 
     // Tolerate configs saved by older versions (missing keys → defaults).
@@ -808,6 +811,7 @@ public struct ConfigPayload: Codable, Sendable, Equatable {
         infernoInterface = try c.decodeIfPresent(String.self, forKey: .infernoInterface) ?? ""
         infernoBridgeID = try c.decodeIfPresent(String.self, forKey: .infernoBridgeID) ?? "4"
         infernoLatencyMs = try c.decodeIfPresent(Int.self, forKey: .infernoLatencyMs) ?? 10
+        showDanteModule = try c.decodeIfPresent(Bool.self, forKey: .showDanteModule) ?? true
     }
 }
 

@@ -212,6 +212,20 @@ private struct AudioSettingsPane: View {
             } footer: {
                 Text("NDI send/receive requires Vizrt's official runtime, which Hydra loads dynamically and never bundles (GPL). Without it, NDI stays off and everything else works.")
             }
+
+            Section {
+                LabeledContent("Show Dante module") {
+                    Toggle("", isOn: Binding(
+                        get: { client.config.showDanteModule },
+                        set: { value in client.updateConfig { $0.showDanteModule = value } }
+                    ))
+                    .labelsHidden()
+                }
+            } header: {
+                Text("Modules")
+            } footer: {
+                Text("Hides the Dante Virtual Soundcard section from the sidebar when disabled.")
+            }
         }
         .formStyle(.grouped)
     }

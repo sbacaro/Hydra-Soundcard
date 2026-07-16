@@ -51,19 +51,24 @@ final class InfernoManager {
         var cursor: UnsafeMutablePointer<ifaddrs>? = first
         while let ifa = cursor {
             let sa = ifa.pointee.ifa_addr
-            if sa?.pointee.sa_family == UInt8(AF_INET) {
+            let flags = ifa.pointee.ifa_flags
+            let isUpAndRunning = (flags & UInt32(IFF_UP)) != 0 && (flags & UInt32(IFF_RUNNING)) != 0
+            if sa?.pointee.sa_family == UInt8(AF_INET) && isUpAndRunning {
                 let name = String(cString: ifa.pointee.ifa_name)
                 var hostname = [CChar](repeating: 0, count: Int(NI_MAXHOST))
                 if getnameinfo(sa, socklen_t(MemoryLayout<sockaddr_in>.size),
                                &hostname, socklen_t(hostname.count),
                                nil, 0, NI_NUMERICHOST) == 0 {
                     let ipStr = String(cString: hostname)
-                    if !ipStr.hasPrefix("127.") && !wifiIfaces.contains(name) {
+                    let isTunnel = name.hasPrefix("utun") || name.hasPrefix("tun") || name.hasPrefix("tap") || name.hasPrefix("gif") || name.hasPrefix("stf") || name.hasPrefix("ppp") || name.hasPrefix("ipsec")
+                    if !ipStr.hasPrefix("127.") && !isTunnel {
                         if name == interfaceName {
                             addr = ipStr
                             break
                         }
                         if fallbackAddr == nil {
+                            fallbackAddr = ipStr
+                        } else if !wifiIfaces.contains(name) {
                             fallbackAddr = ipStr
                         }
                     }
