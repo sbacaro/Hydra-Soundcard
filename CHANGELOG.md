@@ -1,5 +1,10 @@
 # Changelog
 
+## [2.1.12] — 2026-07-16
+
+### Fixed
+- **NDI Receiver Bandwidth Mode Fix**: Changed the default NDI receiver bandwidth connection setting in the C wrapper (`hydra_ndi.c`) from `audio-only` to `highest`. This fixes connection failures with many NDI hardware encoders, cameras, and software transmitters (like OBS or Scan Converter) that do not support audio-only handshakes, while still automatically discarding incoming video packets on the receiving side without any decoding or processing CPU overhead.
+
 ## [2.1.11] — 2026-07-16
 
 ### Fixed

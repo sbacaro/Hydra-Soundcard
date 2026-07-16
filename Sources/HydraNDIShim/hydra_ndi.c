@@ -173,7 +173,7 @@ void *hndi_recv_create(const char *ndi_name, const char *url) {
     NDIlib_recv_create_v3_t desc = {
         .source_to_connect_to = { .p_ndi_name = ndi_name, .p_url_address = url && url[0] ? url : NULL },
         .color_format = NDI_recv_color_format_fastest,
-        .bandwidth = NDI_recv_bandwidth_audio_only,
+        .bandwidth = 100, // NDIlib_recv_bandwidth_highest (workaround for audio-only connection failures on some sources)
         .allow_video_fields = false,
         .p_ndi_recv_name = "Hydra",
     };
