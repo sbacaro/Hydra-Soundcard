@@ -264,8 +264,7 @@ final class Updater: ObservableObject {
     }
 
     private static var currentVersion: String {
-        (Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String)
-            ?? Hydra.version
+        Hydra.version
     }
 
     /// Numeric, component-wise version comparison ("0.20.1" > "0.20.0").

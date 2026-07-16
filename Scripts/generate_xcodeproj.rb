@@ -25,8 +25,11 @@ require 'xcodeproj'
 ROOT       = File.expand_path('..', __dir__)
 PROJ_PATH  = File.join(ROOT, 'Hydra.xcodeproj')
 DEPLOY     = '26.0'
-MARKETING  = '2.1.8'
-BUILD_NUM  = '2.1.8'
+# Single source of truth version from HydraConstants.swift
+swift_constants_path = File.join(ROOT, 'Sources/HydraCore/HydraConstants.swift')
+version_match = File.read(swift_constants_path).match(/static let version = "([^"]+)"/)
+MARKETING  = version_match ? version_match[1] : '0.0.0'
+BUILD_NUM  = MARKETING
 SRC_EXT    = %w[.swift .c .m .mm .cpp .cc].freeze
 
 project = Xcodeproj::Project.new(PROJ_PATH)
