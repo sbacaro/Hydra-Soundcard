@@ -168,7 +168,6 @@ DMG_STAGE="$BUILD_DIR/dmg_stage"
 rm -rf "$DMG_STAGE"
 mkdir -p "$DMG_STAGE"
 cp -R "$STAGE_APP" "$DMG_STAGE/"
-ln -s /Applications "$DMG_STAGE/Applications"
 
 mkdir -p "$OUT_DIR"
 DMG_PATH="$OUT_DIR/Hydra-$VERSION.dmg"
