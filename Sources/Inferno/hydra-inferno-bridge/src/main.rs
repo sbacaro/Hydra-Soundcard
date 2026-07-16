@@ -192,22 +192,18 @@ async fn main() {
     settings.make_rx_channels(args.channels);
     settings.make_tx_channels(args.channels);
 
-    // Write the clock-stats file so info_mcast_server can read the master clock identity.
     let mac = settings.self_info.mac_address;
     let octets = mac.octets();
     let clock_stats_filename = format!(
         "/tmp/clock-stats.{:02x}{:02x}{:02x}{:02x}{:02x}{:02x}0000",
         octets[0], octets[1], octets[2], octets[3], octets[4], octets[5]
     );
-    let devid = settings.self_info.factory_device_id;
-    let clock_identity_hex = format!(
-        "{:02x}{:02x}{:02x}{:02x}{:02x}{:02x}{:02x}{:02x}",
-        devid[0], devid[1], devid[2], devid[3], devid[4], devid[5], devid[6], devid[7]
-    );
-    if let Err(e) = std::fs::write(&clock_stats_filename, &clock_identity_hex) {
-        error!("Failed to write clock-stats file: {:?}", e);
+
+    // Create the clock-stats file placeholder (empty) so the daemon can detect it and update it with the real master clock ID
+    if let Err(e) = std::fs::write(&clock_stats_filename, "") {
+        error!("Failed to initialize clock-stats file: {:?}", e);
     } else {
-        info!("Wrote clock-stats file {} with clock identity {}", clock_stats_filename, clock_identity_hex);
+        info!("Initialized clock-stats file {}", clock_stats_filename);
     }
 
 

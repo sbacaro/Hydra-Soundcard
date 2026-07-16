@@ -536,12 +536,9 @@ final class DaemonContext {
                     } else if let fallbackId = self.lastMdnsMasterClockID {
                         clockId = fallbackId.replacingOccurrences(of: "-", with: "").lowercased()
                     } else {
-                        let prefix = macPart.prefix(6)
-                        var lastByte = UInt8(macPart.suffix(2), radix: 16) ?? 0
-                        lastByte = lastByte.addingReportingOverflow(1).partialValue
-                        let baseSuffix = macPart.suffix(6).prefix(4)
-                        let incrementedSuffix = String(format: "%@%02x", String(baseSuffix), lastByte)
-                        clockId = "\(prefix)fffe\(incrementedSuffix)"
+                        // If no real clock ID is found, delete the file so the bridge doesn't send fake stats
+                        try? fileManager.removeItem(at: file)
+                        continue
                     }
                     
                     try? clockId.write(to: file, atomically: true, encoding: .utf8)

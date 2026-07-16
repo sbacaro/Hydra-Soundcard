@@ -307,7 +307,7 @@ impl<'s> Multicaster<'s> {
           if entry.file_name().to_string_lossy().starts_with(&required_prefix) {
             if let Ok(content) = std::fs::read_to_string(entry.path()) {
               let content = content.trim_ascii();
-              if content.len() >= 12 {
+              if content.len() >= 16 {
                 if let Ok(master_id) = hex::decode(&content[0..16]) {
                   master_clock = Some(master_id);
                   break;
@@ -318,16 +318,9 @@ impl<'s> Multicaster<'s> {
         }
       }
     }
-    let mc = if let Some(mc) = master_clock {
-      mc
-    } else {
-      let mut fallback_id = vec![];
-      let mut mac_bytes = self.self_info.mac_address.octets();
-      mac_bytes[5] = mac_bytes[5].wrapping_add(1);
-      fallback_id.extend_from_slice(&mac_bytes[0..3]);
-      fallback_id.extend_from_slice(&[0xff, 0xfe]);
-      fallback_id.extend_from_slice(&mac_bytes[3..6]);
-      fallback_id
+    let mc = match master_clock {
+      Some(mc) => mc,
+      None => return,
     };
     assert_eq!(mc.len(), 8);
     let mut bytes = ByteBuffer::new();
