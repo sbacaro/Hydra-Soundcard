@@ -1,5 +1,10 @@
 # Changelog
 
+## [2.1.13] — 2026-07-16
+
+### Fixed
+- **NDI Initialization Race Condition Fix**: Resolved a critical multithreading race condition inside `NdiManager` where the NDI capture loop background thread could be scheduled and complete the first audio frame handshake (triggering the `onReady` handler) before the main queue assigned the closure property. By passing `onReady` as an explicit parameter in the `NdiRx` initializer before launching the thread, the callback is guaranteed to fire, registering the device and updating the audio matrix Grid lanes immediately when activated.
+
 ## [2.1.12] — 2026-07-16
 
 ### Fixed

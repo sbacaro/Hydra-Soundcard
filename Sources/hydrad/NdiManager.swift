@@ -45,7 +45,7 @@ final class NdiRx: EngineTap, @unchecked Sendable {
     private let running = Atomic<Bool>(true)
     private(set) var sampleRate: Double = 0
 
-    init?(sourceID: String, name: String, url: String, engineRate: Double) {
+    init?(sourceID: String, name: String, url: String, engineRate: Double, onReady: @escaping (NdiRx) -> Void) {
         guard let recv = hndi_recv_create(name, url) else {
             log("NDI RX \"\(name)\": receiver creation failed")
             return nil
@@ -54,6 +54,7 @@ final class NdiRx: EngineTap, @unchecked Sendable {
         self.sourceID = sourceID
         self.nodeID = Hydra.ndiNodeID(sourceID: sourceID)
         self.engineRate = engineRate
+        self.onReady = onReady
         scratch = .allocate(capacity: Hydra.maxIOFrames * Hydra.ndiMaxChannels)
         scratch.initialize(repeating: 0, count: Hydra.maxIOFrames * Hydra.ndiMaxChannels)
 
@@ -317,16 +318,17 @@ final class NdiManager: @unchecked Sendable {
             receivers.removeValue(forKey: id)
         }
         for id in wanted where receivers[id] == nil {
-            guard let source = discovered[id],
-                  let rx = NdiRx(sourceID: id, name: source.name, url: source.url,
-                                 engineRate: engineRate) else { continue }
-            rx.onReady = { [weak self] _ in
-                guard let self else { return }
-                self.queue.async {
-                    self.registerReadyLocked()
-                    self.broadcastLocked()  // format now known → update UI
-                }
-            }
+            guard let source = discovered[id] else { continue }
+            let rx = NdiRx(sourceID: id, name: source.name, url: source.url,
+                           engineRate: engineRate,
+                           onReady: { [weak self] _ in
+                               guard let self else { return }
+                               self.queue.async {
+                                   self.registerReadyLocked()
+                                   self.broadcastLocked()  // format now known → update UI
+                               }
+                           })
+            guard let rx = rx else { continue }
             receivers[id] = rx
         }
         registerReadyLocked()
