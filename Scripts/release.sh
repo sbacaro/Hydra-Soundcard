@@ -156,15 +156,9 @@ run "Build .pkg installer" bash Packaging/build_pkg.sh
 checksum() { ( cd "$DIST" && shasum -a 256 "$(basename "$PKG")" > "$(basename "$SHA")" ); }
 run "Compute SHA-256" checksum
 
-# Wrap the .pkg inside a compressed .dmg (drag-to-install convenience).
-make_dmg() {
-    local stage; stage="$(mktemp -d)"
-    cp "$PKG" "$stage/"
-    rm -f "$DMG"
-    hdiutil create -volname "$TITLE" -srcfolder "$stage" -ov -format UDZO "$DMG" >/dev/null
-    rm -rf "$stage"
-}
-run "Wrap .pkg in .dmg" make_dmg
+# Build the native SwiftUI Installer app inside the DMG
+run "Build native SwiftUI installer (.dmg)" bash Packaging/build_installer.sh
+[ -f "$DMG" ] || fail "build did not produce $DMG"
 
 # Tag this commit and push it (re-pointing an existing tag is idempotent).
 git tag -fd "$TAG" >/dev/null 2>&1 || true
