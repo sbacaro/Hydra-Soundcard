@@ -1,5 +1,10 @@
 # Changelog
 
+## [2.1.14] — 2026-07-16
+
+### Fixed
+- **NDI Audio Format Validation Fix**: Corrected a case mismatch in the uncompressed audio FourCC constant inside the C wrapper (`hydra_ndi.c`). The definition of `NDI_FOURCC_FLTP` was changed to match the NDI SDK specification (`FLTp` with a lowercase `'p'` instead of `'P'`), fixing a bug that caused 100% of received NDI audio frames to fail format checks and be discarded, preventing discovered NDI devices from completing their handshake and registering into the audio matrix Grid.
+
 ## [2.1.13] — 2026-07-16
 
 ### Fixed

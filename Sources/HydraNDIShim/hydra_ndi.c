@@ -57,7 +57,7 @@ enum {
     NDI_frame_type_audio = 2,
 };
 
-#define NDI_FOURCC_FLTP ((uint32_t)('F' | ('L' << 8) | ('T' << 16) | ('P' << 24)))
+#define NDI_FOURCC_FLTP ((uint32_t)('F' | ('L' << 8) | ('T' << 16) | ('p' << 24)))
 
 typedef struct {
     const char *p_ndi_name;
