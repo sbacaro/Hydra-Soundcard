@@ -1,5 +1,10 @@
 # Changelog
 
+## [2.1.11] — 2026-07-16
+
+### Fixed
+- **NDI Local Self-Discovery Fix**: Corrected the self-discovery loop in the NDI manager (`NdiManager.swift`) by selectively filtering out only Hydra's own virtual loopback bridge transmitters (checking for the `(Hydra` name prefix) instead of ignoring all NDI streams originating from the local machine's hostname. This allows local NDI sources (like OBS, NDI Screen Capture, or DAW transmitters running on the same Mac) to be discovered, subscribed to, and routed in the Grid and Flows layout.
+
 ## [2.1.10] — 2026-07-16
 
 ### Fixed
