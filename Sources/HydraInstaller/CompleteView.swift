@@ -4,22 +4,22 @@ struct CompleteView: View {
     @EnvironmentObject var state: InstallerState
 
     var body: some View {
-        VStack(spacing: 24) {
-            Spacer().frame(height: 12)
+        VStack(spacing: 14) {
+            Spacer().frame(height: 4)
 
             // Status icon
             ZStack {
                 Circle()
                     .fill(iconBackground)
-                    .frame(width: 80, height: 80)
+                    .frame(width: 60, height: 60)
                 Image(systemName: iconName)
-                    .font(.system(size: 40, weight: .semibold))
+                    .font(.system(size: 30, weight: .semibold))
                     .foregroundColor(iconColor)
             }
 
-            VStack(spacing: 6) {
+            VStack(spacing: 4) {
                 Text(headline)
-                    .font(.system(size: 22, weight: .semibold))
+                    .font(.system(size: 20, weight: .semibold))
                 Text(subtitle)
                     .font(.system(size: 13))
                     .foregroundColor(.secondary)
@@ -45,11 +45,10 @@ struct CompleteView: View {
                 }
                 .buttonStyle(.borderedProminent)
                 .controlSize(.large)
-                .padding(.top, 4)
             }
 
             // Next steps
-            VStack(alignment: .leading, spacing: 10) {
+            VStack(alignment: .leading, spacing: 8) {
                 Text("Next steps")
                     .font(.system(size: 13, weight: .semibold))
                     .foregroundColor(.secondary)
@@ -65,7 +64,7 @@ struct CompleteView: View {
                     nextStep(text: "Check the log file at ~/Library/Logs/Hydra Installer.log for failure details.")
                 }
             }
-            .padding(16)
+            .padding(12)
             .frame(maxWidth: .infinity, alignment: .leading)
             .background(
                 RoundedRectangle(cornerRadius: 10)

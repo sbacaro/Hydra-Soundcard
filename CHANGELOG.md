@@ -1,5 +1,10 @@
 # Changelog
 
+## [2.1.10] — 2026-07-16
+
+### Fixed
+- **Installer Layout Adjustments**: Compacted spacing, circle frames, and padding on the final summary view of the SwiftUI installer app to resolve UI clipping on the lower bounds of the fixed `820x560` wizard window, ensuring all components, next steps, and action buttons fit cleanly.
+
 ## [2.1.9] — 2026-07-16
 
 ### Added
