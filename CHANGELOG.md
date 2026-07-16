@@ -2,7 +2,7 @@
 
 All notable changes to Hydra are documented here.
 
-## [2.1.8] — 2026-07-16
+## [2.1.14] — 2026-07-16
 
 ### Added
 - **Dante Module Visibility Setting**: Added a configuration setting in preferences (Audio > Modules > "Show Dante module") allowing users to show or hide the Dante Virtual Soundcard control interface in the sidebar.
