@@ -127,6 +127,11 @@ if [ "$MODE" = "full" ]; then
     run "Generate Xcode project" ruby Scripts/generate_xcodeproj.rb
 fi
 
+# Update website version
+if [ -f docs/index.html ]; then
+    run "Update website version" sed -i '' -E "s/Version [0-9]+\.[0-9]+\.[0-9]+/Version $VERSION/g" docs/index.html
+fi
+
 # ── Commit & push (both modes) ─────────────────────────────────────────────
 git add -A
 if git diff --cached --quiet; then

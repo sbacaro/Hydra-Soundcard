@@ -1,5 +1,10 @@
 # Changelog
 
+## [2.1.15] — 2026-07-16
+
+### Added
+- **Website Version Auto-Synchronization**: Integrated the static website (`docs/index.html`) into the release automation process (`release.sh`). The website now automatically consumes from the centralized version constants, updating version declarations in both header and footer metadata sections dynamically before staging commits.
+
 ## [2.1.14] — 2026-07-16
 
 ### Fixed
