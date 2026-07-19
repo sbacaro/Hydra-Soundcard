@@ -207,12 +207,16 @@ private struct SingleChannelStrip: View {
                       systemImage: isInput ? "arrow.up.forward" : "arrow.down.forward",
                       tint: isInput ? Theme.live : Theme.accent) {
                 VStack(alignment: .leading, spacing: 3) {
+                    let displayed = client.labels.label(focus.scope, entry.channel) ?? entry.label
                     RenameableChannelLabel(entry: entry, scope: focus.scope,
                                            font: .title3.weight(.semibold))
-                    Text(channelNodeName(entry.nodeID, client: client))
-                        .font(.callout)
-                        .foregroundStyle(.secondary)
-                        .lineLimit(1)
+                    let sub = channelNodeName(entry.nodeID, client: client)
+                    if !sub.isEmpty && !sub.hasPrefix("captap:") && sub != displayed {
+                        Text(sub)
+                            .font(.callout)
+                            .foregroundStyle(.secondary)
+                            .lineLimit(1)
+                    }
                 }
 
                 Toggle("Stereo (\(base + 1)–\(base + 2))", isOn: Binding(

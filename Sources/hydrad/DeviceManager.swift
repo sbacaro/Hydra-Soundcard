@@ -242,7 +242,7 @@ final class DeviceManager: @unchecked Sendable {
         self.store = store
         if let data = try? Data(contentsOf: Self.persistURL),
            let uids = try? JSONDecoder().decode([String].self, from: data) {
-            usedUIDs = Set(uids)
+            usedUIDs = Set(uids.filter { !$0.isEmpty })
         } else {
             usedUIDs = []
         }
@@ -261,6 +261,7 @@ final class DeviceManager: @unchecked Sendable {
     }
 
     func setUse(uid: String, used: Bool) {
+        if uid.isEmpty { return }
         queue.sync {
             if used { usedUIDs.insert(uid) } else { usedUIDs.remove(uid) }
             if let data = try? JSONEncoder().encode(Array(usedUIDs).sorted()) {

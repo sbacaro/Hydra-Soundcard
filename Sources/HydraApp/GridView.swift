@@ -16,6 +16,7 @@
 import SwiftUI
 import AppKit
 import HydraCore
+import os
 
 /// One mono lane of some node.
 struct GridEntry: Equatable, Hashable, Identifiable {
@@ -106,10 +107,21 @@ private struct AxisLayout {
     }
 }
 
+private class HoverStateRef {
+    var current: HoverPos?
+}
+
+private class LayoutRef {
+    var rows: AxisLayout?
+    var cols: AxisLayout?
+}
+
 struct GridView: View {
     @Environment(DaemonClient.self) private var client
     @Binding var selection: GridSelection?
     @Binding var channelFocus: ChannelFocus?
+
+
 
     @State private var showAddInterface  = false
     @State private var selectedCells: Set<GridSelection> = []
@@ -316,7 +328,7 @@ struct GridView: View {
         let gridBank = groupChannels ? 8 : Int.max
         let rowItems = axisItems(destinationGroups(bankSize: gridBank), expanded: expandedRows)
         let colItems = axisItems(sourceGroups(bankSize: gridBank), expanded: expandedCols)
-        let rows     = layout(rowItems)
+                let rows     = layout(rowItems)
         let cols     = layout(colItems)
         let connected = Set(client.connections.map {
             "\($0.source.nodeID):\($0.source.channelIndex)>\($0.destination.nodeID):\($0.destination.channelIndex)"
@@ -769,7 +781,19 @@ struct GridView: View {
                 }
                 selection     = cell
                 selectedCells = [cell]
+            },
+            onSelectOnly: { row, col in
+                let cell = GridSelection(source: col, destination: row)
+                selection     = cell
+                selectedCells = [cell]
             })
+        .onDeleteCommand {
+            if let selection = selection {
+                client.disconnectCell(source: selection.source, destination: selection.destination)
+                self.selection = nil
+                self.selectedCells.remove(selection)
+            }
+        }
     }
 }
 
@@ -860,6 +884,7 @@ private struct CellField: View {
     let onScroll:   (CGRect) -> Void
     let onViewport: (CGSize) -> Void
     let onTap: (GridEntry, GridEntry) -> Void
+    let onSelectOnly: (GridEntry, GridEntry) -> Void
 
     @State private var hover: HoverPos?
     @State private var visibleRect: CGRect = .zero
@@ -892,6 +917,13 @@ private struct CellField: View {
                                   let col = cols.entry(at: tap.location.x) else { return }
                             onTap(row, col)
                         }
+                )
+                .gesture(
+                    RightClickGesture { point in
+                        guard let row = rows.entry(at: point.y),
+                              let col = cols.entry(at: point.x) else { return }
+                        onSelectOnly(row, col)
+                    }
                 )
         }
         .defaultScrollAnchor(.topLeading)
@@ -1010,6 +1042,26 @@ private struct CellField: View {
                                    with: .color(Theme.Grid.patchGhost), lineWidth: 1)
                 }
             }
+        }
+    }
+}
+
+// MARK: - Native Right Click Gesture
+
+private struct RightClickGesture: NSGestureRecognizerRepresentable {
+    var action: (CGPoint) -> Void
+    
+    func makeNSGestureRecognizer(context: Context) -> NSClickGestureRecognizer {
+        let recognizer = NSClickGestureRecognizer()
+        recognizer.buttonMask = 0x2 // Right click
+        return recognizer
+    }
+    
+    func updateNSGestureRecognizer(_ recognizer: NSClickGestureRecognizer, context: Context) {}
+    
+    func handleNSGestureRecognizerAction(_ recognizer: NSClickGestureRecognizer, context: Context) {
+        if recognizer.state == .ended {
+            action(context.converter.location(in: .local))
         }
     }
 }

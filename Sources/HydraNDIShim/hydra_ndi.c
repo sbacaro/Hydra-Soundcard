@@ -12,6 +12,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <math.h>
+#include <os/log.h>
 
 // MARK: - NDI ABI (subset)
 
@@ -52,9 +54,30 @@ typedef struct {
     int64_t timestamp;
 } NDIlib_audio_frame_v3_t;
 
+typedef struct {
+    int xres, yres;
+    int FourCC;
+    int frame_rate_N, frame_rate_D;
+    float picture_aspect_ratio;
+    int frame_format_type;
+    int64_t timecode;
+    uint8_t* p_data;
+    int line_stride_in_bytes;
+    const char* p_metadata;
+    int64_t timestamp;
+} NDIlib_video_frame_v2_t;
+
+typedef struct {
+    int length;
+    int64_t timecode;
+    char *p_data;
+} NDIlib_metadata_frame_t;
+
 enum {
     NDI_frame_type_none = 0,
+    NDI_frame_type_video = 1,
     NDI_frame_type_audio = 2,
+    NDI_frame_type_metadata = 3,
 };
 
 #define NDI_FOURCC_FLTP ((uint32_t)('F' | ('L' << 8) | ('T' << 16) | ('p' << 24)))
@@ -79,6 +102,8 @@ static void *(*p_recv_create_v3)(const NDIlib_recv_create_v3_t *);
 static void (*p_recv_destroy)(void *);
 static int (*p_recv_capture_v3)(void *, void *, NDIlib_audio_frame_v3_t *, void *, uint32_t);
 static void (*p_recv_free_audio_v3)(void *, const NDIlib_audio_frame_v3_t *);
+static void (*p_recv_free_video_v2)(void *, const NDIlib_video_frame_v2_t *);
+static void (*p_recv_free_metadata)(void *, const NDIlib_metadata_frame_t *);
 static void *(*p_send_create)(const NDIlib_send_create_t *);
 static void (*p_send_destroy)(void *);
 static void (*p_send_send_audio_v3)(void *, const NDIlib_audio_frame_v3_t *);
@@ -124,6 +149,8 @@ int hndi_load(void) {
     RESOLVE(p_recv_destroy, "NDIlib_recv_destroy");
     RESOLVE(p_recv_capture_v3, "NDIlib_recv_capture_v3");
     RESOLVE(p_recv_free_audio_v3, "NDIlib_recv_free_audio_v3");
+    RESOLVE(p_recv_free_video_v2, "NDIlib_recv_free_video_v2");
+    RESOLVE(p_recv_free_metadata, "NDIlib_recv_free_metadata");
     RESOLVE(p_send_create, "NDIlib_send_create");
     RESOLVE(p_send_destroy, "NDIlib_send_destroy");
     RESOLVE(p_send_send_audio_v3, "NDIlib_send_send_audio_v3");
@@ -188,24 +215,29 @@ int hndi_recv_audio(void *recv, float *interleaved, int max_frames,
                     int max_channels, int *out_channels, int *out_rate,
                     uint32_t timeout_ms) {
     if (!g_lib || !recv) return 0;
-    NDIlib_audio_frame_v3_t frame;
+    NDIlib_video_frame_v2_t video_frame;
+    NDIlib_audio_frame_v3_t audio_frame;
+    NDIlib_metadata_frame_t metadata_frame;
     
     // Loop to drain non-audio frames (video, metadata) until we get an audio frame or timeout
     for (int attempt = 0; attempt < 50; attempt++) {
-        memset(&frame, 0, sizeof(frame));
-        int type = p_recv_capture_v3(recv, NULL, &frame, NULL, timeout_ms);
+        memset(&video_frame, 0, sizeof(video_frame));
+        memset(&audio_frame, 0, sizeof(audio_frame));
+        memset(&metadata_frame, 0, sizeof(metadata_frame));
+        
+        int type = p_recv_capture_v3(recv, &video_frame, &audio_frame, &metadata_frame, timeout_ms);
         if (type == NDI_frame_type_audio) {
-            if (!frame.p_data) return 0;
-            if (frame.FourCC != NDI_FOURCC_FLTP) {  // only planar float is defined for v3
-                p_recv_free_audio_v3(recv, &frame);
+            if (!audio_frame.p_data) return 0;
+            if (audio_frame.FourCC != NDI_FOURCC_FLTP) {  // only planar float is defined for v3
+                p_recv_free_audio_v3(recv, &audio_frame);
                 return 0;
             }
 
-            int channels = frame.no_channels < max_channels ? frame.no_channels : max_channels;
-            int frames = frame.no_samples < max_frames ? frame.no_samples : max_frames;
-            int stride_floats = frame.channel_stride_in_bytes / (int)sizeof(float);
+            int channels = audio_frame.no_channels < max_channels ? audio_frame.no_channels : max_channels;
+            int frames = audio_frame.no_samples < max_frames ? audio_frame.no_samples : max_frames;
+            int stride_floats = audio_frame.channel_stride_in_bytes / (int)sizeof(float);
 
-            const float *planar = (const float *)frame.p_data;
+            const float *planar = (const float *)audio_frame.p_data;
             for (int ch = 0; ch < channels; ch++) {
                 const float *src = planar + ch * stride_floats;
                 for (int f = 0; f < frames; f++) {
@@ -213,14 +245,35 @@ int hndi_recv_audio(void *recv, float *interleaved, int max_frames,
                 }
             }
             if (out_channels) *out_channels = channels;
-            if (out_rate) *out_rate = frame.sample_rate;
-            p_recv_free_audio_v3(recv, &frame);
+            if (out_rate) *out_rate = audio_frame.sample_rate;
+            p_recv_free_audio_v3(recv, &audio_frame);
+
+            float peak = 0.0f;
+            for (int i = 0; i < frames * channels; i++) {
+                float val = fabsf(interleaved[i]);
+                if (val > peak) peak = val;
+            }
+            static int log_counter = 0;
+            if (++log_counter % 100 == 0) {
+                os_log(OS_LOG_DEFAULT, "NDI RX peak diagnostics: frames=%d channels=%d rate=%d peak=%f stride=%d",
+                       frames, channels, audio_frame.sample_rate, peak, audio_frame.channel_stride_in_bytes);
+                char fourcc_str[5] = {0};
+                memcpy(fourcc_str, &audio_frame.FourCC, 4);
+                os_log(OS_LOG_DEFAULT, "NDI RX FourCC: %s", fourcc_str);
+                for (int ch = 0; ch < channels; ch++) {
+                    const float *src = planar + ch * stride_floats;
+                    os_log(OS_LOG_DEFAULT, "ch %d: %f %f %f %f %f", ch, src[0], src[1], src[2], src[3], src[4]);
+                }
+            }
+
             return frames;
-        } else if (type == 0) { // NDIlib_frame_type_none (timeout)
+        } else if (type == NDI_frame_type_video) {
+            p_recv_free_video_v2(recv, &video_frame);
+        } else if (type == NDI_frame_type_metadata) {
+            p_recv_free_metadata(recv, &metadata_frame);
+        } else if (type == NDI_frame_type_none) { // timeout
             return 0;
         }
-        // If type is video or metadata, NDIlib frees it automatically because we passed NULL.
-        // We continue the loop to capture the next frame.
     }
     return 0;
 }

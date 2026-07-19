@@ -187,6 +187,7 @@ final class RouteManager: @unchecked Sendable {
 
     /// Make sure an endpoint's node exists in the grid (acquire device / bridge).
     private func enable(_ e: FlowEndpoint) {
+        if e.id.isEmpty { return }
         switch e.kind {
         case .deviceInput, .device:
             devices.setUse(uid: e.id, used: true)
@@ -209,6 +210,7 @@ final class RouteManager: @unchecked Sendable {
     }
 
     private func nodeID(_ e: FlowEndpoint) -> String? {
+        if e.id.isEmpty { return nil }
         switch e.kind {
         case .deviceInput, .device: return Hydra.deviceNodeID(uid: e.id)
         case .deviceOutput: return Hydra.captureTapNodeID(uid: e.id)

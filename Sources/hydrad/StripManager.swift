@@ -277,7 +277,7 @@ final class StripManager: @unchecked Sendable {
     /// plugin editor lives in a single process — one window, one Dock icon).
     private let sharedHost: SharedPluginHost?
     /// A loaded plugin editor we believe is on screen (a strip insert).
-    private struct EditorRef: Hashable { let stripID: UUID; let index: Int }
+    private struct EditorRef: Hashable { let stripID: UUID; let index: Int; let pluginID: String }
     /// Every editor we've opened → whether it's pinned. DAW single-window model:
     /// a plain (non-pinned) open closes ALL other NON-pinned editors first, so at
     /// most one shared window is up at a time; Shift-opened (pinned) windows stay
@@ -531,7 +531,9 @@ final class StripManager: @unchecked Sendable {
     /// Closing an editor only hides the GUI; the plugin keeps processing.
     func openEditor(stripID: UUID, index: Int, pinned: Bool) {
         let target: EditorTarget = queue.sync {
-            let this = EditorRef(stripID: stripID, index: index)
+            guard let tap = active[stripID], index < tap.info.plugins.count else { return .none }
+            let pluginID = tap.info.plugins[index].id
+            let this = EditorRef(stripID: stripID, index: index, pluginID: pluginID)
             // Single-window policy: a plain open dismisses every OTHER non-pinned
             // editor (robust against tracking drift — there should be ≤1).
             if !pinned {
@@ -540,8 +542,6 @@ final class StripManager: @unchecked Sendable {
                     openEditors[ref] = nil
                 }
             }
-
-            guard let tap = active[stripID] else { return .none }
             let resolved: EditorTarget
             if tap.openEditorRemotely(index: index) {
                 resolved = .remote                  // editor lives in the host process
@@ -798,7 +798,11 @@ final class StripManager: @unchecked Sendable {
             // Lazy load: don't instantiate a strip's plugins until something is
             // patched through it. Once loaded it stays (re-uses active[id]) — so a
             // disconnect doesn't churn the host; a fresh connection loads it.
-            if active[strip.id] == nil, !stripIsConnected(strip, in: allConns) {
+            // Exempt capture taps (captap: node ID prefix) so their plugin editors
+            // can be opened and configured even when the flow is not connected.
+            if active[strip.id] == nil,
+               !strip.nodeID.hasPrefix("captap:"),
+               !stripIsConnected(strip, in: allConns) {
                 continue
             }
             let sideTag = strip.side == .destination ? " RX" : ""
@@ -836,6 +840,22 @@ final class StripManager: @unchecked Sendable {
                                          side: strip.side))
             }
         }
+        // Close any open editors that will become invalid/stale in the new configuration
+        var toClose: [EditorRef] = []
+        for ref in openEditors.keys {
+            if let newTap = next[ref.stripID],
+               ref.index < newTap.info.plugins.count,
+               newTap.info.plugins[ref.index].id == ref.pluginID {
+                // Still valid in the new chain
+            } else {
+                toClose.append(ref)
+            }
+        }
+        for ref in toClose {
+            closeEditorLocked(stripID: ref.stripID, index: ref.index)
+            openEditors[ref] = nil
+        }
+
         active = next
         store.setStripData(taps: Array(next.values), routes: routes)
     }
