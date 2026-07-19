@@ -336,8 +336,14 @@ private struct FlowChainCard: View {
     private func selectOutputMono(channel: Int) {
         push {
             $0.output.channels = [channel]
-            let first = $0.source.channels.first ?? 0
-            $0.source.channels = [first]
+            // If source is stereo (has two channels), keep both for summing.
+            // Otherwise, retain a single source channel (default to first).
+            if $0.source.channels.count >= 2 {
+                // keep existing stereo source channels for automatic summing to mono
+            } else {
+                let first = $0.source.channels.first ?? 0
+                $0.source.channels = [first]
+            }
         }
     }
 

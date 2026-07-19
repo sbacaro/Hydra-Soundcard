@@ -6,7 +6,7 @@ import Foundation
 
 public enum Hydra {
     // MARK: Version
-    public static let version = "2.1.16"
+    public static let version = "2.1.17"
     /// Pre-release qualifier (e.g. "beta"). Empty for a stable release.
     public static let stage = ""
     public static var versionString: String {
