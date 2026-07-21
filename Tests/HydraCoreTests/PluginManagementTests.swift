@@ -125,4 +125,60 @@ struct PluginManagementTests {
         #expect(decoded.side == .destination)
         #expect(decoded.key == "bp:6:rx")
     }
+
+    // MARK: PluginSearchEngine tests
+
+    @Test func searchRelevanceRanking() {
+        let proQ3 = VSTPlugin(id: "1", name: "Pro-Q 3", vendor: "FabFilter", category: "Fx|EQ")
+        let proC2 = VSTPlugin(id: "2", name: "Pro-C 2", vendor: "FabFilter", category: "Fx|Dynamics")
+        let qEq   = VSTPlugin(id: "3", name: "Channel EQ", vendor: "Apple", category: "Fx|EQ")
+
+        let plugins = [qEq, proC2, proQ3]
+
+        // Search "Pro-Q" should rank "Pro-Q 3" highest (prefix match)
+        let resProQ = PluginSearchEngine.filter(plugins: plugins, query: "Pro-Q")
+        #expect(resProQ.first?.id == "1")
+
+        // Search "FabFilter" should match both FabFilter plugins
+        let resFab = PluginSearchEngine.filter(plugins: plugins, query: "FabFilter")
+        #expect(resFab.count == 2)
+    }
+
+    @Test func audioTermAliasMatching() {
+        let comp = VSTPlugin(id: "1", name: "CL 1B", vendor: "Tube-Tech", category: "Fx|Dynamics")
+        let verb = VSTPlugin(id: "2", name: "Valhalla VintageVerb", vendor: "Valhalla", category: "Fx|Reverb")
+        let synth = VSTPlugin(id: "3", name: "Serum", vendor: "Xfer", category: "Instrument|Synth")
+
+        let plugins = [comp, verb, synth]
+
+        // Alias "compressor" should match "Fx|Dynamics"
+        let resComp = PluginSearchEngine.filter(plugins: plugins, query: "compressor")
+        #expect(resComp.map(\.id) == ["1"])
+
+        // Alias "reverb" should match "Fx|Reverb"
+        let resVerb = PluginSearchEngine.filter(plugins: plugins, query: "reverb")
+        #expect(resVerb.map(\.id) == ["2"])
+
+        // Alias "synth" should match "Instrument|Synth"
+        let resSynth = PluginSearchEngine.filter(plugins: plugins, query: "synth")
+        #expect(resSynth.map(\.id) == ["3"])
+    }
+
+    @Test func categoryAndVendorExtractionAndGrouping() {
+        let p1 = VSTPlugin(id: "1", name: "Pro-Q 3", vendor: "FabFilter", category: "Fx|EQ")
+        let p2 = VSTPlugin(id: "2", name: "Saturn 2", vendor: "FabFilter", category: "Fx|Distortion")
+        let p3 = VSTPlugin(id: "3", name: "L2", vendor: "Waves", category: "Fx|Dynamics")
+
+        let plugins = [p1, p2, p3]
+
+        let vendors = PluginSearchEngine.extractVendors(from: plugins)
+        #expect(vendors == ["FabFilter", "Waves"])
+
+        let vendorGroups = PluginSearchEngine.groupByVendor(plugins: plugins)
+        #expect(vendorGroups.count == 2)
+
+        let categoryGroups = PluginSearchEngine.groupByCategory(plugins: plugins)
+        #expect(categoryGroups.count >= 2)
+    }
 }
+

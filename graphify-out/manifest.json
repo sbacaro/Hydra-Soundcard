@@ -1,0 +1,1322 @@
+{
+  ".xcodebuild-test/Build/Intermediates.noindex/Hydra.build/Debug/FetchVST3SDK.build/Script-5523C934D0F4E104405D721B.sh": {
+    "mtime": 1783558510.1802642,
+    "ast_hash": "565ed22afe643a0d594ab695cd305a5d",
+    "semantic_hash": "565ed22afe643a0d594ab695cd305a5d"
+  },
+  ".xcodebuild-test/Build/Intermediates.noindex/Hydra.build/Debug/FetchVST3SDK.build/Script-C641665DE93AF2886FB53446.sh": {
+    "mtime": 1783558039.5746574,
+    "ast_hash": "565ed22afe643a0d594ab695cd305a5d",
+    "semantic_hash": "565ed22afe643a0d594ab695cd305a5d"
+  },
+  ".xcodebuild-test/Build/Intermediates.noindex/Hydra.build/Debug/HydraApp.build/DerivedSources/GeneratedAssetSymbols.h": {
+    "mtime": 1783558579.1631756,
+    "ast_hash": "e8a0ae4a1949260790b4c3fb54e18f26",
+    "semantic_hash": "e8a0ae4a1949260790b4c3fb54e18f26"
+  },
+  ".xcodebuild-test/Build/Intermediates.noindex/Hydra.build/Debug/HydraApp.build/DerivedSources/GeneratedAssetSymbols.swift": {
+    "mtime": 1783558579.1630046,
+    "ast_hash": "7e6d62473b1829956def6115f6aa78f1",
+    "semantic_hash": "7e6d62473b1829956def6115f6aa78f1"
+  },
+  ".xcodebuild-test/Build/Intermediates.noindex/Hydra.build/Debug/HydraApp.build/Objects-normal/arm64/Hydra-dependencies-1.json": {
+    "mtime": 1783558579.7355263,
+    "ast_hash": "30ad65daa04e4237c54e7e465864f59c",
+    "semantic_hash": "30ad65daa04e4237c54e7e465864f59c"
+  },
+  ".xcodebuild-test/Build/Intermediates.noindex/Hydra.build/Debug/HydraApp.build/Objects-normal/arm64/HydraApp-OutputFileMap.json": {
+    "mtime": 1783558578.3638308,
+    "ast_hash": "196f846b67c5e77bc7d802b863d7f70e",
+    "semantic_hash": "196f846b67c5e77bc7d802b863d7f70e"
+  },
+  ".xcodebuild-test/Build/Intermediates.noindex/Hydra.build/Debug/HydraApp.build/Objects-normal/arm64/HydraApp_const_extract_protocols.json": {
+    "mtime": 1783558578.3636744,
+    "ast_hash": "9a2910799639cff85464f3dcb75559c1",
+    "semantic_hash": "9a2910799639cff85464f3dcb75559c1"
+  },
+  ".xcodebuild-test/Build/Intermediates.noindex/Hydra.build/Debug/HydraCore.build/DerivedSources/HydraCore_vers.c": {
+    "mtime": 1783558039.605901,
+    "ast_hash": "6f2cacac703564daf50dec01238d3ee4",
+    "semantic_hash": "6f2cacac703564daf50dec01238d3ee4"
+  },
+  ".xcodebuild-test/Build/Intermediates.noindex/Hydra.build/Debug/HydraCore.build/Objects-normal/arm64/HydraCore-OutputFileMap.json": {
+    "mtime": 1783558510.1791015,
+    "ast_hash": "eb546567bdc1475c58f5099c4e6c06c4",
+    "semantic_hash": "eb546567bdc1475c58f5099c4e6c06c4"
+  },
+  ".xcodebuild-test/Build/Intermediates.noindex/Hydra.build/Debug/HydraCore.build/Objects-normal/arm64/HydraCore-Swift.h": {
+    "mtime": 1783558042.8625555,
+    "ast_hash": "5eb2b3a8086808bb6ebff98e47daccd6",
+    "semantic_hash": "5eb2b3a8086808bb6ebff98e47daccd6"
+  },
+  ".xcodebuild-test/Build/Intermediates.noindex/Hydra.build/Debug/HydraCore.build/Objects-normal/arm64/HydraCore-dependencies-1.json": {
+    "mtime": 1783558527.111472,
+    "ast_hash": "f4123afc67b38aa6e13516352c400e14",
+    "semantic_hash": "f4123afc67b38aa6e13516352c400e14"
+  },
+  ".xcodebuild-test/Build/Intermediates.noindex/Hydra.build/Debug/HydraCore.build/Objects-normal/arm64/HydraCore.abi.json": {
+    "mtime": 1783558527.3557901,
+    "ast_hash": "0a4af882c2c2f56d36e8540ae8c40bbf",
+    "semantic_hash": "0a4af882c2c2f56d36e8540ae8c40bbf"
+  },
+  ".xcodebuild-test/Build/Intermediates.noindex/Hydra.build/Debug/HydraCore.build/Objects-normal/arm64/HydraCore_const_extract_protocols.json": {
+    "mtime": 1783558039.603492,
+    "ast_hash": "9a2910799639cff85464f3dcb75559c1",
+    "semantic_hash": "9a2910799639cff85464f3dcb75559c1"
+  },
+  ".xcodebuild-test/Build/Intermediates.noindex/Hydra.build/Debug/HydraDaemon.build/DerivedSources/HydraDaemon_vers.c": {
+    "mtime": 1783558039.602809,
+    "ast_hash": "50c3b78d474afac9e131e4a6310000a9",
+    "semantic_hash": "50c3b78d474afac9e131e4a6310000a9"
+  },
+  ".xcodebuild-test/Build/Intermediates.noindex/Hydra.build/Debug/HydraDaemon.build/Objects-normal/arm64/HydraDaemon-OutputFileMap.json": {
+    "mtime": 1783558039.6015916,
+    "ast_hash": "83d1df46817f61f2e15c5260d899011e",
+    "semantic_hash": "83d1df46817f61f2e15c5260d899011e"
+  },
+  ".xcodebuild-test/Build/Intermediates.noindex/Hydra.build/Debug/HydraDaemon.build/Objects-normal/arm64/HydraDaemon-Swift.h": {
+    "mtime": 1783558540.3132086,
+    "ast_hash": "2fcc731bcff697b7006d9f1f8c677b94",
+    "semantic_hash": "2fcc731bcff697b7006d9f1f8c677b94"
+  },
+  ".xcodebuild-test/Build/Intermediates.noindex/Hydra.build/Debug/HydraDaemon.build/Objects-normal/arm64/HydraDaemon-dependencies-1.json": {
+    "mtime": 1783558571.862447,
+    "ast_hash": "98a5fcb58f0066707d207fc2f4d1e536",
+    "semantic_hash": "98a5fcb58f0066707d207fc2f4d1e536"
+  },
+  ".xcodebuild-test/Build/Intermediates.noindex/Hydra.build/Debug/HydraDaemon.build/Objects-normal/arm64/HydraDaemon.abi.json": {
+    "mtime": 1783558572.1868792,
+    "ast_hash": "0a4af882c2c2f56d36e8540ae8c40bbf",
+    "semantic_hash": "0a4af882c2c2f56d36e8540ae8c40bbf"
+  },
+  ".xcodebuild-test/Build/Intermediates.noindex/Hydra.build/Debug/HydraDaemon.build/Objects-normal/arm64/HydraDaemon_const_extract_protocols.json": {
+    "mtime": 1783558039.6013553,
+    "ast_hash": "9a2910799639cff85464f3dcb75559c1",
+    "semantic_hash": "9a2910799639cff85464f3dcb75559c1"
+  },
+  ".xcodebuild-test/Build/Intermediates.noindex/Hydra.build/Debug/HydraModuleABI.build/DerivedSources/HydraModuleABI_vers.c": {
+    "mtime": 1783558039.5897088,
+    "ast_hash": "eb2138af4ab64d90e112801f6d7fd563",
+    "semantic_hash": "eb2138af4ab64d90e112801f6d7fd563"
+  },
+  ".xcodebuild-test/Build/Intermediates.noindex/Hydra.build/Debug/HydraNDIShim.build/DerivedSources/HydraNDIShim_vers.c": {
+    "mtime": 1783558039.5872045,
+    "ast_hash": "4326315f212b61b154165b3436f22c75",
+    "semantic_hash": "4326315f212b61b154165b3436f22c75"
+  },
+  ".xcodebuild-test/Build/Intermediates.noindex/Hydra.build/Debug/HydraPluginHostABI.build/DerivedSources/HydraPluginHostABI_vers.c": {
+    "mtime": 1783558039.584859,
+    "ast_hash": "1afea2111efd00107ef4a1f91e66852e",
+    "semantic_hash": "1afea2111efd00107ef4a1f91e66852e"
+  },
+  ".xcodebuild-test/Build/Intermediates.noindex/Hydra.build/Debug/HydraRT.build/DerivedSources/HydraRT_vers.c": {
+    "mtime": 1783558039.5828602,
+    "ast_hash": "5bb7ebfc996cc8c8fd943f3d45289d97",
+    "semantic_hash": "5bb7ebfc996cc8c8fd943f3d45289d97"
+  },
+  ".xcodebuild-test/Build/Intermediates.noindex/Hydra.build/Debug/HydraRT.build/Objects-normal/arm64/HydraRT-OutputFileMap.json": {
+    "mtime": 1783558039.581499,
+    "ast_hash": "3c4636f6e824517a295935941e8551fa",
+    "semantic_hash": "3c4636f6e824517a295935941e8551fa"
+  },
+  ".xcodebuild-test/Build/Intermediates.noindex/Hydra.build/Debug/HydraRT.build/Objects-normal/arm64/HydraRT-Swift.h": {
+    "mtime": 1783558044.112595,
+    "ast_hash": "41252f37fabe4dd73662ca4f18752239",
+    "semantic_hash": "41252f37fabe4dd73662ca4f18752239"
+  },
+  ".xcodebuild-test/Build/Intermediates.noindex/Hydra.build/Debug/HydraRT.build/Objects-normal/arm64/HydraRT-dependencies-1.json": {
+    "mtime": 1783558527.4477103,
+    "ast_hash": "f419c763f1eaf2d40f57e0628ff2fd4c",
+    "semantic_hash": "f419c763f1eaf2d40f57e0628ff2fd4c"
+  },
+  ".xcodebuild-test/Build/Intermediates.noindex/Hydra.build/Debug/HydraRT.build/Objects-normal/arm64/HydraRT.abi.json": {
+    "mtime": 1783558527.4981387,
+    "ast_hash": "0a4af882c2c2f56d36e8540ae8c40bbf",
+    "semantic_hash": "0a4af882c2c2f56d36e8540ae8c40bbf"
+  },
+  ".xcodebuild-test/Build/Intermediates.noindex/Hydra.build/Debug/HydraRT.build/Objects-normal/arm64/HydraRT_const_extract_protocols.json": {
+    "mtime": 1783558039.580746,
+    "ast_hash": "9a2910799639cff85464f3dcb75559c1",
+    "semantic_hash": "9a2910799639cff85464f3dcb75559c1"
+  },
+  ".xcodebuild-test/Build/Intermediates.noindex/Hydra.build/Debug/HydraSurface.build/DerivedSources/HydraSurface_vers.c": {
+    "mtime": 1783558039.5799873,
+    "ast_hash": "f625bde2c97aeb475ede0fe97209e792",
+    "semantic_hash": "f625bde2c97aeb475ede0fe97209e792"
+  },
+  ".xcodebuild-test/Build/Intermediates.noindex/Hydra.build/Debug/HydraSurface.build/Objects-normal/arm64/HydraSurface-OutputFileMap.json": {
+    "mtime": 1783558039.5782537,
+    "ast_hash": "310395c64ce95be81ff37aaa8f57d022",
+    "semantic_hash": "310395c64ce95be81ff37aaa8f57d022"
+  },
+  ".xcodebuild-test/Build/Intermediates.noindex/Hydra.build/Debug/HydraSurface.build/Objects-normal/arm64/HydraSurface-Swift.h": {
+    "mtime": 1783558043.486772,
+    "ast_hash": "aa8401179373438baf0e141ac4bda4c7",
+    "semantic_hash": "aa8401179373438baf0e141ac4bda4c7"
+  },
+  ".xcodebuild-test/Build/Intermediates.noindex/Hydra.build/Debug/HydraSurface.build/Objects-normal/arm64/HydraSurface-dependencies-1.json": {
+    "mtime": 1783558510.4477715,
+    "ast_hash": "5f0f77a32ee3ea04a50e6ee4019a0f26",
+    "semantic_hash": "5f0f77a32ee3ea04a50e6ee4019a0f26"
+  },
+  ".xcodebuild-test/Build/Intermediates.noindex/Hydra.build/Debug/HydraSurface.build/Objects-normal/arm64/HydraSurface.abi.json": {
+    "mtime": 1783558043.4847293,
+    "ast_hash": "0a4af882c2c2f56d36e8540ae8c40bbf",
+    "semantic_hash": "0a4af882c2c2f56d36e8540ae8c40bbf"
+  },
+  ".xcodebuild-test/Build/Intermediates.noindex/Hydra.build/Debug/HydraSurface.build/Objects-normal/arm64/HydraSurface_const_extract_protocols.json": {
+    "mtime": 1783558039.577441,
+    "ast_hash": "9a2910799639cff85464f3dcb75559c1",
+    "semantic_hash": "9a2910799639cff85464f3dcb75559c1"
+  },
+  ".xcodebuild-test/Build/Intermediates.noindex/Hydra.build/Debug/HydraVST.build/DerivedSources/HydraVST_vers.c": {
+    "mtime": 1783558039.5768268,
+    "ast_hash": "e7dac51ddc5ab4dddbc6fd276a825725",
+    "semantic_hash": "e7dac51ddc5ab4dddbc6fd276a825725"
+  },
+  ".xcodebuild-test/Build/Intermediates.noindex/Hydra.build/Debug/hydra-plugin-host.build/DerivedSources/GeneratedAssetSymbols.h": {
+    "mtime": 1783558578.3870862,
+    "ast_hash": "e8a0ae4a1949260790b4c3fb54e18f26",
+    "semantic_hash": "e8a0ae4a1949260790b4c3fb54e18f26"
+  },
+  ".xcodebuild-test/Build/Intermediates.noindex/Hydra.build/Debug/hydra-plugin-host.build/DerivedSources/GeneratedAssetSymbols.swift": {
+    "mtime": 1783558578.3868408,
+    "ast_hash": "7e6d62473b1829956def6115f6aa78f1",
+    "semantic_hash": "7e6d62473b1829956def6115f6aa78f1"
+  },
+  ".xcodebuild-test/Build/Intermediates.noindex/Hydra.build/Debug/hydra-plugin-host.build/DerivedSources/hydra_plugin_host-Swift.h": {
+    "mtime": 1783558579.1453366,
+    "ast_hash": "c3771cbbf38ea2dd8caa31900fb1de2f",
+    "semantic_hash": "c3771cbbf38ea2dd8caa31900fb1de2f"
+  },
+  ".xcodebuild-test/Build/Intermediates.noindex/Hydra.build/Debug/hydra-plugin-host.build/Objects-normal/arm64/hydra-plugin-host-OutputFileMap.json": {
+    "mtime": 1783558578.3634393,
+    "ast_hash": "7fc53193f25acbf7f829807f2a11a5f6",
+    "semantic_hash": "7fc53193f25acbf7f829807f2a11a5f6"
+  },
+  ".xcodebuild-test/Build/Intermediates.noindex/Hydra.build/Debug/hydra-plugin-host.build/Objects-normal/arm64/hydra-plugin-host_const_extract_protocols.json": {
+    "mtime": 1783558578.3636138,
+    "ast_hash": "9a2910799639cff85464f3dcb75559c1",
+    "semantic_hash": "9a2910799639cff85464f3dcb75559c1"
+  },
+  ".xcodebuild-test/Build/Intermediates.noindex/Hydra.build/Debug/hydra-plugin-host.build/Objects-normal/arm64/hydra_plugin_host-Swift.h": {
+    "mtime": 1783558579.1373575,
+    "ast_hash": "0d03707b77890fe0b7a2fb1f71e1006d",
+    "semantic_hash": "0d03707b77890fe0b7a2fb1f71e1006d"
+  },
+  ".xcodebuild-test/Build/Intermediates.noindex/Hydra.build/Debug/hydra-plugin-host.build/Objects-normal/arm64/hydra_plugin_host-dependencies-1.json": {
+    "mtime": 1783558579.0466125,
+    "ast_hash": "bf5688485faeb28e5e90ce4facbed56e",
+    "semantic_hash": "bf5688485faeb28e5e90ce4facbed56e"
+  },
+  ".xcodebuild-test/Build/Intermediates.noindex/Hydra.build/Debug/hydra-plugin-host.build/Objects-normal/arm64/hydra_plugin_host.abi.json": {
+    "mtime": 1783558579.137031,
+    "ast_hash": "0a4af882c2c2f56d36e8540ae8c40bbf",
+    "semantic_hash": "0a4af882c2c2f56d36e8540ae8c40bbf"
+  },
+  ".xcodebuild-test/Build/Intermediates.noindex/XCBuildData/07f9d1f5e9a027039b0279711d311fe2.xcbuilddata/attachments/565ed22afe643a0d594ab695cd305a5d": {
+    "mtime": 1783558553.5495577,
+    "ast_hash": "565ed22afe643a0d594ab695cd305a5d",
+    "semantic_hash": "565ed22afe643a0d594ab695cd305a5d"
+  },
+  ".xcodebuild-test/Build/Intermediates.noindex/XCBuildData/07f9d1f5e9a027039b0279711d311fe2.xcbuilddata/build-request.json": {
+    "mtime": 1783558553.6613777,
+    "ast_hash": "b5a47ae3389ada3d941dde993def9169",
+    "semantic_hash": "b5a47ae3389ada3d941dde993def9169"
+  },
+  ".xcodebuild-test/Build/Intermediates.noindex/XCBuildData/07f9d1f5e9a027039b0279711d311fe2.xcbuilddata/manifest.json": {
+    "mtime": 1783558553.6438375,
+    "ast_hash": "432e9746590b1c47eb53c16c193afb83",
+    "semantic_hash": "432e9746590b1c47eb53c16c193afb83"
+  },
+  ".xcodebuild-test/Build/Intermediates.noindex/XCBuildData/bd00099a8027616d4420e90fe828d093.xcbuilddata/attachments/565ed22afe643a0d594ab695cd305a5d": {
+    "mtime": 1783558557.3478334,
+    "ast_hash": "565ed22afe643a0d594ab695cd305a5d",
+    "semantic_hash": "565ed22afe643a0d594ab695cd305a5d"
+  },
+  ".xcodebuild-test/Build/Intermediates.noindex/XCBuildData/bd00099a8027616d4420e90fe828d093.xcbuilddata/build-request.json": {
+    "mtime": 1783558557.4598894,
+    "ast_hash": "b5a47ae3389ada3d941dde993def9169",
+    "semantic_hash": "b5a47ae3389ada3d941dde993def9169"
+  },
+  ".xcodebuild-test/Build/Intermediates.noindex/XCBuildData/bd00099a8027616d4420e90fe828d093.xcbuilddata/manifest.json": {
+    "mtime": 1783558557.4407804,
+    "ast_hash": "432e9746590b1c47eb53c16c193afb83",
+    "semantic_hash": "432e9746590b1c47eb53c16c193afb83"
+  },
+  ".xcodebuild-test/Build/Intermediates.noindex/XCBuildData/c6fd4cd02d190c7c45167ca9191d1fce.xcbuilddata/attachments/565ed22afe643a0d594ab695cd305a5d": {
+    "mtime": 1783558577.6493683,
+    "ast_hash": "565ed22afe643a0d594ab695cd305a5d",
+    "semantic_hash": "565ed22afe643a0d594ab695cd305a5d"
+  },
+  ".xcodebuild-test/Build/Intermediates.noindex/XCBuildData/c6fd4cd02d190c7c45167ca9191d1fce.xcbuilddata/build-request.json": {
+    "mtime": 1783558578.3541539,
+    "ast_hash": "3f0b770444922f1326184a64f64377f0",
+    "semantic_hash": "3f0b770444922f1326184a64f64377f0"
+  },
+  ".xcodebuild-test/Build/Intermediates.noindex/XCBuildData/c6fd4cd02d190c7c45167ca9191d1fce.xcbuilddata/manifest.json": {
+    "mtime": 1783558578.3303297,
+    "ast_hash": "15fc935f381224e1ec0a3399bbb6738e",
+    "semantic_hash": "15fc935f381224e1ec0a3399bbb6738e"
+  },
+  ".xcodebuild-test/Build/Intermediates.noindex/XCBuildData/d4a934bedee6d794ecc9abaedd688e3e.xcbuilddata/attachments/565ed22afe643a0d594ab695cd305a5d": {
+    "mtime": 1783558571.291741,
+    "ast_hash": "565ed22afe643a0d594ab695cd305a5d",
+    "semantic_hash": "565ed22afe643a0d594ab695cd305a5d"
+  },
+  ".xcodebuild-test/Build/Intermediates.noindex/XCBuildData/d4a934bedee6d794ecc9abaedd688e3e.xcbuilddata/build-request.json": {
+    "mtime": 1783558571.4020965,
+    "ast_hash": "b5a47ae3389ada3d941dde993def9169",
+    "semantic_hash": "b5a47ae3389ada3d941dde993def9169"
+  },
+  ".xcodebuild-test/Build/Intermediates.noindex/XCBuildData/d4a934bedee6d794ecc9abaedd688e3e.xcbuilddata/manifest.json": {
+    "mtime": 1783558571.3848038,
+    "ast_hash": "432e9746590b1c47eb53c16c193afb83",
+    "semantic_hash": "432e9746590b1c47eb53c16c193afb83"
+  },
+  ".xcodebuild-test/Build/Products/Debug/HydraCore.framework/Versions/A/Headers/HydraCore-Swift.h": {
+    "mtime": 1783558527.3637807,
+    "ast_hash": "290ff3691a83bfaada5dd6b09bc73f6a",
+    "semantic_hash": "290ff3691a83bfaada5dd6b09bc73f6a"
+  },
+  ".xcodebuild-test/Build/Products/Debug/HydraDaemon.framework/Versions/A/Headers/HydraDaemon-Swift.h": {
+    "mtime": 1783558572.3334978,
+    "ast_hash": "db191e439f0072a17dd7fcae66f4e1b9",
+    "semantic_hash": "db191e439f0072a17dd7fcae66f4e1b9"
+  },
+  ".xcodebuild-test/Build/Products/Debug/HydraModuleABI.framework/Versions/A/Headers/hydra_module.h": {
+    "mtime": 1783558510.1750588,
+    "ast_hash": "3f45c8a1bb5ab2b21f2934a8d62f1a6a",
+    "semantic_hash": "3f45c8a1bb5ab2b21f2934a8d62f1a6a"
+  },
+  ".xcodebuild-test/Build/Products/Debug/HydraNDIShim.framework/Versions/A/Headers/hydra_ndi.h": {
+    "mtime": 1783558510.1726992,
+    "ast_hash": "a4bbbd9b88c76bb7aef646cf89110112",
+    "semantic_hash": "a4bbbd9b88c76bb7aef646cf89110112"
+  },
+  ".xcodebuild-test/Build/Products/Debug/HydraPluginHostABI.framework/Versions/A/Headers/hydra_plugin_shm.h": {
+    "mtime": 1783558510.1710143,
+    "ast_hash": "6cd1dbafb1b6b6877a72da41c5e0c061",
+    "semantic_hash": "6cd1dbafb1b6b6877a72da41c5e0c061"
+  },
+  ".xcodebuild-test/Build/Products/Debug/HydraRT.framework/Versions/A/Headers/HydraRT-Swift.h": {
+    "mtime": 1783558527.5030084,
+    "ast_hash": "4068b7537194911e0cbdd21265eb426e",
+    "semantic_hash": "4068b7537194911e0cbdd21265eb426e"
+  },
+  ".xcodebuild-test/Build/Products/Debug/HydraSurface.framework/Versions/A/Headers/HydraSurface-Swift.h": {
+    "mtime": 1783558510.4501219,
+    "ast_hash": "7be38f98b5243b2b66b249f21f438d3a",
+    "semantic_hash": "7be38f98b5243b2b66b249f21f438d3a"
+  },
+  ".xcodebuild-test/Build/Products/Debug/HydraVST.framework/Versions/A/Headers/hydra_vst.h": {
+    "mtime": 1783558510.1648479,
+    "ast_hash": "b5f32c4ebf365f8d628fa855a6fb3f38",
+    "semantic_hash": "b5f32c4ebf365f8d628fa855a6fb3f38"
+  },
+  ".xcodebuild-test/Build/Products/Debug/hydra_plugin_host.swiftmodule/arm64-apple-macos.abi.json": {
+    "mtime": 1783558579.1475348,
+    "ast_hash": "0a4af882c2c2f56d36e8540ae8c40bbf",
+    "semantic_hash": "0a4af882c2c2f56d36e8540ae8c40bbf"
+  },
+  "Backplane/Driver/Hydra.c": {
+    "mtime": 1783473835.1250398,
+    "ast_hash": "44d246acf930baafccfbd86963ac6d6a",
+    "semantic_hash": "44d246acf930baafccfbd86963ac6d6a"
+  },
+  "Backplane/Driver/HydraEngineHub.c": {
+    "mtime": 1783473835.1263273,
+    "ast_hash": "3151e2c6a62ec547fcb2060e12b31ddc",
+    "semantic_hash": "3151e2c6a62ec547fcb2060e12b31ddc"
+  },
+  "Backplane/Driver/bridges/HydraBridge_128.c": {
+    "mtime": 1783473835.1264677,
+    "ast_hash": "043d2b22c3aa1ae45fb862448420d0e6",
+    "semantic_hash": "043d2b22c3aa1ae45fb862448420d0e6"
+  },
+  "Backplane/Driver/bridges/HydraBridge_16.c": {
+    "mtime": 1783473835.1265743,
+    "ast_hash": "53af4c680531c915c55f68e3bf3b8f50",
+    "semantic_hash": "53af4c680531c915c55f68e3bf3b8f50"
+  },
+  "Backplane/Driver/bridges/HydraBridge_2A.c": {
+    "mtime": 1783473835.126672,
+    "ast_hash": "df104ad0c44d98498943e8b5d5cec5d3",
+    "semantic_hash": "df104ad0c44d98498943e8b5d5cec5d3"
+  },
+  "Backplane/Driver/bridges/HydraBridge_2B.c": {
+    "mtime": 1783473835.126754,
+    "ast_hash": "624f62b30a41dbbb134d653331ae9f36",
+    "semantic_hash": "624f62b30a41dbbb134d653331ae9f36"
+  },
+  "Backplane/Driver/bridges/HydraBridge_32.c": {
+    "mtime": 1783473835.126857,
+    "ast_hash": "69ea0e0584b7d4efbeed8be312c8a7c9",
+    "semantic_hash": "69ea0e0584b7d4efbeed8be312c8a7c9"
+  },
+  "Backplane/Driver/bridges/HydraBridge_4.c": {
+    "mtime": 1783473835.1269672,
+    "ast_hash": "109141338a2cb4732b254bf6fdc7f960",
+    "semantic_hash": "109141338a2cb4732b254bf6fdc7f960"
+  },
+  "Backplane/Driver/bridges/HydraBridge_64.c": {
+    "mtime": 1783473835.1270666,
+    "ast_hash": "dd7be3989e38f00d94470c3628b10123",
+    "semantic_hash": "dd7be3989e38f00d94470c3628b10123"
+  },
+  "Backplane/Driver/bridges/HydraBridge_8.c": {
+    "mtime": 1783473835.1271615,
+    "ast_hash": "3aaef08e467f7e0c01851c51cc95188a",
+    "semantic_hash": "3aaef08e467f7e0c01851c51cc95188a"
+  },
+  "Backplane/build_and_install.sh": {
+    "mtime": 1783473835.1304853,
+    "ast_hash": "7fe73d8a66a3e20aca4ded6e52ae551d",
+    "semantic_hash": "7fe73d8a66a3e20aca4ded6e52ae551d"
+  },
+  "Media.xcassets/AppIcon.appiconset/Contents.json": {
+    "mtime": 1783473835.1315153,
+    "ast_hash": "9a9454d390e0f7b137d1e28dbd2b28d3",
+    "semantic_hash": "9a9454d390e0f7b137d1e28dbd2b28d3"
+  },
+  "Media.xcassets/Contents.json": {
+    "mtime": 1783473835.1332607,
+    "ast_hash": "9deb2ada1cc834bbebf8bbad9c8978a1",
+    "semantic_hash": "9deb2ada1cc834bbebf8bbad9c8978a1"
+  },
+  "Package.swift": {
+    "mtime": 1783473835.1333563,
+    "ast_hash": "57bcb49b99fd764c5f5259efe62e6330",
+    "semantic_hash": "57bcb49b99fd764c5f5259efe62e6330"
+  },
+  "Packaging/build_installer.sh": {
+    "mtime": 1784218104.5562012,
+    "ast_hash": "d9968ef99a0d3f0775a1f5c5b9dfe8af",
+    "semantic_hash": "d9968ef99a0d3f0775a1f5c5b9dfe8af"
+  },
+  "Packaging/build_pkg.sh": {
+    "mtime": 1783473835.133609,
+    "ast_hash": "3c0071986913065cdc98ac5f7945ffef",
+    "semantic_hash": "3c0071986913065cdc98ac5f7945ffef"
+  },
+  "Packaging/scripts/postinstall": {
+    "mtime": 1783473835.133883,
+    "ast_hash": "c2a84c952b902da64d6d9ac4e98bd927",
+    "semantic_hash": "c2a84c952b902da64d6d9ac4e98bd927"
+  },
+  "Scripts/bridges_install.sh": {
+    "mtime": 1783473835.1343927,
+    "ast_hash": "e1b297bbdc64def933e8244e83c2f2d7",
+    "semantic_hash": "e1b297bbdc64def933e8244e83c2f2d7"
+  },
+  "Scripts/bridges_uninstall.sh": {
+    "mtime": 1783473835.1344924,
+    "ast_hash": "602505ea60601662e8b262beaaf64d0e",
+    "semantic_hash": "602505ea60601662e8b262beaaf64d0e"
+  },
+  "Scripts/fetch_vst3sdk.sh": {
+    "mtime": 1783473835.1345482,
+    "ast_hash": "e3605115d675b28207b713a0f2f1c9f3",
+    "semantic_hash": "e3605115d675b28207b713a0f2f1c9f3"
+  },
+  "Scripts/generate_icons.py": {
+    "mtime": 1783473835.1346486,
+    "ast_hash": "52af45b8ad3c0effde8cd0a61bb3ade9",
+    "semantic_hash": "52af45b8ad3c0effde8cd0a61bb3ade9"
+  },
+  "Scripts/generate_xcodeproj.rb": {
+    "mtime": 1784217114.8488576,
+    "ast_hash": "8d771b81accc38909f4af5463b37e94d",
+    "semantic_hash": "8d771b81accc38909f4af5463b37e94d"
+  },
+  "Scripts/install_and_test.sh": {
+    "mtime": 1783863255.8294911,
+    "ast_hash": "93450ada881156d0fd9a4cacefccd41b",
+    "semantic_hash": "93450ada881156d0fd9a4cacefccd41b"
+  },
+  "Scripts/install_local.sh": {
+    "mtime": 1783473835.134857,
+    "ast_hash": "03baa0b0e3291b74e39157f41d9716be",
+    "semantic_hash": "03baa0b0e3291b74e39157f41d9716be"
+  },
+  "Scripts/release.sh": {
+    "mtime": 1784243292.2895393,
+    "ast_hash": "c545d01fefeb1ad9982cb5d92c9e6efa",
+    "semantic_hash": "c545d01fefeb1ad9982cb5d92c9e6efa"
+  },
+  "Sources/HydraApp/AboutView.swift": {
+    "mtime": 1783473835.1351347,
+    "ast_hash": "85a05b69d992c5522631cfa95e4883cd",
+    "semantic_hash": "85a05b69d992c5522631cfa95e4883cd"
+  },
+  "Sources/HydraApp/AppLanguage.swift": {
+    "mtime": 1783473835.1351936,
+    "ast_hash": "3eeba6eb3284c8c6722fdef48089cae6",
+    "semantic_hash": "3eeba6eb3284c8c6722fdef48089cae6"
+  },
+  "Sources/HydraApp/Badge.swift": {
+    "mtime": 1783473835.1352477,
+    "ast_hash": "b94f2518018c4f9288b2f934b48603e2",
+    "semantic_hash": "b94f2518018c4f9288b2f934b48603e2"
+  },
+  "Sources/HydraApp/CommandPalette.swift": {
+    "mtime": 1783473835.1353145,
+    "ast_hash": "bb1980d11cef4f974568b01fa448fd4b",
+    "semantic_hash": "bb1980d11cef4f974568b01fa448fd4b"
+  },
+  "Sources/HydraApp/ContentView.swift": {
+    "mtime": 1783530033.2304842,
+    "ast_hash": "5b26eec9186066210c9fa4d84eac464b",
+    "semantic_hash": "5b26eec9186066210c9fa4d84eac464b"
+  },
+  "Sources/HydraApp/DaemonClient.swift": {
+    "mtime": 1784595723.1869223,
+    "ast_hash": "d551f6f32b011c07bd02f4df926d9c3a",
+    "semantic_hash": "d551f6f32b011c07bd02f4df926d9c3a"
+  },
+  "Sources/HydraApp/DaemonService.swift": {
+    "mtime": 1783473835.135612,
+    "ast_hash": "d269f525dcf6a4aaf05cd72e34262f1b",
+    "semantic_hash": "d269f525dcf6a4aaf05cd72e34262f1b"
+  },
+  "Sources/HydraApp/DeviceViewPatch.swift": {
+    "mtime": 1783473835.1357205,
+    "ast_hash": "7df028aa0ce650a844eebfb8068f5df4",
+    "semantic_hash": "7df028aa0ce650a844eebfb8068f5df4"
+  },
+  "Sources/HydraApp/Diagnostics.swift": {
+    "mtime": 1783473835.1357856,
+    "ast_hash": "561a92ef4aa4bc1390c171b6f5e3c47a",
+    "semantic_hash": "561a92ef4aa4bc1390c171b6f5e3c47a"
+  },
+  "Sources/HydraApp/FluxView.swift": {
+    "mtime": 1784595536.4121642,
+    "ast_hash": "42a3e9b2e26402f2ee89bfe89a6fb243",
+    "semantic_hash": "42a3e9b2e26402f2ee89bfe89a6fb243"
+  },
+  "Sources/HydraApp/GridView.swift": {
+    "mtime": 1784495548.4170327,
+    "ast_hash": "1304008d4a22a1ea4780afc20f239859",
+    "semantic_hash": "1304008d4a22a1ea4780afc20f239859"
+  },
+  "Sources/HydraApp/HydraApp.swift": {
+    "mtime": 1783530270.505475,
+    "ast_hash": "94524e5474c3b7e1c790982dcdbfd7f2",
+    "semantic_hash": "94524e5474c3b7e1c790982dcdbfd7f2"
+  },
+  "Sources/HydraApp/IconPack.swift": {
+    "mtime": 1783473835.13627,
+    "ast_hash": "6ce5041a4d5bb399ba5e348f45fbf5aa",
+    "semantic_hash": "6ce5041a4d5bb399ba5e348f45fbf5aa"
+  },
+  "Sources/HydraApp/InspectorView.swift": {
+    "mtime": 1784598303.5625155,
+    "ast_hash": "d9f9252cae28a2607449a90848a337e2",
+    "semantic_hash": "d9f9252cae28a2607449a90848a337e2"
+  },
+  "Sources/HydraApp/InstallManager.swift": {
+    "mtime": 1783473835.1365309,
+    "ast_hash": "dc03305bc8dd585f0c1d176c064663ef",
+    "semantic_hash": "dc03305bc8dd585f0c1d176c064663ef"
+  },
+  "Sources/HydraApp/MenuBarPanel.swift": {
+    "mtime": 1783592359.4654222,
+    "ast_hash": "d081bf38a7f782a7146a313749adf967",
+    "semantic_hash": "d081bf38a7f782a7146a313749adf967"
+  },
+  "Sources/HydraApp/MetricsReporter.swift": {
+    "mtime": 1783473835.1371946,
+    "ast_hash": "abdaf6ada6ebee3ecc871ef969dc1d7f",
+    "semantic_hash": "abdaf6ada6ebee3ecc871ef969dc1d7f"
+  },
+  "Sources/HydraApp/PluginPickerSheet.swift": {
+    "mtime": 1784598296.3757253,
+    "ast_hash": "a17cf5cd65dcd036f989b17511844b6f",
+    "semantic_hash": "a17cf5cd65dcd036f989b17511844b6f"
+  },
+  "Sources/HydraApp/SearchField.swift": {
+    "mtime": 1784598328.9481487,
+    "ast_hash": "55a93cf51b027629f7586c6e744c381d",
+    "semantic_hash": "55a93cf51b027629f7586c6e744c381d"
+  },
+  "Sources/HydraApp/SettingsView.swift": {
+    "mtime": 1784598307.988382,
+    "ast_hash": "13f57104d48e937371049d28e081651b",
+    "semantic_hash": "13f57104d48e937371049d28e081651b"
+  },
+  "Sources/HydraApp/SidebarView.swift": {
+    "mtime": 1784596676.509432,
+    "ast_hash": "ab39df03c3753e96d81c2e28156d6c79",
+    "semantic_hash": "ab39df03c3753e96d81c2e28156d6c79"
+  },
+  "Sources/HydraApp/StripGridView.swift": {
+    "mtime": 1783473835.137759,
+    "ast_hash": "1969034afd046a54584866627e55e619",
+    "semantic_hash": "1969034afd046a54584866627e55e619"
+  },
+  "Sources/HydraApp/SurfaceConfigSheet.swift": {
+    "mtime": 1783473835.1378703,
+    "ast_hash": "376fc667620a806dd4f63725c3ece653",
+    "semantic_hash": "376fc667620a806dd4f63725c3ece653"
+  },
+  "Sources/HydraApp/SyncedValue.swift": {
+    "mtime": 1783473835.1379325,
+    "ast_hash": "16f8ef85745bbe258bc5ff7482cbaaf3",
+    "semantic_hash": "16f8ef85745bbe258bc5ff7482cbaaf3"
+  },
+  "Sources/HydraApp/Theme.swift": {
+    "mtime": 1783473835.1380103,
+    "ast_hash": "b17ce858b8656f38ec038dc9e9f9ad81",
+    "semantic_hash": "b17ce858b8656f38ec038dc9e9f9ad81"
+  },
+  "Sources/HydraApp/Updater.swift": {
+    "mtime": 1784217119.5601308,
+    "ast_hash": "d5518573d1e3f6bf89dc6272caae7093",
+    "semantic_hash": "d5518573d1e3f6bf89dc6272caae7093"
+  },
+  "Sources/HydraApp/WelcomeSheet.swift": {
+    "mtime": 1783473835.1383643,
+    "ast_hash": "fd3a7822efe2c88edda00156cdc44c3c",
+    "semantic_hash": "fd3a7822efe2c88edda00156cdc44c3c"
+  },
+  "Sources/HydraApp/main.swift": {
+    "mtime": 1783473835.1384892,
+    "ast_hash": "9dc00a4dd79ce921b1371278d7ccb0b1",
+    "semantic_hash": "9dc00a4dd79ce921b1371278d7ccb0b1"
+  },
+  "Sources/HydraCore/Aes67.swift": {
+    "mtime": 1783473835.1386037,
+    "ast_hash": "4b9f3b6231d8db4a22881bf613bddb0a",
+    "semantic_hash": "4b9f3b6231d8db4a22881bf613bddb0a"
+  },
+  "Sources/HydraCore/HydraConstants.swift": {
+    "mtime": 1784497012.9130888,
+    "ast_hash": "595471ba27bb8450dcbd46ae350ba4b2",
+    "semantic_hash": "595471ba27bb8450dcbd46ae350ba4b2"
+  },
+  "Sources/HydraCore/HydraLog.swift": {
+    "mtime": 1783473835.138797,
+    "ast_hash": "1edd13e725a336e07b1ba0850fd19377",
+    "semantic_hash": "1edd13e725a336e07b1ba0850fd19377"
+  },
+  "Sources/HydraCore/Messages.swift": {
+    "mtime": 1784595610.072735,
+    "ast_hash": "f0abd079fa15830d8bb3bcd99c0d3891",
+    "semantic_hash": "f0abd079fa15830d8bb3bcd99c0d3891"
+  },
+  "Sources/HydraCore/Models.swift": {
+    "mtime": 1783473835.139036,
+    "ast_hash": "5408572ecdc75b88412b65d6b5779c34",
+    "semantic_hash": "5408572ecdc75b88412b65d6b5779c34"
+  },
+  "Sources/HydraCore/Osc.swift": {
+    "mtime": 1783473835.139119,
+    "ast_hash": "3edfe5bca9979e287e73395e7b89eb71",
+    "semantic_hash": "3edfe5bca9979e287e73395e7b89eb71"
+  },
+  "Sources/HydraCore/PatchMatrix.swift": {
+    "mtime": 1783473835.1391888,
+    "ast_hash": "7f1ceb8e3528c48273115375fad0015a",
+    "semantic_hash": "7f1ceb8e3528c48273115375fad0015a"
+  },
+  "Sources/HydraCore/PatchValidation.swift": {
+    "mtime": 1783473835.1392753,
+    "ast_hash": "7297fda666a5e6027bd387403cff3f0e",
+    "semantic_hash": "7297fda666a5e6027bd387403cff3f0e"
+  },
+  "Sources/HydraCore/PolyphaseResampler.swift": {
+    "mtime": 1783473835.1393309,
+    "ast_hash": "a538583de00d0f25c089d3a80a68e762",
+    "semantic_hash": "a538583de00d0f25c089d3a80a68e762"
+  },
+  "Sources/HydraCore/PtpParsing.swift": {
+    "mtime": 1783473835.1394057,
+    "ast_hash": "2028646ccad44510c7067c55758fc94f",
+    "semantic_hash": "2028646ccad44510c7067c55758fc94f"
+  },
+  "Sources/HydraCore/ResampleServo.swift": {
+    "mtime": 1783473835.139509,
+    "ast_hash": "80129870d26e6019182aff5a124e047f",
+    "semantic_hash": "80129870d26e6019182aff5a124e047f"
+  },
+  "Sources/HydraCore/UILogic.swift": {
+    "mtime": 1783592359.4665067,
+    "ast_hash": "41e0a95c7dced8d1d5acb44f126d269d",
+    "semantic_hash": "41e0a95c7dced8d1d5acb44f126d269d"
+  },
+  "Sources/HydraInstaller/CompleteView.swift": {
+    "mtime": 1784224685.3329659,
+    "ast_hash": "553e8554924f9b848a0c87c2600026cb",
+    "semantic_hash": "553e8554924f9b848a0c87c2600026cb"
+  },
+  "Sources/HydraInstaller/Component.swift": {
+    "mtime": 1784217594.316295,
+    "ast_hash": "b0ee04a6970e6717b65349a29974c393",
+    "semantic_hash": "b0ee04a6970e6717b65349a29974c393"
+  },
+  "Sources/HydraInstaller/ContentView.swift": {
+    "mtime": 1784217634.7332377,
+    "ast_hash": "92b6c21b2c842d1876c58477d6320d45",
+    "semantic_hash": "92b6c21b2c842d1876c58477d6320d45"
+  },
+  "Sources/HydraInstaller/FooterView.swift": {
+    "mtime": 1784217658.9035904,
+    "ast_hash": "9f1e9dba99e214691881821e3908c6b6",
+    "semantic_hash": "9f1e9dba99e214691881821e3908c6b6"
+  },
+  "Sources/HydraInstaller/InstallView.swift": {
+    "mtime": 1784217707.862189,
+    "ast_hash": "450a59079dc1bfbcc96a12f96db3e3e7",
+    "semantic_hash": "450a59079dc1bfbcc96a12f96db3e3e7"
+  },
+  "Sources/HydraInstaller/Installer.swift": {
+    "mtime": 1784217617.7778878,
+    "ast_hash": "4b7af470eabacff7c89ac22b817e3e81",
+    "semantic_hash": "4b7af470eabacff7c89ac22b817e3e81"
+  },
+  "Sources/HydraInstaller/InstallerState.swift": {
+    "mtime": 1784217605.7675335,
+    "ast_hash": "0cdf2d78df78121019a45bc22985c1db",
+    "semantic_hash": "0cdf2d78df78121019a45bc22985c1db"
+  },
+  "Sources/HydraInstaller/LicenseView.swift": {
+    "mtime": 1784217682.6506548,
+    "ast_hash": "9d2ec0332a178a2d3f90fd7f556f0dba",
+    "semantic_hash": "9d2ec0332a178a2d3f90fd7f556f0dba"
+  },
+  "Sources/HydraInstaller/SelectionView.swift": {
+    "mtime": 1784217695.5029993,
+    "ast_hash": "fc578d4c36a196676ce3eaf4b0001ff2",
+    "semantic_hash": "fc578d4c36a196676ce3eaf4b0001ff2"
+  },
+  "Sources/HydraInstaller/SidebarView.swift": {
+    "mtime": 1784243315.343516,
+    "ast_hash": "d9602dd309494640376241902181c948",
+    "semantic_hash": "d9602dd309494640376241902181c948"
+  },
+  "Sources/HydraInstaller/WelcomeView.swift": {
+    "mtime": 1784217671.2066402,
+    "ast_hash": "c635b93301a627d948dbcbf74da4e163",
+    "semantic_hash": "c635b93301a627d948dbcbf74da4e163"
+  },
+  "Sources/HydraInstaller/main.swift": {
+    "mtime": 1784217629.3238602,
+    "ast_hash": "c5ba8a215dd7bde54b8b7367c0442dd1",
+    "semantic_hash": "c5ba8a215dd7bde54b8b7367c0442dd1"
+  },
+  "Sources/HydraModuleABI/hydra_module.c": {
+    "mtime": 1783473835.1396756,
+    "ast_hash": "902d9a429ea02f61aea45b60c31e83ad",
+    "semantic_hash": "902d9a429ea02f61aea45b60c31e83ad"
+  },
+  "Sources/HydraModuleABI/include/hydra_module.h": {
+    "mtime": 1783473835.13977,
+    "ast_hash": "3f45c8a1bb5ab2b21f2934a8d62f1a6a",
+    "semantic_hash": "3f45c8a1bb5ab2b21f2934a8d62f1a6a"
+  },
+  "Sources/HydraNDIShim/hydra_ndi.c": {
+    "mtime": 1784492121.6608427,
+    "ast_hash": "6c1b238ab0554fd3378b4f859bc8cf1c",
+    "semantic_hash": "6c1b238ab0554fd3378b4f859bc8cf1c"
+  },
+  "Sources/HydraNDIShim/include/hydra_ndi.h": {
+    "mtime": 1783473835.1400201,
+    "ast_hash": "a4bbbd9b88c76bb7aef646cf89110112",
+    "semantic_hash": "a4bbbd9b88c76bb7aef646cf89110112"
+  },
+  "Sources/HydraPluginHostABI/hydra_plugin_shm.c": {
+    "mtime": 1783473835.1401525,
+    "ast_hash": "841a692ded8c0f18a7145a5149577234",
+    "semantic_hash": "841a692ded8c0f18a7145a5149577234"
+  },
+  "Sources/HydraPluginHostABI/include/hydra_plugin_shm.h": {
+    "mtime": 1783473835.14027,
+    "ast_hash": "6cd1dbafb1b6b6877a72da41c5e0c061",
+    "semantic_hash": "6cd1dbafb1b6b6877a72da41c5e0c061"
+  },
+  "Sources/HydraRT/ChannelRing.swift": {
+    "mtime": 1783473835.1404505,
+    "ast_hash": "e73206d830baeb1dcfd4f9f96b8684a4",
+    "semantic_hash": "e73206d830baeb1dcfd4f9f96b8684a4"
+  },
+  "Sources/HydraSurface/HUI.swift": {
+    "mtime": 1783473835.140641,
+    "ast_hash": "cb9315a986b1a93c2baf3f88b4373f0e",
+    "semantic_hash": "cb9315a986b1a93c2baf3f88b4373f0e"
+  },
+  "Sources/HydraSurface/HiQnet.swift": {
+    "mtime": 1783473835.1407573,
+    "ast_hash": "48bf4364b7006d1910f4c30f0658257e",
+    "semantic_hash": "48bf4364b7006d1910f4c30f0658257e"
+  },
+  "Sources/HydraSurface/HiQnetClient.swift": {
+    "mtime": 1783473835.1408575,
+    "ast_hash": "8dda6a707251ebaf4204f07cedc1426a",
+    "semantic_hash": "8dda6a707251ebaf4204f07cedc1426a"
+  },
+  "Sources/HydraSurface/HiQnetDiscovery.swift": {
+    "mtime": 1783473835.140952,
+    "ast_hash": "501c30b730279275bca2117e56e39c8c",
+    "semantic_hash": "501c30b730279275bca2117e56e39c8c"
+  },
+  "Sources/HydraSurface/MIDIBackend.swift": {
+    "mtime": 1783473835.141038,
+    "ast_hash": "27c6ce1c22d096c011e677d20dd85a08",
+    "semantic_hash": "27c6ce1c22d096c011e677d20dd85a08"
+  },
+  "Sources/HydraSurface/SurfaceBridge.swift": {
+    "mtime": 1783473835.141149,
+    "ast_hash": "1f45ac53e29665db104348cd3002d56a",
+    "semantic_hash": "1f45ac53e29665db104348cd3002d56a"
+  },
+  "Sources/HydraSurface/SurfaceIDs.swift": {
+    "mtime": 1783473835.141295,
+    "ast_hash": "bef027d141052a69a75d42bf4fb54b0d",
+    "semantic_hash": "bef027d141052a69a75d42bf4fb54b0d"
+  },
+  "Sources/HydraVST/hydra_vst.mm": {
+    "mtime": 1783473835.141442,
+    "ast_hash": "322157230a8fbd1b86a86ae853914e84",
+    "semantic_hash": "322157230a8fbd1b86a86ae853914e84"
+  },
+  "Sources/HydraVST/include/hydra_vst.h": {
+    "mtime": 1783473835.1415699,
+    "ast_hash": "b5f32c4ebf365f8d628fa855a6fb3f38",
+    "semantic_hash": "b5f32c4ebf365f8d628fa855a6fb3f38"
+  },
+  "Sources/Inferno/hydra-inferno-bridge/src/main.rs": {
+    "mtime": 1784596479.05696,
+    "ast_hash": "ac1efd66b99e6b95d27ff02b84fcebff",
+    "semantic_hash": "ac1efd66b99e6b95d27ff02b84fcebff"
+  },
+  "Sources/Inferno/inferno_aoip/src/common.rs": {
+    "mtime": 1783473835.1432118,
+    "ast_hash": "e69f3116c5170ac5debfc1a3db625eff",
+    "semantic_hash": "e69f3116c5170ac5debfc1a3db625eff"
+  },
+  "Sources/Inferno/inferno_aoip/src/device_info.rs": {
+    "mtime": 1783473835.143306,
+    "ast_hash": "c4287b2217801fa630ec817d70de40fc",
+    "semantic_hash": "c4287b2217801fa630ec817d70de40fc"
+  },
+  "Sources/Inferno/inferno_aoip/src/device_server/arc_server.rs": {
+    "mtime": 1783963063.87792,
+    "ast_hash": "0e6492a827d9b9955bab66f392a7d220",
+    "semantic_hash": "0e6492a827d9b9955bab66f392a7d220"
+  },
+  "Sources/Inferno/inferno_aoip/src/device_server/channels_subscriber.rs": {
+    "mtime": 1783532694.9253292,
+    "ast_hash": "63c1a302f39da976a8f3fcf596fe94a0",
+    "semantic_hash": "63c1a302f39da976a8f3fcf596fe94a0"
+  },
+  "Sources/Inferno/inferno_aoip/src/device_server/cmc_server.rs": {
+    "mtime": 1783532393.1182775,
+    "ast_hash": "e441c474cf17dda92cb965c0f81919d5",
+    "semantic_hash": "e441c474cf17dda92cb965c0f81919d5"
+  },
+  "Sources/Inferno/inferno_aoip/src/device_server/flows_control_server.rs": {
+    "mtime": 1783532393.11933,
+    "ast_hash": "272842b720e89cd4a291ef8dfde79493",
+    "semantic_hash": "272842b720e89cd4a291ef8dfde79493"
+  },
+  "Sources/Inferno/inferno_aoip/src/device_server/flows_rx.rs": {
+    "mtime": 1783863392.7903104,
+    "ast_hash": "12c968a4eba457bf407d8cf3917f6798",
+    "semantic_hash": "12c968a4eba457bf407d8cf3917f6798"
+  },
+  "Sources/Inferno/inferno_aoip/src/device_server/flows_tx.rs": {
+    "mtime": 1783532669.6200182,
+    "ast_hash": "49c489a7590a7e40c414df30cde3ba7b",
+    "semantic_hash": "49c489a7590a7e40c414df30cde3ba7b"
+  },
+  "Sources/Inferno/inferno_aoip/src/device_server/info_mcast_server.rs": {
+    "mtime": 1784178997.2060604,
+    "ast_hash": "9f4da87f478189168bdef4630a0ccd4a",
+    "semantic_hash": "9f4da87f478189168bdef4630a0ccd4a"
+  },
+  "Sources/Inferno/inferno_aoip/src/device_server/mdns_server.rs": {
+    "mtime": 1783532393.1186323,
+    "ast_hash": "e3aafb955f9e64d32275c40b300c0e95",
+    "semantic_hash": "e3aafb955f9e64d32275c40b300c0e95"
+  },
+  "Sources/Inferno/inferno_aoip/src/device_server/mod.rs": {
+    "mtime": 1783533292.4044302,
+    "ast_hash": "06f7884336416cae564cca989f3aeead",
+    "semantic_hash": "06f7884336416cae564cca989f3aeead"
+  },
+  "Sources/Inferno/inferno_aoip/src/device_server/peaks.rs": {
+    "mtime": 1783473835.1443415,
+    "ast_hash": "6bc450c65b0a7bf918fbcd5c6e5119a8",
+    "semantic_hash": "6bc450c65b0a7bf918fbcd5c6e5119a8"
+  },
+  "Sources/Inferno/inferno_aoip/src/device_server/samples_collector.rs": {
+    "mtime": 1783532895.118034,
+    "ast_hash": "d95884266d9aa2441f4a427883b71ac6",
+    "semantic_hash": "d95884266d9aa2441f4a427883b71ac6"
+  },
+  "Sources/Inferno/inferno_aoip/src/device_server/samples_utils.rs": {
+    "mtime": 1783473835.1445162,
+    "ast_hash": "9b805d620164fe44b42c231f4670b4da",
+    "semantic_hash": "9b805d620164fe44b42c231f4670b4da"
+  },
+  "Sources/Inferno/inferno_aoip/src/device_server/saved_settings.rs": {
+    "mtime": 1783473835.1445928,
+    "ast_hash": "f112edfe27d548c86181064153d583d9",
+    "semantic_hash": "f112edfe27d548c86181064153d583d9"
+  },
+  "Sources/Inferno/inferno_aoip/src/device_server/settings.rs": {
+    "mtime": 1783592359.4677424,
+    "ast_hash": "d22b8e54d7c8c26c8834d8a2960d3f9a",
+    "semantic_hash": "d22b8e54d7c8c26c8834d8a2960d3f9a"
+  },
+  "Sources/Inferno/inferno_aoip/src/device_server/tx_multicasts.rs": {
+    "mtime": 1783532715.4196384,
+    "ast_hash": "db1f70d2525551a43a3c353190522c9a",
+    "semantic_hash": "db1f70d2525551a43a3c353190522c9a"
+  },
+  "Sources/Inferno/inferno_aoip/src/lib.rs": {
+    "mtime": 1783473835.1448789,
+    "ast_hash": "9bf9c4ceb7ae9b3e8c13116daa3900a5",
+    "semantic_hash": "9bf9c4ceb7ae9b3e8c13116daa3900a5"
+  },
+  "Sources/Inferno/inferno_aoip/src/mdns_client.rs": {
+    "mtime": 1783532742.9409497,
+    "ast_hash": "aeec73e7c2a4ee2e397bddf17011b219",
+    "semantic_hash": "aeec73e7c2a4ee2e397bddf17011b219"
+  },
+  "Sources/Inferno/inferno_aoip/src/media_clock.rs": {
+    "mtime": 1783532749.1283908,
+    "ast_hash": "f3baa0dd9ba39eabcd095b9925317312",
+    "semantic_hash": "f3baa0dd9ba39eabcd095b9925317312"
+  },
+  "Sources/Inferno/inferno_aoip/src/protocol/flows_control.rs": {
+    "mtime": 1783473835.1452153,
+    "ast_hash": "9dec6bc2bdacbd72810fad67ba9e4c68",
+    "semantic_hash": "9dec6bc2bdacbd72810fad67ba9e4c68"
+  },
+  "Sources/Inferno/inferno_aoip/src/protocol/mcast.rs": {
+    "mtime": 1783473835.1453226,
+    "ast_hash": "e795780002fe4469a36dfdeda43c1667",
+    "semantic_hash": "e795780002fe4469a36dfdeda43c1667"
+  },
+  "Sources/Inferno/inferno_aoip/src/protocol/mod.rs": {
+    "mtime": 1783473835.1454253,
+    "ast_hash": "49745df262174d1ec480b4a55310939c",
+    "semantic_hash": "49745df262174d1ec480b4a55310939c"
+  },
+  "Sources/Inferno/inferno_aoip/src/protocol/proto_arc.rs": {
+    "mtime": 1783532755.4249818,
+    "ast_hash": "d1f890778bbb1b9c127679169f703af0",
+    "semantic_hash": "d1f890778bbb1b9c127679169f703af0"
+  },
+  "Sources/Inferno/inferno_aoip/src/protocol/proto_cmc.rs": {
+    "mtime": 1783473835.1456048,
+    "ast_hash": "114c5c784fbcf2f64f186f6ac0936870",
+    "semantic_hash": "114c5c784fbcf2f64f186f6ac0936870"
+  },
+  "Sources/Inferno/inferno_aoip/src/protocol/req_resp.rs": {
+    "mtime": 1783532393.1191905,
+    "ast_hash": "aebedad982fcb18c18706fceb933c21f",
+    "semantic_hash": "aebedad982fcb18c18706fceb933c21f"
+  },
+  "Sources/Inferno/inferno_aoip/src/ring_buffer.rs": {
+    "mtime": 1783532840.6591203,
+    "ast_hash": "d678e2378e54ce0cd3097f622b9d44d1",
+    "semantic_hash": "d678e2378e54ce0cd3097f622b9d44d1"
+  },
+  "Sources/Inferno/inferno_aoip/src/state_storage.rs": {
+    "mtime": 1783532393.1193929,
+    "ast_hash": "42cf973c0793b5ffbdd15e39b123d2cc",
+    "semantic_hash": "42cf973c0793b5ffbdd15e39b123d2cc"
+  },
+  "Sources/Inferno/inferno_aoip/src/util/bytes.rs": {
+    "mtime": 1783532782.9831161,
+    "ast_hash": "f4b5d002e4ab644c2e97223600f5a262",
+    "semantic_hash": "f4b5d002e4ab644c2e97223600f5a262"
+  },
+  "Sources/Inferno/inferno_aoip/src/util/mod.rs": {
+    "mtime": 1783473835.1460724,
+    "ast_hash": "45055744d3094814b6f2663ff361853a",
+    "semantic_hash": "45055744d3094814b6f2663ff361853a"
+  },
+  "Sources/Inferno/inferno_aoip/src/util/net.rs": {
+    "mtime": 1784033600.7745786,
+    "ast_hash": "7859d520e19b4b3a25a3d2e9dcaa819a",
+    "semantic_hash": "7859d520e19b4b3a25a3d2e9dcaa819a"
+  },
+  "Sources/Inferno/inferno_aoip/src/util/os.rs": {
+    "mtime": 1783473835.1462495,
+    "ast_hash": "496d8ea6920ec800c548bb93f0e4f7ce",
+    "semantic_hash": "496d8ea6920ec800c548bb93f0e4f7ce"
+  },
+  "Sources/Inferno/inferno_aoip/src/util/real_time_box_channel.rs": {
+    "mtime": 1783473835.146323,
+    "ast_hash": "8c9ef79f4b714857151b55854ed1c6a9",
+    "semantic_hash": "8c9ef79f4b714857151b55854ed1c6a9"
+  },
+  "Sources/Inferno/inferno_aoip/src/util/thread.rs": {
+    "mtime": 1783473835.1463974,
+    "ast_hash": "76d0276d48e354dd6f3f5db9711bffea",
+    "semantic_hash": "76d0276d48e354dd6f3f5db9711bffea"
+  },
+  "Sources/Inferno/inferno_aoip/tests/loopback_trx.rs": {
+    "mtime": 1783863191.6105003,
+    "ast_hash": "ddf326f318b95e30f798890bbefb62c0",
+    "semantic_hash": "ddf326f318b95e30f798890bbefb62c0"
+  },
+  "Sources/Inferno/searchfire/.vscode/settings.json": {
+    "mtime": 1783473835.1469781,
+    "ast_hash": "5eebfd14610fc250265bba5dfbbbc6c2",
+    "semantic_hash": "5eebfd14610fc250265bba5dfbbbc6c2"
+  },
+  "Sources/Inferno/searchfire/examples/broadcast.rs": {
+    "mtime": 1783473835.1474457,
+    "ast_hash": "4ca4acb1d99e0f38155d4d1d3c02cdca",
+    "semantic_hash": "4ca4acb1d99e0f38155d4d1d3c02cdca"
+  },
+  "Sources/Inferno/searchfire/examples/discovery.rs": {
+    "mtime": 1783473835.1475482,
+    "ast_hash": "d23842578461a0fab1a607d2fc00d007",
+    "semantic_hash": "d23842578461a0fab1a607d2fc00d007"
+  },
+  "Sources/Inferno/searchfire/src/broadcast.rs": {
+    "mtime": 1783539330.2596855,
+    "ast_hash": "d376e64a2118a74a58c552c5bf154956",
+    "semantic_hash": "d376e64a2118a74a58c552c5bf154956"
+  },
+  "Sources/Inferno/searchfire/src/broadcast/builder.rs": {
+    "mtime": 1783473835.1479318,
+    "ast_hash": "499cffae625229e6f0f2c2fa294a3c44",
+    "semantic_hash": "499cffae625229e6f0f2c2fa294a3c44"
+  },
+  "Sources/Inferno/searchfire/src/broadcast/errors.rs": {
+    "mtime": 1783473835.148122,
+    "ast_hash": "b526201bbbfe7004b6d62c0ec5cfd5f7",
+    "semantic_hash": "b526201bbbfe7004b6d62c0ec5cfd5f7"
+  },
+  "Sources/Inferno/searchfire/src/broadcast/handle.rs": {
+    "mtime": 1783473835.1482232,
+    "ast_hash": "a214b5260b3c5861f3b4ba9166d34938",
+    "semantic_hash": "a214b5260b3c5861f3b4ba9166d34938"
+  },
+  "Sources/Inferno/searchfire/src/broadcast/service.rs": {
+    "mtime": 1783532607.2821407,
+    "ast_hash": "d8589635daafa38326de8a1f938937aa",
+    "semantic_hash": "d8589635daafa38326de8a1f938937aa"
+  },
+  "Sources/Inferno/searchfire/src/discovery.rs": {
+    "mtime": 1783532646.8166742,
+    "ast_hash": "eb87cc89d0140587f6dc5b088f118155",
+    "semantic_hash": "eb87cc89d0140587f6dc5b088f118155"
+  },
+  "Sources/Inferno/searchfire/src/discovery/builder.rs": {
+    "mtime": 1783473835.1486006,
+    "ast_hash": "711ee778dcf928bb5097dd99bf58fc09",
+    "semantic_hash": "711ee778dcf928bb5097dd99bf58fc09"
+  },
+  "Sources/Inferno/searchfire/src/discovery/errors.rs": {
+    "mtime": 1783473835.148697,
+    "ast_hash": "b170ba055573bf0f1215627522377405",
+    "semantic_hash": "b170ba055573bf0f1215627522377405"
+  },
+  "Sources/Inferno/searchfire/src/discovery/event.rs": {
+    "mtime": 1783473835.1487947,
+    "ast_hash": "2764e8db15727bb8507a7580154258c5",
+    "semantic_hash": "2764e8db15727bb8507a7580154258c5"
+  },
+  "Sources/Inferno/searchfire/src/discovery/handle.rs": {
+    "mtime": 1783473835.1488833,
+    "ast_hash": "fe90cacce726e2657d8ac63ba5800739",
+    "semantic_hash": "fe90cacce726e2657d8ac63ba5800739"
+  },
+  "Sources/Inferno/searchfire/src/discovery/presence.rs": {
+    "mtime": 1783473835.1489785,
+    "ast_hash": "01839702fc2d11db440c93704e324df5",
+    "semantic_hash": "01839702fc2d11db440c93704e324df5"
+  },
+  "Sources/Inferno/searchfire/src/errors.rs": {
+    "mtime": 1783473835.1490715,
+    "ast_hash": "89f5c2a6a0916976235bd03a2cfb8a0d",
+    "semantic_hash": "89f5c2a6a0916976235bd03a2cfb8a0d"
+  },
+  "Sources/Inferno/searchfire/src/lib.rs": {
+    "mtime": 1783473835.1491692,
+    "ast_hash": "9bb71d7c8d5fbf2c2d7bd8b2b87aea33",
+    "semantic_hash": "9bb71d7c8d5fbf2c2d7bd8b2b87aea33"
+  },
+  "Sources/Inferno/searchfire/src/net.rs": {
+    "mtime": 1783473835.1492674,
+    "ast_hash": "a7f2361fc82b044351272c16fdee0796",
+    "semantic_hash": "a7f2361fc82b044351272c16fdee0796"
+  },
+  "Sources/Inferno/searchfire/src/socket.rs": {
+    "mtime": 1783532406.513837,
+    "ast_hash": "ab176dfcd52dd4b17b2a62356604509c",
+    "semantic_hash": "ab176dfcd52dd4b17b2a62356604509c"
+  },
+  "Sources/Inferno/searchfire/src/tests.rs": {
+    "mtime": 1783473835.1494794,
+    "ast_hash": "ef012c74b58728d18252deb5029f512f",
+    "semantic_hash": "ef012c74b58728d18252deb5029f512f"
+  },
+  "Sources/Inferno/searchfire/src/util.rs": {
+    "mtime": 1783473835.1495807,
+    "ast_hash": "b29735a3a18f3910bcea8a340262e655",
+    "semantic_hash": "b29735a3a18f3910bcea8a340262e655"
+  },
+  "Sources/Inferno/searchfire/tests/client_and_server.rs": {
+    "mtime": 1783473835.1497257,
+    "ast_hash": "0ed56e40a6e35fdb90e878c929d4850b",
+    "semantic_hash": "0ed56e40a6e35fdb90e878c929d4850b"
+  },
+  "Sources/Inferno/usrvclock-rs/src/lib.rs": {
+    "mtime": 1783863167.6908402,
+    "ast_hash": "4e402ae276289921f560648a5c7bd1b5",
+    "semantic_hash": "4e402ae276289921f560648a5c7bd1b5"
+  },
+  "Sources/hydra-plugin-host/Assets.xcassets/AppIcon.appiconset/Contents.json": {
+    "mtime": 1783473837.8094976,
+    "ast_hash": "9e52e5f36adcf2da55b71b43c02b2de1",
+    "semantic_hash": "9e52e5f36adcf2da55b71b43c02b2de1"
+  },
+  "Sources/hydra-plugin-host/Assets.xcassets/Contents.json": {
+    "mtime": 1783473837.811004,
+    "ast_hash": "6f266f38436c1b8465f1c0b241ffd07e",
+    "semantic_hash": "6f266f38436c1b8465f1c0b241ffd07e"
+  },
+  "Sources/hydra-plugin-host/main.swift": {
+    "mtime": 1783473837.8112154,
+    "ast_hash": "5869705645448ae9033e0a6ea0d4b00b",
+    "semantic_hash": "5869705645448ae9033e0a6ea0d4b00b"
+  },
+  "Sources/hydrad/Aes67Manager.swift": {
+    "mtime": 1783863114.4444745,
+    "ast_hash": "d6bae290a7ed0ff60ed29fe13c95650f",
+    "semantic_hash": "d6bae290a7ed0ff60ed29fe13c95650f"
+  },
+  "Sources/hydrad/Aes67Tx.swift": {
+    "mtime": 1783473837.8114557,
+    "ast_hash": "32ef22ff06c457c08948cc9f568f7433",
+    "semantic_hash": "32ef22ff06c457c08948cc9f568f7433"
+  },
+  "Sources/hydrad/AudioEngine.swift": {
+    "mtime": 1783473837.811534,
+    "ast_hash": "19064ea245c06c8a53562d159cb6e463",
+    "semantic_hash": "19064ea245c06c8a53562d159cb6e463"
+  },
+  "Sources/hydrad/BackplaneProbe.swift": {
+    "mtime": 1783592359.5627217,
+    "ast_hash": "833f0a26f12ac886fbef72c80704cf93",
+    "semantic_hash": "833f0a26f12ac886fbef72c80704cf93"
+  },
+  "Sources/hydrad/BridgeManager.swift": {
+    "mtime": 1783473837.8117392,
+    "ast_hash": "f923f5ce59c4d022aaf58f433fa88ed4",
+    "semantic_hash": "f923f5ce59c4d022aaf58f433fa88ed4"
+  },
+  "Sources/hydrad/DaemonRuntime.swift": {
+    "mtime": 1784499155.3310177,
+    "ast_hash": "4c152ff473bec33043f987425ffe3a7c",
+    "semantic_hash": "4c152ff473bec33043f987425ffe3a7c"
+  },
+  "Sources/hydrad/DanteClockBrowser.swift": {
+    "mtime": 1783592359.5637474,
+    "ast_hash": "64b0b3fbccfd69365896440eb858733a",
+    "semantic_hash": "64b0b3fbccfd69365896440eb858733a"
+  },
+  "Sources/hydrad/DeviceManager.swift": {
+    "mtime": 1784489910.0744598,
+    "ast_hash": "7c87c10cfe3234687ae56906dff00770",
+    "semantic_hash": "7c87c10cfe3234687ae56906dff00770"
+  },
+  "Sources/hydrad/DeviceOutputTap.swift": {
+    "mtime": 1783473837.812147,
+    "ast_hash": "0db8d75097ee3f5010b23c19472960e1",
+    "semantic_hash": "0db8d75097ee3f5010b23c19472960e1"
+  },
+  "Sources/hydrad/Events.swift": {
+    "mtime": 1784595769.500307,
+    "ast_hash": "b46668dd0b0cacbb0d3041f721ae6fca",
+    "semantic_hash": "b46668dd0b0cacbb0d3041f721ae6fca"
+  },
+  "Sources/hydrad/InfernoManager.swift": {
+    "mtime": 1784596673.3131647,
+    "ast_hash": "c9e3b019259427bcfd3b95a5ee641c2a",
+    "semantic_hash": "c9e3b019259427bcfd3b95a5ee641c2a"
+  },
+  "Sources/hydrad/MatrixStore.swift": {
+    "mtime": 1783473837.8125486,
+    "ast_hash": "a59728af3f26fb1a24862fb2006a7617",
+    "semantic_hash": "a59728af3f26fb1a24862fb2006a7617"
+  },
+  "Sources/hydrad/ModuleManager.swift": {
+    "mtime": 1783473837.812663,
+    "ast_hash": "c498722cb1d777f46ec970aba74269b1",
+    "semantic_hash": "c498722cb1d777f46ec970aba74269b1"
+  },
+  "Sources/hydrad/NdiManager.swift": {
+    "mtime": 1784236160.3244507,
+    "ast_hash": "8b16768d76e730e732a63f3e7e7575dc",
+    "semantic_hash": "8b16768d76e730e732a63f3e7e7575dc"
+  },
+  "Sources/hydrad/OscServer.swift": {
+    "mtime": 1783473837.8128805,
+    "ast_hash": "c777598172440d4626a0f6db5110e93c",
+    "semantic_hash": "c777598172440d4626a0f6db5110e93c"
+  },
+  "Sources/hydrad/ProcessTapManager.swift": {
+    "mtime": 1783473837.8129811,
+    "ast_hash": "68ec30b77a0f595a80b9d08d70b8f358",
+    "semantic_hash": "68ec30b77a0f595a80b9d08d70b8f358"
+  },
+  "Sources/hydrad/PtpClock.swift": {
+    "mtime": 1783864005.8293383,
+    "ast_hash": "0d49fc31e17c1e36e302856fef7b37e4",
+    "semantic_hash": "0d49fc31e17c1e36e302856fef7b37e4"
+  },
+  "Sources/hydrad/RecordingManager.swift": {
+    "mtime": 1783473837.8133285,
+    "ast_hash": "18f059feab3a6bca8d6e9a6346276b49",
+    "semantic_hash": "18f059feab3a6bca8d6e9a6346276b49"
+  },
+  "Sources/hydrad/RemotePluginHost.swift": {
+    "mtime": 1783473837.8135605,
+    "ast_hash": "790be8dd56122a5d0de3f295ee66481c",
+    "semantic_hash": "790be8dd56122a5d0de3f295ee66481c"
+  },
+  "Sources/hydrad/RouteManager.swift": {
+    "mtime": 1784595682.7094605,
+    "ast_hash": "6c09fdcc05bfb6490bce5e077c11a9af",
+    "semantic_hash": "6c09fdcc05bfb6490bce5e077c11a9af"
+  },
+  "Sources/hydrad/Stores.swift": {
+    "mtime": 1783473837.813734,
+    "ast_hash": "0be28b4441cbd52787a52a8778db3a83",
+    "semantic_hash": "0be28b4441cbd52787a52a8778db3a83"
+  },
+  "Sources/hydrad/StripManager.swift": {
+    "mtime": 1784490443.5471687,
+    "ast_hash": "815988dcadb34de4c2faae05adc00589",
+    "semantic_hash": "815988dcadb34de4c2faae05adc00589"
+  },
+  "Sources/hydrad/SurfaceManager.swift": {
+    "mtime": 1783473837.813961,
+    "ast_hash": "d82323036e438f7130b0bc09e6292733",
+    "semantic_hash": "d82323036e438f7130b0bc09e6292733"
+  },
+  "Sources/hydrad/WSHandler.swift": {
+    "mtime": 1783592359.5649662,
+    "ast_hash": "7c15f21282e08c3ffdc9189780bc7d77",
+    "semantic_hash": "7c15f21282e08c3ffdc9189780bc7d77"
+  },
+  "Sources/hydrad/WebSocketServer.swift": {
+    "mtime": 1783592359.5655649,
+    "ast_hash": "e12654338e16a65a1ae0d61deb8c11d8",
+    "semantic_hash": "e12654338e16a65a1ae0d61deb8c11d8"
+  },
+  "Sources/hydrad/main.swift": {
+    "mtime": 1783473837.8142292,
+    "ast_hash": "a374b7f1008fd93eefe94244ffaa1c13",
+    "semantic_hash": "a374b7f1008fd93eefe94244ffaa1c13"
+  },
+  "Tests/HydraCoreTests/Aes67ParserExtraTests.swift": {
+    "mtime": 1783473837.8143868,
+    "ast_hash": "77a5f51bbb2bf0a62b0b445ed79005d7",
+    "semantic_hash": "77a5f51bbb2bf0a62b0b445ed79005d7"
+  },
+  "Tests/HydraCoreTests/Aes67Tests.swift": {
+    "mtime": 1783473837.8144407,
+    "ast_hash": "9076940dcb4ab08b3d0e06c84d05861d",
+    "semantic_hash": "9076940dcb4ab08b3d0e06c84d05861d"
+  },
+  "Tests/HydraCoreTests/GainTests.swift": {
+    "mtime": 1783473837.8144827,
+    "ast_hash": "be8b45f3183d2c058a718e3e6bf99b4d",
+    "semantic_hash": "be8b45f3183d2c058a718e3e6bf99b4d"
+  },
+  "Tests/HydraCoreTests/MessagesTests.swift": {
+    "mtime": 1783473837.8145497,
+    "ast_hash": "dcc14fda1e1cd66450ab4ada411d0aaf",
+    "semantic_hash": "dcc14fda1e1cd66450ab4ada411d0aaf"
+  },
+  "Tests/HydraCoreTests/ModelsTests.swift": {
+    "mtime": 1783473837.8146145,
+    "ast_hash": "5b8f3d86109e1389df74f0290b2cf434",
+    "semantic_hash": "5b8f3d86109e1389df74f0290b2cf434"
+  },
+  "Tests/HydraCoreTests/NodeIDTests.swift": {
+    "mtime": 1783473837.8147218,
+    "ast_hash": "1bda90d62c1185df60ffbbfa33d1cc20",
+    "semantic_hash": "1bda90d62c1185df60ffbbfa33d1cc20"
+  },
+  "Tests/HydraCoreTests/OscParserExtraTests.swift": {
+    "mtime": 1783473837.8147862,
+    "ast_hash": "65ac8c772f7d583018b0ef1b4a3b9f6b",
+    "semantic_hash": "65ac8c772f7d583018b0ef1b4a3b9f6b"
+  },
+  "Tests/HydraCoreTests/OscTests.swift": {
+    "mtime": 1783473837.8148346,
+    "ast_hash": "942de1bb3ccefc9ee0343a84dfde30d9",
+    "semantic_hash": "942de1bb3ccefc9ee0343a84dfde30d9"
+  },
+  "Tests/HydraCoreTests/PatchMatrixTests.swift": {
+    "mtime": 1783473837.8148797,
+    "ast_hash": "9d5bab151158e190ee79048ac9f86de7",
+    "semantic_hash": "9d5bab151158e190ee79048ac9f86de7"
+  },
+  "Tests/HydraCoreTests/PatchValidationTests.swift": {
+    "mtime": 1783473837.814926,
+    "ast_hash": "ec2c76543f68d840a6585bf839ef2659",
+    "semantic_hash": "ec2c76543f68d840a6585bf839ef2659"
+  },
+  "Tests/HydraCoreTests/PluginManagementTests.swift": {
+    "mtime": 1784598312.373778,
+    "ast_hash": "3a3af7435b5df7b1ca3feb2d9fb12fe2",
+    "semantic_hash": "3a3af7435b5df7b1ca3feb2d9fb12fe2"
+  },
+  "Tests/HydraCoreTests/PolyphaseResamplerTests.swift": {
+    "mtime": 1783473837.8150642,
+    "ast_hash": "958c49e2f589fcd9a5970771bf519046",
+    "semantic_hash": "958c49e2f589fcd9a5970771bf519046"
+  },
+  "Tests/HydraCoreTests/PtpParsingTests.swift": {
+    "mtime": 1783473837.8151171,
+    "ast_hash": "018b4699a98c00a858c7b2b4acb3359b",
+    "semantic_hash": "018b4699a98c00a858c7b2b4acb3359b"
+  },
+  "Tests/HydraCoreTests/ResampleServoTests.swift": {
+    "mtime": 1783473837.8151758,
+    "ast_hash": "7f3994d2384021a05b285747e91328f0",
+    "semantic_hash": "7f3994d2384021a05b285747e91328f0"
+  },
+  "Tests/HydraCoreTests/UILogicTests.swift": {
+    "mtime": 1783473837.8152347,
+    "ast_hash": "79df9a80c9e7fd96da031a096b3e1b23",
+    "semantic_hash": "79df9a80c9e7fd96da031a096b3e1b23"
+  },
+  "Tests/HydraRTTests/ChannelRingStressTests.swift": {
+    "mtime": 1783473837.8153393,
+    "ast_hash": "6eaf30719f58258be294b71c994de64b",
+    "semantic_hash": "6eaf30719f58258be294b71c994de64b"
+  },
+  "Tests/HydraSurfaceTests/CodecTests.swift": {
+    "mtime": 1783473837.8154392,
+    "ast_hash": "f55ab177d6dafb018eac1b54bc137c67",
+    "semantic_hash": "f55ab177d6dafb018eac1b54bc137c67"
+  },
+  "docs/HydraSurface/standalone/Package.swift": {
+    "mtime": 1783473837.8162603,
+    "ast_hash": "f65be8532ac48c47a66f3d85a2f31292",
+    "semantic_hash": "f65be8532ac48c47a66f3d85a2f31292"
+  },
+  "Sources/HydraCore/NetworkUtils.swift": {
+    "mtime": 1784596670.072795,
+    "ast_hash": "129f4798f88b739efa4dd897a529c720",
+    "semantic_hash": "129f4798f88b739efa4dd897a529c720"
+  },
+  "Sources/HydraCore/PluginSearchEngine.swift": {
+    "mtime": 1784598324.944146,
+    "ast_hash": "3a0efafe28636980d7338db907d22175",
+    "semantic_hash": "3a0efafe28636980d7338db907d22175"
+  }
+}

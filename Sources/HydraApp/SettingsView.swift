@@ -176,7 +176,13 @@ private struct AudioSettingsPane: View {
             }
 
             Section {
-                LabeledContent("Sample rate", value: "48 kHz · 32-bit float")
+                LabeledContent("Sample rate") {
+                    // Show the live rate reported by the daemon; fall back to
+                    // the default (48 kHz) while disconnected.
+                    let khz: Int = client.status.map { Int($0.sampleRate / 1000) } ?? 48
+                    Text("\(khz) kHz · 32-bit float")
+                        .foregroundStyle(.secondary)
+                }
                 LabeledContent("Soundcard",
                                value: "256-channel pool · used via virtual interfaces")
                 LabeledContent("Audio MIDI Setup") {
@@ -185,7 +191,7 @@ private struct AudioSettingsPane: View {
             } header: {
                 Text("Engine")
             } footer: {
-                Text("The engine runs at a fixed 48 kHz, 32-bit float. Hydra exposes eight Hydra Audio Bridge devices (2 to 128 channels) that any app can select — turn them on in the sidebar. Open Audio MIDI Setup to see the enabled bridges.")
+                Text("The engine runs at 32-bit float (rate shown above). Hydra exposes eight Hydra Audio Bridge devices (2 to 128 channels) that any app can select — turn them on in the sidebar. Open Audio MIDI Setup to see the enabled bridges.")
             }
 
             Section {
@@ -393,21 +399,16 @@ private struct PluginsSettingsPane: View {
         let hidden  = Set(client.vst.disabledIDs)
         let favs    = Set(client.vst.favoriteIDs)
 
-        typeOptions   = Array(Set(plugins.map(\.primaryType))).sorted()
-        vendorOptions = Array(Set(plugins.map { $0.vendor.isEmpty ? "Unknown" : $0.vendor })).sorted()
+        typeOptions   = PluginSearchEngine.extractCategories(from: plugins).filter { $0 != PluginCategory.all.rawValue && $0 != PluginCategory.favorites.rawValue }
+        vendorOptions = PluginSearchEngine.extractVendors(from: plugins)
 
-        let result = plugins.filter { p in
-            (search.isEmpty
-                || p.name.localizedCaseInsensitiveContains(search)
-                || p.vendor.localizedCaseInsensitiveContains(search))
-            && (typeFilter.isEmpty   || p.primaryType == typeFilter)
-            && (vendorFilter.isEmpty || (p.vendor.isEmpty ? "Unknown" : p.vendor) == vendorFilter)
-        }.sorted { a, b in
-            let fa = favs.contains(a.id)
-            let fb = favs.contains(b.id)
-            if fa != fb { return fa }
-            return a.name.localizedCaseInsensitiveCompare(b.name) == .orderedAscending
-        }
+        let result = PluginSearchEngine.filter(
+            plugins: plugins,
+            query: search,
+            categoryFilter: typeFilter,
+            vendorFilter: vendorFilter,
+            favoriteIDs: favs
+        )
         rows = result.map {
             PluginRowModel(plugin: $0,
                            available: !hidden.contains($0.id),

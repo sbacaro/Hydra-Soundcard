@@ -1,5 +1,10 @@
 # Changelog
 
+## [2.1.18] — 2026-07-20
+
+### Added
+- **Enhanced Plugin Filtering System**: Upgraded the VST3 plugin picker and manager (`PluginPickerSheet`, `InspectorView`, `PluginsSettingsPane`) with intelligent relevance search, audio term aliases (`compressor`, `reverb`, `synth`, `eq`), category/subcategory classification (`Dynamics`, `EQ & Filter`, `Reverb & Delay`, `Modulation`, `Instruments`, etc.), vendor/maker filtering, and sectioned view modes (**List**, **By Category**, **By Vendor**).
+
 ## [2.1.15] — 2026-07-16
 
 ### Added

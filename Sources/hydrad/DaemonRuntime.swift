@@ -465,7 +465,7 @@ final class DaemonContext {
         var lastNodeOn: [String: Date] = [:]   // "nodeID:channel" → last over-floor
         timer.setEventHandler { [weak self] in MainActor.assumeIsolated {
             guard let self else { return }
-            let active = self.engine.isRunning && self.server.hasClients
+            let active = self.server.hasClients
             self.store.channelMeteringEnabled = active
             guard active else { return }
             let now = Date()

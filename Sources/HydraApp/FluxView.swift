@@ -13,7 +13,13 @@ struct FluxView: View {
     @Environment(DaemonClient.self) private var client
     @Binding var selection: GridSelection?
 
-    private var captureDevices: [PhysicalDeviceInfo] { client.devices.filter { $0.outputChannels > 0 } }
+    /// Devices that can act as a capture source: they must have at least one INPUT
+    /// channel (microphones, audio interfaces, loopback bridges, etc.).
+    /// NOTE: for Audio-Hijack-style device-output taps the actual source is the
+    /// device's OUTPUT, but the device is still listed here — the tap reads what
+    /// apps play TO the device, not its physical input. The distinction is kept in
+    /// the flow's source.kind (.deviceInput vs .deviceOutput).
+    private var captureDevices: [PhysicalDeviceInfo] { client.devices.filter { $0.inputChannels > 0 || $0.outputChannels > 0 } }
     private var outputDevices: [PhysicalDeviceInfo] { client.devices.filter { $0.outputChannels > 0 } }
 
     var body: some View {
@@ -71,10 +77,16 @@ struct FluxView: View {
     }
 
     private func addFlow() {
-        let chans = [0]
-        let source = FlowEndpoint(kind: .deviceOutput, id: "", name: "Choose…", channels: chans)
-        let output = FlowEndpoint(kind: .device, id: "", name: "Choose…", channels: chans)
-        client.setFlow(FlowInfo(name: "Flow \(client.flows.count + 1)", source: source, output: output))
+        // Create a disabled placeholder flow with empty endpoints and no channels.
+        // The flow is sent to the daemon as disabled so it is persisted but not
+        // wired — the daemon's RouteManager skips unapplied endpoints.
+        // The user must choose source and output devices in the card before
+        // enabling (or the toggle auto-enables once both IDs are non-empty).
+        let source = FlowEndpoint(kind: .deviceOutput, id: "", name: "Choose…", channels: [])
+        let output = FlowEndpoint(kind: .device,       id: "", name: "Choose…", channels: [])
+        client.setFlow(FlowInfo(name: "Flow \(client.flows.count + 1)",
+                                source: source, output: output,
+                                enabled: false))
     }
 }
 
@@ -88,7 +100,15 @@ private struct FlowChainCard: View {
     @Binding var selection: GridSelection?
 
     private var sourceMax: Int {
-        captureDevices.first { $0.uid == flow.source.id }?.outputChannels ?? max(flow.source.count, 1)
+        guard let dev = captureDevices.first(where: { $0.uid == flow.source.id }) else {
+            return max(flow.source.count, 1)
+        }
+        // For device-output taps (Audio-Hijack style) the engine sees the device's
+        // OUTPUT channels; for plain device-input flows it sees the INPUT channels.
+        switch flow.source.kind {
+        case .deviceOutput: return dev.outputChannels > 0 ? dev.outputChannels : max(flow.source.count, 1)
+        default:            return dev.inputChannels  > 0 ? dev.inputChannels  : max(flow.source.count, 1)
+        }
     }
     private var outputMax: Int {
         if flow.output.kind == .bridge {
@@ -326,10 +346,14 @@ private struct FlowChainCard: View {
         return Array(s ..< s + count)
     }
     private func selectSource(_ d: PhysicalDeviceInfo) {
-        let chans = [0]
+        // Default to stereo (ch 1–2) when the device has ≥2 output channels,
+        // falling back to mono for single-channel devices.
+        let chans: [Int] = d.outputChannels >= 2 ? [0, 1] : [0]
         push {
             $0.source = FlowEndpoint(kind: .deviceOutput, id: d.uid, name: d.name, channels: chans)
             $0.output.channels = outputChannels(start: outputStart, count: chans.count)
+            // Auto-enable the flow once both endpoints are configured.
+            if !$0.source.id.isEmpty && !$0.output.id.isEmpty { $0.enabled = true }
         }
     }
 
@@ -367,16 +391,24 @@ private struct FlowChainCard: View {
         }
     }
     private func selectOutputDevice(_ d: PhysicalDeviceInfo) {
-        let count = flow.source.count
+        let count = max(flow.source.count, 1)   // at least 1 even for a fresh flow
         let s = max(0, min(outputStart, max(0, d.outputChannels - count)))
-        push { $0.output = FlowEndpoint(kind: .device, id: d.uid, name: d.name,
-                                        channels: count > 0 ? Array(s ..< s + count) : []) }
+        push {
+            $0.output = FlowEndpoint(kind: .device, id: d.uid, name: d.name,
+                                     channels: count > 0 ? Array(s ..< s + count) : [])
+            // Auto-enable the flow once both endpoints are configured.
+            if !$0.source.id.isEmpty && !$0.output.id.isEmpty { $0.enabled = true }
+        }
     }
     private func selectOutputBridge(_ b: BridgeInfo) {
-        let count = flow.source.count
+        let count = max(flow.source.count, 1)   // at least 1 even for a fresh flow
         let s = max(0, min(outputStart, max(0, b.channels - count)))
-        push { $0.output = FlowEndpoint(kind: .bridge, id: b.id, name: b.name,
-                                        channels: count > 0 ? Array(s ..< s + count) : []) }
+        push {
+            $0.output = FlowEndpoint(kind: .bridge, id: b.id, name: b.name,
+                                     channels: count > 0 ? Array(s ..< s + count) : [])
+            // Auto-enable the flow once both endpoints are configured.
+            if !$0.source.id.isEmpty && !$0.output.id.isEmpty { $0.enabled = true }
+        }
     }
     private func toggleChannel(_ i: Int) {
         var set = Set(flow.source.channels)

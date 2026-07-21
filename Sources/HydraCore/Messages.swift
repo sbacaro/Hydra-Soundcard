@@ -606,8 +606,10 @@ public struct CreateInterfacePayload: Codable, Sendable, Equatable {
     }
 }
 
-/// App → daemon: toggle an interface's NDI TX.
-public struct InterfaceNDIPayload: Codable, Sendable, Equatable {
+/// App → daemon: toggle network TX (NDI or AES67) for a virtual interface.
+/// Used by both `.setInterfaceNDI` and `.setInterfaceAES67` messages — the
+/// distinction is in the `type` field of the JSON envelope, not the payload.
+public struct InterfaceNetworkTXPayload: Codable, Sendable, Equatable {
     public var id: UUID
     public var enabled: Bool
     public init(id: UUID, enabled: Bool) {
@@ -615,6 +617,10 @@ public struct InterfaceNDIPayload: Codable, Sendable, Equatable {
         self.enabled = enabled
     }
 }
+
+/// Backward-compatible alias kept so existing call sites compile without change.
+@available(*, deprecated, renamed: "InterfaceNetworkTXPayload")
+public typealias InterfaceNDIPayload = InterfaceNetworkTXPayload
 
 // MARK: NDI
 
@@ -1209,8 +1215,8 @@ public enum WSMessage: Codable, Sendable {
     case interfaces(InterfacesPayload)
     case createInterface(CreateInterfacePayload)
     case deleteInterface(InterfaceRefPayload)
-    case setInterfaceNDI(InterfaceNDIPayload)
-    case setInterfaceAES67(InterfaceNDIPayload)
+    case setInterfaceNDI(InterfaceNetworkTXPayload)
+    case setInterfaceAES67(InterfaceNetworkTXPayload)
 
     case getBridges
     case bridges(BridgesPayload)
@@ -1308,8 +1314,9 @@ public enum WSMessage: Codable, Sendable {
         case .interfaces:       self = .interfaces(try c.decode(InterfacesPayload.self, forKey: .payload))
         case .createInterface:  self = .createInterface(try c.decode(CreateInterfacePayload.self, forKey: .payload))
         case .deleteInterface:  self = .deleteInterface(try c.decode(InterfaceRefPayload.self, forKey: .payload))
-        case .setInterfaceNDI:  self = .setInterfaceNDI(try c.decode(InterfaceNDIPayload.self, forKey: .payload))
-        case .setInterfaceAES67: self = .setInterfaceAES67(try c.decode(InterfaceNDIPayload.self, forKey: .payload))
+        case .setInterfaceNDI:   self = .setInterfaceNDI(try c.decode(InterfaceNetworkTXPayload.self, forKey: .payload))
+        case .setInterfaceAES67: self = .setInterfaceAES67(try c.decode(InterfaceNetworkTXPayload.self, forKey: .payload))
+
         case .getBridges:       self = .getBridges
         case .bridges:          self = .bridges(try c.decode(BridgesPayload.self, forKey: .payload))
         case .setBridgeEnabled: self = .setBridgeEnabled(try c.decode(SetBridgeEnabledPayload.self, forKey: .payload))

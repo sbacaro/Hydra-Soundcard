@@ -617,13 +617,11 @@ private struct PluginPicker: View {
     @State private var search = ""
 
     private var filtered: [VSTPlugin] {
-        let base  = client.vst.pickerPlugins()
-        let query = search.trimmingCharacters(in: .whitespaces)
-        guard !query.isEmpty else { return base }
-        // Forgiving, order-independent fuzzy match over name + vendor + category.
-        return base.filter {
-            "\($0.name) \($0.vendor) \($0.category)".fuzzyMatches(query)
-        }
+        PluginSearchEngine.filter(
+            plugins: client.vst.pickerPlugins(),
+            query: search,
+            favoriteIDs: Set(client.vst.favoriteIDs)
+        )
     }
 
     var body: some View {
@@ -690,16 +688,41 @@ private struct PluginPicker: View {
                                 Button {
                                     onSelect(plugin)
                                 } label: {
-                                    Text(plugin.name)
-                                        .font(.callout)
-                                        .lineLimit(1)
-                                        .frame(maxWidth: .infinity, alignment: .leading)
-                                        .padding(.vertical, 3)
-                                        .padding(.horizontal, 6)
-                                        .contentShape(Rectangle())
+                                    HStack(spacing: 6) {
+                                        VStack(alignment: .leading, spacing: 1) {
+                                            Text(plugin.name)
+                                                .font(.system(size: 12, weight: .medium))
+                                                .foregroundStyle(.primary)
+                                                .lineLimit(1)
+                                            
+                                            HStack(spacing: 4) {
+                                                Text(plugin.displayVendor)
+                                                    .font(.system(size: 9))
+                                                    .foregroundStyle(.secondary)
+                                                    .lineLimit(1)
+                                                
+                                                Text("•")
+                                                    .font(.system(size: 7))
+                                                    .foregroundStyle(.tertiary)
+
+                                                Text(plugin.displayCategory)
+                                                    .font(.system(size: 8, weight: .medium))
+                                                    .foregroundStyle(Theme.accent)
+                                            }
+                                        }
+                                        Spacer()
+                                        if client.vst.favoriteIDs.contains(plugin.id) {
+                                            Image(systemName: "star.fill")
+                                                .font(.system(size: 9))
+                                                .foregroundStyle(Theme.accent)
+                                        }
+                                    }
+                                    .frame(maxWidth: .infinity, alignment: .leading)
+                                    .padding(.vertical, 4)
+                                    .padding(.horizontal, 6)
+                                    .contentShape(Rectangle())
                                 }
                                 .buttonStyle(.plain)
-                                .help(plugin.vendor)
                             }
                         }
                     }
@@ -708,7 +731,7 @@ private struct PluginPicker: View {
             }
         }
         .padding(14)
-        .frame(width: 260)
+        .frame(width: 280)
     }
 }
 

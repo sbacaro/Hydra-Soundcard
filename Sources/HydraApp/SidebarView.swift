@@ -239,17 +239,7 @@ struct SidebarView: View {
 
     /// Names of network interfaces that are Wi-Fi (IEEE80211).
     private var wifiInterfaces: Set<String> {
-        var names = Set<String>()
-        if let interfaces = SCNetworkInterfaceCopyAll() as? [SCNetworkInterface] {
-            for interface in interfaces {
-                if let bsdName = SCNetworkInterfaceGetBSDName(interface) as String?,
-                   let type = SCNetworkInterfaceGetInterfaceType(interface) as String?,
-                   type == kSCNetworkInterfaceTypeIEEE80211 as String {
-                    names.insert(bsdName)
-                }
-            }
-        }
-        return names
+        NetworkUtils.wifiInterfaces
     }
 
     /// Network interfaces available on the machine (IPv4 only, excluding Wi-Fi).

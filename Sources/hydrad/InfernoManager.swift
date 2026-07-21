@@ -37,16 +37,7 @@ final class InfernoManager {
         guard getifaddrs(&ifaddr) == 0, let first = ifaddr else { return "127.0.0.1" }
         defer { freeifaddrs(first) }
         
-        var wifiIfaces = Set<String>()
-        if let interfaces = SCNetworkInterfaceCopyAll() as? [SCNetworkInterface] {
-            for interface in interfaces {
-                if let bsdName = SCNetworkInterfaceGetBSDName(interface) as String?,
-                   let type = SCNetworkInterfaceGetInterfaceType(interface) as String?,
-                   type == kSCNetworkInterfaceTypeIEEE80211 as String {
-                    wifiIfaces.insert(bsdName)
-                }
-            }
-        }
+        let wifiIfaces = NetworkUtils.wifiInterfaces
 
         var cursor: UnsafeMutablePointer<ifaddrs>? = first
         while let ifa = cursor {
@@ -91,7 +82,10 @@ final class InfernoManager {
         // 1. Look for pre-compiled binary in the App Bundle Resources (production)
         var binaryPath = Bundle.main.url(forResource: "hydra-inferno-bridge", withExtension: nil)
 
-        // 2. If not found in Bundle (dev/Xcode run), compile/fallback to workspace build
+        // 2. If not found in Bundle (dev/Xcode run), fallback to the workspace build product.
+        //    If the binary doesn't exist yet, kick off a background `cargo build` so the UI
+        //    never freezes — the start() call returns immediately and retries are not needed
+        //    because InfernoManager.applyConfig() is edge-triggered on infernoEnabled.
         if binaryPath == nil || !FileManager.default.fileExists(atPath: binaryPath!.path) {
             let infernoDir = findInfernoDir()
             let devBinary = infernoDir
@@ -99,24 +93,28 @@ final class InfernoManager {
                 .appendingPathComponent("release")
                 .appendingPathComponent("hydra-inferno-bridge")
 
-            // Build first if dev binary doesn't exist
             if !FileManager.default.fileExists(atPath: devBinary.path) {
-                log("InfernoManager: Building hydra-inferno-bridge in dev workspace...")
-                let buildProc = Process()
-                buildProc.executableURL = URL(fileURLWithPath: "/usr/bin/env")
-                buildProc.arguments = ["cargo", "build", "--release", "-p", "hydra-inferno-bridge"]
-                buildProc.currentDirectoryURL = infernoDir
-                do {
-                    try buildProc.run()
-                    buildProc.waitUntilExit()
-                    guard buildProc.terminationStatus == 0 else {
-                        log("InfernoManager: cargo build failed with status \(buildProc.terminationStatus)")
-                        return
+                log("InfernoManager: hydra-inferno-bridge not built yet — starting background cargo build...")
+                // Dispatch cargo build to a background thread so we never block @MainActor.
+                Task.detached(priority: .utility) {
+                    let buildProc = Process()
+                    buildProc.executableURL = URL(fileURLWithPath: "/usr/bin/env")
+                    buildProc.arguments = ["cargo", "build", "--release", "-p", "hydra-inferno-bridge"]
+                    buildProc.currentDirectoryURL = infernoDir
+                    do {
+                        try buildProc.run()
+                        buildProc.waitUntilExit()
+                        if buildProc.terminationStatus == 0 {
+                            log("InfernoManager: cargo build succeeded — re-enable Dante to start.")
+                        } else {
+                            log("InfernoManager: cargo build failed with status \(buildProc.terminationStatus)")
+                        }
+                    } catch {
+                        log("InfernoManager: Failed to run cargo build: \(error)")
                     }
-                } catch {
-                    log("InfernoManager: Failed to run cargo build: \(error)")
-                    return
                 }
+                log("InfernoManager: Binary not ready yet. Re-enable Dante once the build finishes.")
+                return
             }
             binaryPath = devBinary
         }
@@ -136,7 +134,10 @@ final class InfernoManager {
 
         proc.arguments = [
             "--bridge-name", bridgeName,
-            "--interface-name", resolvedIP,
+            // BIND_IP in inferno accepts either an IPv4 address or an interface name.
+            // We resolve to an IP here so the correct address is always used even
+            // when the user selects "en0" (which may have multiple addresses).
+            "--bind-ip", resolvedIP,
             "--latency-ms", "\(config.infernoLatencyMs)",
             "--channels", "\(channels)"
         ]
@@ -193,10 +194,11 @@ final class InfernoManager {
         onChange?(false)
     }
 
+    /// Returns the channel count for the given bridge ID by looking it up in the
+    /// catalog. Falls back to 2 only if the ID is somehow not in the catalog
+    /// (which should never happen in production — catalog and config share IDs).
     private func inferChannelCount(from bridgeID: String) -> Int {
-        if let n = Int(bridgeID) { return n }
-        if bridgeID.hasPrefix("2") { return 2 }
-        return 2
+        Hydra.bridgeCatalog.first { $0.id == bridgeID }?.channels ?? 2
     }
 
     private func findInfernoDir() -> URL {

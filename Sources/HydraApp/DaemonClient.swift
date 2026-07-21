@@ -378,11 +378,13 @@ final class DaemonClient {
     }
 
     func setInterfaceNDI(_ id: UUID, enabled: Bool) {
-        send(.setInterfaceNDI(InterfaceNDIPayload(id: id, enabled: enabled)))
+        // InterfaceNetworkTXPayload is shared by NDI and AES67 — the daemon
+        // distinguishes them via the `type` field in the JSON envelope.
+        send(.setInterfaceNDI(InterfaceNetworkTXPayload(id: id, enabled: enabled)))
     }
 
     func setInterfaceAES67(_ id: UUID, enabled: Bool) {
-        send(.setInterfaceAES67(InterfaceNDIPayload(id: id, enabled: enabled)))
+        send(.setInterfaceAES67(InterfaceNetworkTXPayload(id: id, enabled: enabled)))
     }
 
     func subscribeNdi(id: String, subscribed: Bool) {
@@ -452,6 +454,11 @@ final class DaemonClient {
         let task = URLSession.shared.webSocketTask(with: Hydra.daemonURL)
         self.task = task
         task.resume()
+        // Reset the backoff counter here — the daemon socket is reachable.
+        // Previously this was deferred to the first received message, which meant
+        // the counter kept growing if the TCP handshake succeeded but the daemon
+        // was slow to send its first frame (e.g. during startup).
+        reconnectAttempts = 0
         receiveLoop(task)
         send(.getStatus)
         send(.getBridges)
@@ -466,8 +473,9 @@ final class DaemonClient {
                 case .failure:
                     self.handleDisconnect(task)
                 case .success(let message):
+                    // Mark fully connected once the first frame arrives (the WS
+                    // handshake itself is done; reconnectAttempts already reset in connect()).
                     self.connectionState = .connected
-                    self.reconnectAttempts = 0
                     if case .string(let text) = message,
                        let decoded = try? WSMessage.decode(from: text) {
                         self.apply(decoded)

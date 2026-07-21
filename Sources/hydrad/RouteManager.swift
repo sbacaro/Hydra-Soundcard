@@ -66,10 +66,18 @@ final class RouteManager: @unchecked Sendable {
     /// Tell DeviceManager which devices are read as a flow SOURCE, so it opens them
     /// input-only (a pure capture client) — what makes loopback/bridge devices like
     /// "Pro Tools Audio Bridge" actually capture, exactly like Audio Hijack.
+    ///
+    /// Includes BOTH `.deviceInput` (the device's physical input captured directly)
+    /// AND `.deviceOutput` (Audio-Hijack-style tap: a DeviceOutputTap aggregate wraps
+    /// the device). For .deviceOutput sources the DeviceOutputTap IS the capture path;
+    /// if the user also added the same device to the grid ("used"), the DeviceManager
+    /// must still open it input-only so our aggregate tap doesn't compete with an
+    /// output IOProc on the same device — which can cause clicks, XRUNs, or silence.
     private func syncCaptureOnly() {
         let uids = Set(flows.values
-            .filter { $0.enabled && $0.source.kind == .deviceInput }
-            .map(\.source.id))
+            .filter { $0.enabled && ($0.source.kind == .deviceInput || $0.source.kind == .deviceOutput) }
+            .map(\.source.id)
+            .filter { !$0.isEmpty })
         devices.setCaptureOnly(uids)
     }
 
@@ -219,9 +227,21 @@ final class RouteManager: @unchecked Sendable {
         }
     }
 
-    /// A flow is "running" when both endpoints are resolvable (v1: not .app).
+    /// A flow is "running" when both endpoints are resolvable and \u2014 for
+    /// device-output taps \u2014 when the tap itself was successfully started.
+    ///
+    /// Without the tap check, a flow whose `DeviceOutputTap` failed to initialise
+    /// (e.g. missing TCC "Screen & System Audio Recording" permission) would still
+    /// show a green "Live" indicator in the FluxView, misleading the user.
     private func isRunning(_ flow: FlowInfo) -> Bool {
-        flow.enabled && nodeID(flow.source) != nil && nodeID(flow.output) != nil
+        guard flow.enabled,
+              !flow.source.id.isEmpty, !flow.output.id.isEmpty,
+              nodeID(flow.source) != nil, nodeID(flow.output) != nil else { return false }
+        // For Audio-Hijack-style taps: the tap must actually be running.
+        if flow.source.kind == .deviceOutput {
+            return captureTaps[flow.source.id] != nil
+        }
+        return true
     }
 
     private func persist() {

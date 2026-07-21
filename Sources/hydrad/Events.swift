@@ -24,7 +24,12 @@ final class EventCenter: @unchecked Sendable {
             }
         }
         log("Event [\(kind.rawValue)]: \(message)")
-        onEvent?(event)
+        // Dispatch the broadcast from the events queue so concurrent calls from
+        // multiple manager queues (hydra.devices, hydra.bridges, …) are serialised
+        // and the WebSocketServer's send path is never entered from two threads at once.
+        queue.async { [weak self] in
+            self?.onEvent?(event)
+        }
     }
 
     func recent() -> [HydraEvent] {

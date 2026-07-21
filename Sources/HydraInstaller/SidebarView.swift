@@ -57,7 +57,7 @@ struct SidebarView: View {
     }
 
     private var installerVersion: String {
-        Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? "2.1.15"
+        Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? "2.1.18"
     }
 }
 
