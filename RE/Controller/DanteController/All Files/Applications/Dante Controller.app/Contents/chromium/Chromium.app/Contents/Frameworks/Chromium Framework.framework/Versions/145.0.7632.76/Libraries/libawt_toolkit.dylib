@@ -1,0 +1,12 @@
+Name                      : libawt_toolkit.dylib
+UTI                       : com.apple.mach-o-dylib
+Kind                      : Mach-O dynamic library
+Owner                     : root (0)
+Group                     : wheel (0)
+Mode                      : -rwxr-xr-x (0100755)
+Requires                  : macOS 12.0
+Size                      : 1892928
+Executable                : arm64 • x86_64
+Signing Digest            : 15C892676833A25EA3B4DF6AF08F8528C38F9FC7 (arm64)
+Signing Digest            : 97BF2AF6AB8F63D271340C3D8D115DB70E21C714 (x86_64)
+Signing Identity          : identifier "libawt_toolkit" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = K436KHQ6D5

@@ -7,9 +7,9 @@
 	<key>CFBundleName</key>
 	<string>hydrad</string>
 	<key>CFBundleShortVersionString</key>
-	<string>0.5.0</string>
+	<string>$(MARKETING_VERSION)</string>
 	<key>CFBundleVersion</key>
-	<string>0.5.0</string>
+	<string>$(CURRENT_PROJECT_VERSION)</string>
 	<!-- Background agent: hydrad runs without a Dock icon or menu bar presence.
 	     It can still open VST plugin editor windows (accessory activation policy).
 	     LSUIElement must live in this Info.plist because the daemon target uses

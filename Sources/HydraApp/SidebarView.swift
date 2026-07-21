@@ -261,7 +261,7 @@ struct SidebarView: View {
                                nil, 0, NI_NUMERICHOST) == 0 {
                     let ip = String(cString: hostname)
                     let isTunnel = name.hasPrefix("utun") || name.hasPrefix("tun") || name.hasPrefix("tap") || name.hasPrefix("gif") || name.hasPrefix("stf") || name.hasPrefix("ppp") || name.hasPrefix("ipsec")
-                    if !ip.hasPrefix("127.") && !isTunnel {
+                    if !ip.hasPrefix("127.") && !isTunnel && !wifiInterfaces.contains(name) {
                         results.append((name, ip))
                     }
                 }
@@ -354,6 +354,7 @@ struct SidebarView: View {
     private var infernoSection: some View {
         let locked = infernoIsRunning
         let ifaces = cachedInterfaces
+        let hasValidInterface = !client.config.infernoInterface.isEmpty && ifaces.contains(where: { $0.name == client.config.infernoInterface })
 
         // Source bridge
         VStack(alignment: .leading, spacing: 4) {
@@ -383,7 +384,7 @@ struct SidebarView: View {
                 set: { value in client.updateConfig { $0.infernoInterface = value } }
             )) {
                 if ifaces.isEmpty {
-                    Text("No interfaces").tag("")
+                    Text("No wired interfaces").tag("")
                 } else {
                     ForEach(ifaces, id: \.name) { iface in
                         Text("\(iface.name) (\(iface.ip))").tag(iface.name)
@@ -394,6 +395,12 @@ struct SidebarView: View {
             .pickerStyle(.menu)
             .disabled(locked)
             .frame(maxWidth: .infinity, alignment: .leading)
+
+            if !locked && !hasValidInterface {
+                Text(ifaces.isEmpty ? "No wired network interfaces available." : "Select a valid network interface.")
+                    .font(.caption)
+                    .foregroundStyle(.red)
+            }
         }
         .font(.callout)
 
@@ -439,6 +446,7 @@ struct SidebarView: View {
         .controlSize(.large)
         .buttonStyle(.borderedProminent)
         .tint(locked ? .red : .accentColor)
+        .disabled(!locked && !hasValidInterface)
         .padding(.top, 4)
 
         // Status line

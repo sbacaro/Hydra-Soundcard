@@ -1,0 +1,46 @@
+#!/bin/sh
+
+exec > /tmp/com.audinate.dante.conmon.postinstall.txt 2>&1
+
+log()
+{
+	echo "$*"
+}
+
+log `date`
+
+
+# Reinstall the launch scripts and launch the daemons
+
+cm_launch_daemon="/Library/LaunchDaemons/com.audinate.dante.ConMon.plist"
+cm_launch_daemon_source="/Library/Application Support/Audinate/ConMon.bundle/Contents/Resources/com.audinate.dante.ConMon.plist"
+
+log "Copying files"
+cp "${cm_launch_daemon_source}" "${cm_launch_daemon}"
+chmod 755 "${cm_launch_daemon}"
+
+log "Creating log dir"
+cm_log_dir="/Library/Logs/Audinate"
+mkdir -p "${cm_log_dir}"
+
+log "Loading conmon"
+launchctl load -w "${cm_launch_daemon}"
+
+# Hack to compensate for dvsd unable to handle conmon coming and going
+# CT-385 No need to reset DVS v4.X and above.
+# Easiest to get the version from the GUI app
+log "resetting dvsd"
+launch_daemon_dvsd="/Library/LaunchDaemons/com.audinate.dante.DanteVirtualSoundcard.plist"
+if [ -f "${launch_daemon_dvsd}" ]
+then
+	DVS_MAJOR_VER=`/usr/bin/defaults read /Applications/Dante\ Virtual\ Soundcard.app/Contents/Info.plist CFBundleShortVersionString | cut -d'.' -f 1`
+	log "Installed DVS major version is ${DVS_MAJOR_VER}"
+	if [ $DVS_MAJOR_VER -lt 4 ]
+	then
+		killall dvsd || true
+	fi
+fi
+
+log "done"
+
+exit 0

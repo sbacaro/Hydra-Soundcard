@@ -1,0 +1,12 @@
+Name                      : Installer
+UTI                       : com.apple.mach-o-executable
+Kind                      : Mach-O executable
+Owner                     : root (0)
+Group                     : admin (80)
+Mode                      : -rwxr-xr-x (0100755)
+Requires                  : macOS 10.13
+Size                      : 223312
+Executable                : arm64 • x86_64
+Signing Digest            : 23339BF5842C14FBD9ACE8C56705CFB4560E5D82 (arm64)
+Signing Digest            : 90283C9E8EB05E794439848D5257B2EB5390258F (x86_64)
+Signing Identity          : identifier "org.sparkle-project.InstallerLauncher" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = P4WCR6Y822

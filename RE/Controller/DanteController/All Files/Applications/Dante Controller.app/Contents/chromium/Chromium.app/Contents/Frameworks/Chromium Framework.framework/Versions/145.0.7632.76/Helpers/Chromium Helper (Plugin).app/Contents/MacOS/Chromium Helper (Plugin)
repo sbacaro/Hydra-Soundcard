@@ -1,0 +1,15 @@
+Name                      : Chromium Helper (Plugin)
+UTI                       : com.apple.mach-o-executable
+Kind                      : Mach-O executable
+Owner                     : root (0)
+Group                     : wheel (0)
+Mode                      : -rwxr-xr-x (0100755)
+Requires                  : macOS 12.0
+Size                      : 88944
+Executable                : arm64
+Signing Digest            : 4567AAB4EC9E94498B51330109F705D1A9290AD3 (arm64)
+Signing Identity          : identifier "org.chromium.Chromium.helper.plugin" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = P4WCR6Y822
+Entitlement               : com.apple.security.cs.allow-dyld-environment-variables
+Entitlement               : com.apple.security.cs.allow-jit
+Entitlement               : com.apple.security.cs.allow-unsigned-executable-memory
+Entitlement               : com.apple.security.cs.disable-library-validation

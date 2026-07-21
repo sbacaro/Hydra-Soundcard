@@ -1,0 +1,2671 @@
+{
+  "directed": false,
+  "multigraph": false,
+  "graph": {},
+  "nodes": [
+    {
+      "label": "Dante Activator.app/Contents/Frameworks/nwjs Framework.framework/Versions/145.0.7632.76/Resources/install.sh",
+      "file_type": "code",
+      "source_file": "Controller/DanteController/All Files/Applications/Dante Activator.app/Contents/Frameworks/nwjs Framework.framework/Versions/145.0.7632.76/Resources/install.sh",
+      "source_location": "L1",
+      "metadata": {
+        "language": "bash",
+        "kind": "file"
+      },
+      "_origin": "ast",
+      "id": "controller_dantecontroller_all_files_applications_dante_activator_app_contents_frameworks_nwjs_framework_framework_versions_145_0_7632_76_resources_install",
+      "community": 5,
+      "norm_label": "dante activator.app/contents/frameworks/nwjs framework.framework/versions/145.0.7632.76/resources/install.sh"
+    },
+    {
+      "label": "install.sh script",
+      "file_type": "code",
+      "source_file": "Controller/DanteController/All Files/Applications/Dante Activator.app/Contents/Frameworks/nwjs Framework.framework/Versions/145.0.7632.76/Resources/install.sh",
+      "source_location": "L1",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_entrypoint"
+      },
+      "_origin": "ast",
+      "id": "controller_dantecontroller_all_files_applications_dante_activator_app_contents_frameworks_nwjs_framework_framework_versions_145_0_7632_76_resources_install_sh__entry",
+      "community": 5,
+      "norm_label": "install.sh script"
+    },
+    {
+      "label": "Dante Controller.app/Contents/Frameworks/Sparkle.framework/Versions/B/Headers/SPUDownloadData.h",
+      "file_type": "code",
+      "source_file": "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Frameworks/Sparkle.framework/Versions/B/Headers/SPUDownloadData.h",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "controller_dantecontroller_all_files_applications_dante_controller_app_contents_frameworks_sparkle_framework_versions_b_headers_spudownloaddata",
+      "community": 22,
+      "norm_label": "dante controller.app/contents/frameworks/sparkle.framework/versions/b/headers/spudownloaddata.h"
+    },
+    {
+      "label": "Dante Controller.app/Contents/Frameworks/Sparkle.framework/Versions/B/Headers/SPUStandardUpdaterController.h",
+      "file_type": "code",
+      "source_file": "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Frameworks/Sparkle.framework/Versions/B/Headers/SPUStandardUpdaterController.h",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "controller_dantecontroller_all_files_applications_dante_controller_app_contents_frameworks_sparkle_framework_versions_b_headers_spustandardupdatercontroller",
+      "community": 23,
+      "norm_label": "dante controller.app/contents/frameworks/sparkle.framework/versions/b/headers/spustandardupdatercontroller.h"
+    },
+    {
+      "label": "Dante Controller.app/Contents/Frameworks/Sparkle.framework/Versions/B/Headers/SPUStandardUserDriver.h",
+      "file_type": "code",
+      "source_file": "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Frameworks/Sparkle.framework/Versions/B/Headers/SPUStandardUserDriver.h",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "controller_dantecontroller_all_files_applications_dante_controller_app_contents_frameworks_sparkle_framework_versions_b_headers_spustandarduserdriver",
+      "community": 24,
+      "norm_label": "dante controller.app/contents/frameworks/sparkle.framework/versions/b/headers/spustandarduserdriver.h"
+    },
+    {
+      "label": "Dante Controller.app/Contents/Frameworks/Sparkle.framework/Versions/B/Headers/SPUStandardUserDriverDelegate.h",
+      "file_type": "code",
+      "source_file": "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Frameworks/Sparkle.framework/Versions/B/Headers/SPUStandardUserDriverDelegate.h",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "controller_dantecontroller_all_files_applications_dante_controller_app_contents_frameworks_sparkle_framework_versions_b_headers_spustandarduserdriverdelegate",
+      "community": 25,
+      "norm_label": "dante controller.app/contents/frameworks/sparkle.framework/versions/b/headers/spustandarduserdriverdelegate.h"
+    },
+    {
+      "label": "Dante Controller.app/Contents/Frameworks/Sparkle.framework/Versions/B/Headers/SPUUpdateCheck.h",
+      "file_type": "code",
+      "source_file": "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Frameworks/Sparkle.framework/Versions/B/Headers/SPUUpdateCheck.h",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "controller_dantecontroller_all_files_applications_dante_controller_app_contents_frameworks_sparkle_framework_versions_b_headers_spuupdatecheck",
+      "community": 26,
+      "norm_label": "dante controller.app/contents/frameworks/sparkle.framework/versions/b/headers/spuupdatecheck.h"
+    },
+    {
+      "label": "Dante Controller.app/Contents/Frameworks/Sparkle.framework/Versions/B/Headers/SPUUpdatePermissionRequest.h",
+      "file_type": "code",
+      "source_file": "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Frameworks/Sparkle.framework/Versions/B/Headers/SPUUpdatePermissionRequest.h",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "controller_dantecontroller_all_files_applications_dante_controller_app_contents_frameworks_sparkle_framework_versions_b_headers_spuupdatepermissionrequest",
+      "community": 27,
+      "norm_label": "dante controller.app/contents/frameworks/sparkle.framework/versions/b/headers/spuupdatepermissionrequest.h"
+    },
+    {
+      "label": "Dante Controller.app/Contents/Frameworks/Sparkle.framework/Versions/B/Headers/SPUUpdater.h",
+      "file_type": "code",
+      "source_file": "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Frameworks/Sparkle.framework/Versions/B/Headers/SPUUpdater.h",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "controller_dantecontroller_all_files_applications_dante_controller_app_contents_frameworks_sparkle_framework_versions_b_headers_spuupdater",
+      "community": 28,
+      "norm_label": "dante controller.app/contents/frameworks/sparkle.framework/versions/b/headers/spuupdater.h"
+    },
+    {
+      "label": "Dante Controller.app/Contents/Frameworks/Sparkle.framework/Versions/B/Headers/SPUUpdaterDelegate.h",
+      "file_type": "code",
+      "source_file": "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Frameworks/Sparkle.framework/Versions/B/Headers/SPUUpdaterDelegate.h",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "controller_dantecontroller_all_files_applications_dante_controller_app_contents_frameworks_sparkle_framework_versions_b_headers_spuupdaterdelegate",
+      "community": 29,
+      "norm_label": "dante controller.app/contents/frameworks/sparkle.framework/versions/b/headers/spuupdaterdelegate.h"
+    },
+    {
+      "label": "Dante Controller.app/Contents/Frameworks/Sparkle.framework/Versions/B/Headers/SPUUpdaterSettings.h",
+      "file_type": "code",
+      "source_file": "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Frameworks/Sparkle.framework/Versions/B/Headers/SPUUpdaterSettings.h",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "controller_dantecontroller_all_files_applications_dante_controller_app_contents_frameworks_sparkle_framework_versions_b_headers_spuupdatersettings",
+      "community": 30,
+      "norm_label": "dante controller.app/contents/frameworks/sparkle.framework/versions/b/headers/spuupdatersettings.h"
+    },
+    {
+      "label": "Dante Controller.app/Contents/Frameworks/Sparkle.framework/Versions/B/Headers/SPUUserDriver.h",
+      "file_type": "code",
+      "source_file": "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Frameworks/Sparkle.framework/Versions/B/Headers/SPUUserDriver.h",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "controller_dantecontroller_all_files_applications_dante_controller_app_contents_frameworks_sparkle_framework_versions_b_headers_spuuserdriver",
+      "community": 31,
+      "norm_label": "dante controller.app/contents/frameworks/sparkle.framework/versions/b/headers/spuuserdriver.h"
+    },
+    {
+      "label": "Dante Controller.app/Contents/Frameworks/Sparkle.framework/Versions/B/Headers/SPUUserUpdateState.h",
+      "file_type": "code",
+      "source_file": "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Frameworks/Sparkle.framework/Versions/B/Headers/SPUUserUpdateState.h",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "controller_dantecontroller_all_files_applications_dante_controller_app_contents_frameworks_sparkle_framework_versions_b_headers_spuuserupdatestate",
+      "community": 32,
+      "norm_label": "dante controller.app/contents/frameworks/sparkle.framework/versions/b/headers/spuuserupdatestate.h"
+    },
+    {
+      "label": "Dante Controller.app/Contents/Frameworks/Sparkle.framework/Versions/B/Headers/SUAppcast.h",
+      "file_type": "code",
+      "source_file": "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Frameworks/Sparkle.framework/Versions/B/Headers/SUAppcast.h",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "controller_dantecontroller_all_files_applications_dante_controller_app_contents_frameworks_sparkle_framework_versions_b_headers_suappcast",
+      "community": 33,
+      "norm_label": "dante controller.app/contents/frameworks/sparkle.framework/versions/b/headers/suappcast.h"
+    },
+    {
+      "label": "Dante Controller.app/Contents/Frameworks/Sparkle.framework/Versions/B/Headers/SUAppcastItem.h",
+      "file_type": "code",
+      "source_file": "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Frameworks/Sparkle.framework/Versions/B/Headers/SUAppcastItem.h",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "controller_dantecontroller_all_files_applications_dante_controller_app_contents_frameworks_sparkle_framework_versions_b_headers_suappcastitem",
+      "community": 34,
+      "norm_label": "dante controller.app/contents/frameworks/sparkle.framework/versions/b/headers/suappcastitem.h"
+    },
+    {
+      "label": "Dante Controller.app/Contents/Frameworks/Sparkle.framework/Versions/B/Headers/SUErrors.h",
+      "file_type": "code",
+      "source_file": "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Frameworks/Sparkle.framework/Versions/B/Headers/SUErrors.h",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "controller_dantecontroller_all_files_applications_dante_controller_app_contents_frameworks_sparkle_framework_versions_b_headers_suerrors",
+      "community": 35,
+      "norm_label": "dante controller.app/contents/frameworks/sparkle.framework/versions/b/headers/suerrors.h"
+    },
+    {
+      "label": "Dante Controller.app/Contents/Frameworks/Sparkle.framework/Versions/B/Headers/SUExport.h",
+      "file_type": "code",
+      "source_file": "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Frameworks/Sparkle.framework/Versions/B/Headers/SUExport.h",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "controller_dantecontroller_all_files_applications_dante_controller_app_contents_frameworks_sparkle_framework_versions_b_headers_suexport",
+      "community": 36,
+      "norm_label": "dante controller.app/contents/frameworks/sparkle.framework/versions/b/headers/suexport.h"
+    },
+    {
+      "label": "Dante Controller.app/Contents/Frameworks/Sparkle.framework/Versions/B/Headers/SUStandardVersionComparator.h",
+      "file_type": "code",
+      "source_file": "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Frameworks/Sparkle.framework/Versions/B/Headers/SUStandardVersionComparator.h",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "controller_dantecontroller_all_files_applications_dante_controller_app_contents_frameworks_sparkle_framework_versions_b_headers_sustandardversioncomparator",
+      "community": 37,
+      "norm_label": "dante controller.app/contents/frameworks/sparkle.framework/versions/b/headers/sustandardversioncomparator.h"
+    },
+    {
+      "label": "Dante Controller.app/Contents/Frameworks/Sparkle.framework/Versions/B/Headers/SUUpdatePermissionResponse.h",
+      "file_type": "code",
+      "source_file": "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Frameworks/Sparkle.framework/Versions/B/Headers/SUUpdatePermissionResponse.h",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "controller_dantecontroller_all_files_applications_dante_controller_app_contents_frameworks_sparkle_framework_versions_b_headers_suupdatepermissionresponse",
+      "community": 38,
+      "norm_label": "dante controller.app/contents/frameworks/sparkle.framework/versions/b/headers/suupdatepermissionresponse.h"
+    },
+    {
+      "label": "Dante Controller.app/Contents/Frameworks/Sparkle.framework/Versions/B/Headers/SUUpdater.h",
+      "file_type": "code",
+      "source_file": "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Frameworks/Sparkle.framework/Versions/B/Headers/SUUpdater.h",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "controller_dantecontroller_all_files_applications_dante_controller_app_contents_frameworks_sparkle_framework_versions_b_headers_suupdater",
+      "community": 39,
+      "norm_label": "dante controller.app/contents/frameworks/sparkle.framework/versions/b/headers/suupdater.h"
+    },
+    {
+      "label": "Dante Controller.app/Contents/Frameworks/Sparkle.framework/Versions/B/Headers/SUUpdaterDelegate.h",
+      "file_type": "code",
+      "source_file": "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Frameworks/Sparkle.framework/Versions/B/Headers/SUUpdaterDelegate.h",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "controller_dantecontroller_all_files_applications_dante_controller_app_contents_frameworks_sparkle_framework_versions_b_headers_suupdaterdelegate",
+      "community": 40,
+      "norm_label": "dante controller.app/contents/frameworks/sparkle.framework/versions/b/headers/suupdaterdelegate.h"
+    },
+    {
+      "label": "Dante Controller.app/Contents/Frameworks/Sparkle.framework/Versions/B/Headers/SUVersionComparisonProtocol.h",
+      "file_type": "code",
+      "source_file": "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Frameworks/Sparkle.framework/Versions/B/Headers/SUVersionComparisonProtocol.h",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "controller_dantecontroller_all_files_applications_dante_controller_app_contents_frameworks_sparkle_framework_versions_b_headers_suversioncomparisonprotocol",
+      "community": 41,
+      "norm_label": "dante controller.app/contents/frameworks/sparkle.framework/versions/b/headers/suversioncomparisonprotocol.h"
+    },
+    {
+      "label": "Dante Controller.app/Contents/Frameworks/Sparkle.framework/Versions/B/Headers/SUVersionDisplayProtocol.h",
+      "file_type": "code",
+      "source_file": "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Frameworks/Sparkle.framework/Versions/B/Headers/SUVersionDisplayProtocol.h",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "controller_dantecontroller_all_files_applications_dante_controller_app_contents_frameworks_sparkle_framework_versions_b_headers_suversiondisplayprotocol",
+      "community": 42,
+      "norm_label": "dante controller.app/contents/frameworks/sparkle.framework/versions/b/headers/suversiondisplayprotocol.h"
+    },
+    {
+      "label": "Dante Controller.app/Contents/Frameworks/Sparkle.framework/Versions/B/Headers/Sparkle.h",
+      "file_type": "code",
+      "source_file": "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Frameworks/Sparkle.framework/Versions/B/Headers/Sparkle.h",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "controller_dantecontroller_all_files_applications_dante_controller_app_contents_frameworks_sparkle_framework_versions_b_headers_sparkle",
+      "community": 21,
+      "norm_label": "dante controller.app/contents/frameworks/sparkle.framework/versions/b/headers/sparkle.h"
+    },
+    {
+      "label": "Dante Controller.app/Contents/Frameworks/Sparkle.framework/Versions/B/PrivateHeaders/SPUAppcastItemStateResolver.h",
+      "file_type": "code",
+      "source_file": "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Frameworks/Sparkle.framework/Versions/B/PrivateHeaders/SPUAppcastItemStateResolver.h",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "controller_dantecontroller_all_files_applications_dante_controller_app_contents_frameworks_sparkle_framework_versions_b_privateheaders_spuappcastitemstateresolver",
+      "community": 43,
+      "norm_label": "dante controller.app/contents/frameworks/sparkle.framework/versions/b/privateheaders/spuappcastitemstateresolver.h"
+    },
+    {
+      "label": "Dante Controller.app/Contents/Frameworks/Sparkle.framework/Versions/B/PrivateHeaders/SPUGentleUserDriverReminders.h",
+      "file_type": "code",
+      "source_file": "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Frameworks/Sparkle.framework/Versions/B/PrivateHeaders/SPUGentleUserDriverReminders.h",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "controller_dantecontroller_all_files_applications_dante_controller_app_contents_frameworks_sparkle_framework_versions_b_privateheaders_spugentleuserdriverreminders",
+      "community": 44,
+      "norm_label": "dante controller.app/contents/frameworks/sparkle.framework/versions/b/privateheaders/spugentleuserdriverreminders.h"
+    },
+    {
+      "label": "Dante Controller.app/Contents/Frameworks/Sparkle.framework/Versions/B/PrivateHeaders/SPUInstallationType.h",
+      "file_type": "code",
+      "source_file": "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Frameworks/Sparkle.framework/Versions/B/PrivateHeaders/SPUInstallationType.h",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "controller_dantecontroller_all_files_applications_dante_controller_app_contents_frameworks_sparkle_framework_versions_b_privateheaders_spuinstallationtype",
+      "community": 45,
+      "norm_label": "dante controller.app/contents/frameworks/sparkle.framework/versions/b/privateheaders/spuinstallationtype.h"
+    },
+    {
+      "label": "Dante Controller.app/Contents/Frameworks/Sparkle.framework/Versions/B/PrivateHeaders/SPUUserAgent+Private.h",
+      "file_type": "code",
+      "source_file": "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Frameworks/Sparkle.framework/Versions/B/PrivateHeaders/SPUUserAgent+Private.h",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "controller_dantecontroller_all_files_applications_dante_controller_app_contents_frameworks_sparkle_framework_versions_b_privateheaders_spuuseragent_private",
+      "community": 46,
+      "norm_label": "dante controller.app/contents/frameworks/sparkle.framework/versions/b/privateheaders/spuuseragent+private.h"
+    },
+    {
+      "label": "Dante Controller.app/Contents/Frameworks/Sparkle.framework/Versions/B/PrivateHeaders/SUAppcastItem+Private.h",
+      "file_type": "code",
+      "source_file": "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Frameworks/Sparkle.framework/Versions/B/PrivateHeaders/SUAppcastItem+Private.h",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "controller_dantecontroller_all_files_applications_dante_controller_app_contents_frameworks_sparkle_framework_versions_b_privateheaders_suappcastitem_private",
+      "community": 47,
+      "norm_label": "dante controller.app/contents/frameworks/sparkle.framework/versions/b/privateheaders/suappcastitem+private.h"
+    },
+    {
+      "label": "Dante Controller.app/Contents/Frameworks/Sparkle.framework/Versions/B/PrivateHeaders/SUInstallerLauncher+Private.h",
+      "file_type": "code",
+      "source_file": "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Frameworks/Sparkle.framework/Versions/B/PrivateHeaders/SUInstallerLauncher+Private.h",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "controller_dantecontroller_all_files_applications_dante_controller_app_contents_frameworks_sparkle_framework_versions_b_privateheaders_suinstallerlauncher_private",
+      "community": 48,
+      "norm_label": "dante controller.app/contents/frameworks/sparkle.framework/versions/b/privateheaders/suinstallerlauncher+private.h"
+    },
+    {
+      "label": "ApplyButton-BIzz1QWg.js",
+      "file_type": "code",
+      "source_file": "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Resources/dc_web/assets/ApplyButton-BIzz1QWg.js",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "controller_dantecontroller_all_files_applications_dante_controller_app_contents_resources_dc_web_assets_applybutton_bizz1qwg",
+      "community": 49,
+      "norm_label": "applybutton-bizz1qwg.js"
+    },
+    {
+      "label": "Combobox-BGGpge41.js",
+      "file_type": "code",
+      "source_file": "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Resources/dc_web/assets/Combobox-BGGpge41.js",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "controller_dantecontroller_all_files_applications_dante_controller_app_contents_resources_dc_web_assets_combobox_bggpge41",
+      "community": 50,
+      "norm_label": "combobox-bggpge41.js"
+    },
+    {
+      "label": "GraphqlHandlers-DTFHdbCw.js",
+      "file_type": "code",
+      "source_file": "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Resources/dc_web/assets/GraphqlHandlers-DTFHdbCw.js",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "controller_dantecontroller_all_files_applications_dante_controller_app_contents_resources_dc_web_assets_graphqlhandlers_dtfhdbcw",
+      "community": 52,
+      "norm_label": "graphqlhandlers-dtfhdbcw.js"
+    },
+    {
+      "label": "GridItemTitle-DSosq7za.js",
+      "file_type": "code",
+      "source_file": "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Resources/dc_web/assets/GridItemTitle-DSosq7za.js",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "controller_dantecontroller_all_files_applications_dante_controller_app_contents_resources_dc_web_assets_griditemtitle_dsosq7za",
+      "community": 53,
+      "norm_label": "griditemtitle-dsosq7za.js"
+    },
+    {
+      "label": "Tabs-CNH_ISW0.js",
+      "file_type": "code",
+      "source_file": "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Resources/dc_web/assets/Tabs-CNH_ISW0.js",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "controller_dantecontroller_all_files_applications_dante_controller_app_contents_resources_dc_web_assets_tabs_cnh_isw0",
+      "community": 60,
+      "norm_label": "tabs-cnh_isw0.js"
+    },
+    {
+      "label": "common-DBp_CoLv.js",
+      "file_type": "code",
+      "source_file": "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Resources/dc_web/assets/common-DBp_CoLv.js",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "controller_dantecontroller_all_files_applications_dante_controller_app_contents_resources_dc_web_assets_common_dbp_colv",
+      "community": 51,
+      "norm_label": "common-dbp_colv.js"
+    },
+    {
+      "label": "hdcp-BnTl8IR5.js",
+      "file_type": "code",
+      "source_file": "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Resources/dc_web/assets/hdcp-BnTl8IR5.js",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "controller_dantecontroller_all_files_applications_dante_controller_app_contents_resources_dc_web_assets_hdcp_bntl8ir5",
+      "community": 54,
+      "norm_label": "hdcp-bntl8ir5.js"
+    },
+    {
+      "label": "hdmiInputs-CsN1gHMj.js",
+      "file_type": "code",
+      "source_file": "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Resources/dc_web/assets/hdmiInputs-CsN1gHMj.js",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "controller_dantecontroller_all_files_applications_dante_controller_app_contents_resources_dc_web_assets_hdmiinputs_csn1ghmj",
+      "community": 55,
+      "norm_label": "hdmiinputs-csn1ghmj.js"
+    },
+    {
+      "label": "hdmiOutputs-yTY7kXCG.js",
+      "file_type": "code",
+      "source_file": "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Resources/dc_web/assets/hdmiOutputs-yTY7kXCG.js",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "controller_dantecontroller_all_files_applications_dante_controller_app_contents_resources_dc_web_assets_hdmioutputs_yty7kxcg",
+      "community": 56,
+      "norm_label": "hdmioutputs-yty7kxcg.js"
+    },
+    {
+      "label": "sdiInputs-BsGEKTEa.js",
+      "file_type": "code",
+      "source_file": "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Resources/dc_web/assets/sdiInputs-BsGEKTEa.js",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "controller_dantecontroller_all_files_applications_dante_controller_app_contents_resources_dc_web_assets_sdiinputs_bsgektea",
+      "community": 57,
+      "norm_label": "sdiinputs-bsgektea.js"
+    },
+    {
+      "label": "sdiOutputs-Dhu6Watm.js",
+      "file_type": "code",
+      "source_file": "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Resources/dc_web/assets/sdiOutputs-Dhu6Watm.js",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "controller_dantecontroller_all_files_applications_dante_controller_app_contents_resources_dc_web_assets_sdioutputs_dhu6watm",
+      "community": 58,
+      "norm_label": "sdioutputs-dhu6watm.js"
+    },
+    {
+      "label": "serialConfig-DVIjzBPr.js",
+      "file_type": "code",
+      "source_file": "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Resources/dc_web/assets/serialConfig-DVIjzBPr.js",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "controller_dantecontroller_all_files_applications_dante_controller_app_contents_resources_dc_web_assets_serialconfig_dvijzbpr",
+      "community": 59,
+      "norm_label": "serialconfig-dvijzbpr.js"
+    },
+    {
+      "label": "useMutation-JPYdYVNi.js",
+      "file_type": "code",
+      "source_file": "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Resources/dc_web/assets/useMutation-JPYdYVNi.js",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "controller_dantecontroller_all_files_applications_dante_controller_app_contents_resources_dc_web_assets_usemutation_jpydyvni",
+      "community": 61,
+      "norm_label": "usemutation-jpydyvni.js"
+    },
+    {
+      "label": "validation-schemas-pYv5u4Vm.js",
+      "file_type": "code",
+      "source_file": "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Resources/dc_web/assets/validation-schemas-pYv5u4Vm.js",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "controller_dantecontroller_all_files_applications_dante_controller_app_contents_resources_dc_web_assets_validation_schemas_pyv5u4vm",
+      "community": 62,
+      "norm_label": "validation-schemas-pyv5u4vm.js"
+    },
+    {
+      "label": "videoConfig-BUuXRPUi.js",
+      "file_type": "code",
+      "source_file": "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Resources/dc_web/assets/videoConfig-BUuXRPUi.js",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "controller_dantecontroller_all_files_applications_dante_controller_app_contents_resources_dc_web_assets_videoconfig_buuxrpui",
+      "community": 63,
+      "norm_label": "videoconfig-buuxrpui.js"
+    },
+    {
+      "label": "videoDecoder-Dw4U-LgM.js",
+      "file_type": "code",
+      "source_file": "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Resources/dc_web/assets/videoDecoder-Dw4U-LgM.js",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "controller_dantecontroller_all_files_applications_dante_controller_app_contents_resources_dc_web_assets_videodecoder_dw4u_lgm",
+      "community": 64,
+      "norm_label": "videodecoder-dw4u-lgm.js"
+    },
+    {
+      "label": "videoEncoder-CKrz8r6k.js",
+      "file_type": "code",
+      "source_file": "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Resources/dc_web/assets/videoEncoder-CKrz8r6k.js",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "controller_dantecontroller_all_files_applications_dante_controller_app_contents_resources_dc_web_assets_videoencoder_ckrz8r6k",
+      "community": 65,
+      "norm_label": "videoencoder-ckrz8r6k.js"
+    },
+    {
+      "label": "videoWall-nl0ruEXl.js",
+      "file_type": "code",
+      "source_file": "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Resources/dc_web/assets/videoWall-nl0ruEXl.js",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "controller_dantecontroller_all_files_applications_dante_controller_app_contents_resources_dc_web_assets_videowall_nl0ruexl",
+      "community": 66,
+      "norm_label": "videowall-nl0ruexl.js"
+    },
+    {
+      "label": "414A410000000000-0001/plugin.db2adf8b.js",
+      "file_type": "code",
+      "source_file": "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Resources/plugins/414A410000000000-0001/plugin.db2adf8b.js",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "controller_dantecontroller_all_files_applications_dante_controller_app_contents_resources_plugins_414a410000000000_0001_plugin_db2adf8b",
+      "community": 67,
+      "norm_label": "414a410000000000-0001/plugin.db2adf8b.js"
+    },
+    {
+      "label": "414A410000000000-0002/plugin.db2adf8b.js",
+      "file_type": "code",
+      "source_file": "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Resources/plugins/414A410000000000-0002/plugin.db2adf8b.js",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "controller_dantecontroller_all_files_applications_dante_controller_app_contents_resources_plugins_414a410000000000_0002_plugin_db2adf8b",
+      "community": 68,
+      "norm_label": "414a410000000000-0002/plugin.db2adf8b.js"
+    },
+    {
+      "label": "414A410000000000-0003/plugin.db2adf8b.js",
+      "file_type": "code",
+      "source_file": "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Resources/plugins/414A410000000000-0003/plugin.db2adf8b.js",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "controller_dantecontroller_all_files_applications_dante_controller_app_contents_resources_plugins_414a410000000000_0003_plugin_db2adf8b",
+      "community": 69,
+      "norm_label": "414a410000000000-0003/plugin.db2adf8b.js"
+    },
+    {
+      "label": "414A410000000000-0004/plugin.db2adf8b.js",
+      "file_type": "code",
+      "source_file": "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Resources/plugins/414A410000000000-0004/plugin.db2adf8b.js",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "controller_dantecontroller_all_files_applications_dante_controller_app_contents_resources_plugins_414a410000000000_0004_plugin_db2adf8b",
+      "community": 70,
+      "norm_label": "414a410000000000-0004/plugin.db2adf8b.js"
+    },
+    {
+      "label": "417564696E617465-0001/bundle.js",
+      "file_type": "code",
+      "source_file": "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Resources/plugins/417564696E617465-0001/bundle.js",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "controller_dantecontroller_all_files_applications_dante_controller_app_contents_resources_plugins_417564696e617465_0001_bundle",
+      "community": 71,
+      "norm_label": "417564696e617465-0001/bundle.js"
+    },
+    {
+      "label": "417564696E617465-0002/bundle.js",
+      "file_type": "code",
+      "source_file": "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Resources/plugins/417564696E617465-0002/bundle.js",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "controller_dantecontroller_all_files_applications_dante_controller_app_contents_resources_plugins_417564696e617465_0002_bundle",
+      "community": 72,
+      "norm_label": "417564696e617465-0002/bundle.js"
+    },
+    {
+      "label": "417564696E617465-0003/bundle.js",
+      "file_type": "code",
+      "source_file": "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Resources/plugins/417564696E617465-0003/bundle.js",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "controller_dantecontroller_all_files_applications_dante_controller_app_contents_resources_plugins_417564696e617465_0003_bundle",
+      "community": 73,
+      "norm_label": "417564696e617465-0003/bundle.js"
+    },
+    {
+      "label": "Chromium Framework.framework/Versions/145.0.7632.76/Resources/install.sh",
+      "file_type": "code",
+      "source_file": "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/chromium/Chromium.app/Contents/Frameworks/Chromium Framework.framework/Versions/145.0.7632.76/Resources/install.sh",
+      "source_location": "L1",
+      "metadata": {
+        "language": "bash",
+        "kind": "file"
+      },
+      "_origin": "ast",
+      "id": "controller_dantecontroller_all_files_applications_dante_controller_app_contents_chromium_chromium_app_contents_frameworks_chromium_framework_framework_versions_145_0_7632_76_resources_install",
+      "community": 6,
+      "norm_label": "chromium framework.framework/versions/145.0.7632.76/resources/install.sh"
+    },
+    {
+      "label": "install.sh script",
+      "file_type": "code",
+      "source_file": "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/chromium/Chromium.app/Contents/Frameworks/Chromium Framework.framework/Versions/145.0.7632.76/Resources/install.sh",
+      "source_location": "L1",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_entrypoint"
+      },
+      "_origin": "ast",
+      "id": "controller_dantecontroller_all_files_applications_dante_controller_app_contents_chromium_chromium_app_contents_frameworks_chromium_framework_framework_versions_145_0_7632_76_resources_install_sh__entry",
+      "community": 6,
+      "norm_label": "install.sh script"
+    },
+    {
+      "label": "Dante Updater.app/Contents/Frameworks/nwjs Framework.framework/Versions/145.0.7632.76/Resources/install.sh",
+      "file_type": "code",
+      "source_file": "Controller/DanteController/All Files/Applications/Dante Updater.app/Contents/Frameworks/nwjs Framework.framework/Versions/145.0.7632.76/Resources/install.sh",
+      "source_location": "L1",
+      "metadata": {
+        "language": "bash",
+        "kind": "file"
+      },
+      "_origin": "ast",
+      "id": "controller_dantecontroller_all_files_applications_dante_updater_app_contents_frameworks_nwjs_framework_framework_versions_145_0_7632_76_resources_install",
+      "community": 7,
+      "norm_label": "dante updater.app/contents/frameworks/nwjs framework.framework/versions/145.0.7632.76/resources/install.sh"
+    },
+    {
+      "label": "install.sh script",
+      "file_type": "code",
+      "source_file": "Controller/DanteController/All Files/Applications/Dante Updater.app/Contents/Frameworks/nwjs Framework.framework/Versions/145.0.7632.76/Resources/install.sh",
+      "source_location": "L1",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_entrypoint"
+      },
+      "_origin": "ast",
+      "id": "controller_dantecontroller_all_files_applications_dante_updater_app_contents_frameworks_nwjs_framework_framework_versions_145_0_7632_76_resources_install_sh__entry",
+      "community": 7,
+      "norm_label": "install.sh script"
+    },
+    {
+      "label": "launch_conmon.sh",
+      "file_type": "code",
+      "source_file": "Controller/DanteController/All Files/Library/Application Support/Audinate/ConMon.bundle/Contents/MacOS/launch_conmon.sh",
+      "source_location": "L1",
+      "metadata": {
+        "language": "bash",
+        "kind": "file"
+      },
+      "_origin": "ast",
+      "id": "controller_dantecontroller_all_files_library_application_support_audinate_conmon_bundle_contents_macos_launch_conmon",
+      "community": 8,
+      "norm_label": "launch_conmon.sh"
+    },
+    {
+      "label": "launch_conmon.sh script",
+      "file_type": "code",
+      "source_file": "Controller/DanteController/All Files/Library/Application Support/Audinate/ConMon.bundle/Contents/MacOS/launch_conmon.sh",
+      "source_location": "L1",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_entrypoint"
+      },
+      "_origin": "ast",
+      "id": "controller_dantecontroller_all_files_library_application_support_audinate_conmon_bundle_contents_macos_launch_conmon_sh__entry",
+      "community": 8,
+      "norm_label": "launch_conmon.sh script"
+    },
+    {
+      "label": "dante_use.sh",
+      "file_type": "code",
+      "source_file": "Controller/DanteController/All Files/Library/Application Support/Audinate/ConMon.bundle/Contents/Resources/dante_use.sh",
+      "source_location": "L1",
+      "metadata": {
+        "language": "bash",
+        "kind": "file"
+      },
+      "_origin": "ast",
+      "id": "controller_dantecontroller_all_files_library_application_support_audinate_conmon_bundle_contents_resources_dante_use",
+      "community": 9,
+      "norm_label": "dante_use.sh"
+    },
+    {
+      "label": "dante_use.sh script",
+      "file_type": "code",
+      "source_file": "Controller/DanteController/All Files/Library/Application Support/Audinate/ConMon.bundle/Contents/Resources/dante_use.sh",
+      "source_location": "L1",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_entrypoint"
+      },
+      "_origin": "ast",
+      "id": "controller_dantecontroller_all_files_library_application_support_audinate_conmon_bundle_contents_resources_dante_use_sh__entry",
+      "community": 9,
+      "norm_label": "dante_use.sh script"
+    },
+    {
+      "label": "delete.sh",
+      "file_type": "code",
+      "source_file": "Controller/DanteController/All Files/Library/Application Support/Audinate/ConMon.bundle/Contents/Resources/delete.sh",
+      "source_location": "L1",
+      "metadata": {
+        "language": "bash",
+        "kind": "file"
+      },
+      "_origin": "ast",
+      "id": "controller_dantecontroller_all_files_library_application_support_audinate_conmon_bundle_contents_resources_delete",
+      "community": 10,
+      "norm_label": "delete.sh"
+    },
+    {
+      "label": "delete.sh script",
+      "file_type": "code",
+      "source_file": "Controller/DanteController/All Files/Library/Application Support/Audinate/ConMon.bundle/Contents/Resources/delete.sh",
+      "source_location": "L1",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_entrypoint"
+      },
+      "_origin": "ast",
+      "id": "controller_dantecontroller_all_files_library_application_support_audinate_conmon_bundle_contents_resources_delete_sh__entry",
+      "community": 10,
+      "norm_label": "delete.sh script"
+    },
+    {
+      "label": "relaunchDaemon.sh",
+      "file_type": "code",
+      "source_file": "Controller/DanteController/All Files/Library/Application Support/Audinate/ConMon.bundle/Contents/Resources/relaunchDaemon.sh",
+      "source_location": "L1",
+      "metadata": {
+        "language": "bash",
+        "kind": "file"
+      },
+      "_origin": "ast",
+      "id": "controller_dantecontroller_all_files_library_application_support_audinate_conmon_bundle_contents_resources_relaunchdaemon",
+      "community": 11,
+      "norm_label": "relaunchdaemon.sh"
+    },
+    {
+      "label": "relaunchDaemon.sh script",
+      "file_type": "code",
+      "source_file": "Controller/DanteController/All Files/Library/Application Support/Audinate/ConMon.bundle/Contents/Resources/relaunchDaemon.sh",
+      "source_location": "L1",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_entrypoint"
+      },
+      "_origin": "ast",
+      "id": "controller_dantecontroller_all_files_library_application_support_audinate_conmon_bundle_contents_resources_relaunchdaemon_sh__entry",
+      "community": 11,
+      "norm_label": "relaunchdaemon.sh script"
+    },
+    {
+      "label": "use.sh",
+      "file_type": "code",
+      "source_file": "Controller/DanteController/All Files/Library/Application Support/Audinate/ConMon.bundle/Contents/Resources/use.sh",
+      "source_location": "L1",
+      "metadata": {
+        "language": "bash",
+        "kind": "file"
+      },
+      "_origin": "ast",
+      "id": "controller_dantecontroller_all_files_library_application_support_audinate_conmon_bundle_contents_resources_use",
+      "community": 12,
+      "norm_label": "use.sh"
+    },
+    {
+      "label": "use.sh script",
+      "file_type": "code",
+      "source_file": "Controller/DanteController/All Files/Library/Application Support/Audinate/ConMon.bundle/Contents/Resources/use.sh",
+      "source_location": "L1",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_entrypoint"
+      },
+      "_origin": "ast",
+      "id": "controller_dantecontroller_all_files_library_application_support_audinate_conmon_bundle_contents_resources_use_sh__entry",
+      "community": 12,
+      "norm_label": "use.sh script"
+    },
+    {
+      "label": "DanteUpdateHelper/uninstall.sh",
+      "file_type": "code",
+      "source_file": "Controller/DanteController/All Files/Library/Application Support/Audinate/DanteUpdateHelper/uninstall.sh",
+      "source_location": "L1",
+      "metadata": {
+        "language": "bash",
+        "kind": "file"
+      },
+      "_origin": "ast",
+      "id": "controller_dantecontroller_all_files_library_application_support_audinate_danteupdatehelper_uninstall",
+      "community": 13,
+      "norm_label": "danteupdatehelper/uninstall.sh"
+    },
+    {
+      "label": "uninstall.sh script",
+      "file_type": "code",
+      "source_file": "Controller/DanteController/All Files/Library/Application Support/Audinate/DanteUpdateHelper/uninstall.sh",
+      "source_location": "L1",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_entrypoint"
+      },
+      "_origin": "ast",
+      "id": "controller_dantecontroller_all_files_library_application_support_audinate_danteupdatehelper_uninstall_sh__entry",
+      "community": 13,
+      "norm_label": "uninstall.sh script"
+    },
+    {
+      "label": "conmon_post",
+      "file_type": "code",
+      "source_file": "Controller/DanteController/All Scripts/ConMon/conmon_post",
+      "source_location": "L1",
+      "metadata": {
+        "language": "bash",
+        "kind": "file"
+      },
+      "_origin": "ast",
+      "id": "controller_dantecontroller_all_scripts_conmon_conmon_post",
+      "community": 2,
+      "norm_label": "conmon_post"
+    },
+    {
+      "label": "conmon_post script",
+      "file_type": "code",
+      "source_file": "Controller/DanteController/All Scripts/ConMon/conmon_post",
+      "source_location": "L1",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_entrypoint"
+      },
+      "_origin": "ast",
+      "id": "controller_dantecontroller_all_scripts_conmon_conmon_post__entry",
+      "community": 2,
+      "norm_label": "conmon_post script"
+    },
+    {
+      "label": "log()",
+      "file_type": "code",
+      "source_file": "Controller/DanteController/All Scripts/ConMon/conmon_post",
+      "source_location": "L5",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_function"
+      },
+      "_origin": "ast",
+      "id": "controller_dantecontroller_all_scripts_conmon_conmon_post_log",
+      "community": 2,
+      "norm_label": "log()"
+    },
+    {
+      "label": "conmon_pre",
+      "file_type": "code",
+      "source_file": "Controller/DanteController/All Scripts/ConMon/conmon_pre",
+      "source_location": "L1",
+      "metadata": {
+        "language": "bash",
+        "kind": "file"
+      },
+      "_origin": "ast",
+      "id": "controller_dantecontroller_all_scripts_conmon_conmon_pre",
+      "community": 14,
+      "norm_label": "conmon_pre"
+    },
+    {
+      "label": "conmon_pre script",
+      "file_type": "code",
+      "source_file": "Controller/DanteController/All Scripts/ConMon/conmon_pre",
+      "source_location": "L1",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_entrypoint"
+      },
+      "_origin": "ast",
+      "id": "controller_dantecontroller_all_scripts_conmon_conmon_pre__entry",
+      "community": 14,
+      "norm_label": "conmon_pre script"
+    },
+    {
+      "label": "installer_common.sh",
+      "file_type": "code",
+      "source_file": "Controller/DanteController/All Scripts/DanteController/installer_common.sh",
+      "source_location": "L1",
+      "metadata": {
+        "language": "bash",
+        "kind": "file"
+      },
+      "_origin": "ast",
+      "id": "controller_dantecontroller_all_scripts_dantecontroller_installer_common",
+      "community": 3,
+      "norm_label": "installer_common.sh"
+    },
+    {
+      "label": "installer_common.sh script",
+      "file_type": "code",
+      "source_file": "Controller/DanteController/All Scripts/DanteController/installer_common.sh",
+      "source_location": "L1",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_entrypoint"
+      },
+      "_origin": "ast",
+      "id": "controller_dantecontroller_all_scripts_dantecontroller_installer_common_sh__entry",
+      "community": 3,
+      "norm_label": "installer_common.sh script"
+    },
+    {
+      "label": "display_alert()",
+      "file_type": "code",
+      "source_file": "Controller/DanteController/All Scripts/DanteController/installer_common.sh",
+      "source_location": "L7",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_function"
+      },
+      "_origin": "ast",
+      "id": "controller_dantecontroller_all_scripts_dantecontroller_installer_common_display_alert",
+      "community": 3,
+      "norm_label": "display_alert()"
+    },
+    {
+      "label": "DanteController/postinstall",
+      "file_type": "code",
+      "source_file": "Controller/DanteController/All Scripts/DanteController/postinstall",
+      "source_location": "L1",
+      "metadata": {
+        "language": "bash",
+        "kind": "file"
+      },
+      "_origin": "ast",
+      "id": "controller_dantecontroller_all_scripts_dantecontroller_postinstall",
+      "community": 0,
+      "norm_label": "dantecontroller/postinstall"
+    },
+    {
+      "label": "postinstall script",
+      "file_type": "code",
+      "source_file": "Controller/DanteController/All Scripts/DanteController/postinstall",
+      "source_location": "L1",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_entrypoint"
+      },
+      "_origin": "ast",
+      "id": "controller_dantecontroller_all_scripts_dantecontroller_postinstall__entry",
+      "community": 0,
+      "norm_label": "postinstall script"
+    },
+    {
+      "label": "log_postinstall()",
+      "file_type": "code",
+      "source_file": "Controller/DanteController/All Scripts/DanteController/postinstall",
+      "source_location": "L7",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_function"
+      },
+      "_origin": "ast",
+      "id": "controller_dantecontroller_all_scripts_dantecontroller_postinstall_log_postinstall",
+      "community": 0,
+      "norm_label": "log_postinstall()"
+    },
+    {
+      "label": "launch_dc()",
+      "file_type": "code",
+      "source_file": "Controller/DanteController/All Scripts/DanteController/postinstall",
+      "source_location": "L12",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_function"
+      },
+      "_origin": "ast",
+      "id": "controller_dantecontroller_all_scripts_dantecontroller_postinstall_launch_dc",
+      "community": 0,
+      "norm_label": "launch_dc()"
+    },
+    {
+      "label": "DanteController/preinstall",
+      "file_type": "code",
+      "source_file": "Controller/DanteController/All Scripts/DanteController/preinstall",
+      "source_location": "L1",
+      "metadata": {
+        "language": "bash",
+        "kind": "file"
+      },
+      "_origin": "ast",
+      "id": "controller_dantecontroller_all_scripts_dantecontroller_preinstall",
+      "community": 4,
+      "norm_label": "dantecontroller/preinstall"
+    },
+    {
+      "label": "preinstall script",
+      "file_type": "code",
+      "source_file": "Controller/DanteController/All Scripts/DanteController/preinstall",
+      "source_location": "L1",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_entrypoint"
+      },
+      "_origin": "ast",
+      "id": "controller_dantecontroller_all_scripts_dantecontroller_preinstall__entry",
+      "community": 4,
+      "norm_label": "preinstall script"
+    },
+    {
+      "label": "get_dc_pid()",
+      "file_type": "code",
+      "source_file": "Controller/DanteController/All Scripts/DanteController/preinstall",
+      "source_location": "L7",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_function"
+      },
+      "_origin": "ast",
+      "id": "controller_dantecontroller_all_scripts_dantecontroller_preinstall_get_dc_pid",
+      "community": 4,
+      "norm_label": "get_dc_pid()"
+    },
+    {
+      "label": "DanteControllerPackage/postinstall",
+      "file_type": "code",
+      "source_file": "Controller/DanteController/All Scripts/DanteControllerPackage/postinstall",
+      "source_location": "L1",
+      "metadata": {
+        "language": "bash",
+        "kind": "file"
+      },
+      "_origin": "ast",
+      "id": "controller_dantecontroller_all_scripts_dantecontrollerpackage_postinstall",
+      "community": 15,
+      "norm_label": "dantecontrollerpackage/postinstall"
+    },
+    {
+      "label": "postinstall script",
+      "file_type": "code",
+      "source_file": "Controller/DanteController/All Scripts/DanteControllerPackage/postinstall",
+      "source_location": "L1",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_entrypoint"
+      },
+      "_origin": "ast",
+      "id": "controller_dantecontroller_all_scripts_dantecontrollerpackage_postinstall__entry",
+      "community": 15,
+      "norm_label": "postinstall script"
+    },
+    {
+      "label": "DanteUpdateHelper/postinstall",
+      "file_type": "code",
+      "source_file": "Controller/DanteController/All Scripts/DanteUpdateHelper/postinstall",
+      "source_location": "L1",
+      "metadata": {
+        "language": "bash",
+        "kind": "file"
+      },
+      "_origin": "ast",
+      "id": "controller_dantecontroller_all_scripts_danteupdatehelper_postinstall",
+      "community": 16,
+      "norm_label": "danteupdatehelper/postinstall"
+    },
+    {
+      "label": "postinstall script",
+      "file_type": "code",
+      "source_file": "Controller/DanteController/All Scripts/DanteUpdateHelper/postinstall",
+      "source_location": "L1",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_entrypoint"
+      },
+      "_origin": "ast",
+      "id": "controller_dantecontroller_all_scripts_danteupdatehelper_postinstall__entry",
+      "community": 16,
+      "norm_label": "postinstall script"
+    },
+    {
+      "label": "Dante Virtual Soundcard.app/Contents/Frameworks/Sparkle.framework/Versions/B/Headers/SPUDownloadData.h",
+      "file_type": "code",
+      "source_file": "VirtualSoundcard/DanteVirtualSoundcard/All Files/Applications/Dante Virtual Soundcard.app/Contents/Frameworks/Sparkle.framework/Versions/B/Headers/SPUDownloadData.h",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "virtualsoundcard_dantevirtualsoundcard_all_files_applications_dante_virtual_soundcard_app_contents_frameworks_sparkle_framework_versions_b_headers_spudownloaddata",
+      "community": 156,
+      "norm_label": "dante virtual soundcard.app/contents/frameworks/sparkle.framework/versions/b/headers/spudownloaddata.h"
+    },
+    {
+      "label": "Dante Virtual Soundcard.app/Contents/Frameworks/Sparkle.framework/Versions/B/Headers/SPUStandardUpdaterController.h",
+      "file_type": "code",
+      "source_file": "VirtualSoundcard/DanteVirtualSoundcard/All Files/Applications/Dante Virtual Soundcard.app/Contents/Frameworks/Sparkle.framework/Versions/B/Headers/SPUStandardUpdaterController.h",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "virtualsoundcard_dantevirtualsoundcard_all_files_applications_dante_virtual_soundcard_app_contents_frameworks_sparkle_framework_versions_b_headers_spustandardupdatercontroller",
+      "community": 157,
+      "norm_label": "dante virtual soundcard.app/contents/frameworks/sparkle.framework/versions/b/headers/spustandardupdatercontroller.h"
+    },
+    {
+      "label": "Dante Virtual Soundcard.app/Contents/Frameworks/Sparkle.framework/Versions/B/Headers/SPUStandardUserDriver.h",
+      "file_type": "code",
+      "source_file": "VirtualSoundcard/DanteVirtualSoundcard/All Files/Applications/Dante Virtual Soundcard.app/Contents/Frameworks/Sparkle.framework/Versions/B/Headers/SPUStandardUserDriver.h",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "virtualsoundcard_dantevirtualsoundcard_all_files_applications_dante_virtual_soundcard_app_contents_frameworks_sparkle_framework_versions_b_headers_spustandarduserdriver",
+      "community": 158,
+      "norm_label": "dante virtual soundcard.app/contents/frameworks/sparkle.framework/versions/b/headers/spustandarduserdriver.h"
+    },
+    {
+      "label": "Dante Virtual Soundcard.app/Contents/Frameworks/Sparkle.framework/Versions/B/Headers/SPUStandardUserDriverDelegate.h",
+      "file_type": "code",
+      "source_file": "VirtualSoundcard/DanteVirtualSoundcard/All Files/Applications/Dante Virtual Soundcard.app/Contents/Frameworks/Sparkle.framework/Versions/B/Headers/SPUStandardUserDriverDelegate.h",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "virtualsoundcard_dantevirtualsoundcard_all_files_applications_dante_virtual_soundcard_app_contents_frameworks_sparkle_framework_versions_b_headers_spustandarduserdriverdelegate",
+      "community": 159,
+      "norm_label": "dante virtual soundcard.app/contents/frameworks/sparkle.framework/versions/b/headers/spustandarduserdriverdelegate.h"
+    },
+    {
+      "label": "Dante Virtual Soundcard.app/Contents/Frameworks/Sparkle.framework/Versions/B/Headers/SPUUpdateCheck.h",
+      "file_type": "code",
+      "source_file": "VirtualSoundcard/DanteVirtualSoundcard/All Files/Applications/Dante Virtual Soundcard.app/Contents/Frameworks/Sparkle.framework/Versions/B/Headers/SPUUpdateCheck.h",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "virtualsoundcard_dantevirtualsoundcard_all_files_applications_dante_virtual_soundcard_app_contents_frameworks_sparkle_framework_versions_b_headers_spuupdatecheck",
+      "community": 160,
+      "norm_label": "dante virtual soundcard.app/contents/frameworks/sparkle.framework/versions/b/headers/spuupdatecheck.h"
+    },
+    {
+      "label": "Dante Virtual Soundcard.app/Contents/Frameworks/Sparkle.framework/Versions/B/Headers/SPUUpdatePermissionRequest.h",
+      "file_type": "code",
+      "source_file": "VirtualSoundcard/DanteVirtualSoundcard/All Files/Applications/Dante Virtual Soundcard.app/Contents/Frameworks/Sparkle.framework/Versions/B/Headers/SPUUpdatePermissionRequest.h",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "virtualsoundcard_dantevirtualsoundcard_all_files_applications_dante_virtual_soundcard_app_contents_frameworks_sparkle_framework_versions_b_headers_spuupdatepermissionrequest",
+      "community": 161,
+      "norm_label": "dante virtual soundcard.app/contents/frameworks/sparkle.framework/versions/b/headers/spuupdatepermissionrequest.h"
+    },
+    {
+      "label": "Dante Virtual Soundcard.app/Contents/Frameworks/Sparkle.framework/Versions/B/Headers/SPUUpdater.h",
+      "file_type": "code",
+      "source_file": "VirtualSoundcard/DanteVirtualSoundcard/All Files/Applications/Dante Virtual Soundcard.app/Contents/Frameworks/Sparkle.framework/Versions/B/Headers/SPUUpdater.h",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "virtualsoundcard_dantevirtualsoundcard_all_files_applications_dante_virtual_soundcard_app_contents_frameworks_sparkle_framework_versions_b_headers_spuupdater",
+      "community": 162,
+      "norm_label": "dante virtual soundcard.app/contents/frameworks/sparkle.framework/versions/b/headers/spuupdater.h"
+    },
+    {
+      "label": "Dante Virtual Soundcard.app/Contents/Frameworks/Sparkle.framework/Versions/B/Headers/SPUUpdaterDelegate.h",
+      "file_type": "code",
+      "source_file": "VirtualSoundcard/DanteVirtualSoundcard/All Files/Applications/Dante Virtual Soundcard.app/Contents/Frameworks/Sparkle.framework/Versions/B/Headers/SPUUpdaterDelegate.h",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "virtualsoundcard_dantevirtualsoundcard_all_files_applications_dante_virtual_soundcard_app_contents_frameworks_sparkle_framework_versions_b_headers_spuupdaterdelegate",
+      "community": 163,
+      "norm_label": "dante virtual soundcard.app/contents/frameworks/sparkle.framework/versions/b/headers/spuupdaterdelegate.h"
+    },
+    {
+      "label": "Dante Virtual Soundcard.app/Contents/Frameworks/Sparkle.framework/Versions/B/Headers/SPUUpdaterSettings.h",
+      "file_type": "code",
+      "source_file": "VirtualSoundcard/DanteVirtualSoundcard/All Files/Applications/Dante Virtual Soundcard.app/Contents/Frameworks/Sparkle.framework/Versions/B/Headers/SPUUpdaterSettings.h",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "virtualsoundcard_dantevirtualsoundcard_all_files_applications_dante_virtual_soundcard_app_contents_frameworks_sparkle_framework_versions_b_headers_spuupdatersettings",
+      "community": 164,
+      "norm_label": "dante virtual soundcard.app/contents/frameworks/sparkle.framework/versions/b/headers/spuupdatersettings.h"
+    },
+    {
+      "label": "Dante Virtual Soundcard.app/Contents/Frameworks/Sparkle.framework/Versions/B/Headers/SPUUserDriver.h",
+      "file_type": "code",
+      "source_file": "VirtualSoundcard/DanteVirtualSoundcard/All Files/Applications/Dante Virtual Soundcard.app/Contents/Frameworks/Sparkle.framework/Versions/B/Headers/SPUUserDriver.h",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "virtualsoundcard_dantevirtualsoundcard_all_files_applications_dante_virtual_soundcard_app_contents_frameworks_sparkle_framework_versions_b_headers_spuuserdriver",
+      "community": 165,
+      "norm_label": "dante virtual soundcard.app/contents/frameworks/sparkle.framework/versions/b/headers/spuuserdriver.h"
+    },
+    {
+      "label": "Dante Virtual Soundcard.app/Contents/Frameworks/Sparkle.framework/Versions/B/Headers/SPUUserUpdateState.h",
+      "file_type": "code",
+      "source_file": "VirtualSoundcard/DanteVirtualSoundcard/All Files/Applications/Dante Virtual Soundcard.app/Contents/Frameworks/Sparkle.framework/Versions/B/Headers/SPUUserUpdateState.h",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "virtualsoundcard_dantevirtualsoundcard_all_files_applications_dante_virtual_soundcard_app_contents_frameworks_sparkle_framework_versions_b_headers_spuuserupdatestate",
+      "community": 166,
+      "norm_label": "dante virtual soundcard.app/contents/frameworks/sparkle.framework/versions/b/headers/spuuserupdatestate.h"
+    },
+    {
+      "label": "Dante Virtual Soundcard.app/Contents/Frameworks/Sparkle.framework/Versions/B/Headers/SUAppcast.h",
+      "file_type": "code",
+      "source_file": "VirtualSoundcard/DanteVirtualSoundcard/All Files/Applications/Dante Virtual Soundcard.app/Contents/Frameworks/Sparkle.framework/Versions/B/Headers/SUAppcast.h",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "virtualsoundcard_dantevirtualsoundcard_all_files_applications_dante_virtual_soundcard_app_contents_frameworks_sparkle_framework_versions_b_headers_suappcast",
+      "community": 167,
+      "norm_label": "dante virtual soundcard.app/contents/frameworks/sparkle.framework/versions/b/headers/suappcast.h"
+    },
+    {
+      "label": "Dante Virtual Soundcard.app/Contents/Frameworks/Sparkle.framework/Versions/B/Headers/SUAppcastItem.h",
+      "file_type": "code",
+      "source_file": "VirtualSoundcard/DanteVirtualSoundcard/All Files/Applications/Dante Virtual Soundcard.app/Contents/Frameworks/Sparkle.framework/Versions/B/Headers/SUAppcastItem.h",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "virtualsoundcard_dantevirtualsoundcard_all_files_applications_dante_virtual_soundcard_app_contents_frameworks_sparkle_framework_versions_b_headers_suappcastitem",
+      "community": 168,
+      "norm_label": "dante virtual soundcard.app/contents/frameworks/sparkle.framework/versions/b/headers/suappcastitem.h"
+    },
+    {
+      "label": "Dante Virtual Soundcard.app/Contents/Frameworks/Sparkle.framework/Versions/B/Headers/SUErrors.h",
+      "file_type": "code",
+      "source_file": "VirtualSoundcard/DanteVirtualSoundcard/All Files/Applications/Dante Virtual Soundcard.app/Contents/Frameworks/Sparkle.framework/Versions/B/Headers/SUErrors.h",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "virtualsoundcard_dantevirtualsoundcard_all_files_applications_dante_virtual_soundcard_app_contents_frameworks_sparkle_framework_versions_b_headers_suerrors",
+      "community": 169,
+      "norm_label": "dante virtual soundcard.app/contents/frameworks/sparkle.framework/versions/b/headers/suerrors.h"
+    },
+    {
+      "label": "Dante Virtual Soundcard.app/Contents/Frameworks/Sparkle.framework/Versions/B/Headers/SUExport.h",
+      "file_type": "code",
+      "source_file": "VirtualSoundcard/DanteVirtualSoundcard/All Files/Applications/Dante Virtual Soundcard.app/Contents/Frameworks/Sparkle.framework/Versions/B/Headers/SUExport.h",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "virtualsoundcard_dantevirtualsoundcard_all_files_applications_dante_virtual_soundcard_app_contents_frameworks_sparkle_framework_versions_b_headers_suexport",
+      "community": 170,
+      "norm_label": "dante virtual soundcard.app/contents/frameworks/sparkle.framework/versions/b/headers/suexport.h"
+    },
+    {
+      "label": "Dante Virtual Soundcard.app/Contents/Frameworks/Sparkle.framework/Versions/B/Headers/SUStandardVersionComparator.h",
+      "file_type": "code",
+      "source_file": "VirtualSoundcard/DanteVirtualSoundcard/All Files/Applications/Dante Virtual Soundcard.app/Contents/Frameworks/Sparkle.framework/Versions/B/Headers/SUStandardVersionComparator.h",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "virtualsoundcard_dantevirtualsoundcard_all_files_applications_dante_virtual_soundcard_app_contents_frameworks_sparkle_framework_versions_b_headers_sustandardversioncomparator",
+      "community": 171,
+      "norm_label": "dante virtual soundcard.app/contents/frameworks/sparkle.framework/versions/b/headers/sustandardversioncomparator.h"
+    },
+    {
+      "label": "Dante Virtual Soundcard.app/Contents/Frameworks/Sparkle.framework/Versions/B/Headers/SUUpdatePermissionResponse.h",
+      "file_type": "code",
+      "source_file": "VirtualSoundcard/DanteVirtualSoundcard/All Files/Applications/Dante Virtual Soundcard.app/Contents/Frameworks/Sparkle.framework/Versions/B/Headers/SUUpdatePermissionResponse.h",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "virtualsoundcard_dantevirtualsoundcard_all_files_applications_dante_virtual_soundcard_app_contents_frameworks_sparkle_framework_versions_b_headers_suupdatepermissionresponse",
+      "community": 172,
+      "norm_label": "dante virtual soundcard.app/contents/frameworks/sparkle.framework/versions/b/headers/suupdatepermissionresponse.h"
+    },
+    {
+      "label": "Dante Virtual Soundcard.app/Contents/Frameworks/Sparkle.framework/Versions/B/Headers/SUUpdater.h",
+      "file_type": "code",
+      "source_file": "VirtualSoundcard/DanteVirtualSoundcard/All Files/Applications/Dante Virtual Soundcard.app/Contents/Frameworks/Sparkle.framework/Versions/B/Headers/SUUpdater.h",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "virtualsoundcard_dantevirtualsoundcard_all_files_applications_dante_virtual_soundcard_app_contents_frameworks_sparkle_framework_versions_b_headers_suupdater",
+      "community": 173,
+      "norm_label": "dante virtual soundcard.app/contents/frameworks/sparkle.framework/versions/b/headers/suupdater.h"
+    },
+    {
+      "label": "Dante Virtual Soundcard.app/Contents/Frameworks/Sparkle.framework/Versions/B/Headers/SUUpdaterDelegate.h",
+      "file_type": "code",
+      "source_file": "VirtualSoundcard/DanteVirtualSoundcard/All Files/Applications/Dante Virtual Soundcard.app/Contents/Frameworks/Sparkle.framework/Versions/B/Headers/SUUpdaterDelegate.h",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "virtualsoundcard_dantevirtualsoundcard_all_files_applications_dante_virtual_soundcard_app_contents_frameworks_sparkle_framework_versions_b_headers_suupdaterdelegate",
+      "community": 174,
+      "norm_label": "dante virtual soundcard.app/contents/frameworks/sparkle.framework/versions/b/headers/suupdaterdelegate.h"
+    },
+    {
+      "label": "Dante Virtual Soundcard.app/Contents/Frameworks/Sparkle.framework/Versions/B/Headers/SUVersionComparisonProtocol.h",
+      "file_type": "code",
+      "source_file": "VirtualSoundcard/DanteVirtualSoundcard/All Files/Applications/Dante Virtual Soundcard.app/Contents/Frameworks/Sparkle.framework/Versions/B/Headers/SUVersionComparisonProtocol.h",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "virtualsoundcard_dantevirtualsoundcard_all_files_applications_dante_virtual_soundcard_app_contents_frameworks_sparkle_framework_versions_b_headers_suversioncomparisonprotocol",
+      "community": 175,
+      "norm_label": "dante virtual soundcard.app/contents/frameworks/sparkle.framework/versions/b/headers/suversioncomparisonprotocol.h"
+    },
+    {
+      "label": "Dante Virtual Soundcard.app/Contents/Frameworks/Sparkle.framework/Versions/B/Headers/SUVersionDisplayProtocol.h",
+      "file_type": "code",
+      "source_file": "VirtualSoundcard/DanteVirtualSoundcard/All Files/Applications/Dante Virtual Soundcard.app/Contents/Frameworks/Sparkle.framework/Versions/B/Headers/SUVersionDisplayProtocol.h",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "virtualsoundcard_dantevirtualsoundcard_all_files_applications_dante_virtual_soundcard_app_contents_frameworks_sparkle_framework_versions_b_headers_suversiondisplayprotocol",
+      "community": 176,
+      "norm_label": "dante virtual soundcard.app/contents/frameworks/sparkle.framework/versions/b/headers/suversiondisplayprotocol.h"
+    },
+    {
+      "label": "Dante Virtual Soundcard.app/Contents/Frameworks/Sparkle.framework/Versions/B/Headers/Sparkle.h",
+      "file_type": "code",
+      "source_file": "VirtualSoundcard/DanteVirtualSoundcard/All Files/Applications/Dante Virtual Soundcard.app/Contents/Frameworks/Sparkle.framework/Versions/B/Headers/Sparkle.h",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "virtualsoundcard_dantevirtualsoundcard_all_files_applications_dante_virtual_soundcard_app_contents_frameworks_sparkle_framework_versions_b_headers_sparkle",
+      "community": 155,
+      "norm_label": "dante virtual soundcard.app/contents/frameworks/sparkle.framework/versions/b/headers/sparkle.h"
+    },
+    {
+      "label": "Dante Virtual Soundcard.app/Contents/Frameworks/Sparkle.framework/Versions/B/PrivateHeaders/SPUAppcastItemStateResolver.h",
+      "file_type": "code",
+      "source_file": "VirtualSoundcard/DanteVirtualSoundcard/All Files/Applications/Dante Virtual Soundcard.app/Contents/Frameworks/Sparkle.framework/Versions/B/PrivateHeaders/SPUAppcastItemStateResolver.h",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "virtualsoundcard_dantevirtualsoundcard_all_files_applications_dante_virtual_soundcard_app_contents_frameworks_sparkle_framework_versions_b_privateheaders_spuappcastitemstateresolver",
+      "community": 177,
+      "norm_label": "dante virtual soundcard.app/contents/frameworks/sparkle.framework/versions/b/privateheaders/spuappcastitemstateresolver.h"
+    },
+    {
+      "label": "Dante Virtual Soundcard.app/Contents/Frameworks/Sparkle.framework/Versions/B/PrivateHeaders/SPUGentleUserDriverReminders.h",
+      "file_type": "code",
+      "source_file": "VirtualSoundcard/DanteVirtualSoundcard/All Files/Applications/Dante Virtual Soundcard.app/Contents/Frameworks/Sparkle.framework/Versions/B/PrivateHeaders/SPUGentleUserDriverReminders.h",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "virtualsoundcard_dantevirtualsoundcard_all_files_applications_dante_virtual_soundcard_app_contents_frameworks_sparkle_framework_versions_b_privateheaders_spugentleuserdriverreminders",
+      "community": 178,
+      "norm_label": "dante virtual soundcard.app/contents/frameworks/sparkle.framework/versions/b/privateheaders/spugentleuserdriverreminders.h"
+    },
+    {
+      "label": "Dante Virtual Soundcard.app/Contents/Frameworks/Sparkle.framework/Versions/B/PrivateHeaders/SPUInstallationType.h",
+      "file_type": "code",
+      "source_file": "VirtualSoundcard/DanteVirtualSoundcard/All Files/Applications/Dante Virtual Soundcard.app/Contents/Frameworks/Sparkle.framework/Versions/B/PrivateHeaders/SPUInstallationType.h",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "virtualsoundcard_dantevirtualsoundcard_all_files_applications_dante_virtual_soundcard_app_contents_frameworks_sparkle_framework_versions_b_privateheaders_spuinstallationtype",
+      "community": 179,
+      "norm_label": "dante virtual soundcard.app/contents/frameworks/sparkle.framework/versions/b/privateheaders/spuinstallationtype.h"
+    },
+    {
+      "label": "SPUStandardUserDriver+Private.h",
+      "file_type": "code",
+      "source_file": "VirtualSoundcard/DanteVirtualSoundcard/All Files/Applications/Dante Virtual Soundcard.app/Contents/Frameworks/Sparkle.framework/Versions/B/PrivateHeaders/SPUStandardUserDriver+Private.h",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "virtualsoundcard_dantevirtualsoundcard_all_files_applications_dante_virtual_soundcard_app_contents_frameworks_sparkle_framework_versions_b_privateheaders_spustandarduserdriver_private",
+      "community": 180,
+      "norm_label": "spustandarduserdriver+private.h"
+    },
+    {
+      "label": "Dante Virtual Soundcard.app/Contents/Frameworks/Sparkle.framework/Versions/B/PrivateHeaders/SPUUserAgent+Private.h",
+      "file_type": "code",
+      "source_file": "VirtualSoundcard/DanteVirtualSoundcard/All Files/Applications/Dante Virtual Soundcard.app/Contents/Frameworks/Sparkle.framework/Versions/B/PrivateHeaders/SPUUserAgent+Private.h",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "virtualsoundcard_dantevirtualsoundcard_all_files_applications_dante_virtual_soundcard_app_contents_frameworks_sparkle_framework_versions_b_privateheaders_spuuseragent_private",
+      "community": 181,
+      "norm_label": "dante virtual soundcard.app/contents/frameworks/sparkle.framework/versions/b/privateheaders/spuuseragent+private.h"
+    },
+    {
+      "label": "Dante Virtual Soundcard.app/Contents/Frameworks/Sparkle.framework/Versions/B/PrivateHeaders/SUAppcastItem+Private.h",
+      "file_type": "code",
+      "source_file": "VirtualSoundcard/DanteVirtualSoundcard/All Files/Applications/Dante Virtual Soundcard.app/Contents/Frameworks/Sparkle.framework/Versions/B/PrivateHeaders/SUAppcastItem+Private.h",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "virtualsoundcard_dantevirtualsoundcard_all_files_applications_dante_virtual_soundcard_app_contents_frameworks_sparkle_framework_versions_b_privateheaders_suappcastitem_private",
+      "community": 182,
+      "norm_label": "dante virtual soundcard.app/contents/frameworks/sparkle.framework/versions/b/privateheaders/suappcastitem+private.h"
+    },
+    {
+      "label": "Dante Virtual Soundcard.app/Contents/Frameworks/Sparkle.framework/Versions/B/PrivateHeaders/SUInstallerLauncher+Private.h",
+      "file_type": "code",
+      "source_file": "VirtualSoundcard/DanteVirtualSoundcard/All Files/Applications/Dante Virtual Soundcard.app/Contents/Frameworks/Sparkle.framework/Versions/B/PrivateHeaders/SUInstallerLauncher+Private.h",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "virtualsoundcard_dantevirtualsoundcard_all_files_applications_dante_virtual_soundcard_app_contents_frameworks_sparkle_framework_versions_b_privateheaders_suinstallerlauncher_private",
+      "community": 183,
+      "norm_label": "dante virtual soundcard.app/contents/frameworks/sparkle.framework/versions/b/privateheaders/suinstallerlauncher+private.h"
+    },
+    {
+      "label": "Resources/uninstall.sh",
+      "file_type": "code",
+      "source_file": "VirtualSoundcard/DanteVirtualSoundcard/All Files/Library/Application Support/Audinate/DanteVirtualSoundcard/Uninstall DVS.app/Contents/Resources/uninstall.sh",
+      "source_location": "L1",
+      "metadata": {
+        "language": "bash",
+        "kind": "file"
+      },
+      "_origin": "ast",
+      "id": "virtualsoundcard_dantevirtualsoundcard_all_files_library_application_support_audinate_dantevirtualsoundcard_uninstall_dvs_app_contents_resources_uninstall",
+      "community": 17,
+      "norm_label": "resources/uninstall.sh"
+    },
+    {
+      "label": "uninstall.sh script",
+      "file_type": "code",
+      "source_file": "VirtualSoundcard/DanteVirtualSoundcard/All Files/Library/Application Support/Audinate/DanteVirtualSoundcard/Uninstall DVS.app/Contents/Resources/uninstall.sh",
+      "source_location": "L1",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_entrypoint"
+      },
+      "_origin": "ast",
+      "id": "virtualsoundcard_dantevirtualsoundcard_all_files_library_application_support_audinate_dantevirtualsoundcard_uninstall_dvs_app_contents_resources_uninstall_sh__entry",
+      "community": 17,
+      "norm_label": "uninstall.sh script"
+    },
+    {
+      "label": "DVS_User_Interface/postinstall",
+      "file_type": "code",
+      "source_file": "VirtualSoundcard/DanteVirtualSoundcard/All Scripts/DVS_User_Interface/postinstall",
+      "source_location": "L1",
+      "metadata": {
+        "language": "bash",
+        "kind": "file"
+      },
+      "_origin": "ast",
+      "id": "virtualsoundcard_dantevirtualsoundcard_all_scripts_dvs_user_interface_postinstall",
+      "community": 20,
+      "norm_label": "dvs_user_interface/postinstall"
+    },
+    {
+      "label": "postinstall script",
+      "file_type": "code",
+      "source_file": "VirtualSoundcard/DanteVirtualSoundcard/All Scripts/DVS_User_Interface/postinstall",
+      "source_location": "L1",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_entrypoint"
+      },
+      "_origin": "ast",
+      "id": "virtualsoundcard_dantevirtualsoundcard_all_scripts_dvs_user_interface_postinstall__entry",
+      "community": 20,
+      "norm_label": "postinstall script"
+    },
+    {
+      "label": "common.sh",
+      "file_type": "code",
+      "source_file": "VirtualSoundcard/DanteVirtualSoundcard/All Scripts/DanteVirtualSoundcard/common.sh",
+      "source_location": "L1",
+      "metadata": {
+        "language": "bash",
+        "kind": "file"
+      },
+      "_origin": "ast",
+      "id": "virtualsoundcard_dantevirtualsoundcard_all_scripts_dantevirtualsoundcard_common",
+      "community": 1,
+      "norm_label": "common.sh"
+    },
+    {
+      "label": "common.sh script",
+      "file_type": "code",
+      "source_file": "VirtualSoundcard/DanteVirtualSoundcard/All Scripts/DanteVirtualSoundcard/common.sh",
+      "source_location": "L1",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_entrypoint"
+      },
+      "_origin": "ast",
+      "id": "virtualsoundcard_dantevirtualsoundcard_all_scripts_dantevirtualsoundcard_common_sh__entry",
+      "community": 1,
+      "norm_label": "common.sh script"
+    },
+    {
+      "label": "display_alert()",
+      "file_type": "code",
+      "source_file": "VirtualSoundcard/DanteVirtualSoundcard/All Scripts/DanteVirtualSoundcard/common.sh",
+      "source_location": "L5",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_function"
+      },
+      "_origin": "ast",
+      "id": "virtualsoundcard_dantevirtualsoundcard_all_scripts_dantevirtualsoundcard_common_display_alert",
+      "community": 1,
+      "norm_label": "display_alert()"
+    },
+    {
+      "label": "delete_silent_install_file()",
+      "file_type": "code",
+      "source_file": "VirtualSoundcard/DanteVirtualSoundcard/All Scripts/DanteVirtualSoundcard/common.sh",
+      "source_location": "L19",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_function"
+      },
+      "_origin": "ast",
+      "id": "virtualsoundcard_dantevirtualsoundcard_all_scripts_dantevirtualsoundcard_common_delete_silent_install_file",
+      "community": 1,
+      "norm_label": "delete_silent_install_file()"
+    },
+    {
+      "label": "DanteVirtualSoundcard/postinstall",
+      "file_type": "code",
+      "source_file": "VirtualSoundcard/DanteVirtualSoundcard/All Scripts/DanteVirtualSoundcard/postinstall",
+      "source_location": "L1",
+      "metadata": {
+        "language": "bash",
+        "kind": "file"
+      },
+      "_origin": "ast",
+      "id": "virtualsoundcard_dantevirtualsoundcard_all_scripts_dantevirtualsoundcard_postinstall",
+      "community": 18,
+      "norm_label": "dantevirtualsoundcard/postinstall"
+    },
+    {
+      "label": "postinstall script",
+      "file_type": "code",
+      "source_file": "VirtualSoundcard/DanteVirtualSoundcard/All Scripts/DanteVirtualSoundcard/postinstall",
+      "source_location": "L1",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_entrypoint"
+      },
+      "_origin": "ast",
+      "id": "virtualsoundcard_dantevirtualsoundcard_all_scripts_dantevirtualsoundcard_postinstall__entry",
+      "community": 18,
+      "norm_label": "postinstall script"
+    },
+    {
+      "label": "DanteVirtualSoundcard/preinstall",
+      "file_type": "code",
+      "source_file": "VirtualSoundcard/DanteVirtualSoundcard/All Scripts/DanteVirtualSoundcard/preinstall",
+      "source_location": "L1",
+      "metadata": {
+        "language": "bash",
+        "kind": "file"
+      },
+      "_origin": "ast",
+      "id": "virtualsoundcard_dantevirtualsoundcard_all_scripts_dantevirtualsoundcard_preinstall",
+      "community": 19,
+      "norm_label": "dantevirtualsoundcard/preinstall"
+    },
+    {
+      "label": "preinstall script",
+      "file_type": "code",
+      "source_file": "VirtualSoundcard/DanteVirtualSoundcard/All Scripts/DanteVirtualSoundcard/preinstall",
+      "source_location": "L1",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_entrypoint"
+      },
+      "_origin": "ast",
+      "id": "virtualsoundcard_dantevirtualsoundcard_all_scripts_dantevirtualsoundcard_preinstall__entry",
+      "community": 19,
+      "norm_label": "preinstall script"
+    },
+    {
+      "label": "UI Tab: hdmi_inputs",
+      "type": "document",
+      "source_file": "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Resources/dc_web/tabs/hdmi_inputs.html",
+      "summary": "Web UI component/tab: hdmi_inputs",
+      "file_type": "concept",
+      "id": "doc:Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Resources/dc_web/tabs/hdmi_inputs.html",
+      "community": 76,
+      "norm_label": "ui tab: hdmi_inputs"
+    },
+    {
+      "label": "UI Tab: hdmi_outputs",
+      "type": "document",
+      "source_file": "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Resources/dc_web/tabs/hdmi_outputs.html",
+      "summary": "Web UI component/tab: hdmi_outputs",
+      "file_type": "concept",
+      "id": "doc:Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Resources/dc_web/tabs/hdmi_outputs.html",
+      "community": 77,
+      "norm_label": "ui tab: hdmi_outputs"
+    },
+    {
+      "label": "UI Tab: sdi_inputs",
+      "type": "document",
+      "source_file": "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Resources/dc_web/tabs/sdi_inputs.html",
+      "summary": "Web UI component/tab: sdi_inputs",
+      "file_type": "concept",
+      "id": "doc:Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Resources/dc_web/tabs/sdi_inputs.html",
+      "community": 78,
+      "norm_label": "ui tab: sdi_inputs"
+    },
+    {
+      "label": "UI Tab: sdi_outputs",
+      "type": "document",
+      "source_file": "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Resources/dc_web/tabs/sdi_outputs.html",
+      "summary": "Web UI component/tab: sdi_outputs",
+      "file_type": "concept",
+      "id": "doc:Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Resources/dc_web/tabs/sdi_outputs.html",
+      "community": 79,
+      "norm_label": "ui tab: sdi_outputs"
+    },
+    {
+      "label": "UI Tab: serial_config",
+      "type": "document",
+      "source_file": "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Resources/dc_web/tabs/serial_config.html",
+      "summary": "Web UI component/tab: serial_config",
+      "file_type": "concept",
+      "id": "doc:Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Resources/dc_web/tabs/serial_config.html",
+      "community": 80,
+      "norm_label": "ui tab: serial_config"
+    },
+    {
+      "label": "UI Tab: video_config",
+      "type": "document",
+      "source_file": "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Resources/dc_web/tabs/video_config.html",
+      "summary": "Web UI component/tab: video_config",
+      "file_type": "concept",
+      "id": "doc:Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Resources/dc_web/tabs/video_config.html",
+      "community": 81,
+      "norm_label": "ui tab: video_config"
+    },
+    {
+      "label": "UI Tab: video_decoder",
+      "type": "document",
+      "source_file": "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Resources/dc_web/tabs/video_decoder.html",
+      "summary": "Web UI component/tab: video_decoder",
+      "file_type": "concept",
+      "id": "doc:Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Resources/dc_web/tabs/video_decoder.html",
+      "community": 82,
+      "norm_label": "ui tab: video_decoder"
+    },
+    {
+      "label": "UI Tab: video_encoder",
+      "type": "document",
+      "source_file": "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Resources/dc_web/tabs/video_encoder.html",
+      "summary": "Web UI component/tab: video_encoder",
+      "file_type": "concept",
+      "id": "doc:Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Resources/dc_web/tabs/video_encoder.html",
+      "community": 83,
+      "norm_label": "ui tab: video_encoder"
+    },
+    {
+      "label": "UI Tab: video_wall",
+      "type": "document",
+      "source_file": "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Resources/dc_web/tabs/video_wall.html",
+      "summary": "Web UI component/tab: video_wall",
+      "file_type": "concept",
+      "id": "doc:Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Resources/dc_web/tabs/video_wall.html",
+      "community": 84,
+      "norm_label": "ui tab: video_wall"
+    },
+    {
+      "label": "index",
+      "type": "document",
+      "source_file": "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Resources/plugins/414A410000000000-0001/index.html",
+      "summary": "Web UI component/tab: index",
+      "file_type": "concept",
+      "id": "doc:Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Resources/plugins/414A410000000000-0001/index.html",
+      "community": 85,
+      "norm_label": "index"
+    },
+    {
+      "label": "index",
+      "type": "document",
+      "source_file": "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Resources/plugins/414A410000000000-0002/index.html",
+      "summary": "Web UI component/tab: index",
+      "file_type": "concept",
+      "id": "doc:Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Resources/plugins/414A410000000000-0002/index.html",
+      "community": 86,
+      "norm_label": "index"
+    },
+    {
+      "label": "index",
+      "type": "document",
+      "source_file": "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Resources/plugins/414A410000000000-0003/index.html",
+      "summary": "Web UI component/tab: index",
+      "file_type": "concept",
+      "id": "doc:Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Resources/plugins/414A410000000000-0003/index.html",
+      "community": 87,
+      "norm_label": "index"
+    },
+    {
+      "label": "index",
+      "type": "document",
+      "source_file": "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Resources/plugins/414A410000000000-0004/index.html",
+      "summary": "Web UI component/tab: index",
+      "file_type": "concept",
+      "id": "doc:Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Resources/plugins/414A410000000000-0004/index.html",
+      "community": 88,
+      "norm_label": "index"
+    },
+    {
+      "label": "index",
+      "type": "document",
+      "source_file": "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Resources/plugins/417564696E617465-0001/index.html",
+      "summary": "Web UI component/tab: index",
+      "file_type": "concept",
+      "id": "doc:Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Resources/plugins/417564696E617465-0001/index.html",
+      "community": 89,
+      "norm_label": "index"
+    },
+    {
+      "label": "index",
+      "type": "document",
+      "source_file": "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Resources/plugins/417564696E617465-0002/index.html",
+      "summary": "Web UI component/tab: index",
+      "file_type": "concept",
+      "id": "doc:Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Resources/plugins/417564696E617465-0002/index.html",
+      "community": 90,
+      "norm_label": "index"
+    },
+    {
+      "label": "index",
+      "type": "document",
+      "source_file": "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Resources/plugins/417564696E617465-0003/index.html",
+      "summary": "Web UI component/tab: index",
+      "file_type": "concept",
+      "id": "doc:Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Resources/plugins/417564696E617465-0003/index.html",
+      "community": 91,
+      "norm_label": "index"
+    },
+    {
+      "label": "README.txt",
+      "type": "document",
+      "source_file": "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/conf/security/policy/README.txt",
+      "summary": "Documentation / Legal notice: README.txt",
+      "file_type": "concept",
+      "id": "doc:Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/conf/security/policy/README.txt",
+      "community": 94,
+      "norm_label": "readme.txt"
+    },
+    {
+      "label": "aes.md",
+      "type": "document",
+      "source_file": "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/java.base/aes.md",
+      "summary": "Documentation / Legal notice: aes.md",
+      "file_type": "concept",
+      "id": "doc:Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/java.base/aes.md",
+      "community": 95,
+      "norm_label": "aes.md"
+    },
+    {
+      "label": "c-libutl.md",
+      "type": "document",
+      "source_file": "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/java.base/c-libutl.md",
+      "summary": "Documentation / Legal notice: c-libutl.md",
+      "file_type": "concept",
+      "id": "doc:Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/java.base/c-libutl.md",
+      "community": 96,
+      "norm_label": "c-libutl.md"
+    },
+    {
+      "label": "cldr.md",
+      "type": "document",
+      "source_file": "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/java.base/cldr.md",
+      "summary": "Documentation / Legal notice: cldr.md",
+      "file_type": "concept",
+      "id": "doc:Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/java.base/cldr.md",
+      "community": 97,
+      "norm_label": "cldr.md"
+    },
+    {
+      "label": "icu.md",
+      "type": "document",
+      "source_file": "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/java.base/icu.md",
+      "summary": "Documentation / Legal notice: icu.md",
+      "file_type": "concept",
+      "id": "doc:Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/java.base/icu.md",
+      "community": 98,
+      "norm_label": "icu.md"
+    },
+    {
+      "label": "public_suffix.md",
+      "type": "document",
+      "source_file": "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/java.base/public_suffix.md",
+      "summary": "Documentation / Legal notice: public_suffix.md",
+      "file_type": "concept",
+      "id": "doc:Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/java.base/public_suffix.md",
+      "community": 99,
+      "norm_label": "public_suffix.md"
+    },
+    {
+      "label": "siphash.md",
+      "type": "document",
+      "source_file": "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/java.base/siphash.md",
+      "summary": "Documentation / Legal notice: siphash.md",
+      "file_type": "concept",
+      "id": "doc:Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/java.base/siphash.md",
+      "community": 100,
+      "norm_label": "siphash.md"
+    },
+    {
+      "label": "unicode.md",
+      "type": "document",
+      "source_file": "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/java.base/unicode.md",
+      "summary": "Documentation / Legal notice: unicode.md",
+      "file_type": "concept",
+      "id": "doc:Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/java.base/unicode.md",
+      "community": 101,
+      "norm_label": "unicode.md"
+    },
+    {
+      "label": "zlib.md",
+      "type": "document",
+      "source_file": "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/java.base/zlib.md",
+      "summary": "Documentation / Legal notice: zlib.md",
+      "file_type": "concept",
+      "id": "doc:Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/java.base/zlib.md",
+      "community": 102,
+      "norm_label": "zlib.md"
+    },
+    {
+      "label": "colorimaging.md",
+      "type": "document",
+      "source_file": "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/java.desktop/colorimaging.md",
+      "summary": "Documentation / Legal notice: colorimaging.md",
+      "file_type": "concept",
+      "id": "doc:Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/java.desktop/colorimaging.md",
+      "community": 103,
+      "norm_label": "colorimaging.md"
+    },
+    {
+      "label": "freetype.md",
+      "type": "document",
+      "source_file": "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/java.desktop/freetype.md",
+      "summary": "Documentation / Legal notice: freetype.md",
+      "file_type": "concept",
+      "id": "doc:Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/java.desktop/freetype.md",
+      "community": 104,
+      "norm_label": "freetype.md"
+    },
+    {
+      "label": "giflib.md",
+      "type": "document",
+      "source_file": "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/java.desktop/giflib.md",
+      "summary": "Documentation / Legal notice: giflib.md",
+      "file_type": "concept",
+      "id": "doc:Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/java.desktop/giflib.md",
+      "community": 105,
+      "norm_label": "giflib.md"
+    },
+    {
+      "label": "harfbuzz.md",
+      "type": "document",
+      "source_file": "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/java.desktop/harfbuzz.md",
+      "summary": "Documentation / Legal notice: harfbuzz.md",
+      "file_type": "concept",
+      "id": "doc:Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/java.desktop/harfbuzz.md",
+      "community": 106,
+      "norm_label": "harfbuzz.md"
+    },
+    {
+      "label": "jpeg.md",
+      "type": "document",
+      "source_file": "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/java.desktop/jpeg.md",
+      "summary": "Documentation / Legal notice: jpeg.md",
+      "file_type": "concept",
+      "id": "doc:Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/java.desktop/jpeg.md",
+      "community": 107,
+      "norm_label": "jpeg.md"
+    },
+    {
+      "label": "lcms.md",
+      "type": "document",
+      "source_file": "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/java.desktop/lcms.md",
+      "summary": "Documentation / Legal notice: lcms.md",
+      "file_type": "concept",
+      "id": "doc:Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/java.desktop/lcms.md",
+      "community": 108,
+      "norm_label": "lcms.md"
+    },
+    {
+      "label": "libpng.md",
+      "type": "document",
+      "source_file": "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/java.desktop/libpng.md",
+      "summary": "Documentation / Legal notice: libpng.md",
+      "file_type": "concept",
+      "id": "doc:Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/java.desktop/libpng.md",
+      "community": 109,
+      "norm_label": "libpng.md"
+    },
+    {
+      "label": "mesa3d.md",
+      "type": "document",
+      "source_file": "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/java.desktop/mesa3d.md",
+      "summary": "Documentation / Legal notice: mesa3d.md",
+      "file_type": "concept",
+      "id": "doc:Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/java.desktop/mesa3d.md",
+      "community": 110,
+      "norm_label": "mesa3d.md"
+    },
+    {
+      "label": "pipewire.md",
+      "type": "document",
+      "source_file": "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/java.desktop/pipewire.md",
+      "summary": "Documentation / Legal notice: pipewire.md",
+      "file_type": "concept",
+      "id": "doc:Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/java.desktop/pipewire.md",
+      "community": 111,
+      "norm_label": "pipewire.md"
+    },
+    {
+      "label": "xwd.md",
+      "type": "document",
+      "source_file": "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/java.desktop/xwd.md",
+      "summary": "Documentation / Legal notice: xwd.md",
+      "file_type": "concept",
+      "id": "doc:Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/java.desktop/xwd.md",
+      "community": 112,
+      "norm_label": "xwd.md"
+    },
+    {
+      "label": "pcsclite.md",
+      "type": "document",
+      "source_file": "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/java.smartcardio/pcsclite.md",
+      "summary": "Documentation / Legal notice: pcsclite.md",
+      "file_type": "concept",
+      "id": "doc:Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/java.smartcardio/pcsclite.md",
+      "community": 113,
+      "norm_label": "pcsclite.md"
+    },
+    {
+      "label": "santuario.md",
+      "type": "document",
+      "source_file": "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/java.xml.crypto/santuario.md",
+      "summary": "Documentation / Legal notice: santuario.md",
+      "file_type": "concept",
+      "id": "doc:Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/java.xml.crypto/santuario.md",
+      "community": 114,
+      "norm_label": "santuario.md"
+    },
+    {
+      "label": "bcel.md",
+      "type": "document",
+      "source_file": "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/java.xml/bcel.md",
+      "summary": "Documentation / Legal notice: bcel.md",
+      "file_type": "concept",
+      "id": "doc:Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/java.xml/bcel.md",
+      "community": 115,
+      "norm_label": "bcel.md"
+    },
+    {
+      "label": "dom.md",
+      "type": "document",
+      "source_file": "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/java.xml/dom.md",
+      "summary": "Documentation / Legal notice: dom.md",
+      "file_type": "concept",
+      "id": "doc:Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/java.xml/dom.md",
+      "community": 116,
+      "norm_label": "dom.md"
+    },
+    {
+      "label": "jcup.md",
+      "type": "document",
+      "source_file": "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/java.xml/jcup.md",
+      "summary": "Documentation / Legal notice: jcup.md",
+      "file_type": "concept",
+      "id": "doc:Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/java.xml/jcup.md",
+      "community": 117,
+      "norm_label": "jcup.md"
+    },
+    {
+      "label": "schema10part1.md",
+      "type": "document",
+      "source_file": "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/java.xml/schema10part1.md",
+      "summary": "Documentation / Legal notice: schema10part1.md",
+      "file_type": "concept",
+      "id": "doc:Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/java.xml/schema10part1.md",
+      "community": 118,
+      "norm_label": "schema10part1.md"
+    },
+    {
+      "label": "schema10part2.md",
+      "type": "document",
+      "source_file": "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/java.xml/schema10part2.md",
+      "summary": "Documentation / Legal notice: schema10part2.md",
+      "file_type": "concept",
+      "id": "doc:Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/java.xml/schema10part2.md",
+      "community": 119,
+      "norm_label": "schema10part2.md"
+    },
+    {
+      "label": "xalan.md",
+      "type": "document",
+      "source_file": "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/java.xml/xalan.md",
+      "summary": "Documentation / Legal notice: xalan.md",
+      "file_type": "concept",
+      "id": "doc:Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/java.xml/xalan.md",
+      "community": 120,
+      "norm_label": "xalan.md"
+    },
+    {
+      "label": "xerces.md",
+      "type": "document",
+      "source_file": "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/java.xml/xerces.md",
+      "summary": "Documentation / Legal notice: xerces.md",
+      "file_type": "concept",
+      "id": "doc:Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/java.xml/xerces.md",
+      "community": 121,
+      "norm_label": "xerces.md"
+    },
+    {
+      "label": "xhtml10.md",
+      "type": "document",
+      "source_file": "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/java.xml/xhtml10.md",
+      "summary": "Documentation / Legal notice: xhtml10.md",
+      "file_type": "concept",
+      "id": "doc:Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/java.xml/xhtml10.md",
+      "community": 122,
+      "norm_label": "xhtml10.md"
+    },
+    {
+      "label": "xhtml10schema.md",
+      "type": "document",
+      "source_file": "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/java.xml/xhtml10schema.md",
+      "summary": "Documentation / Legal notice: xhtml10schema.md",
+      "file_type": "concept",
+      "id": "doc:Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/java.xml/xhtml10schema.md",
+      "community": 123,
+      "norm_label": "xhtml10schema.md"
+    },
+    {
+      "label": "xhtml11.md",
+      "type": "document",
+      "source_file": "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/java.xml/xhtml11.md",
+      "summary": "Documentation / Legal notice: xhtml11.md",
+      "file_type": "concept",
+      "id": "doc:Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/java.xml/xhtml11.md",
+      "community": 124,
+      "norm_label": "xhtml11.md"
+    },
+    {
+      "label": "xhtml11schema.md",
+      "type": "document",
+      "source_file": "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/java.xml/xhtml11schema.md",
+      "summary": "Documentation / Legal notice: xhtml11schema.md",
+      "file_type": "concept",
+      "id": "doc:Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/java.xml/xhtml11schema.md",
+      "community": 125,
+      "norm_label": "xhtml11schema.md"
+    },
+    {
+      "label": "xmlspec.md",
+      "type": "document",
+      "source_file": "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/java.xml/xmlspec.md",
+      "summary": "Documentation / Legal notice: xmlspec.md",
+      "file_type": "concept",
+      "id": "doc:Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/java.xml/xmlspec.md",
+      "community": 126,
+      "norm_label": "xmlspec.md"
+    },
+    {
+      "label": "xmlxsd.md",
+      "type": "document",
+      "source_file": "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/java.xml/xmlxsd.md",
+      "summary": "Documentation / Legal notice: xmlxsd.md",
+      "file_type": "concept",
+      "id": "doc:Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/java.xml/xmlxsd.md",
+      "community": 127,
+      "norm_label": "xmlxsd.md"
+    },
+    {
+      "label": "dynalink.md",
+      "type": "document",
+      "source_file": "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/jdk.dynalink/dynalink.md",
+      "summary": "Documentation / Legal notice: dynalink.md",
+      "file_type": "concept",
+      "id": "doc:Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/jdk.dynalink/dynalink.md",
+      "community": 128,
+      "norm_label": "dynalink.md"
+    },
+    {
+      "label": "jline.md",
+      "type": "document",
+      "source_file": "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/jdk.internal.le/jline.md",
+      "summary": "Documentation / Legal notice: jline.md",
+      "file_type": "concept",
+      "id": "doc:Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/jdk.internal.le/jline.md",
+      "community": 129,
+      "norm_label": "jline.md"
+    },
+    {
+      "label": "commonmark.md",
+      "type": "document",
+      "source_file": "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/jdk.internal.md/commonmark.md",
+      "summary": "Documentation / Legal notice: commonmark.md",
+      "file_type": "concept",
+      "id": "doc:Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/jdk.internal.md/commonmark.md",
+      "community": 130,
+      "norm_label": "commonmark.md"
+    },
+    {
+      "label": "jopt-simple.md",
+      "type": "document",
+      "source_file": "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/jdk.internal.opt/jopt-simple.md",
+      "summary": "Documentation / Legal notice: jopt-simple.md",
+      "file_type": "concept",
+      "id": "doc:Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/jdk.internal.opt/jopt-simple.md",
+      "community": 131,
+      "norm_label": "jopt-simple.md"
+    },
+    {
+      "label": "dejavufonts.md",
+      "type": "document",
+      "source_file": "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/jdk.javadoc/dejavufonts.md",
+      "summary": "Documentation / Legal notice: dejavufonts.md",
+      "file_type": "concept",
+      "id": "doc:Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/jdk.javadoc/dejavufonts.md",
+      "community": 132,
+      "norm_label": "dejavufonts.md"
+    },
+    {
+      "label": "highlightjs.md",
+      "type": "document",
+      "source_file": "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/jdk.javadoc/highlightjs.md",
+      "summary": "Documentation / Legal notice: highlightjs.md",
+      "file_type": "concept",
+      "id": "doc:Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/jdk.javadoc/highlightjs.md",
+      "community": 133,
+      "norm_label": "highlightjs.md"
+    },
+    {
+      "label": "jquery.md",
+      "type": "document",
+      "source_file": "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/jdk.javadoc/jquery.md",
+      "summary": "Documentation / Legal notice: jquery.md",
+      "file_type": "concept",
+      "id": "doc:Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/jdk.javadoc/jquery.md",
+      "community": 134,
+      "norm_label": "jquery.md"
+    },
+    {
+      "label": "jqueryUI.md",
+      "type": "document",
+      "source_file": "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/jdk.javadoc/jqueryUI.md",
+      "summary": "Documentation / Legal notice: jqueryUI.md",
+      "file_type": "concept",
+      "id": "doc:Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/jdk.javadoc/jqueryUI.md",
+      "community": 135,
+      "norm_label": "jqueryui.md"
+    },
+    {
+      "label": "license.txt",
+      "type": "document",
+      "source_file": "VirtualSoundcard/DanteVirtualSoundcard/All Files/Applications/Dante Virtual Soundcard.app/Contents/Resources/license.txt",
+      "summary": "Documentation / Legal notice: license.txt",
+      "file_type": "concept",
+      "id": "doc:VirtualSoundcard/DanteVirtualSoundcard/All Files/Applications/Dante Virtual Soundcard.app/Contents/Resources/license.txt",
+      "community": 138,
+      "norm_label": "license.txt"
+    },
+    {
+      "label": "ThirdPartyLicenses",
+      "type": "document",
+      "source_file": "VirtualSoundcard/DanteVirtualSoundcard/All Files/Library/Application Support/Audinate/DanteVirtualSoundcard/ThirdPartyLicenses.html",
+      "summary": "Web UI component/tab: ThirdPartyLicenses",
+      "file_type": "concept",
+      "id": "doc:VirtualSoundcard/DanteVirtualSoundcard/All Files/Library/Application Support/Audinate/DanteVirtualSoundcard/ThirdPartyLicenses.html",
+      "community": 154,
+      "norm_label": "thirdpartylicenses"
+    },
+    {
+      "label": "AUD MAN DanteController",
+      "type": "document",
+      "source_file": "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Resources/AUD-MAN-DanteController.pdf",
+      "summary": "User Documentation: AUD MAN DanteController",
+      "file_type": "concept",
+      "id": "doc:Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Resources/AUD-MAN-DanteController.pdf",
+      "community": 75,
+      "norm_label": "aud man dantecontroller"
+    },
+    {
+      "label": "DanteVirtualSoundcardUserGuide",
+      "type": "document",
+      "source_file": "VirtualSoundcard/DanteVirtualSoundcard/All Files/Applications/Dante Virtual Soundcard.app/Contents/Resources/DanteVirtualSoundcardUserGuide.pdf",
+      "summary": "User Documentation: DanteVirtualSoundcardUserGuide",
+      "file_type": "concept",
+      "id": "doc:VirtualSoundcard/DanteVirtualSoundcard/All Files/Applications/Dante Virtual Soundcard.app/Contents/Resources/DanteVirtualSoundcardUserGuide.pdf",
+      "community": 137,
+      "norm_label": "dantevirtualsoundcarduserguide"
+    },
+    {
+      "label": "Dante Activator.app/Contents/Frameworks/nwjs Framework.framework/Versions/145.0.7632.76/Resources/product_logo_32.png",
+      "type": "image",
+      "source_file": "Controller/DanteController/All Files/Applications/Dante Activator.app/Contents/Frameworks/nwjs Framework.framework/Versions/145.0.7632.76/Resources/product_logo_32.png",
+      "summary": "UI graphic asset: product_logo_32.png",
+      "file_type": "concept",
+      "id": "doc:Controller/DanteController/All Files/Applications/Dante Activator.app/Contents/Frameworks/nwjs Framework.framework/Versions/145.0.7632.76/Resources/product_logo_32.png",
+      "community": 74,
+      "norm_label": "dante activator.app/contents/frameworks/nwjs framework.framework/versions/145.0.7632.76/resources/product_logo_32.png"
+    },
+    {
+      "label": "spinner.gif",
+      "type": "image",
+      "source_file": "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Resources/plugins/417564696E617465-0003/spinner.gif",
+      "summary": "UI graphic asset: spinner.gif",
+      "file_type": "concept",
+      "id": "doc:Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Resources/plugins/417564696E617465-0003/spinner.gif",
+      "community": 92,
+      "norm_label": "spinner.gif"
+    },
+    {
+      "label": "Chromium Framework.framework/Versions/145.0.7632.76/Resources/product_logo_32.png",
+      "type": "image",
+      "source_file": "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/chromium/Chromium.app/Contents/Frameworks/Chromium Framework.framework/Versions/145.0.7632.76/Resources/product_logo_32.png",
+      "summary": "UI graphic asset: product_logo_32.png",
+      "file_type": "concept",
+      "id": "doc:Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/chromium/Chromium.app/Contents/Frameworks/Chromium Framework.framework/Versions/145.0.7632.76/Resources/product_logo_32.png",
+      "community": 93,
+      "norm_label": "chromium framework.framework/versions/145.0.7632.76/resources/product_logo_32.png"
+    },
+    {
+      "label": "Dante Updater.app/Contents/Frameworks/nwjs Framework.framework/Versions/145.0.7632.76/Resources/product_logo_32.png",
+      "type": "image",
+      "source_file": "Controller/DanteController/All Files/Applications/Dante Updater.app/Contents/Frameworks/nwjs Framework.framework/Versions/145.0.7632.76/Resources/product_logo_32.png",
+      "summary": "UI graphic asset: product_logo_32.png",
+      "file_type": "concept",
+      "id": "doc:Controller/DanteController/All Files/Applications/Dante Updater.app/Contents/Frameworks/nwjs Framework.framework/Versions/145.0.7632.76/Resources/product_logo_32.png",
+      "community": 136,
+      "norm_label": "dante updater.app/contents/frameworks/nwjs framework.framework/versions/145.0.7632.76/resources/product_logo_32.png"
+    },
+    {
+      "label": "DanteLogo-DVS-v2.png",
+      "type": "image",
+      "source_file": "VirtualSoundcard/DanteVirtualSoundcard/All Files/Applications/Dante Virtual Soundcard.app/Contents/Resources/res/DanteLogo-DVS-v2.png",
+      "summary": "UI graphic asset: DanteLogo-DVS-v2.png",
+      "file_type": "concept",
+      "id": "doc:VirtualSoundcard/DanteVirtualSoundcard/All Files/Applications/Dante Virtual Soundcard.app/Contents/Resources/res/DanteLogo-DVS-v2.png",
+      "community": 139,
+      "norm_label": "dantelogo-dvs-v2.png"
+    },
+    {
+      "label": "DanteLogo-DVS-v2@2x.png",
+      "type": "image",
+      "source_file": "VirtualSoundcard/DanteVirtualSoundcard/All Files/Applications/Dante Virtual Soundcard.app/Contents/Resources/res/DanteLogo-DVS-v2@2x.png",
+      "summary": "UI graphic asset: DanteLogo-DVS-v2@2x.png",
+      "file_type": "concept",
+      "id": "doc:VirtualSoundcard/DanteVirtualSoundcard/All Files/Applications/Dante Virtual Soundcard.app/Contents/Resources/res/DanteLogo-DVS-v2@2x.png",
+      "community": 140,
+      "norm_label": "dantelogo-dvs-v2@2x.png"
+    },
+    {
+      "label": "domains-64x64.png",
+      "type": "image",
+      "source_file": "VirtualSoundcard/DanteVirtualSoundcard/All Files/Applications/Dante Virtual Soundcard.app/Contents/Resources/res/domains-64x64.png",
+      "summary": "UI graphic asset: domains-64x64.png",
+      "file_type": "concept",
+      "id": "doc:VirtualSoundcard/DanteVirtualSoundcard/All Files/Applications/Dante Virtual Soundcard.app/Contents/Resources/res/domains-64x64.png",
+      "community": 141,
+      "norm_label": "domains-64x64.png"
+    },
+    {
+      "label": "domains-locked-64x64.png",
+      "type": "image",
+      "source_file": "VirtualSoundcard/DanteVirtualSoundcard/All Files/Applications/Dante Virtual Soundcard.app/Contents/Resources/res/domains-locked-64x64.png",
+      "summary": "UI graphic asset: domains-locked-64x64.png",
+      "file_type": "concept",
+      "id": "doc:VirtualSoundcard/DanteVirtualSoundcard/All Files/Applications/Dante Virtual Soundcard.app/Contents/Resources/res/domains-locked-64x64.png",
+      "community": 142,
+      "norm_label": "domains-locked-64x64.png"
+    },
+    {
+      "label": "domains-warning-64x64.png",
+      "type": "image",
+      "source_file": "VirtualSoundcard/DanteVirtualSoundcard/All Files/Applications/Dante Virtual Soundcard.app/Contents/Resources/res/domains-warning-64x64.png",
+      "summary": "UI graphic asset: domains-warning-64x64.png",
+      "file_type": "concept",
+      "id": "doc:VirtualSoundcard/DanteVirtualSoundcard/All Files/Applications/Dante Virtual Soundcard.app/Contents/Resources/res/domains-warning-64x64.png",
+      "community": 143,
+      "norm_label": "domains-warning-64x64.png"
+    },
+    {
+      "label": "dvs-error-icon-28x28.png",
+      "type": "image",
+      "source_file": "VirtualSoundcard/DanteVirtualSoundcard/All Files/Applications/Dante Virtual Soundcard.app/Contents/Resources/res/dvs-error-icon-28x28.png",
+      "summary": "UI graphic asset: dvs-error-icon-28x28.png",
+      "file_type": "concept",
+      "id": "doc:VirtualSoundcard/DanteVirtualSoundcard/All Files/Applications/Dante Virtual Soundcard.app/Contents/Resources/res/dvs-error-icon-28x28.png",
+      "community": 144,
+      "norm_label": "dvs-error-icon-28x28.png"
+    },
+    {
+      "label": "dvs-error-icon-64x64.png",
+      "type": "image",
+      "source_file": "VirtualSoundcard/DanteVirtualSoundcard/All Files/Applications/Dante Virtual Soundcard.app/Contents/Resources/res/dvs-error-icon-64x64.png",
+      "summary": "UI graphic asset: dvs-error-icon-64x64.png",
+      "file_type": "concept",
+      "id": "doc:VirtualSoundcard/DanteVirtualSoundcard/All Files/Applications/Dante Virtual Soundcard.app/Contents/Resources/res/dvs-error-icon-64x64.png",
+      "community": 145,
+      "norm_label": "dvs-error-icon-64x64.png"
+    },
+    {
+      "label": "dvs-info-icon-16x16.png",
+      "type": "image",
+      "source_file": "VirtualSoundcard/DanteVirtualSoundcard/All Files/Applications/Dante Virtual Soundcard.app/Contents/Resources/res/dvs-info-icon-16x16.png",
+      "summary": "UI graphic asset: dvs-info-icon-16x16.png",
+      "file_type": "concept",
+      "id": "doc:VirtualSoundcard/DanteVirtualSoundcard/All Files/Applications/Dante Virtual Soundcard.app/Contents/Resources/res/dvs-info-icon-16x16.png",
+      "community": 146,
+      "norm_label": "dvs-info-icon-16x16.png"
+    },
+    {
+      "label": "dvs-info-icon-32x32.png",
+      "type": "image",
+      "source_file": "VirtualSoundcard/DanteVirtualSoundcard/All Files/Applications/Dante Virtual Soundcard.app/Contents/Resources/res/dvs-info-icon-32x32.png",
+      "summary": "UI graphic asset: dvs-info-icon-32x32.png",
+      "file_type": "concept",
+      "id": "doc:VirtualSoundcard/DanteVirtualSoundcard/All Files/Applications/Dante Virtual Soundcard.app/Contents/Resources/res/dvs-info-icon-32x32.png",
+      "community": 147,
+      "norm_label": "dvs-info-icon-32x32.png"
+    },
+    {
+      "label": "dvs-info-icon-64x64.png",
+      "type": "image",
+      "source_file": "VirtualSoundcard/DanteVirtualSoundcard/All Files/Applications/Dante Virtual Soundcard.app/Contents/Resources/res/dvs-info-icon-64x64.png",
+      "summary": "UI graphic asset: dvs-info-icon-64x64.png",
+      "file_type": "concept",
+      "id": "doc:VirtualSoundcard/DanteVirtualSoundcard/All Files/Applications/Dante Virtual Soundcard.app/Contents/Resources/res/dvs-info-icon-64x64.png",
+      "community": 148,
+      "norm_label": "dvs-info-icon-64x64.png"
+    },
+    {
+      "label": "dvs-warning-icon-32x32.png",
+      "type": "image",
+      "source_file": "VirtualSoundcard/DanteVirtualSoundcard/All Files/Applications/Dante Virtual Soundcard.app/Contents/Resources/res/dvs-warning-icon-32x32.png",
+      "summary": "UI graphic asset: dvs-warning-icon-32x32.png",
+      "file_type": "concept",
+      "id": "doc:VirtualSoundcard/DanteVirtualSoundcard/All Files/Applications/Dante Virtual Soundcard.app/Contents/Resources/res/dvs-warning-icon-32x32.png",
+      "community": 149,
+      "norm_label": "dvs-warning-icon-32x32.png"
+    },
+    {
+      "label": "dvs-warning-icon-64x64.png",
+      "type": "image",
+      "source_file": "VirtualSoundcard/DanteVirtualSoundcard/All Files/Applications/Dante Virtual Soundcard.app/Contents/Resources/res/dvs-warning-icon-64x64.png",
+      "summary": "UI graphic asset: dvs-warning-icon-64x64.png",
+      "file_type": "concept",
+      "id": "doc:VirtualSoundcard/DanteVirtualSoundcard/All Files/Applications/Dante Virtual Soundcard.app/Contents/Resources/res/dvs-warning-icon-64x64.png",
+      "community": 150,
+      "norm_label": "dvs-warning-icon-64x64.png"
+    },
+    {
+      "label": "line.png",
+      "type": "image",
+      "source_file": "VirtualSoundcard/DanteVirtualSoundcard/All Files/Applications/Dante Virtual Soundcard.app/Contents/Resources/res/line.png",
+      "summary": "UI graphic asset: line.png",
+      "file_type": "concept",
+      "id": "doc:VirtualSoundcard/DanteVirtualSoundcard/All Files/Applications/Dante Virtual Soundcard.app/Contents/Resources/res/line.png",
+      "community": 151,
+      "norm_label": "line.png"
+    },
+    {
+      "label": "lock-circle-64x64.png",
+      "type": "image",
+      "source_file": "VirtualSoundcard/DanteVirtualSoundcard/All Files/Applications/Dante Virtual Soundcard.app/Contents/Resources/res/lock-circle-64x64.png",
+      "summary": "UI graphic asset: lock-circle-64x64.png",
+      "file_type": "concept",
+      "id": "doc:VirtualSoundcard/DanteVirtualSoundcard/All Files/Applications/Dante Virtual Soundcard.app/Contents/Resources/res/lock-circle-64x64.png",
+      "community": 152,
+      "norm_label": "lock-circle-64x64.png"
+    },
+    {
+      "label": "restart-icon-64x64.png",
+      "type": "image",
+      "source_file": "VirtualSoundcard/DanteVirtualSoundcard/All Files/Applications/Dante Virtual Soundcard.app/Contents/Resources/res/restart-icon-64x64.png",
+      "summary": "UI graphic asset: restart-icon-64x64.png",
+      "file_type": "concept",
+      "id": "doc:VirtualSoundcard/DanteVirtualSoundcard/All Files/Applications/Dante Virtual Soundcard.app/Contents/Resources/res/restart-icon-64x64.png",
+      "community": 153,
+      "norm_label": "restart-icon-64x64.png"
+    }
+  ],
+  "links": [
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Controller/DanteController/All Files/Applications/Dante Activator.app/Contents/Frameworks/nwjs Framework.framework/Versions/145.0.7632.76/Resources/install.sh",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "controller_dantecontroller_all_files_applications_dante_activator_app_contents_frameworks_nwjs_framework_framework_versions_145_0_7632_76_resources_install",
+      "target": "controller_dantecontroller_all_files_applications_dante_activator_app_contents_frameworks_nwjs_framework_framework_versions_145_0_7632_76_resources_install_sh__entry",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/chromium/Chromium.app/Contents/Frameworks/Chromium Framework.framework/Versions/145.0.7632.76/Resources/install.sh",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "controller_dantecontroller_all_files_applications_dante_controller_app_contents_chromium_chromium_app_contents_frameworks_chromium_framework_framework_versions_145_0_7632_76_resources_install",
+      "target": "controller_dantecontroller_all_files_applications_dante_controller_app_contents_chromium_chromium_app_contents_frameworks_chromium_framework_framework_versions_145_0_7632_76_resources_install_sh__entry",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Controller/DanteController/All Files/Applications/Dante Updater.app/Contents/Frameworks/nwjs Framework.framework/Versions/145.0.7632.76/Resources/install.sh",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "controller_dantecontroller_all_files_applications_dante_updater_app_contents_frameworks_nwjs_framework_framework_versions_145_0_7632_76_resources_install",
+      "target": "controller_dantecontroller_all_files_applications_dante_updater_app_contents_frameworks_nwjs_framework_framework_versions_145_0_7632_76_resources_install_sh__entry",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Controller/DanteController/All Files/Library/Application Support/Audinate/ConMon.bundle/Contents/MacOS/launch_conmon.sh",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "controller_dantecontroller_all_files_library_application_support_audinate_conmon_bundle_contents_macos_launch_conmon",
+      "target": "controller_dantecontroller_all_files_library_application_support_audinate_conmon_bundle_contents_macos_launch_conmon_sh__entry",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Controller/DanteController/All Files/Library/Application Support/Audinate/ConMon.bundle/Contents/Resources/dante_use.sh",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "controller_dantecontroller_all_files_library_application_support_audinate_conmon_bundle_contents_resources_dante_use",
+      "target": "controller_dantecontroller_all_files_library_application_support_audinate_conmon_bundle_contents_resources_dante_use_sh__entry",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Controller/DanteController/All Files/Library/Application Support/Audinate/ConMon.bundle/Contents/Resources/delete.sh",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "controller_dantecontroller_all_files_library_application_support_audinate_conmon_bundle_contents_resources_delete",
+      "target": "controller_dantecontroller_all_files_library_application_support_audinate_conmon_bundle_contents_resources_delete_sh__entry",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Controller/DanteController/All Files/Library/Application Support/Audinate/ConMon.bundle/Contents/Resources/relaunchDaemon.sh",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "controller_dantecontroller_all_files_library_application_support_audinate_conmon_bundle_contents_resources_relaunchdaemon",
+      "target": "controller_dantecontroller_all_files_library_application_support_audinate_conmon_bundle_contents_resources_relaunchdaemon_sh__entry",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Controller/DanteController/All Files/Library/Application Support/Audinate/ConMon.bundle/Contents/Resources/use.sh",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "controller_dantecontroller_all_files_library_application_support_audinate_conmon_bundle_contents_resources_use",
+      "target": "controller_dantecontroller_all_files_library_application_support_audinate_conmon_bundle_contents_resources_use_sh__entry",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Controller/DanteController/All Files/Library/Application Support/Audinate/DanteUpdateHelper/uninstall.sh",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "controller_dantecontroller_all_files_library_application_support_audinate_danteupdatehelper_uninstall",
+      "target": "controller_dantecontroller_all_files_library_application_support_audinate_danteupdatehelper_uninstall_sh__entry",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Controller/DanteController/All Scripts/ConMon/conmon_post",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "controller_dantecontroller_all_scripts_conmon_conmon_post",
+      "target": "controller_dantecontroller_all_scripts_conmon_conmon_post__entry",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "defines",
+      "confidence": "EXTRACTED",
+      "source_file": "Controller/DanteController/All Scripts/ConMon/conmon_post",
+      "source_location": "L5",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "controller_dantecontroller_all_scripts_conmon_conmon_post",
+      "target": "controller_dantecontroller_all_scripts_conmon_conmon_post_log",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "Controller/DanteController/All Scripts/ConMon/conmon_post",
+      "source_location": "L10",
+      "weight": 1.0,
+      "context": "call",
+      "_origin": "ast",
+      "source": "controller_dantecontroller_all_scripts_conmon_conmon_post__entry",
+      "target": "controller_dantecontroller_all_scripts_conmon_conmon_post_log",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Controller/DanteController/All Scripts/ConMon/conmon_pre",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "controller_dantecontroller_all_scripts_conmon_conmon_pre",
+      "target": "controller_dantecontroller_all_scripts_conmon_conmon_pre__entry",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "defines",
+      "confidence": "EXTRACTED",
+      "source_file": "Controller/DanteController/All Scripts/DanteController/installer_common.sh",
+      "source_location": "L7",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "controller_dantecontroller_all_scripts_dantecontroller_installer_common",
+      "target": "controller_dantecontroller_all_scripts_dantecontroller_installer_common_display_alert",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Controller/DanteController/All Scripts/DanteController/installer_common.sh",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "controller_dantecontroller_all_scripts_dantecontroller_installer_common",
+      "target": "controller_dantecontroller_all_scripts_dantecontroller_installer_common_sh__entry",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Controller/DanteController/All Scripts/DanteController/postinstall",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "controller_dantecontroller_all_scripts_dantecontroller_postinstall",
+      "target": "controller_dantecontroller_all_scripts_dantecontroller_postinstall__entry",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "defines",
+      "confidence": "EXTRACTED",
+      "source_file": "Controller/DanteController/All Scripts/DanteController/postinstall",
+      "source_location": "L12",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "controller_dantecontroller_all_scripts_dantecontroller_postinstall",
+      "target": "controller_dantecontroller_all_scripts_dantecontroller_postinstall_launch_dc",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "defines",
+      "confidence": "EXTRACTED",
+      "source_file": "Controller/DanteController/All Scripts/DanteController/postinstall",
+      "source_location": "L7",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "controller_dantecontroller_all_scripts_dantecontroller_postinstall",
+      "target": "controller_dantecontroller_all_scripts_dantecontroller_postinstall_log_postinstall",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "Controller/DanteController/All Scripts/DanteController/postinstall",
+      "source_location": "L39",
+      "weight": 1.0,
+      "context": "call",
+      "_origin": "ast",
+      "source": "controller_dantecontroller_all_scripts_dantecontroller_postinstall__entry",
+      "target": "controller_dantecontroller_all_scripts_dantecontroller_postinstall_launch_dc",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "Controller/DanteController/All Scripts/DanteController/postinstall",
+      "source_location": "L14",
+      "weight": 1.0,
+      "context": "call",
+      "_origin": "ast",
+      "source": "controller_dantecontroller_all_scripts_dantecontroller_postinstall_launch_dc",
+      "target": "controller_dantecontroller_all_scripts_dantecontroller_postinstall_log_postinstall",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Controller/DanteController/All Scripts/DanteController/preinstall",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "controller_dantecontroller_all_scripts_dantecontroller_preinstall",
+      "target": "controller_dantecontroller_all_scripts_dantecontroller_preinstall__entry",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "defines",
+      "confidence": "EXTRACTED",
+      "source_file": "Controller/DanteController/All Scripts/DanteController/preinstall",
+      "source_location": "L7",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "controller_dantecontroller_all_scripts_dantecontroller_preinstall",
+      "target": "controller_dantecontroller_all_scripts_dantecontroller_preinstall_get_dc_pid",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Controller/DanteController/All Scripts/DanteControllerPackage/postinstall",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "controller_dantecontroller_all_scripts_dantecontrollerpackage_postinstall",
+      "target": "controller_dantecontroller_all_scripts_dantecontrollerpackage_postinstall__entry",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Controller/DanteController/All Scripts/DanteUpdateHelper/postinstall",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "controller_dantecontroller_all_scripts_danteupdatehelper_postinstall",
+      "target": "controller_dantecontroller_all_scripts_danteupdatehelper_postinstall__entry",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "VirtualSoundcard/DanteVirtualSoundcard/All Files/Library/Application Support/Audinate/DanteVirtualSoundcard/Uninstall DVS.app/Contents/Resources/uninstall.sh",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "virtualsoundcard_dantevirtualsoundcard_all_files_library_application_support_audinate_dantevirtualsoundcard_uninstall_dvs_app_contents_resources_uninstall",
+      "target": "virtualsoundcard_dantevirtualsoundcard_all_files_library_application_support_audinate_dantevirtualsoundcard_uninstall_dvs_app_contents_resources_uninstall_sh__entry",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "VirtualSoundcard/DanteVirtualSoundcard/All Scripts/DVS_User_Interface/postinstall",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "virtualsoundcard_dantevirtualsoundcard_all_scripts_dvs_user_interface_postinstall",
+      "target": "virtualsoundcard_dantevirtualsoundcard_all_scripts_dvs_user_interface_postinstall__entry",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "defines",
+      "confidence": "EXTRACTED",
+      "source_file": "VirtualSoundcard/DanteVirtualSoundcard/All Scripts/DanteVirtualSoundcard/common.sh",
+      "source_location": "L19",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "virtualsoundcard_dantevirtualsoundcard_all_scripts_dantevirtualsoundcard_common",
+      "target": "virtualsoundcard_dantevirtualsoundcard_all_scripts_dantevirtualsoundcard_common_delete_silent_install_file",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "defines",
+      "confidence": "EXTRACTED",
+      "source_file": "VirtualSoundcard/DanteVirtualSoundcard/All Scripts/DanteVirtualSoundcard/common.sh",
+      "source_location": "L5",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "virtualsoundcard_dantevirtualsoundcard_all_scripts_dantevirtualsoundcard_common",
+      "target": "virtualsoundcard_dantevirtualsoundcard_all_scripts_dantevirtualsoundcard_common_display_alert",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "VirtualSoundcard/DanteVirtualSoundcard/All Scripts/DanteVirtualSoundcard/common.sh",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "virtualsoundcard_dantevirtualsoundcard_all_scripts_dantevirtualsoundcard_common",
+      "target": "virtualsoundcard_dantevirtualsoundcard_all_scripts_dantevirtualsoundcard_common_sh__entry",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "VirtualSoundcard/DanteVirtualSoundcard/All Scripts/DanteVirtualSoundcard/postinstall",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "virtualsoundcard_dantevirtualsoundcard_all_scripts_dantevirtualsoundcard_postinstall",
+      "target": "virtualsoundcard_dantevirtualsoundcard_all_scripts_dantevirtualsoundcard_postinstall__entry",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "VirtualSoundcard/DanteVirtualSoundcard/All Scripts/DanteVirtualSoundcard/preinstall",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "virtualsoundcard_dantevirtualsoundcard_all_scripts_dantevirtualsoundcard_preinstall",
+      "target": "virtualsoundcard_dantevirtualsoundcard_all_scripts_dantevirtualsoundcard_preinstall__entry",
+      "confidence_score": 1.0
+    }
+  ],
+  "hyperedges": [],
+  "built_at_commit": "76a0f92ee64d14f2b43cec1877dd7c9b5af4627b"
+}

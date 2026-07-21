@@ -21,7 +21,7 @@
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>596</string>
+	<string>$(CURRENT_PROJECT_VERSION)</string>
 	<key>CFPlugInFactories</key>
 	<dict>
 		<key>d62e980b-6682-477a-8ec0-1cf7e46b72c6</key>

@@ -1,0 +1,12 @@
+Name                      : lmxresetsystemclock
+UTI                       : com.apple.mach-o-executable
+Kind                      : Mach-O executable
+Owner                     : root (0)
+Group                     : admin (80)
+Mode                      : -rwxr-x--- (0100750)
+Requires                  : macOS 10.15
+Size                      : 4022864
+Executable                : arm64 • x86_64
+Signing Digest            : 32C4B2C5DE06F7CC33A019A85E26A4A8D12C9F7D (arm64)
+Signing Digest            : CDFC37A4A386EDD32946B52C39F4E2A3590C2B9B (x86_64)
+Signing Identity          : identifier lmxresetsystemclock and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = P4WCR6Y822

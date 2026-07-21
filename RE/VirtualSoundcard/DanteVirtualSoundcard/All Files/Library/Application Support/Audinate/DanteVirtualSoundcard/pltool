@@ -1,0 +1,12 @@
+Name                      : pltool
+UTI                       : com.apple.mach-o-executable
+Kind                      : Mach-O executable
+Owner                     : root (0)
+Group                     : admin (80)
+Mode                      : -rwxr-xr-x (0100755)
+Requires                  : macOS 15.0
+Size                      : 174096
+Executable                : arm64 • x86_64
+Signing Digest            : 86CF03D2BE657CB25B1B66EB8EADEBA344EC14FA (arm64)
+Signing Digest            : 06512A9A7C939B547AA5D91CCB1C0BD91922EA11 (x86_64)
+Signing Identity          : identifier pltool and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = P4WCR6Y822

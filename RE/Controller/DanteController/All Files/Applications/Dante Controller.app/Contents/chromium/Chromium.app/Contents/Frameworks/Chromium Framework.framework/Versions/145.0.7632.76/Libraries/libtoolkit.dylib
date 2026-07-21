@@ -1,0 +1,12 @@
+Name                      : libtoolkit.dylib
+UTI                       : com.apple.mach-o-dylib
+Kind                      : Mach-O dynamic library
+Owner                     : root (0)
+Group                     : wheel (0)
+Mode                      : -rwxr-xr-x (0100755)
+Requires                  : macOS 12.0
+Size                      : 2035488
+Executable                : arm64 • x86_64
+Signing Digest            : 0706416A1E97B2548BB44D331409ED2978E691C2 (arm64)
+Signing Digest            : 60FD2411A698BE2ABD9D98D482D3A3920FFACBC3 (x86_64)
+Signing Identity          : identifier libtoolkit and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = K436KHQ6D5

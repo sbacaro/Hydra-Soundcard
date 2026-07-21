@@ -1,0 +1,81 @@
+/Users/samuelbacaro/GitHub/Hydra-Soundcard/RE/Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Resources/dc_web/tabs/hdmi_inputs.html
+/Users/samuelbacaro/GitHub/Hydra-Soundcard/RE/Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Resources/dc_web/tabs/hdmi_outputs.html
+/Users/samuelbacaro/GitHub/Hydra-Soundcard/RE/Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Resources/dc_web/tabs/sdi_inputs.html
+/Users/samuelbacaro/GitHub/Hydra-Soundcard/RE/Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Resources/dc_web/tabs/sdi_outputs.html
+/Users/samuelbacaro/GitHub/Hydra-Soundcard/RE/Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Resources/dc_web/tabs/serial_config.html
+/Users/samuelbacaro/GitHub/Hydra-Soundcard/RE/Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Resources/dc_web/tabs/video_config.html
+/Users/samuelbacaro/GitHub/Hydra-Soundcard/RE/Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Resources/dc_web/tabs/video_decoder.html
+/Users/samuelbacaro/GitHub/Hydra-Soundcard/RE/Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Resources/dc_web/tabs/video_encoder.html
+/Users/samuelbacaro/GitHub/Hydra-Soundcard/RE/Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Resources/dc_web/tabs/video_wall.html
+/Users/samuelbacaro/GitHub/Hydra-Soundcard/RE/Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Resources/plugins/414A410000000000-0001/index.html
+/Users/samuelbacaro/GitHub/Hydra-Soundcard/RE/Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Resources/plugins/414A410000000000-0002/index.html
+/Users/samuelbacaro/GitHub/Hydra-Soundcard/RE/Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Resources/plugins/414A410000000000-0003/index.html
+/Users/samuelbacaro/GitHub/Hydra-Soundcard/RE/Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Resources/plugins/414A410000000000-0004/index.html
+/Users/samuelbacaro/GitHub/Hydra-Soundcard/RE/Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Resources/plugins/417564696E617465-0001/index.html
+/Users/samuelbacaro/GitHub/Hydra-Soundcard/RE/Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Resources/plugins/417564696E617465-0002/index.html
+/Users/samuelbacaro/GitHub/Hydra-Soundcard/RE/Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Resources/plugins/417564696E617465-0003/index.html
+/Users/samuelbacaro/GitHub/Hydra-Soundcard/RE/Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/conf/security/policy/README.txt
+/Users/samuelbacaro/GitHub/Hydra-Soundcard/RE/Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/java.base/aes.md
+/Users/samuelbacaro/GitHub/Hydra-Soundcard/RE/Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/java.base/c-libutl.md
+/Users/samuelbacaro/GitHub/Hydra-Soundcard/RE/Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/java.base/cldr.md
+/Users/samuelbacaro/GitHub/Hydra-Soundcard/RE/Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/java.base/icu.md
+/Users/samuelbacaro/GitHub/Hydra-Soundcard/RE/Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/java.base/public_suffix.md
+/Users/samuelbacaro/GitHub/Hydra-Soundcard/RE/Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/java.base/siphash.md
+/Users/samuelbacaro/GitHub/Hydra-Soundcard/RE/Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/java.base/unicode.md
+/Users/samuelbacaro/GitHub/Hydra-Soundcard/RE/Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/java.base/zlib.md
+/Users/samuelbacaro/GitHub/Hydra-Soundcard/RE/Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/java.desktop/colorimaging.md
+/Users/samuelbacaro/GitHub/Hydra-Soundcard/RE/Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/java.desktop/freetype.md
+/Users/samuelbacaro/GitHub/Hydra-Soundcard/RE/Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/java.desktop/giflib.md
+/Users/samuelbacaro/GitHub/Hydra-Soundcard/RE/Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/java.desktop/harfbuzz.md
+/Users/samuelbacaro/GitHub/Hydra-Soundcard/RE/Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/java.desktop/jpeg.md
+/Users/samuelbacaro/GitHub/Hydra-Soundcard/RE/Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/java.desktop/lcms.md
+/Users/samuelbacaro/GitHub/Hydra-Soundcard/RE/Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/java.desktop/libpng.md
+/Users/samuelbacaro/GitHub/Hydra-Soundcard/RE/Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/java.desktop/mesa3d.md
+/Users/samuelbacaro/GitHub/Hydra-Soundcard/RE/Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/java.desktop/pipewire.md
+/Users/samuelbacaro/GitHub/Hydra-Soundcard/RE/Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/java.desktop/xwd.md
+/Users/samuelbacaro/GitHub/Hydra-Soundcard/RE/Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/java.smartcardio/pcsclite.md
+/Users/samuelbacaro/GitHub/Hydra-Soundcard/RE/Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/java.xml.crypto/santuario.md
+/Users/samuelbacaro/GitHub/Hydra-Soundcard/RE/Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/java.xml/bcel.md
+/Users/samuelbacaro/GitHub/Hydra-Soundcard/RE/Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/java.xml/dom.md
+/Users/samuelbacaro/GitHub/Hydra-Soundcard/RE/Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/java.xml/jcup.md
+/Users/samuelbacaro/GitHub/Hydra-Soundcard/RE/Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/java.xml/schema10part1.md
+/Users/samuelbacaro/GitHub/Hydra-Soundcard/RE/Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/java.xml/schema10part2.md
+/Users/samuelbacaro/GitHub/Hydra-Soundcard/RE/Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/java.xml/xalan.md
+/Users/samuelbacaro/GitHub/Hydra-Soundcard/RE/Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/java.xml/xerces.md
+/Users/samuelbacaro/GitHub/Hydra-Soundcard/RE/Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/java.xml/xhtml10.md
+/Users/samuelbacaro/GitHub/Hydra-Soundcard/RE/Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/java.xml/xhtml10schema.md
+/Users/samuelbacaro/GitHub/Hydra-Soundcard/RE/Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/java.xml/xhtml11.md
+/Users/samuelbacaro/GitHub/Hydra-Soundcard/RE/Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/java.xml/xhtml11schema.md
+/Users/samuelbacaro/GitHub/Hydra-Soundcard/RE/Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/java.xml/xmlspec.md
+/Users/samuelbacaro/GitHub/Hydra-Soundcard/RE/Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/java.xml/xmlxsd.md
+/Users/samuelbacaro/GitHub/Hydra-Soundcard/RE/Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/jdk.dynalink/dynalink.md
+/Users/samuelbacaro/GitHub/Hydra-Soundcard/RE/Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/jdk.internal.le/jline.md
+/Users/samuelbacaro/GitHub/Hydra-Soundcard/RE/Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/jdk.internal.md/commonmark.md
+/Users/samuelbacaro/GitHub/Hydra-Soundcard/RE/Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/jdk.internal.opt/jopt-simple.md
+/Users/samuelbacaro/GitHub/Hydra-Soundcard/RE/Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/jdk.javadoc/dejavufonts.md
+/Users/samuelbacaro/GitHub/Hydra-Soundcard/RE/Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/jdk.javadoc/highlightjs.md
+/Users/samuelbacaro/GitHub/Hydra-Soundcard/RE/Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/jdk.javadoc/jquery.md
+/Users/samuelbacaro/GitHub/Hydra-Soundcard/RE/Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/jdk.javadoc/jqueryUI.md
+/Users/samuelbacaro/GitHub/Hydra-Soundcard/RE/VirtualSoundcard/DanteVirtualSoundcard/All Files/Applications/Dante Virtual Soundcard.app/Contents/Resources/license.txt
+/Users/samuelbacaro/GitHub/Hydra-Soundcard/RE/VirtualSoundcard/DanteVirtualSoundcard/All Files/Library/Application Support/Audinate/DanteVirtualSoundcard/ThirdPartyLicenses.html
+/Users/samuelbacaro/GitHub/Hydra-Soundcard/RE/Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Resources/AUD-MAN-DanteController.pdf
+/Users/samuelbacaro/GitHub/Hydra-Soundcard/RE/VirtualSoundcard/DanteVirtualSoundcard/All Files/Applications/Dante Virtual Soundcard.app/Contents/Resources/DanteVirtualSoundcardUserGuide.pdf
+/Users/samuelbacaro/GitHub/Hydra-Soundcard/RE/Controller/DanteController/All Files/Applications/Dante Activator.app/Contents/Frameworks/nwjs Framework.framework/Versions/145.0.7632.76/Resources/product_logo_32.png
+/Users/samuelbacaro/GitHub/Hydra-Soundcard/RE/Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Resources/plugins/417564696E617465-0003/spinner.gif
+/Users/samuelbacaro/GitHub/Hydra-Soundcard/RE/Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/chromium/Chromium.app/Contents/Frameworks/Chromium Framework.framework/Versions/145.0.7632.76/Resources/product_logo_32.png
+/Users/samuelbacaro/GitHub/Hydra-Soundcard/RE/Controller/DanteController/All Files/Applications/Dante Updater.app/Contents/Frameworks/nwjs Framework.framework/Versions/145.0.7632.76/Resources/product_logo_32.png
+/Users/samuelbacaro/GitHub/Hydra-Soundcard/RE/VirtualSoundcard/DanteVirtualSoundcard/All Files/Applications/Dante Virtual Soundcard.app/Contents/Resources/res/DanteLogo-DVS-v2.png
+/Users/samuelbacaro/GitHub/Hydra-Soundcard/RE/VirtualSoundcard/DanteVirtualSoundcard/All Files/Applications/Dante Virtual Soundcard.app/Contents/Resources/res/DanteLogo-DVS-v2@2x.png
+/Users/samuelbacaro/GitHub/Hydra-Soundcard/RE/VirtualSoundcard/DanteVirtualSoundcard/All Files/Applications/Dante Virtual Soundcard.app/Contents/Resources/res/domains-64x64.png
+/Users/samuelbacaro/GitHub/Hydra-Soundcard/RE/VirtualSoundcard/DanteVirtualSoundcard/All Files/Applications/Dante Virtual Soundcard.app/Contents/Resources/res/domains-locked-64x64.png
+/Users/samuelbacaro/GitHub/Hydra-Soundcard/RE/VirtualSoundcard/DanteVirtualSoundcard/All Files/Applications/Dante Virtual Soundcard.app/Contents/Resources/res/domains-warning-64x64.png
+/Users/samuelbacaro/GitHub/Hydra-Soundcard/RE/VirtualSoundcard/DanteVirtualSoundcard/All Files/Applications/Dante Virtual Soundcard.app/Contents/Resources/res/dvs-error-icon-28x28.png
+/Users/samuelbacaro/GitHub/Hydra-Soundcard/RE/VirtualSoundcard/DanteVirtualSoundcard/All Files/Applications/Dante Virtual Soundcard.app/Contents/Resources/res/dvs-error-icon-64x64.png
+/Users/samuelbacaro/GitHub/Hydra-Soundcard/RE/VirtualSoundcard/DanteVirtualSoundcard/All Files/Applications/Dante Virtual Soundcard.app/Contents/Resources/res/dvs-info-icon-16x16.png
+/Users/samuelbacaro/GitHub/Hydra-Soundcard/RE/VirtualSoundcard/DanteVirtualSoundcard/All Files/Applications/Dante Virtual Soundcard.app/Contents/Resources/res/dvs-info-icon-32x32.png
+/Users/samuelbacaro/GitHub/Hydra-Soundcard/RE/VirtualSoundcard/DanteVirtualSoundcard/All Files/Applications/Dante Virtual Soundcard.app/Contents/Resources/res/dvs-info-icon-64x64.png
+/Users/samuelbacaro/GitHub/Hydra-Soundcard/RE/VirtualSoundcard/DanteVirtualSoundcard/All Files/Applications/Dante Virtual Soundcard.app/Contents/Resources/res/dvs-warning-icon-32x32.png
+/Users/samuelbacaro/GitHub/Hydra-Soundcard/RE/VirtualSoundcard/DanteVirtualSoundcard/All Files/Applications/Dante Virtual Soundcard.app/Contents/Resources/res/dvs-warning-icon-64x64.png
+/Users/samuelbacaro/GitHub/Hydra-Soundcard/RE/VirtualSoundcard/DanteVirtualSoundcard/All Files/Applications/Dante Virtual Soundcard.app/Contents/Resources/res/line.png
+/Users/samuelbacaro/GitHub/Hydra-Soundcard/RE/VirtualSoundcard/DanteVirtualSoundcard/All Files/Applications/Dante Virtual Soundcard.app/Contents/Resources/res/lock-circle-64x64.png
+/Users/samuelbacaro/GitHub/Hydra-Soundcard/RE/VirtualSoundcard/DanteVirtualSoundcard/All Files/Applications/Dante Virtual Soundcard.app/Contents/Resources/res/restart-icon-64x64.png

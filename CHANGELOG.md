@@ -1,5 +1,14 @@
 # Changelog
 
+## [2.1.19] — 2026-07-21
+
+### Added
+- **Dante DVS Brand & Model Identity**: Updated Dante (Inferno) default device parameters to report `Manufacturer: "Hydra Audio"`, `Model: "Hydra Soundcard"`, and `Board: "Hydra Soundcard"`, matching official Dante Virtual Soundcard metadata standards across network controllers.
+
+### Fixed
+- **Dante Network Interface Validation**: Enforced strict network interface validation in both UI (`SidebarView.swift`) and daemon (`InfernoManager.swift`). The **Start Dante** button is now disabled when no active wired Ethernet interface is selected, accompanied by a clear red warning message, preventing Dante from binding to loopback or invalid adapters.
+- **Swift Application Compilation Fix**: Resolved a variable scope compilation error in `SidebarView.swift` (`wifis` reference), restoring clean release build compilation for `HydraApp`.
+
 ## [2.1.18] — 2026-07-20
 
 ### Added

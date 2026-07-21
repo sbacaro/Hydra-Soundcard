@@ -983,14 +983,11 @@ private struct CellField: View {
             context.fill(Path(rect), with: .color(Theme.Grid.groupBand))
         }
 
-        // Channel rows: alternating bands (Numbers/Finder scannability) + cells.
+        // Channel rows: no alternating background bands.
         // No box per cell — a cell paints only when it has state (connected,
         // hovered, in the hovered row/column, or selected).
-        var channelRow = 0
         for rowSlot in rows.slots {
-            let isChannelRow = { if case .channel = rowSlot.item { return true } else { return false } }()
             if cull, rowSlot.origin + rowSlot.size < top || rowSlot.origin > bottom {
-                if isChannelRow { channelRow += 1 }
                 continue
             }
             guard case .channel(let destination) = rowSlot.item else {
@@ -998,11 +995,6 @@ private struct CellField: View {
                 context.fill(Path(rect), with: .color(Theme.Grid.groupBand))
                 continue
             }
-            if channelRow.isMultiple(of: 2) {
-                let band = CGRect(x: 0, y: rowSlot.origin, width: cols.total, height: rowSlot.size)
-                context.fill(Path(band), with: .color(Theme.Grid.rowBand))
-            }
-            channelRow += 1
 
             for colSlot in cols.slots {
                 if cull, colSlot.origin + colSlot.size < left || colSlot.origin > right { continue }

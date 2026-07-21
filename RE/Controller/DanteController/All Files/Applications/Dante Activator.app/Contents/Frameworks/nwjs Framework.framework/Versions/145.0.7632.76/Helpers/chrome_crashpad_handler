@@ -1,0 +1,20 @@
+Name                      : chrome_crashpad_handler
+UTI                       : com.apple.mach-o-executable
+Kind                      : Mach-O executable
+Owner                     : root (0)
+Group                     : wheel (0)
+Mode                      : -rwxr-xr-x (0100755)
+Requires                  : macOS 12.0
+Size                      : 1508192
+Executable                : arm64
+Signing Digest            : 283CCA4917A1D4A5717C18D0B2DF28B3BA5BBD7E (arm64)
+Signing Identity          : identifier "chrome_crashpad_handler" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = P4WCR6Y822
+Entitlement               : com.apple.security.app-sandbox
+Entitlement               : com.apple.security.cs.allow-jit
+Entitlement               : com.apple.security.cs.allow-unsigned-executable-memory
+Entitlement               : com.apple.security.cs.disable-library-validation
+Entitlement               : com.apple.security.device.camera
+Entitlement               : com.apple.security.files.downloads.read-write
+Entitlement               : com.apple.security.files.user-selected.read-write
+Entitlement               : com.apple.security.network.client
+Entitlement               : com.apple.security.network.server

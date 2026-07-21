@@ -1,0 +1,9 @@
+#!/bin/sh
+
+echo "Running post-install script in $2"
+
+# Clean up permissions
+cd "$2"
+chmod -R go+rX "Dante Virtual Soundcard.app"
+
+exit 0

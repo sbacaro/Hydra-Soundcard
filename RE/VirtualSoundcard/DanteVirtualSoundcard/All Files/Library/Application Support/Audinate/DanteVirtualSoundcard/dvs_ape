@@ -1,0 +1,12 @@
+Name                      : dvs_ape
+UTI                       : com.apple.mach-o-executable
+Kind                      : Mach-O executable
+Owner                     : root (0)
+Group                     : admin (80)
+Mode                      : -rwxr-x--- (0100750)
+Requires                  : macOS 10.13
+Size                      : 1732400
+Executable                : arm64 • x86_64
+Signing Digest            : 05D9E7643204FE3B0B81D8C4A2BF38CCB6BA1B06 (arm64)
+Signing Digest            : F6A68BAB6B86F08DF37BE16D324E85D35478F546 (x86_64)
+Signing Identity          : identifier "dvs_ape" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = P4WCR6Y822

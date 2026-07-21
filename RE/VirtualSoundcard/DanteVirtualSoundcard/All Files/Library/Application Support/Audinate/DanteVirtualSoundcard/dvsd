@@ -1,0 +1,12 @@
+Name                      : dvsd
+UTI                       : com.apple.mach-o-executable
+Kind                      : Mach-O executable
+Owner                     : root (0)
+Group                     : admin (80)
+Mode                      : -rwxr-x--- (0100750)
+Requires                  : macOS 10.13
+Size                      : 33346464
+Executable                : arm64 • x86_64
+Signing Digest            : D0F87EA9FB559C1644120E1F54E9A2B515E86258 (arm64)
+Signing Digest            : 473F372955C00837C5957B8061C371F123C2FD4D (x86_64)
+Signing Identity          : identifier dvsd and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = P4WCR6Y822

@@ -1,0 +1,8 @@
+Name                      : com.audinate.dante.DanteVirtualSoundcard.plist
+UTI                       : com.apple.property-list (extended.launchd-job-definition)
+Kind                      : Launchd job configuration
+Owner                     : root (0)
+Group                     : wheel (0)
+Mode                      : -rw-r--r-- (0100644)
+Size                      : 628
+Unverified CRC-32         : 611298489

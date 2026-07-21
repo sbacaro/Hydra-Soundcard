@@ -1,0 +1,10 @@
+Name                      : Info.plist
+UTI                       : com.apple.xml-property-list
+Kind                      : XML property list
+Owner                     : root (0)
+Group                     : wheel (0)
+Mode                      : -rw-r--r-- (0100644)
+Bundle Identifier         : org.chromium.Chromium.framework.AlertNotificationService
+Bundle Version            : 145.0.7632.76 (7632.76)
+Size                      : 1847
+Unverified CRC-32         : 3354245896

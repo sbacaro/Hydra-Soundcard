@@ -1,0 +1,12 @@
+Name                      : Sparkle
+UTI                       : com.apple.mach-o-dylib
+Kind                      : Mach-O dynamic library
+Owner                     : root (0)
+Group                     : admin (80)
+Mode                      : -rwxr-xr-x (0100755)
+Requires                  : macOS 10.13
+Size                      : 864752
+Executable                : arm64 • x86_64
+Signing Digest            : 2B053AD4B387B0EBFB3BCCC31B0F67FAC401CCC9 (arm64)
+Signing Digest            : 14172F7F37B4E1192D202C1454BF274D7CEC6286 (x86_64)
+Signing Identity          : identifier "org.sparkle-project.Sparkle" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = P4WCR6Y822

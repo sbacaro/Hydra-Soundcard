@@ -129,9 +129,9 @@ fn create_self_info(
     mac_address,
     link_speed: speed.clamp(0, 10000).try_into().unwrap(),
 
-    board_name: "Inferno-AoIP".to_owned(),
-    manufacturer: "Inferno-AoIP".to_owned(),
-    model_name: app_name.to_owned(),
+    board_name: settings.get("BOARD_NAME").cloned().unwrap_or_else(|| "Hydra Soundcard".to_owned()),
+    manufacturer: settings.get("MANUFACTURER").cloned().unwrap_or_else(|| "Hydra Audio".to_owned()),
+    model_name: settings.get("MODEL_NAME").cloned().unwrap_or_else(|| "Hydra Soundcard".to_owned()),
     factory_device_id: devid,
     process_id,
     vendor_string: "Audinate Dante-compatible".to_owned(),

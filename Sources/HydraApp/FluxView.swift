@@ -148,6 +148,11 @@ private struct FlowChainCard: View {
         .contentShape(Rectangle())
         .onTapGesture { select() }
         .help("Select this flow to edit its inserts and level in the inspector")
+        .onChange(of: flow) { _, _ in
+            if isSelected {
+                select()
+            }
+        }
     }
 
     // MARK: Header
@@ -237,8 +242,16 @@ private struct FlowChainCard: View {
                     Menu("Mono") {
                         if outputMax <= 16 {
                             ForEach(0..<outputMax, id: \.self) { ch in
-                                Button("\(ch + 1)") {
+                                let isSelected = flow.output.channels.count == 1 && flow.output.channels.contains(ch)
+                                Button {
                                     selectOutputMono(channel: ch)
+                                } label: {
+                                    HStack {
+                                        Text("\(ch + 1)")
+                                        if isSelected {
+                                            Image(systemName: "checkmark")
+                                        }
+                                    }
                                 }
                             }
                         } else {
@@ -246,8 +259,16 @@ private struct FlowChainCard: View {
                                 let end = min(start + 16, outputMax)
                                 Menu("\(start + 1)–\(end)") {
                                     ForEach(start..<end, id: \.self) { ch in
-                                        Button("\(ch + 1)") {
+                                        let isSelected = flow.output.channels.count == 1 && flow.output.channels.contains(ch)
+                                        Button {
                                             selectOutputMono(channel: ch)
+                                        } label: {
+                                            HStack {
+                                                Text("\(ch + 1)")
+                                                if isSelected {
+                                                    Image(systemName: "checkmark")
+                                                }
+                                            }
                                         }
                                     }
                                 }
@@ -258,8 +279,16 @@ private struct FlowChainCard: View {
                         Menu("Stereo") {
                             if outputMax <= 16 {
                                 ForEach(Array(stride(from: 0, through: outputMax - 2, by: 2)), id: \.self) { ch in
-                                    Button("\(ch + 1)–\(ch + 2)") {
+                                    let isSelected = flow.output.channels.count == 2 && flow.output.channels.contains(ch) && flow.output.channels.contains(ch + 1)
+                                    Button {
                                         selectOutputStereo(startChannel: ch)
+                                    } label: {
+                                        HStack {
+                                            Text("\(ch + 1)–\(ch + 2)")
+                                            if isSelected {
+                                                Image(systemName: "checkmark")
+                                            }
+                                        }
                                     }
                                 }
                             } else {
@@ -268,8 +297,16 @@ private struct FlowChainCard: View {
                                     if start + 1 < end {
                                         Menu("\(start + 1)–\(end)") {
                                             ForEach(Array(stride(from: start, through: end - 2, by: 2)), id: \.self) { ch in
-                                                Button("\(ch + 1)–\(ch + 2)") {
+                                                let isSelected = flow.output.channels.count == 2 && flow.output.channels.contains(ch) && flow.output.channels.contains(ch + 1)
+                                                Button {
                                                     selectOutputStereo(startChannel: ch)
+                                                } label: {
+                                                    HStack {
+                                                        Text("\(ch + 1)–\(ch + 2)")
+                                                        if isSelected {
+                                                            Image(systemName: "checkmark")
+                                                        }
+                                                    }
                                                 }
                                             }
                                         }

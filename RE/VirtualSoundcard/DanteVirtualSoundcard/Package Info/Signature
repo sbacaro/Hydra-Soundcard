@@ -1,0 +1,5 @@
+Signature Status          : Signed by “Developer ID Installer: Audinate Pty Ltd (P4WCR6Y822)”
+Trust Type                : Developer ID
+certificate 1 [signing]   : Developer ID Installer: Audinate Pty Ltd (P4WCR6Y822) [expires 1 Feb 2027 at 19:12]
+certificate 2             : Developer ID Certification Authority [expires 1 Feb 2027 at 19:12]
+certificate 3 [root]      : Apple Root CA [expires 9 Feb 2035 at 18:40]

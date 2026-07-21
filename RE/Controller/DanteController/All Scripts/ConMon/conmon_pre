@@ -1,0 +1,17 @@
+#!/bin/sh
+
+# if there's an existing daemon running, stop it
+for i in /Library/LaunchDaemons/com.audinate.dante.ConMon*.plist
+do
+	/bin/launchctl unload "$i"
+	rm "$i"
+done
+
+# if there's a legacy ConMon daemon, kill that too
+CONMON_BASE_DIR="/Library/Application Support/Audinate/ConMon"
+if [ -d "${CONMON_BASE_DIR}" ] 
+then
+	rm -rf "${CONMON_BASE_DIR}"
+fi
+
+exit 0

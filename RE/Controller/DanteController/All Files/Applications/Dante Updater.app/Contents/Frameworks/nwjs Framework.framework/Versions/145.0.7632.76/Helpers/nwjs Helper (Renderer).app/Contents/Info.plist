@@ -1,0 +1,10 @@
+Name                      : Info.plist
+UTI                       : com.apple.xml-property-list
+Kind                      : XML property list
+Owner                     : root (0)
+Group                     : wheel (0)
+Mode                      : -rwxr-xr-x (0100755)
+Bundle Identifier         : io.nwjs.nwjs.helper.renderer
+Bundle Version            : 145.0.7632.76 (7632.76)
+Size                      : 1524
+Unverified CRC-32         : 777992747

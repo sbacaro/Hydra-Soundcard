@@ -1,0 +1,11 @@
+Name                      : libdt_socket.dylib
+UTI                       : com.apple.mach-o-dylib
+Kind                      : Mach-O dynamic library
+Owner                     : root (0)
+Group                     : wheel (0)
+Mode                      : -rw-r--r-- (0100644)
+Requires                  : macOS 11.0
+Size                      : 72672
+Executable                : arm64
+Signing Digest            : FBD07CF8ED8C47005B8E22C8CD505209FF2BAA9D (arm64)
+Signing Identity          : identifier "libdt_socket" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = P4WCR6Y822

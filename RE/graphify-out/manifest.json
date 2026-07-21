@@ -1,0 +1,992 @@
+{
+  "Controller/DanteController/All Files/Applications/Dante Activator.app/Contents/Frameworks/nwjs Framework.framework/Versions/145.0.7632.76/Libraries/IwaKeyDistribution/manifest.json": {
+    "mtime": 1777426111.0,
+    "ast_hash": "be11c13c02817424b26af5d9c41a9e18",
+    "semantic_hash": "be11c13c02817424b26af5d9c41a9e18"
+  },
+  "Controller/DanteController/All Files/Applications/Dante Activator.app/Contents/Frameworks/nwjs Framework.framework/Versions/145.0.7632.76/Libraries/MEIPreload/manifest.json": {
+    "mtime": 1777426111.0,
+    "ast_hash": "7ae0a1acb9e40c4dc450b043bee3805c",
+    "semantic_hash": "7ae0a1acb9e40c4dc450b043bee3805c"
+  },
+  "Controller/DanteController/All Files/Applications/Dante Activator.app/Contents/Frameworks/nwjs Framework.framework/Versions/145.0.7632.76/Libraries/PrivacySandboxAttestationsPreloaded/manifest.json": {
+    "mtime": 1777426111.0,
+    "ast_hash": "ee5326cb0dee9e2ef839381c9289855f",
+    "semantic_hash": "ee5326cb0dee9e2ef839381c9289855f"
+  },
+  "Controller/DanteController/All Files/Applications/Dante Activator.app/Contents/Frameworks/nwjs Framework.framework/Versions/145.0.7632.76/Libraries/vk_swiftshader_icd.json": {
+    "mtime": 1777426111.0,
+    "ast_hash": "8934886b3697383480ebb93cb33ca94e",
+    "semantic_hash": "8934886b3697383480ebb93cb33ca94e"
+  },
+  "Controller/DanteController/All Files/Applications/Dante Activator.app/Contents/Frameworks/nwjs Framework.framework/Versions/145.0.7632.76/Resources/install.sh": {
+    "mtime": 1777426111.0,
+    "ast_hash": "4a3a702d0c0484bf586b3a4340d4d2d3",
+    "semantic_hash": "4a3a702d0c0484bf586b3a4340d4d2d3"
+  },
+  "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Frameworks/Sparkle.framework/Versions/B/Headers/SPUDownloadData.h": {
+    "mtime": 1777432778.0,
+    "ast_hash": "fd5a8d9f5a1b4023e787f42303465def",
+    "semantic_hash": "fd5a8d9f5a1b4023e787f42303465def"
+  },
+  "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Frameworks/Sparkle.framework/Versions/B/Headers/SPUStandardUpdaterController.h": {
+    "mtime": 1777432778.0,
+    "ast_hash": "539a97a1d288f72e72fe9172e19da425",
+    "semantic_hash": "539a97a1d288f72e72fe9172e19da425"
+  },
+  "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Frameworks/Sparkle.framework/Versions/B/Headers/SPUStandardUserDriver.h": {
+    "mtime": 1777432778.0,
+    "ast_hash": "1292cd356ef38760e30a3dada6a3a735",
+    "semantic_hash": "1292cd356ef38760e30a3dada6a3a735"
+  },
+  "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Frameworks/Sparkle.framework/Versions/B/Headers/SPUStandardUserDriverDelegate.h": {
+    "mtime": 1777432778.0,
+    "ast_hash": "a3881deea62f12088238c484d85fd61b",
+    "semantic_hash": "a3881deea62f12088238c484d85fd61b"
+  },
+  "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Frameworks/Sparkle.framework/Versions/B/Headers/SPUUpdateCheck.h": {
+    "mtime": 1777432778.0,
+    "ast_hash": "6dca3c9db2d75a0a2a03ab5ff5f0cb17",
+    "semantic_hash": "6dca3c9db2d75a0a2a03ab5ff5f0cb17"
+  },
+  "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Frameworks/Sparkle.framework/Versions/B/Headers/SPUUpdatePermissionRequest.h": {
+    "mtime": 1777432778.0,
+    "ast_hash": "6cb254a9f05c3feb123506b1a3517d62",
+    "semantic_hash": "6cb254a9f05c3feb123506b1a3517d62"
+  },
+  "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Frameworks/Sparkle.framework/Versions/B/Headers/SPUUpdater.h": {
+    "mtime": 1777432778.0,
+    "ast_hash": "e9fd3ce22cd4f43f6971ce8f94ed824b",
+    "semantic_hash": "e9fd3ce22cd4f43f6971ce8f94ed824b"
+  },
+  "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Frameworks/Sparkle.framework/Versions/B/Headers/SPUUpdaterDelegate.h": {
+    "mtime": 1777432778.0,
+    "ast_hash": "180005c319de3f15b2921db0de854219",
+    "semantic_hash": "180005c319de3f15b2921db0de854219"
+  },
+  "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Frameworks/Sparkle.framework/Versions/B/Headers/SPUUpdaterSettings.h": {
+    "mtime": 1777432778.0,
+    "ast_hash": "ecfccc79211e41a1f99d8d1a565688b2",
+    "semantic_hash": "ecfccc79211e41a1f99d8d1a565688b2"
+  },
+  "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Frameworks/Sparkle.framework/Versions/B/Headers/SPUUserDriver.h": {
+    "mtime": 1777432778.0,
+    "ast_hash": "1ed40ed1c4db0794d14f499690e28d75",
+    "semantic_hash": "1ed40ed1c4db0794d14f499690e28d75"
+  },
+  "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Frameworks/Sparkle.framework/Versions/B/Headers/SPUUserUpdateState.h": {
+    "mtime": 1777432778.0,
+    "ast_hash": "dc4c10a490cf591d8cdae98c8bc82ec8",
+    "semantic_hash": "dc4c10a490cf591d8cdae98c8bc82ec8"
+  },
+  "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Frameworks/Sparkle.framework/Versions/B/Headers/SUAppcast.h": {
+    "mtime": 1777432778.0,
+    "ast_hash": "b3d4ca5dcdec7cdfacc29dcb1a8eb2d0",
+    "semantic_hash": "b3d4ca5dcdec7cdfacc29dcb1a8eb2d0"
+  },
+  "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Frameworks/Sparkle.framework/Versions/B/Headers/SUAppcastItem.h": {
+    "mtime": 1777432778.0,
+    "ast_hash": "20def05ade6f6c39ee6f40fe082a5baf",
+    "semantic_hash": "20def05ade6f6c39ee6f40fe082a5baf"
+  },
+  "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Frameworks/Sparkle.framework/Versions/B/Headers/SUErrors.h": {
+    "mtime": 1777432778.0,
+    "ast_hash": "0b6d2a5c392fb6be6b95bec852ccfedd",
+    "semantic_hash": "0b6d2a5c392fb6be6b95bec852ccfedd"
+  },
+  "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Frameworks/Sparkle.framework/Versions/B/Headers/SUExport.h": {
+    "mtime": 1777432778.0,
+    "ast_hash": "80d412c3fb22f261c2bfad097a70cc6e",
+    "semantic_hash": "80d412c3fb22f261c2bfad097a70cc6e"
+  },
+  "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Frameworks/Sparkle.framework/Versions/B/Headers/SUStandardVersionComparator.h": {
+    "mtime": 1777432778.0,
+    "ast_hash": "2b8fe418ce6a7f1c39fce32caba46594",
+    "semantic_hash": "2b8fe418ce6a7f1c39fce32caba46594"
+  },
+  "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Frameworks/Sparkle.framework/Versions/B/Headers/SUUpdatePermissionResponse.h": {
+    "mtime": 1777432778.0,
+    "ast_hash": "d1caff3cd51b7f9d91787cc5daca0e64",
+    "semantic_hash": "d1caff3cd51b7f9d91787cc5daca0e64"
+  },
+  "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Frameworks/Sparkle.framework/Versions/B/Headers/SUUpdater.h": {
+    "mtime": 1777432778.0,
+    "ast_hash": "ad40d1a0a9638dae5ba21d873cfa7249",
+    "semantic_hash": "ad40d1a0a9638dae5ba21d873cfa7249"
+  },
+  "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Frameworks/Sparkle.framework/Versions/B/Headers/SUUpdaterDelegate.h": {
+    "mtime": 1777432778.0,
+    "ast_hash": "8ef84843d61034137e112275e5bb01ed",
+    "semantic_hash": "8ef84843d61034137e112275e5bb01ed"
+  },
+  "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Frameworks/Sparkle.framework/Versions/B/Headers/SUVersionComparisonProtocol.h": {
+    "mtime": 1777432778.0,
+    "ast_hash": "901d0fdd0a26cabebab379ea8c3c93b6",
+    "semantic_hash": "901d0fdd0a26cabebab379ea8c3c93b6"
+  },
+  "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Frameworks/Sparkle.framework/Versions/B/Headers/SUVersionDisplayProtocol.h": {
+    "mtime": 1777432778.0,
+    "ast_hash": "f94ed747c8f979dc2d2e4f390cf4631e",
+    "semantic_hash": "f94ed747c8f979dc2d2e4f390cf4631e"
+  },
+  "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Frameworks/Sparkle.framework/Versions/B/Headers/Sparkle.h": {
+    "mtime": 1777432778.0,
+    "ast_hash": "db0e90bf6c55722197af03826a482a10",
+    "semantic_hash": "db0e90bf6c55722197af03826a482a10"
+  },
+  "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Frameworks/Sparkle.framework/Versions/B/PrivateHeaders/SPUAppcastItemStateResolver.h": {
+    "mtime": 1777432778.0,
+    "ast_hash": "41d228f8b4c6a17eb7b55abb8b0fb5b5",
+    "semantic_hash": "41d228f8b4c6a17eb7b55abb8b0fb5b5"
+  },
+  "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Frameworks/Sparkle.framework/Versions/B/PrivateHeaders/SPUGentleUserDriverReminders.h": {
+    "mtime": 1777432778.0,
+    "ast_hash": "4330ebb3e80d2bd6b515b80cf632254c",
+    "semantic_hash": "4330ebb3e80d2bd6b515b80cf632254c"
+  },
+  "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Frameworks/Sparkle.framework/Versions/B/PrivateHeaders/SPUInstallationType.h": {
+    "mtime": 1777432778.0,
+    "ast_hash": "844c6e4ab2053317c09b4593caa1e576",
+    "semantic_hash": "844c6e4ab2053317c09b4593caa1e576"
+  },
+  "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Frameworks/Sparkle.framework/Versions/B/PrivateHeaders/SPUUserAgent+Private.h": {
+    "mtime": 1777432778.0,
+    "ast_hash": "bd05bdf3d4eef363ed25f63e5266c2e0",
+    "semantic_hash": "bd05bdf3d4eef363ed25f63e5266c2e0"
+  },
+  "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Frameworks/Sparkle.framework/Versions/B/PrivateHeaders/SUAppcastItem+Private.h": {
+    "mtime": 1777432778.0,
+    "ast_hash": "9fa619e0a363733c0de754c0fd93ee95",
+    "semantic_hash": "9fa619e0a363733c0de754c0fd93ee95"
+  },
+  "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Frameworks/Sparkle.framework/Versions/B/PrivateHeaders/SUInstallerLauncher+Private.h": {
+    "mtime": 1777432778.0,
+    "ast_hash": "98aee469bf8358e182a2c3a44f5be48f",
+    "semantic_hash": "98aee469bf8358e182a2c3a44f5be48f"
+  },
+  "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Resources/dc_web/assets/ApplyButton-BIzz1QWg.js": {
+    "mtime": 1777432778.0,
+    "ast_hash": "1d6b6b63070e2222b5425f91f78ab064",
+    "semantic_hash": "1d6b6b63070e2222b5425f91f78ab064"
+  },
+  "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Resources/dc_web/assets/Combobox-BGGpge41.js": {
+    "mtime": 1777432778.0,
+    "ast_hash": "396155439739cf88817038049407ff46",
+    "semantic_hash": "396155439739cf88817038049407ff46"
+  },
+  "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Resources/dc_web/assets/GraphqlHandlers-DTFHdbCw.js": {
+    "mtime": 1777432778.0,
+    "ast_hash": "8122e5cd7ce3b22c63c5357f902fcb4a",
+    "semantic_hash": "8122e5cd7ce3b22c63c5357f902fcb4a"
+  },
+  "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Resources/dc_web/assets/GridItemTitle-DSosq7za.js": {
+    "mtime": 1777432778.0,
+    "ast_hash": "2e592de582714f622403595baad04b14",
+    "semantic_hash": "2e592de582714f622403595baad04b14"
+  },
+  "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Resources/dc_web/assets/Tabs-CNH_ISW0.js": {
+    "mtime": 1777432778.0,
+    "ast_hash": "0230d5099b0e5e5307ea3d69c8138bff",
+    "semantic_hash": "0230d5099b0e5e5307ea3d69c8138bff"
+  },
+  "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Resources/dc_web/assets/common-DBp_CoLv.js": {
+    "mtime": 1777432778.0,
+    "ast_hash": "e12a13509489c1766a7dccdd430cb66e",
+    "semantic_hash": "e12a13509489c1766a7dccdd430cb66e"
+  },
+  "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Resources/dc_web/assets/hdcp-BnTl8IR5.js": {
+    "mtime": 1777432778.0,
+    "ast_hash": "b411befb8cbf3dd7e6dee92946ea24f0",
+    "semantic_hash": "b411befb8cbf3dd7e6dee92946ea24f0"
+  },
+  "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Resources/dc_web/assets/hdmiInputs-CsN1gHMj.js": {
+    "mtime": 1777432778.0,
+    "ast_hash": "8ab9fcd9a20c35b77c8c69d37b71a6f5",
+    "semantic_hash": "8ab9fcd9a20c35b77c8c69d37b71a6f5"
+  },
+  "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Resources/dc_web/assets/hdmiOutputs-yTY7kXCG.js": {
+    "mtime": 1777432778.0,
+    "ast_hash": "ed49383be22cd6e1e695f9e98ca0cce8",
+    "semantic_hash": "ed49383be22cd6e1e695f9e98ca0cce8"
+  },
+  "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Resources/dc_web/assets/sdiInputs-BsGEKTEa.js": {
+    "mtime": 1777432778.0,
+    "ast_hash": "73581f88f00cd43a0aecb9dee2320960",
+    "semantic_hash": "73581f88f00cd43a0aecb9dee2320960"
+  },
+  "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Resources/dc_web/assets/sdiOutputs-Dhu6Watm.js": {
+    "mtime": 1777432778.0,
+    "ast_hash": "51f111bd03e9d3f50f1bb0cffbac8450",
+    "semantic_hash": "51f111bd03e9d3f50f1bb0cffbac8450"
+  },
+  "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Resources/dc_web/assets/serialConfig-DVIjzBPr.js": {
+    "mtime": 1777432778.0,
+    "ast_hash": "0a7f99ecf39635642825805877fda68c",
+    "semantic_hash": "0a7f99ecf39635642825805877fda68c"
+  },
+  "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Resources/dc_web/assets/useMutation-JPYdYVNi.js": {
+    "mtime": 1777432778.0,
+    "ast_hash": "089d55235dc89a77ac87c23d32d2151a",
+    "semantic_hash": "089d55235dc89a77ac87c23d32d2151a"
+  },
+  "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Resources/dc_web/assets/validation-schemas-pYv5u4Vm.js": {
+    "mtime": 1777432778.0,
+    "ast_hash": "f4c77005e3458cd35239709e9cd60e2a",
+    "semantic_hash": "f4c77005e3458cd35239709e9cd60e2a"
+  },
+  "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Resources/dc_web/assets/videoConfig-BUuXRPUi.js": {
+    "mtime": 1777432778.0,
+    "ast_hash": "fd626eb0dc0e5831e6240da33be58dde",
+    "semantic_hash": "fd626eb0dc0e5831e6240da33be58dde"
+  },
+  "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Resources/dc_web/assets/videoDecoder-Dw4U-LgM.js": {
+    "mtime": 1777432778.0,
+    "ast_hash": "f478c30ef6da8f8d083c2ef4b30c7c3e",
+    "semantic_hash": "f478c30ef6da8f8d083c2ef4b30c7c3e"
+  },
+  "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Resources/dc_web/assets/videoEncoder-CKrz8r6k.js": {
+    "mtime": 1777432778.0,
+    "ast_hash": "2f8b7946eaaadbfa12759a86f08e76af",
+    "semantic_hash": "2f8b7946eaaadbfa12759a86f08e76af"
+  },
+  "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Resources/dc_web/assets/videoWall-nl0ruEXl.js": {
+    "mtime": 1777432778.0,
+    "ast_hash": "0876535e423e51f769d331ac0d54559e",
+    "semantic_hash": "0876535e423e51f769d331ac0d54559e"
+  },
+  "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Resources/plugins/414A410000000000-0001/plugin.db2adf8b.js": {
+    "mtime": 1777432778.0,
+    "ast_hash": "7c23dde08d4639e5da45a312250ffe08",
+    "semantic_hash": "7c23dde08d4639e5da45a312250ffe08"
+  },
+  "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Resources/plugins/414A410000000000-0002/plugin.db2adf8b.js": {
+    "mtime": 1777432778.0,
+    "ast_hash": "d32d3683d60f1919f9f1fe1795bd6475",
+    "semantic_hash": "d32d3683d60f1919f9f1fe1795bd6475"
+  },
+  "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Resources/plugins/414A410000000000-0003/plugin.db2adf8b.js": {
+    "mtime": 1777432778.0,
+    "ast_hash": "a63aff93cdbe66fbdbc63900c66b07a0",
+    "semantic_hash": "a63aff93cdbe66fbdbc63900c66b07a0"
+  },
+  "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Resources/plugins/414A410000000000-0004/plugin.db2adf8b.js": {
+    "mtime": 1777432778.0,
+    "ast_hash": "93e9accba8ee33a72e9e4fd7a8ea4e43",
+    "semantic_hash": "93e9accba8ee33a72e9e4fd7a8ea4e43"
+  },
+  "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Resources/plugins/417564696E617465-0001/bundle.js": {
+    "mtime": 1777432778.0,
+    "ast_hash": "e003f51138cf4ced05127598a699c5d8",
+    "semantic_hash": "e003f51138cf4ced05127598a699c5d8"
+  },
+  "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Resources/plugins/417564696E617465-0002/bundle.js": {
+    "mtime": 1777432778.0,
+    "ast_hash": "ab3152acdb6aa266067091ed82d75428",
+    "semantic_hash": "ab3152acdb6aa266067091ed82d75428"
+  },
+  "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Resources/plugins/417564696E617465-0002/meta.json": {
+    "mtime": 1777432778.0,
+    "ast_hash": "b9f6028bbac51a015071a777728aefbd",
+    "semantic_hash": "b9f6028bbac51a015071a777728aefbd"
+  },
+  "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Resources/plugins/417564696E617465-0003/bundle.js": {
+    "mtime": 1777432778.0,
+    "ast_hash": "f9857ce1e7f151a272f2e488cc251dcc",
+    "semantic_hash": "f9857ce1e7f151a272f2e488cc251dcc"
+  },
+  "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Resources/plugins/417564696E617465-0003/meta.json": {
+    "mtime": 1777432778.0,
+    "ast_hash": "c65a1d7e5a64480554c06818e5965079",
+    "semantic_hash": "c65a1d7e5a64480554c06818e5965079"
+  },
+  "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/chromium/Chromium.app/Contents/Frameworks/Chromium Framework.framework/Versions/145.0.7632.76/Libraries/IwaKeyDistribution/manifest.json": {
+    "mtime": 1777432779.0,
+    "ast_hash": "f275d6a14b51b9531dbf8d4c457086d6",
+    "semantic_hash": "f275d6a14b51b9531dbf8d4c457086d6"
+  },
+  "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/chromium/Chromium.app/Contents/Frameworks/Chromium Framework.framework/Versions/145.0.7632.76/Libraries/MEIPreload/manifest.json": {
+    "mtime": 1777432779.0,
+    "ast_hash": "0af8c4a86f874f5ddb1cbd9aeaef7121",
+    "semantic_hash": "0af8c4a86f874f5ddb1cbd9aeaef7121"
+  },
+  "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/chromium/Chromium.app/Contents/Frameworks/Chromium Framework.framework/Versions/145.0.7632.76/Libraries/PrivacySandboxAttestationsPreloaded/manifest.json": {
+    "mtime": 1777432779.0,
+    "ast_hash": "20bf0d02965ce59acfc5096c6e125e92",
+    "semantic_hash": "20bf0d02965ce59acfc5096c6e125e92"
+  },
+  "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/chromium/Chromium.app/Contents/Frameworks/Chromium Framework.framework/Versions/145.0.7632.76/Libraries/vk_swiftshader_icd.json": {
+    "mtime": 1777432779.0,
+    "ast_hash": "7eb66a228e3bd96e8e02ee0fb47dc4a2",
+    "semantic_hash": "7eb66a228e3bd96e8e02ee0fb47dc4a2"
+  },
+  "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/chromium/Chromium.app/Contents/Frameworks/Chromium Framework.framework/Versions/145.0.7632.76/Resources/install.sh": {
+    "mtime": 1777432779.0,
+    "ast_hash": "4a3a702d0c0484bf586b3a4340d4d2d3",
+    "semantic_hash": "4a3a702d0c0484bf586b3a4340d4d2d3"
+  },
+  "Controller/DanteController/All Files/Applications/Dante Updater.app/Contents/Frameworks/nwjs Framework.framework/Versions/145.0.7632.76/Libraries/IwaKeyDistribution/manifest.json": {
+    "mtime": 1777431227.0,
+    "ast_hash": "be11c13c02817424b26af5d9c41a9e18",
+    "semantic_hash": "be11c13c02817424b26af5d9c41a9e18"
+  },
+  "Controller/DanteController/All Files/Applications/Dante Updater.app/Contents/Frameworks/nwjs Framework.framework/Versions/145.0.7632.76/Libraries/MEIPreload/manifest.json": {
+    "mtime": 1777431227.0,
+    "ast_hash": "7ae0a1acb9e40c4dc450b043bee3805c",
+    "semantic_hash": "7ae0a1acb9e40c4dc450b043bee3805c"
+  },
+  "Controller/DanteController/All Files/Applications/Dante Updater.app/Contents/Frameworks/nwjs Framework.framework/Versions/145.0.7632.76/Libraries/PrivacySandboxAttestationsPreloaded/manifest.json": {
+    "mtime": 1777431227.0,
+    "ast_hash": "ee5326cb0dee9e2ef839381c9289855f",
+    "semantic_hash": "ee5326cb0dee9e2ef839381c9289855f"
+  },
+  "Controller/DanteController/All Files/Applications/Dante Updater.app/Contents/Frameworks/nwjs Framework.framework/Versions/145.0.7632.76/Libraries/vk_swiftshader_icd.json": {
+    "mtime": 1777431227.0,
+    "ast_hash": "8934886b3697383480ebb93cb33ca94e",
+    "semantic_hash": "8934886b3697383480ebb93cb33ca94e"
+  },
+  "Controller/DanteController/All Files/Applications/Dante Updater.app/Contents/Frameworks/nwjs Framework.framework/Versions/145.0.7632.76/Resources/install.sh": {
+    "mtime": 1777431227.0,
+    "ast_hash": "4a3a702d0c0484bf586b3a4340d4d2d3",
+    "semantic_hash": "4a3a702d0c0484bf586b3a4340d4d2d3"
+  },
+  "Controller/DanteController/All Files/Library/Application Support/Audinate/ConMon.bundle/Contents/MacOS/launch_conmon.sh": {
+    "mtime": 1775009138.0,
+    "ast_hash": "30ef6799a074811e0467bf3c16505de8",
+    "semantic_hash": "30ef6799a074811e0467bf3c16505de8"
+  },
+  "Controller/DanteController/All Files/Library/Application Support/Audinate/ConMon.bundle/Contents/Resources/dante_use.sh": {
+    "mtime": 1775009138.0,
+    "ast_hash": "983b8aad73db254a8b2890f468d1a39d",
+    "semantic_hash": "983b8aad73db254a8b2890f468d1a39d"
+  },
+  "Controller/DanteController/All Files/Library/Application Support/Audinate/ConMon.bundle/Contents/Resources/delete.sh": {
+    "mtime": 1775009138.0,
+    "ast_hash": "bd68c70f49e65348ac7734b781c19ffe",
+    "semantic_hash": "bd68c70f49e65348ac7734b781c19ffe"
+  },
+  "Controller/DanteController/All Files/Library/Application Support/Audinate/ConMon.bundle/Contents/Resources/relaunchDaemon.sh": {
+    "mtime": 1775009138.0,
+    "ast_hash": "47b8427ebdc42564dd777aa123523537",
+    "semantic_hash": "47b8427ebdc42564dd777aa123523537"
+  },
+  "Controller/DanteController/All Files/Library/Application Support/Audinate/ConMon.bundle/Contents/Resources/use.sh": {
+    "mtime": 1775009138.0,
+    "ast_hash": "82698f12c8f77409abfe7e12efe2ef8c",
+    "semantic_hash": "82698f12c8f77409abfe7e12efe2ef8c"
+  },
+  "Controller/DanteController/All Files/Library/Application Support/Audinate/DanteUpdateHelper/uninstall.sh": {
+    "mtime": 1756103508.0,
+    "ast_hash": "6c36a5693f441f239db547544b586c9b",
+    "semantic_hash": "6c36a5693f441f239db547544b586c9b"
+  },
+  "Controller/DanteController/All Scripts/ConMon/conmon_post": {
+    "mtime": 1784603196.1978056,
+    "ast_hash": "f7a752d400ac3957d2daeb2dfe153461",
+    "semantic_hash": "f7a752d400ac3957d2daeb2dfe153461"
+  },
+  "Controller/DanteController/All Scripts/ConMon/conmon_pre": {
+    "mtime": 1784603196.1977289,
+    "ast_hash": "f959b28e59ffec21e71051bf53de409c",
+    "semantic_hash": "f959b28e59ffec21e71051bf53de409c"
+  },
+  "Controller/DanteController/All Scripts/DanteController/installer_common.sh": {
+    "mtime": 1784603196.1969233,
+    "ast_hash": "e7e8782adf53bb0a3e96d1f17c0b5a3d",
+    "semantic_hash": "e7e8782adf53bb0a3e96d1f17c0b5a3d"
+  },
+  "Controller/DanteController/All Scripts/DanteController/postinstall": {
+    "mtime": 1784603196.1966488,
+    "ast_hash": "9c5b5c8e82158a28974bc9df0d7af133",
+    "semantic_hash": "9c5b5c8e82158a28974bc9df0d7af133"
+  },
+  "Controller/DanteController/All Scripts/DanteController/preinstall": {
+    "mtime": 1784603196.1965597,
+    "ast_hash": "49c7ca64308c4ae8ff99150c2f4ad75a",
+    "semantic_hash": "49c7ca64308c4ae8ff99150c2f4ad75a"
+  },
+  "Controller/DanteController/All Scripts/DanteControllerPackage/postinstall": {
+    "mtime": 1784603196.1980386,
+    "ast_hash": "1f6e17901722d028eb07b77c84f848fa",
+    "semantic_hash": "1f6e17901722d028eb07b77c84f848fa"
+  },
+  "Controller/DanteController/All Scripts/DanteUpdateHelper/postinstall": {
+    "mtime": 1784603196.1981556,
+    "ast_hash": "3260d8a0e43bd9b959f1601404672e56",
+    "semantic_hash": "3260d8a0e43bd9b959f1601404672e56"
+  },
+  "VirtualSoundcard/DanteVirtualSoundcard/All Files/Applications/Dante Virtual Soundcard.app/Contents/Frameworks/Sparkle.framework/Versions/B/Headers/SPUDownloadData.h": {
+    "mtime": 1757051035.0,
+    "ast_hash": "409171b2341d54de77fb9a9fca04217e",
+    "semantic_hash": "409171b2341d54de77fb9a9fca04217e"
+  },
+  "VirtualSoundcard/DanteVirtualSoundcard/All Files/Applications/Dante Virtual Soundcard.app/Contents/Frameworks/Sparkle.framework/Versions/B/Headers/SPUStandardUpdaterController.h": {
+    "mtime": 1757051035.0,
+    "ast_hash": "32699cd8177e5ad0b1309c74d64058f9",
+    "semantic_hash": "32699cd8177e5ad0b1309c74d64058f9"
+  },
+  "VirtualSoundcard/DanteVirtualSoundcard/All Files/Applications/Dante Virtual Soundcard.app/Contents/Frameworks/Sparkle.framework/Versions/B/Headers/SPUStandardUserDriver.h": {
+    "mtime": 1757051035.0,
+    "ast_hash": "f36578ede11de2d802980cceaef8aebb",
+    "semantic_hash": "f36578ede11de2d802980cceaef8aebb"
+  },
+  "VirtualSoundcard/DanteVirtualSoundcard/All Files/Applications/Dante Virtual Soundcard.app/Contents/Frameworks/Sparkle.framework/Versions/B/Headers/SPUStandardUserDriverDelegate.h": {
+    "mtime": 1757051035.0,
+    "ast_hash": "8f680622c01e03c0c7bd6d1ed2c9d0f2",
+    "semantic_hash": "8f680622c01e03c0c7bd6d1ed2c9d0f2"
+  },
+  "VirtualSoundcard/DanteVirtualSoundcard/All Files/Applications/Dante Virtual Soundcard.app/Contents/Frameworks/Sparkle.framework/Versions/B/Headers/SPUUpdateCheck.h": {
+    "mtime": 1757051035.0,
+    "ast_hash": "7ad478c7a2b5c674c015930e2e3a8680",
+    "semantic_hash": "7ad478c7a2b5c674c015930e2e3a8680"
+  },
+  "VirtualSoundcard/DanteVirtualSoundcard/All Files/Applications/Dante Virtual Soundcard.app/Contents/Frameworks/Sparkle.framework/Versions/B/Headers/SPUUpdatePermissionRequest.h": {
+    "mtime": 1757051035.0,
+    "ast_hash": "e34223a17b34f211dea6bf7727765993",
+    "semantic_hash": "e34223a17b34f211dea6bf7727765993"
+  },
+  "VirtualSoundcard/DanteVirtualSoundcard/All Files/Applications/Dante Virtual Soundcard.app/Contents/Frameworks/Sparkle.framework/Versions/B/Headers/SPUUpdater.h": {
+    "mtime": 1757051035.0,
+    "ast_hash": "dce71e4a65af6d106cbbb59c4fd8eca0",
+    "semantic_hash": "dce71e4a65af6d106cbbb59c4fd8eca0"
+  },
+  "VirtualSoundcard/DanteVirtualSoundcard/All Files/Applications/Dante Virtual Soundcard.app/Contents/Frameworks/Sparkle.framework/Versions/B/Headers/SPUUpdaterDelegate.h": {
+    "mtime": 1757051035.0,
+    "ast_hash": "f70f513604fb90191c1ca95fe07c678e",
+    "semantic_hash": "f70f513604fb90191c1ca95fe07c678e"
+  },
+  "VirtualSoundcard/DanteVirtualSoundcard/All Files/Applications/Dante Virtual Soundcard.app/Contents/Frameworks/Sparkle.framework/Versions/B/Headers/SPUUpdaterSettings.h": {
+    "mtime": 1757051035.0,
+    "ast_hash": "128a6173f0983f2a7f66253a47a871da",
+    "semantic_hash": "128a6173f0983f2a7f66253a47a871da"
+  },
+  "VirtualSoundcard/DanteVirtualSoundcard/All Files/Applications/Dante Virtual Soundcard.app/Contents/Frameworks/Sparkle.framework/Versions/B/Headers/SPUUserDriver.h": {
+    "mtime": 1757051035.0,
+    "ast_hash": "9aa1479b339fa1595466da2f88f892d3",
+    "semantic_hash": "9aa1479b339fa1595466da2f88f892d3"
+  },
+  "VirtualSoundcard/DanteVirtualSoundcard/All Files/Applications/Dante Virtual Soundcard.app/Contents/Frameworks/Sparkle.framework/Versions/B/Headers/SPUUserUpdateState.h": {
+    "mtime": 1757051035.0,
+    "ast_hash": "b5cba08b9f8c120451ab59247ee9fcc8",
+    "semantic_hash": "b5cba08b9f8c120451ab59247ee9fcc8"
+  },
+  "VirtualSoundcard/DanteVirtualSoundcard/All Files/Applications/Dante Virtual Soundcard.app/Contents/Frameworks/Sparkle.framework/Versions/B/Headers/SUAppcast.h": {
+    "mtime": 1757051035.0,
+    "ast_hash": "d8f761830503990218d1e9af82371fd7",
+    "semantic_hash": "d8f761830503990218d1e9af82371fd7"
+  },
+  "VirtualSoundcard/DanteVirtualSoundcard/All Files/Applications/Dante Virtual Soundcard.app/Contents/Frameworks/Sparkle.framework/Versions/B/Headers/SUAppcastItem.h": {
+    "mtime": 1757051035.0,
+    "ast_hash": "aa259d27649cd666a54782aa984f33fd",
+    "semantic_hash": "aa259d27649cd666a54782aa984f33fd"
+  },
+  "VirtualSoundcard/DanteVirtualSoundcard/All Files/Applications/Dante Virtual Soundcard.app/Contents/Frameworks/Sparkle.framework/Versions/B/Headers/SUErrors.h": {
+    "mtime": 1757051035.0,
+    "ast_hash": "625f1f4e14e427ebf7654ec2d9677006",
+    "semantic_hash": "625f1f4e14e427ebf7654ec2d9677006"
+  },
+  "VirtualSoundcard/DanteVirtualSoundcard/All Files/Applications/Dante Virtual Soundcard.app/Contents/Frameworks/Sparkle.framework/Versions/B/Headers/SUExport.h": {
+    "mtime": 1757051035.0,
+    "ast_hash": "3e5b87d9d8d5b747a4d2f5f8938ee2fc",
+    "semantic_hash": "3e5b87d9d8d5b747a4d2f5f8938ee2fc"
+  },
+  "VirtualSoundcard/DanteVirtualSoundcard/All Files/Applications/Dante Virtual Soundcard.app/Contents/Frameworks/Sparkle.framework/Versions/B/Headers/SUStandardVersionComparator.h": {
+    "mtime": 1757051035.0,
+    "ast_hash": "530dfc668ce3124d2932e973e44be183",
+    "semantic_hash": "530dfc668ce3124d2932e973e44be183"
+  },
+  "VirtualSoundcard/DanteVirtualSoundcard/All Files/Applications/Dante Virtual Soundcard.app/Contents/Frameworks/Sparkle.framework/Versions/B/Headers/SUUpdatePermissionResponse.h": {
+    "mtime": 1757051035.0,
+    "ast_hash": "7794dc7decdf3cab4944572401ef50a8",
+    "semantic_hash": "7794dc7decdf3cab4944572401ef50a8"
+  },
+  "VirtualSoundcard/DanteVirtualSoundcard/All Files/Applications/Dante Virtual Soundcard.app/Contents/Frameworks/Sparkle.framework/Versions/B/Headers/SUUpdater.h": {
+    "mtime": 1757051035.0,
+    "ast_hash": "6475668e2c8169b54c83fc3751cea533",
+    "semantic_hash": "6475668e2c8169b54c83fc3751cea533"
+  },
+  "VirtualSoundcard/DanteVirtualSoundcard/All Files/Applications/Dante Virtual Soundcard.app/Contents/Frameworks/Sparkle.framework/Versions/B/Headers/SUUpdaterDelegate.h": {
+    "mtime": 1757051035.0,
+    "ast_hash": "6630aa457a7afb0982cdc4f5445f927e",
+    "semantic_hash": "6630aa457a7afb0982cdc4f5445f927e"
+  },
+  "VirtualSoundcard/DanteVirtualSoundcard/All Files/Applications/Dante Virtual Soundcard.app/Contents/Frameworks/Sparkle.framework/Versions/B/Headers/SUVersionComparisonProtocol.h": {
+    "mtime": 1757051035.0,
+    "ast_hash": "906eff5124704612f0a2d8b67484f42d",
+    "semantic_hash": "906eff5124704612f0a2d8b67484f42d"
+  },
+  "VirtualSoundcard/DanteVirtualSoundcard/All Files/Applications/Dante Virtual Soundcard.app/Contents/Frameworks/Sparkle.framework/Versions/B/Headers/SUVersionDisplayProtocol.h": {
+    "mtime": 1757051035.0,
+    "ast_hash": "4d404d73ce084986b62759892a5c7e71",
+    "semantic_hash": "4d404d73ce084986b62759892a5c7e71"
+  },
+  "VirtualSoundcard/DanteVirtualSoundcard/All Files/Applications/Dante Virtual Soundcard.app/Contents/Frameworks/Sparkle.framework/Versions/B/Headers/Sparkle.h": {
+    "mtime": 1757051035.0,
+    "ast_hash": "a8002a53ede032649d4381187063e819",
+    "semantic_hash": "a8002a53ede032649d4381187063e819"
+  },
+  "VirtualSoundcard/DanteVirtualSoundcard/All Files/Applications/Dante Virtual Soundcard.app/Contents/Frameworks/Sparkle.framework/Versions/B/PrivateHeaders/SPUAppcastItemStateResolver.h": {
+    "mtime": 1757051034.0,
+    "ast_hash": "bf0bec39e96a9b6625cb0aabb2ace69c",
+    "semantic_hash": "bf0bec39e96a9b6625cb0aabb2ace69c"
+  },
+  "VirtualSoundcard/DanteVirtualSoundcard/All Files/Applications/Dante Virtual Soundcard.app/Contents/Frameworks/Sparkle.framework/Versions/B/PrivateHeaders/SPUGentleUserDriverReminders.h": {
+    "mtime": 1757051034.0,
+    "ast_hash": "2d5ca68ed7b82acbfb9ef69f0694f121",
+    "semantic_hash": "2d5ca68ed7b82acbfb9ef69f0694f121"
+  },
+  "VirtualSoundcard/DanteVirtualSoundcard/All Files/Applications/Dante Virtual Soundcard.app/Contents/Frameworks/Sparkle.framework/Versions/B/PrivateHeaders/SPUInstallationType.h": {
+    "mtime": 1757051034.0,
+    "ast_hash": "c259fb81f854ca1c2fa0628b448b9a7a",
+    "semantic_hash": "c259fb81f854ca1c2fa0628b448b9a7a"
+  },
+  "VirtualSoundcard/DanteVirtualSoundcard/All Files/Applications/Dante Virtual Soundcard.app/Contents/Frameworks/Sparkle.framework/Versions/B/PrivateHeaders/SPUStandardUserDriver+Private.h": {
+    "mtime": 1757051034.0,
+    "ast_hash": "567fc5696e309c143400f9d11defe835",
+    "semantic_hash": "567fc5696e309c143400f9d11defe835"
+  },
+  "VirtualSoundcard/DanteVirtualSoundcard/All Files/Applications/Dante Virtual Soundcard.app/Contents/Frameworks/Sparkle.framework/Versions/B/PrivateHeaders/SPUUserAgent+Private.h": {
+    "mtime": 1757051034.0,
+    "ast_hash": "2c62bd86e83715c9facfca8d3406cbf6",
+    "semantic_hash": "2c62bd86e83715c9facfca8d3406cbf6"
+  },
+  "VirtualSoundcard/DanteVirtualSoundcard/All Files/Applications/Dante Virtual Soundcard.app/Contents/Frameworks/Sparkle.framework/Versions/B/PrivateHeaders/SUAppcastItem+Private.h": {
+    "mtime": 1757051034.0,
+    "ast_hash": "e80d19d5ab579e28d2cde0b7522b53e7",
+    "semantic_hash": "e80d19d5ab579e28d2cde0b7522b53e7"
+  },
+  "VirtualSoundcard/DanteVirtualSoundcard/All Files/Applications/Dante Virtual Soundcard.app/Contents/Frameworks/Sparkle.framework/Versions/B/PrivateHeaders/SUInstallerLauncher+Private.h": {
+    "mtime": 1757051034.0,
+    "ast_hash": "886e3284c16d279c6ba0d55e6ec5244b",
+    "semantic_hash": "886e3284c16d279c6ba0d55e6ec5244b"
+  },
+  "VirtualSoundcard/DanteVirtualSoundcard/All Files/Library/Application Support/Audinate/DanteVirtualSoundcard/Uninstall DVS.app/Contents/Resources/uninstall.sh": {
+    "mtime": 1757051031.0,
+    "ast_hash": "f1b85054ef5a0c9f81df458f7829abe1",
+    "semantic_hash": "f1b85054ef5a0c9f81df458f7829abe1"
+  },
+  "VirtualSoundcard/DanteVirtualSoundcard/All Scripts/DVS_User_Interface/postinstall": {
+    "mtime": 1784603156.0950434,
+    "ast_hash": "bc293487888b2992b6e239dbe215f84c",
+    "semantic_hash": "bc293487888b2992b6e239dbe215f84c"
+  },
+  "VirtualSoundcard/DanteVirtualSoundcard/All Scripts/DanteVirtualSoundcard/common.sh": {
+    "mtime": 1784603156.0938504,
+    "ast_hash": "cae37136b5c91f0438f408b4ffcc94a4",
+    "semantic_hash": "cae37136b5c91f0438f408b4ffcc94a4"
+  },
+  "VirtualSoundcard/DanteVirtualSoundcard/All Scripts/DanteVirtualSoundcard/postinstall": {
+    "mtime": 1784603156.0937254,
+    "ast_hash": "4da49517f8cfc16a350da4a46ba6a2ed",
+    "semantic_hash": "4da49517f8cfc16a350da4a46ba6a2ed"
+  },
+  "VirtualSoundcard/DanteVirtualSoundcard/All Scripts/DanteVirtualSoundcard/preinstall": {
+    "mtime": 1784603156.0935118,
+    "ast_hash": "f0fc67f826cb1c896cad06145a1dde7f",
+    "semantic_hash": "f0fc67f826cb1c896cad06145a1dde7f"
+  },
+  "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Resources/dc_web/tabs/hdmi_inputs.html": {
+    "mtime": 1777432778.0,
+    "ast_hash": "a3804eac23d85edb06dc83eeae33a358",
+    "semantic_hash": "a3804eac23d85edb06dc83eeae33a358"
+  },
+  "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Resources/dc_web/tabs/hdmi_outputs.html": {
+    "mtime": 1777432778.0,
+    "ast_hash": "c4d5a05afe29aa9a84b7469fbfb49bec",
+    "semantic_hash": "c4d5a05afe29aa9a84b7469fbfb49bec"
+  },
+  "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Resources/dc_web/tabs/sdi_inputs.html": {
+    "mtime": 1777432778.0,
+    "ast_hash": "f31e044dd0b1b4f301fab94a7dfa0f0c",
+    "semantic_hash": "f31e044dd0b1b4f301fab94a7dfa0f0c"
+  },
+  "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Resources/dc_web/tabs/sdi_outputs.html": {
+    "mtime": 1777432778.0,
+    "ast_hash": "eacfb397d0159d5f06a085e0028094e6",
+    "semantic_hash": "eacfb397d0159d5f06a085e0028094e6"
+  },
+  "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Resources/dc_web/tabs/serial_config.html": {
+    "mtime": 1777432778.0,
+    "ast_hash": "6b431568669145c5813f643f7d8ec6dc",
+    "semantic_hash": "6b431568669145c5813f643f7d8ec6dc"
+  },
+  "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Resources/dc_web/tabs/video_config.html": {
+    "mtime": 1777432778.0,
+    "ast_hash": "9472570da984fdcba2f553480d5def78",
+    "semantic_hash": "9472570da984fdcba2f553480d5def78"
+  },
+  "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Resources/dc_web/tabs/video_decoder.html": {
+    "mtime": 1777432778.0,
+    "ast_hash": "877a49ed47b0a243dfd700d506509e77",
+    "semantic_hash": "877a49ed47b0a243dfd700d506509e77"
+  },
+  "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Resources/dc_web/tabs/video_encoder.html": {
+    "mtime": 1777432778.0,
+    "ast_hash": "bb2a4b584031b2d41e74df68dffe6d10",
+    "semantic_hash": "bb2a4b584031b2d41e74df68dffe6d10"
+  },
+  "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Resources/dc_web/tabs/video_wall.html": {
+    "mtime": 1777432778.0,
+    "ast_hash": "6a7b4abf041fe6395b65f3b54b797e1c",
+    "semantic_hash": "6a7b4abf041fe6395b65f3b54b797e1c"
+  },
+  "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Resources/plugins/414A410000000000-0001/index.html": {
+    "mtime": 1777432778.0,
+    "ast_hash": "d1308fad5b49355e0628c8086935eb78",
+    "semantic_hash": "d1308fad5b49355e0628c8086935eb78"
+  },
+  "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Resources/plugins/414A410000000000-0002/index.html": {
+    "mtime": 1777432778.0,
+    "ast_hash": "321ebe8694c5dd80ad51660a5d0e7d8b",
+    "semantic_hash": "321ebe8694c5dd80ad51660a5d0e7d8b"
+  },
+  "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Resources/plugins/414A410000000000-0003/index.html": {
+    "mtime": 1777432778.0,
+    "ast_hash": "255c42d5c55314764dc6c8cf0cdfe0c9",
+    "semantic_hash": "255c42d5c55314764dc6c8cf0cdfe0c9"
+  },
+  "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Resources/plugins/414A410000000000-0004/index.html": {
+    "mtime": 1777432778.0,
+    "ast_hash": "8ee2bc40ecfa7df8e1225a652bc717d3",
+    "semantic_hash": "8ee2bc40ecfa7df8e1225a652bc717d3"
+  },
+  "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Resources/plugins/417564696E617465-0001/index.html": {
+    "mtime": 1777432778.0,
+    "ast_hash": "f42f1b04045ed52bd1f44ed3935b2b06",
+    "semantic_hash": "f42f1b04045ed52bd1f44ed3935b2b06"
+  },
+  "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Resources/plugins/417564696E617465-0002/index.html": {
+    "mtime": 1777432778.0,
+    "ast_hash": "e07a4c9b357fc599cf783a5c1815a565",
+    "semantic_hash": "e07a4c9b357fc599cf783a5c1815a565"
+  },
+  "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Resources/plugins/417564696E617465-0003/index.html": {
+    "mtime": 1777432778.0,
+    "ast_hash": "c541f7dc862bb3869433c52ee1ff17c1",
+    "semantic_hash": "c541f7dc862bb3869433c52ee1ff17c1"
+  },
+  "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/conf/security/policy/README.txt": {
+    "mtime": 1777432776.0,
+    "ast_hash": "c65cd4036a79f08564f609df53eaa7d9",
+    "semantic_hash": "c65cd4036a79f08564f609df53eaa7d9"
+  },
+  "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/java.base/aes.md": {
+    "mtime": 1777432776.0,
+    "ast_hash": "27926a20148d6c4b6f4a1828775e1dac",
+    "semantic_hash": "27926a20148d6c4b6f4a1828775e1dac"
+  },
+  "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/java.base/c-libutl.md": {
+    "mtime": 1777432776.0,
+    "ast_hash": "17777ad3b9e2eac2b2f968ba72d937de",
+    "semantic_hash": "17777ad3b9e2eac2b2f968ba72d937de"
+  },
+  "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/java.base/cldr.md": {
+    "mtime": 1777432776.0,
+    "ast_hash": "b8e90f717f99b78512bb378ef24c8bd7",
+    "semantic_hash": "b8e90f717f99b78512bb378ef24c8bd7"
+  },
+  "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/java.base/icu.md": {
+    "mtime": 1777432776.0,
+    "ast_hash": "5d54d3bcff7d48fbb94804ca8842cd4a",
+    "semantic_hash": "5d54d3bcff7d48fbb94804ca8842cd4a"
+  },
+  "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/java.base/public_suffix.md": {
+    "mtime": 1777432776.0,
+    "ast_hash": "f1ea9d4ff49e3ae7aa496848b70da0fc",
+    "semantic_hash": "f1ea9d4ff49e3ae7aa496848b70da0fc"
+  },
+  "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/java.base/siphash.md": {
+    "mtime": 1777432776.0,
+    "ast_hash": "86157580b63ac92c4dea4d823e8517b9",
+    "semantic_hash": "86157580b63ac92c4dea4d823e8517b9"
+  },
+  "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/java.base/unicode.md": {
+    "mtime": 1777432776.0,
+    "ast_hash": "94972d2acb8bfffb735d1ae652e5fd2f",
+    "semantic_hash": "94972d2acb8bfffb735d1ae652e5fd2f"
+  },
+  "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/java.base/zlib.md": {
+    "mtime": 1777432776.0,
+    "ast_hash": "413b7e62f945b1f7271947646e24b959",
+    "semantic_hash": "413b7e62f945b1f7271947646e24b959"
+  },
+  "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/java.desktop/colorimaging.md": {
+    "mtime": 1777432776.0,
+    "ast_hash": "ea80c73d78c922c855f404f019db56eb",
+    "semantic_hash": "ea80c73d78c922c855f404f019db56eb"
+  },
+  "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/java.desktop/freetype.md": {
+    "mtime": 1777432776.0,
+    "ast_hash": "ad5a103dd300944a3384849889f2c577",
+    "semantic_hash": "ad5a103dd300944a3384849889f2c577"
+  },
+  "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/java.desktop/giflib.md": {
+    "mtime": 1777432776.0,
+    "ast_hash": "1202c64122265e223aa6a764d9c36258",
+    "semantic_hash": "1202c64122265e223aa6a764d9c36258"
+  },
+  "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/java.desktop/harfbuzz.md": {
+    "mtime": 1777432776.0,
+    "ast_hash": "1fdd102c8e9c10251ced5b8267e9eee3",
+    "semantic_hash": "1fdd102c8e9c10251ced5b8267e9eee3"
+  },
+  "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/java.desktop/jpeg.md": {
+    "mtime": 1777432776.0,
+    "ast_hash": "33b491986b4fdc25cd4f0f87517a1bee",
+    "semantic_hash": "33b491986b4fdc25cd4f0f87517a1bee"
+  },
+  "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/java.desktop/lcms.md": {
+    "mtime": 1777432776.0,
+    "ast_hash": "442d77e466fd5a1962ac6afafd9061fa",
+    "semantic_hash": "442d77e466fd5a1962ac6afafd9061fa"
+  },
+  "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/java.desktop/libpng.md": {
+    "mtime": 1777432776.0,
+    "ast_hash": "43ed4d58814225ad49ba29ad33f9251d",
+    "semantic_hash": "43ed4d58814225ad49ba29ad33f9251d"
+  },
+  "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/java.desktop/mesa3d.md": {
+    "mtime": 1777432776.0,
+    "ast_hash": "e7ee1c71793bbcf76103908a2f8ceaf6",
+    "semantic_hash": "e7ee1c71793bbcf76103908a2f8ceaf6"
+  },
+  "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/java.desktop/pipewire.md": {
+    "mtime": 1777432776.0,
+    "ast_hash": "1fb037eb12329356134ef041e857d3a4",
+    "semantic_hash": "1fb037eb12329356134ef041e857d3a4"
+  },
+  "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/java.desktop/xwd.md": {
+    "mtime": 1777432776.0,
+    "ast_hash": "b4f76a8283677f592877c0576cf9de27",
+    "semantic_hash": "b4f76a8283677f592877c0576cf9de27"
+  },
+  "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/java.smartcardio/pcsclite.md": {
+    "mtime": 1777432776.0,
+    "ast_hash": "08eac0316a38060bb9299c332b1b13cc",
+    "semantic_hash": "08eac0316a38060bb9299c332b1b13cc"
+  },
+  "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/java.xml.crypto/santuario.md": {
+    "mtime": 1777432776.0,
+    "ast_hash": "be94769677300d05872e985efa8bcc79",
+    "semantic_hash": "be94769677300d05872e985efa8bcc79"
+  },
+  "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/java.xml/bcel.md": {
+    "mtime": 1777432776.0,
+    "ast_hash": "6a73c0a1ea2a3a5ce5b361031110eda1",
+    "semantic_hash": "6a73c0a1ea2a3a5ce5b361031110eda1"
+  },
+  "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/java.xml/dom.md": {
+    "mtime": 1777432776.0,
+    "ast_hash": "1628588fe1fd3b56f0bbbd11e86545d5",
+    "semantic_hash": "1628588fe1fd3b56f0bbbd11e86545d5"
+  },
+  "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/java.xml/jcup.md": {
+    "mtime": 1777432776.0,
+    "ast_hash": "4e87b28425c487916993dcf4898bb63a",
+    "semantic_hash": "4e87b28425c487916993dcf4898bb63a"
+  },
+  "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/java.xml/schema10part1.md": {
+    "mtime": 1777432776.0,
+    "ast_hash": "81ea523f296fdc522a788466fdfb03e2",
+    "semantic_hash": "81ea523f296fdc522a788466fdfb03e2"
+  },
+  "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/java.xml/schema10part2.md": {
+    "mtime": 1777432776.0,
+    "ast_hash": "a5fc86e79247dae6946e7bcb88ec7d04",
+    "semantic_hash": "a5fc86e79247dae6946e7bcb88ec7d04"
+  },
+  "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/java.xml/xalan.md": {
+    "mtime": 1777432776.0,
+    "ast_hash": "d77dc4feda82b09ab6bd655b6c37a4ea",
+    "semantic_hash": "d77dc4feda82b09ab6bd655b6c37a4ea"
+  },
+  "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/java.xml/xerces.md": {
+    "mtime": 1777432776.0,
+    "ast_hash": "5ba0e4fa1a0f98d280fe8d225f939af1",
+    "semantic_hash": "5ba0e4fa1a0f98d280fe8d225f939af1"
+  },
+  "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/java.xml/xhtml10.md": {
+    "mtime": 1777432776.0,
+    "ast_hash": "3425c11b9ea9e4d0b7910bb612e74ef6",
+    "semantic_hash": "3425c11b9ea9e4d0b7910bb612e74ef6"
+  },
+  "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/java.xml/xhtml10schema.md": {
+    "mtime": 1777432776.0,
+    "ast_hash": "b3cf3c00e17d7e6db4e02d9c37159ecd",
+    "semantic_hash": "b3cf3c00e17d7e6db4e02d9c37159ecd"
+  },
+  "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/java.xml/xhtml11.md": {
+    "mtime": 1777432776.0,
+    "ast_hash": "2889ab48df992fc0aa944d7696d57f1e",
+    "semantic_hash": "2889ab48df992fc0aa944d7696d57f1e"
+  },
+  "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/java.xml/xhtml11schema.md": {
+    "mtime": 1777432776.0,
+    "ast_hash": "c422662794bae6b89a849f9f2b8ce474",
+    "semantic_hash": "c422662794bae6b89a849f9f2b8ce474"
+  },
+  "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/java.xml/xmlspec.md": {
+    "mtime": 1777432776.0,
+    "ast_hash": "90e4941e8d3883694cdbf5e68d896cd1",
+    "semantic_hash": "90e4941e8d3883694cdbf5e68d896cd1"
+  },
+  "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/java.xml/xmlxsd.md": {
+    "mtime": 1777432776.0,
+    "ast_hash": "80476251e3e8d72fd9e2c84a143e4ddd",
+    "semantic_hash": "80476251e3e8d72fd9e2c84a143e4ddd"
+  },
+  "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/jdk.dynalink/dynalink.md": {
+    "mtime": 1777432776.0,
+    "ast_hash": "d9bb1680ada6af0a3df8e80dbc6928da",
+    "semantic_hash": "d9bb1680ada6af0a3df8e80dbc6928da"
+  },
+  "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/jdk.internal.le/jline.md": {
+    "mtime": 1777432776.0,
+    "ast_hash": "67c7b05ffb8006129b382d55ebc6254c",
+    "semantic_hash": "67c7b05ffb8006129b382d55ebc6254c"
+  },
+  "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/jdk.internal.md/commonmark.md": {
+    "mtime": 1777432776.0,
+    "ast_hash": "e04441c522b79cbc075d7ae02f5f4cfc",
+    "semantic_hash": "e04441c522b79cbc075d7ae02f5f4cfc"
+  },
+  "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/jdk.internal.opt/jopt-simple.md": {
+    "mtime": 1777432776.0,
+    "ast_hash": "4cf56d949557257b5d897b77b4181e15",
+    "semantic_hash": "4cf56d949557257b5d897b77b4181e15"
+  },
+  "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/jdk.javadoc/dejavufonts.md": {
+    "mtime": 1777432776.0,
+    "ast_hash": "1ae528e765d9700984205185bb717b49",
+    "semantic_hash": "1ae528e765d9700984205185bb717b49"
+  },
+  "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/jdk.javadoc/highlightjs.md": {
+    "mtime": 1777432776.0,
+    "ast_hash": "88a76832ed93d44cbb8bc3b3097588ae",
+    "semantic_hash": "88a76832ed93d44cbb8bc3b3097588ae"
+  },
+  "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/jdk.javadoc/jquery.md": {
+    "mtime": 1777432776.0,
+    "ast_hash": "747587a3c64b36b7b465c570c54358b5",
+    "semantic_hash": "747587a3c64b36b7b465c570c54358b5"
+  },
+  "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/runtime/Contents/Home/legal/jdk.javadoc/jqueryUI.md": {
+    "mtime": 1777432776.0,
+    "ast_hash": "f1921b5223e8d8611d3a6b6290ed8878",
+    "semantic_hash": "f1921b5223e8d8611d3a6b6290ed8878"
+  },
+  "VirtualSoundcard/DanteVirtualSoundcard/All Files/Applications/Dante Virtual Soundcard.app/Contents/Resources/license.txt": {
+    "mtime": 1757051034.0,
+    "ast_hash": "0027dfa5077f32d76c6c8b386480297b",
+    "semantic_hash": "0027dfa5077f32d76c6c8b386480297b"
+  },
+  "VirtualSoundcard/DanteVirtualSoundcard/All Files/Library/Application Support/Audinate/DanteVirtualSoundcard/ThirdPartyLicenses.html": {
+    "mtime": 1757050594.0,
+    "ast_hash": "13f0b08a2a12bb3ca518503fe0bc94b8",
+    "semantic_hash": "13f0b08a2a12bb3ca518503fe0bc94b8"
+  },
+  "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Resources/AUD-MAN-DanteController.pdf": {
+    "mtime": 1777432778.0,
+    "ast_hash": "dc40b2aef24b1547f7c3693e39c16f7b",
+    "semantic_hash": "dc40b2aef24b1547f7c3693e39c16f7b"
+  },
+  "VirtualSoundcard/DanteVirtualSoundcard/All Files/Applications/Dante Virtual Soundcard.app/Contents/Resources/DanteVirtualSoundcardUserGuide.pdf": {
+    "mtime": 1757051034.0,
+    "ast_hash": "8e863ad53220d9723ec579c0ce840f42",
+    "semantic_hash": "8e863ad53220d9723ec579c0ce840f42"
+  },
+  "Controller/DanteController/All Files/Applications/Dante Activator.app/Contents/Frameworks/nwjs Framework.framework/Versions/145.0.7632.76/Resources/product_logo_32.png": {
+    "mtime": 1777426111.0,
+    "ast_hash": "a9ec0eefdcb47d17e0ead9f9dae2ed92",
+    "semantic_hash": "a9ec0eefdcb47d17e0ead9f9dae2ed92"
+  },
+  "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/Resources/plugins/417564696E617465-0003/spinner.gif": {
+    "mtime": 1777432778.0,
+    "ast_hash": "fee2105f7db01432e56efc6f61767fea",
+    "semantic_hash": "fee2105f7db01432e56efc6f61767fea"
+  },
+  "Controller/DanteController/All Files/Applications/Dante Controller.app/Contents/chromium/Chromium.app/Contents/Frameworks/Chromium Framework.framework/Versions/145.0.7632.76/Resources/product_logo_32.png": {
+    "mtime": 1777432779.0,
+    "ast_hash": "c29a9b404ccf84e798851373c45edefa",
+    "semantic_hash": "c29a9b404ccf84e798851373c45edefa"
+  },
+  "Controller/DanteController/All Files/Applications/Dante Updater.app/Contents/Frameworks/nwjs Framework.framework/Versions/145.0.7632.76/Resources/product_logo_32.png": {
+    "mtime": 1777431227.0,
+    "ast_hash": "a9ec0eefdcb47d17e0ead9f9dae2ed92",
+    "semantic_hash": "a9ec0eefdcb47d17e0ead9f9dae2ed92"
+  },
+  "VirtualSoundcard/DanteVirtualSoundcard/All Files/Applications/Dante Virtual Soundcard.app/Contents/Resources/res/DanteLogo-DVS-v2.png": {
+    "mtime": 1757051034.0,
+    "ast_hash": "9173a20306ec76d33032d5d973ac51e3",
+    "semantic_hash": "9173a20306ec76d33032d5d973ac51e3"
+  },
+  "VirtualSoundcard/DanteVirtualSoundcard/All Files/Applications/Dante Virtual Soundcard.app/Contents/Resources/res/DanteLogo-DVS-v2@2x.png": {
+    "mtime": 1757051034.0,
+    "ast_hash": "3017ac89482dde807105eadd8dae04f9",
+    "semantic_hash": "3017ac89482dde807105eadd8dae04f9"
+  },
+  "VirtualSoundcard/DanteVirtualSoundcard/All Files/Applications/Dante Virtual Soundcard.app/Contents/Resources/res/domains-64x64.png": {
+    "mtime": 1757051034.0,
+    "ast_hash": "42f0b437f72854fb7a8d225d1ed4fc82",
+    "semantic_hash": "42f0b437f72854fb7a8d225d1ed4fc82"
+  },
+  "VirtualSoundcard/DanteVirtualSoundcard/All Files/Applications/Dante Virtual Soundcard.app/Contents/Resources/res/domains-locked-64x64.png": {
+    "mtime": 1757051034.0,
+    "ast_hash": "fc980a51282c36e1b5a8002bd130bd8a",
+    "semantic_hash": "fc980a51282c36e1b5a8002bd130bd8a"
+  },
+  "VirtualSoundcard/DanteVirtualSoundcard/All Files/Applications/Dante Virtual Soundcard.app/Contents/Resources/res/domains-warning-64x64.png": {
+    "mtime": 1757051034.0,
+    "ast_hash": "e52733cc2875f9c18b1714c95f1f3e07",
+    "semantic_hash": "e52733cc2875f9c18b1714c95f1f3e07"
+  },
+  "VirtualSoundcard/DanteVirtualSoundcard/All Files/Applications/Dante Virtual Soundcard.app/Contents/Resources/res/dvs-error-icon-28x28.png": {
+    "mtime": 1757051034.0,
+    "ast_hash": "44a9fde2a4cfcfd5e1bc1ead2aee8636",
+    "semantic_hash": "44a9fde2a4cfcfd5e1bc1ead2aee8636"
+  },
+  "VirtualSoundcard/DanteVirtualSoundcard/All Files/Applications/Dante Virtual Soundcard.app/Contents/Resources/res/dvs-error-icon-64x64.png": {
+    "mtime": 1757051034.0,
+    "ast_hash": "268cab1a7106ea59acf6f4b8d8f7144d",
+    "semantic_hash": "268cab1a7106ea59acf6f4b8d8f7144d"
+  },
+  "VirtualSoundcard/DanteVirtualSoundcard/All Files/Applications/Dante Virtual Soundcard.app/Contents/Resources/res/dvs-info-icon-16x16.png": {
+    "mtime": 1757051034.0,
+    "ast_hash": "281d5668845f4473d89f536904bdc35f",
+    "semantic_hash": "281d5668845f4473d89f536904bdc35f"
+  },
+  "VirtualSoundcard/DanteVirtualSoundcard/All Files/Applications/Dante Virtual Soundcard.app/Contents/Resources/res/dvs-info-icon-32x32.png": {
+    "mtime": 1757051034.0,
+    "ast_hash": "8882967dd3941adc9841eb8d3583e59b",
+    "semantic_hash": "8882967dd3941adc9841eb8d3583e59b"
+  },
+  "VirtualSoundcard/DanteVirtualSoundcard/All Files/Applications/Dante Virtual Soundcard.app/Contents/Resources/res/dvs-info-icon-64x64.png": {
+    "mtime": 1757051034.0,
+    "ast_hash": "8eb08e6546ee10c0fb24e04a4333e9b6",
+    "semantic_hash": "8eb08e6546ee10c0fb24e04a4333e9b6"
+  },
+  "VirtualSoundcard/DanteVirtualSoundcard/All Files/Applications/Dante Virtual Soundcard.app/Contents/Resources/res/dvs-warning-icon-32x32.png": {
+    "mtime": 1757051034.0,
+    "ast_hash": "b5fd44a85f7608c59ebb532e3db39ebf",
+    "semantic_hash": "b5fd44a85f7608c59ebb532e3db39ebf"
+  },
+  "VirtualSoundcard/DanteVirtualSoundcard/All Files/Applications/Dante Virtual Soundcard.app/Contents/Resources/res/dvs-warning-icon-64x64.png": {
+    "mtime": 1757051034.0,
+    "ast_hash": "346aa651c947d8f1956adeceeb3d50b1",
+    "semantic_hash": "346aa651c947d8f1956adeceeb3d50b1"
+  },
+  "VirtualSoundcard/DanteVirtualSoundcard/All Files/Applications/Dante Virtual Soundcard.app/Contents/Resources/res/line.png": {
+    "mtime": 1757051034.0,
+    "ast_hash": "cabc56f52200804264c5ba915ae1e487",
+    "semantic_hash": "cabc56f52200804264c5ba915ae1e487"
+  },
+  "VirtualSoundcard/DanteVirtualSoundcard/All Files/Applications/Dante Virtual Soundcard.app/Contents/Resources/res/lock-circle-64x64.png": {
+    "mtime": 1757051034.0,
+    "ast_hash": "c25f035aad5ff325e5ae145461ec053a",
+    "semantic_hash": "c25f035aad5ff325e5ae145461ec053a"
+  },
+  "VirtualSoundcard/DanteVirtualSoundcard/All Files/Applications/Dante Virtual Soundcard.app/Contents/Resources/res/restart-icon-64x64.png": {
+    "mtime": 1757051034.0,
+    "ast_hash": "08cb0ebc67497eeee99beb5194077098",
+    "semantic_hash": "08cb0ebc67497eeee99beb5194077098"
+  }
+}

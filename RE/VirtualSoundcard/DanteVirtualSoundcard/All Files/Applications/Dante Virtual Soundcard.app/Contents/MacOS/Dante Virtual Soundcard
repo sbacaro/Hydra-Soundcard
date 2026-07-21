@@ -1,0 +1,12 @@
+Name                      : Dante Virtual Soundcard
+UTI                       : com.apple.mach-o-executable
+Kind                      : Mach-O executable
+Owner                     : root (0)
+Group                     : admin (80)
+Mode                      : -rwxr-xr-x (0100755)
+Requires                  : macOS 10.13
+Size                      : 27474016
+Executable                : arm64 • x86_64
+Signing Digest            : 94E4113D9EE123C6951EF9EA88215931F48F1BA7 (arm64)
+Signing Digest            : 03DAA514B68A1D905861D9045A6CE693BA28E323 (x86_64)
+Signing Identity          : identifier "com.audinate.DanteVirtualSoundcard" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = P4WCR6Y822

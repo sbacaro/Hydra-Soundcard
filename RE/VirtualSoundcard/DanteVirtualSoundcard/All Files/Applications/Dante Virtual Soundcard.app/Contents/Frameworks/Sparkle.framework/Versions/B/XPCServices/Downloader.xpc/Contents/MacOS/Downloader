@@ -1,0 +1,12 @@
+Name                      : Downloader
+UTI                       : com.apple.mach-o-executable
+Kind                      : Mach-O executable
+Owner                     : root (0)
+Group                     : admin (80)
+Mode                      : -rwxr-xr-x (0100755)
+Requires                  : macOS 10.13
+Size                      : 186688
+Executable                : arm64 • x86_64
+Signing Digest            : 408EEDE733BE417139538116BE395D2614A9CB74 (arm64)
+Signing Digest            : F839BCC45CFBA478BA5957103B2433D10530C4A8 (x86_64)
+Signing Identity          : identifier "org.sparkle-project.DownloaderService" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = P4WCR6Y822

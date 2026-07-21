@@ -1,0 +1,12 @@
+Name                      : apec
+UTI                       : com.apple.mach-o-executable
+Kind                      : Mach-O executable
+Owner                     : root (0)
+Group                     : admin (80)
+Mode                      : -rwxr-x--- (0100750)
+Requires                  : macOS 10.13
+Size                      : 3597024
+Executable                : arm64 • x86_64
+Signing Digest            : 0BD44B34CFA6EF66560E3C52662E17A50037EB40 (arm64)
+Signing Digest            : F5638015671717F5F161CBFDC765ABD7926E972B (x86_64)
+Signing Identity          : identifier apec and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = P4WCR6Y822

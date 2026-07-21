@@ -1,0 +1,11 @@
+Name                      : libzip.dylib
+UTI                       : com.apple.mach-o-dylib
+Kind                      : Mach-O dynamic library
+Owner                     : root (0)
+Group                     : wheel (0)
+Mode                      : -rw-r--r-- (0100644)
+Requires                  : macOS 11.0
+Size                      : 161312
+Executable                : arm64
+Signing Digest            : 65E53956E9E8D61990AA7F4F3895AAB8CEF1F036 (arm64)
+Signing Identity          : identifier libzip and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = P4WCR6Y822

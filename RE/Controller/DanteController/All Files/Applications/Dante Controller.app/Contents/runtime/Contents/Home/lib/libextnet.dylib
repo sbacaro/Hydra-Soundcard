@@ -1,0 +1,11 @@
+Name                      : libextnet.dylib
+UTI                       : com.apple.mach-o-dylib
+Kind                      : Mach-O dynamic library
+Owner                     : root (0)
+Group                     : wheel (0)
+Mode                      : -rw-r--r-- (0100644)
+Requires                  : macOS 11.0
+Size                      : 69696
+Executable                : arm64
+Signing Digest            : 500F6F50964062842B107276A94FE74FE8D98CA2 (arm64)
+Signing Identity          : identifier libextnet and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = P4WCR6Y822

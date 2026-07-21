@@ -1,0 +1,10 @@
+Name                      : Info.plist
+UTI                       : com.apple.xml-property-list
+Kind                      : XML property list
+Owner                     : root (0)
+Group                     : wheel (0)
+Mode                      : -rw-r--r-- (0100644)
+Bundle Identifier         : com.audinate.controller
+Bundle Version            : 1.0 (1.0)
+Size                      : 857
+Unverified CRC-32         : 2866565754

@@ -1,0 +1,12 @@
+Name                      : Autoupdate
+UTI                       : com.apple.mach-o-executable
+Kind                      : Mach-O executable
+Owner                     : root (0)
+Group                     : admin (80)
+Mode                      : -rwxr-xr-x (0100755)
+Requires                  : macOS 10.13
+Size                      : 660480
+Executable                : arm64 • x86_64
+Signing Digest            : C76D51620BAA6C3225EB06BF3F7C425207358878 (arm64)
+Signing Digest            : CEC9633CBEC32028C7B9A00347D0DC357C9557A4 (x86_64)
+Signing Identity          : identifier Autoupdate and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = P4WCR6Y822

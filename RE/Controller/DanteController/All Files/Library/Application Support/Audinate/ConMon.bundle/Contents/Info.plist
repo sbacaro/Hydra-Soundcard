@@ -1,0 +1,10 @@
+Name                      : Info.plist
+UTI                       : com.apple.xml-property-list
+Kind                      : XML property list
+Owner                     : root (0)
+Group                     : wheel (0)
+Mode                      : -rw-r--r-- (0100644)
+Bundle Identifier         : com.audinate.dante.Conmon
+Bundle Version            : 4.2.0 (4.2.0)
+Size                      : 428
+Unverified CRC-32         : 2596446093

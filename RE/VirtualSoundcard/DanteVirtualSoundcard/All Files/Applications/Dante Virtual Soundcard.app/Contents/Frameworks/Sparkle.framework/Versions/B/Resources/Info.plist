@@ -1,0 +1,10 @@
+Name                      : Info.plist
+UTI                       : com.apple.xml-property-list
+Kind                      : XML property list
+Owner                     : root (0)
+Group                     : admin (80)
+Mode                      : -rw-r--r-- (0100644)
+Bundle Identifier         : org.sparkle-project.Sparkle
+Bundle Version            : 2.6.2 (2038)
+Size                      : 1338
+Unverified CRC-32         : 2316123576

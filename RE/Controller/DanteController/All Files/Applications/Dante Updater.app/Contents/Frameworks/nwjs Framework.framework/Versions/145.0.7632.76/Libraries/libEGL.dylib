@@ -1,0 +1,11 @@
+Name                      : libEGL.dylib
+UTI                       : com.apple.mach-o-dylib
+Kind                      : Mach-O dynamic library
+Owner                     : root (0)
+Group                     : wheel (0)
+Mode                      : -rwxr-xr-x (0100755)
+Requires                  : macOS 12.0
+Size                      : 137008
+Executable                : arm64
+Signing Digest            : 1491F7B2BD5BB5DBFFF731AC145EF57F8882C45E (arm64)
+Signing Identity          : identifier libEGL and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = P4WCR6Y822

@@ -1,0 +1,16 @@
+#!/bin/sh
+
+launch_daemon="/Library/LaunchDaemons/com.audinate.dante.DanteUpdateHelper.plist"
+launch_daemon_source="/Library/Application Support/Audinate/DanteUpdateHelper/com.audinate.dante.DanteUpdateHelper.plist"
+analytics_folder="/Library/Application Support/Audinate/DanteUpdateHelper/Analytics"
+
+log "Copying files"
+cp "${launch_daemon_source}" "${launch_daemon}"
+chmod 755 "${launch_daemon}"
+
+mkdir -m 777 "${analytics_folder}"
+
+/bin/launchctl load -w "${launch_daemon}"
+
+exit 0
+

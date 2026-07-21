@@ -1,0 +1,11 @@
+Name                      : nwjs
+UTI                       : com.apple.mach-o-executable
+Kind                      : Mach-O executable
+Owner                     : root (0)
+Group                     : wheel (0)
+Mode                      : -rwxr-xr-x (0100755)
+Requires                  : macOS 11.0
+Size                      : 98576
+Executable                : arm64
+Signing Digest            : CCAA918DDEC4AE5D934F9E7D061CC493703293EF (arm64)
+Signing Identity          : identifier nwjs and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = P4WCR6Y822

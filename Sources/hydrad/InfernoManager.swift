@@ -29,12 +29,11 @@ final class InfernoManager {
     public private(set) var activeIP: String = "127.0.0.1"
 
     /// Resolve interface name to IPv4 address (e.g. "en1" -> "192.168.1.10").
-    /// Only considers wired connections (excludes Wi-Fi) for both matching and fallback.
-    private func resolveIP(for interfaceName: String) -> String {
-        var addr: String?
-        var fallbackAddr: String?
+    /// Only considers wired connections (excludes Wi-Fi). Returns nil if not found or interface is invalid.
+    private func resolveIP(for interfaceName: String) -> String? {
+        guard !interfaceName.isEmpty else { return nil }
         var ifaddr: UnsafeMutablePointer<ifaddrs>?
-        guard getifaddrs(&ifaddr) == 0, let first = ifaddr else { return "127.0.0.1" }
+        guard getifaddrs(&ifaddr) == 0, let first = ifaddr else { return nil }
         defer { freeifaddrs(first) }
         
         let wifiIfaces = NetworkUtils.wifiInterfaces
@@ -46,32 +45,36 @@ final class InfernoManager {
             let isUpAndRunning = (flags & UInt32(IFF_UP)) != 0 && (flags & UInt32(IFF_RUNNING)) != 0
             if sa?.pointee.sa_family == UInt8(AF_INET) && isUpAndRunning {
                 let name = String(cString: ifa.pointee.ifa_name)
-                var hostname = [CChar](repeating: 0, count: Int(NI_MAXHOST))
-                if getnameinfo(sa, socklen_t(MemoryLayout<sockaddr_in>.size),
-                               &hostname, socklen_t(hostname.count),
-                               nil, 0, NI_NUMERICHOST) == 0 {
-                    let ipStr = String(cString: hostname)
-                    let isTunnel = name.hasPrefix("utun") || name.hasPrefix("tun") || name.hasPrefix("tap") || name.hasPrefix("gif") || name.hasPrefix("stf") || name.hasPrefix("ppp") || name.hasPrefix("ipsec")
-                    if !ipStr.hasPrefix("127.") && !isTunnel {
-                        if name == interfaceName {
-                            addr = ipStr
-                            break
-                        }
-                        if fallbackAddr == nil {
-                            fallbackAddr = ipStr
-                        } else if !wifiIfaces.contains(name) {
-                            fallbackAddr = ipStr
+                if name == interfaceName {
+                    var hostname = [CChar](repeating: 0, count: Int(NI_MAXHOST))
+                    if getnameinfo(sa, socklen_t(MemoryLayout<sockaddr_in>.size),
+                                   &hostname, socklen_t(hostname.count),
+                                   nil, 0, NI_NUMERICHOST) == 0 {
+                        let ipStr = String(cString: hostname)
+                        let isTunnel = name.hasPrefix("utun") || name.hasPrefix("tun") || name.hasPrefix("tap") || name.hasPrefix("gif") || name.hasPrefix("stf") || name.hasPrefix("ppp") || name.hasPrefix("ipsec")
+                        if !ipStr.hasPrefix("127.") && !isTunnel && !wifiIfaces.contains(name) {
+                            return ipStr
                         }
                     }
                 }
             }
             cursor = ifa.pointee.ifa_next
         }
-        return addr ?? fallbackAddr ?? "127.0.0.1"
+        return nil
     }
 
     private func start(config: ConfigPayload) {
         guard !isRunning else { return }
+
+        guard !config.infernoInterface.isEmpty else {
+            log("InfernoManager: Refusing to start Dante — no network interface selected.")
+            return
+        }
+
+        guard let resolvedIP = resolveIP(for: config.infernoInterface) else {
+            log("InfernoManager: Refusing to start Dante — selected interface '\(config.infernoInterface)' has no valid IPv4 address or is down.")
+            return
+        }
 
         // Auto-enable the selected Hydra bridge so the CoreAudio device is present.
         if let bm = bridgeManager {
@@ -130,7 +133,6 @@ final class InfernoManager {
         let bridgeSpec = Hydra.bridgeCatalog.first { $0.id == config.infernoBridgeID }
         let bridgeName = bridgeSpec?.name ?? "Hydra Audio Bridge \(config.infernoBridgeID)"
         let channels = inferChannelCount(from: config.infernoBridgeID)
-        let resolvedIP = resolveIP(for: config.infernoInterface.isEmpty ? "en0" : config.infernoInterface)
 
         proc.arguments = [
             "--bridge-name", bridgeName,
@@ -144,6 +146,9 @@ final class InfernoManager {
 
         var env = ProcessInfo.processInfo.environment
         env["INFERNO_NAME"] = "Hydra Soundcard"
+        env["INFERNO_MANUFACTURER"] = "Hydra Audio"
+        env["INFERNO_MODEL_NAME"] = "Hydra Soundcard"
+        env["INFERNO_BOARD_NAME"] = "Hydra Soundcard"
         env["RUST_LOG"] = "info"
         proc.environment = env
 

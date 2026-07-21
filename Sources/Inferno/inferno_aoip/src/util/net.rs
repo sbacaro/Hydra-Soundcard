@@ -72,6 +72,7 @@ impl UdpSocketWrapper {
     }
     
     let std_socket: std::net::UdpSocket = sock.into();
+    std_socket.set_nonblocking(true).expect("failed to set non-blocking");
     let socket = UdpSocket::from_std(std_socket).expect("error converting std socket to tokio");
     // TODO MAY PANIC: this error should be non-fatal because some apps may use Inferno as an optional audio I/O
     let listen_port = socket.local_addr().unwrap().port();

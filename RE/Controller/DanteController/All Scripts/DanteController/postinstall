@@ -1,0 +1,44 @@
+#!/bin/bash
+
+echo "Starting Dante Controller postinstall script"
+
+source installer_common.sh
+
+log_postinstall()
+{
+	echo "$(date '+%Y-%m-%d %H:%M:%S') Dante Controller postinstall: $1" >> "$INSTALL_LOG"
+}
+
+launch_dc()
+{
+	log_postinstall "Attempting to launch Dante Controller..."
+	MAX_ATTEMPTS=10
+	ATTEMPT=0
+
+	# Delay the launch until the DC package receipt is written by Installer app
+	while [ "$ATTEMPT" -lt "$MAX_ATTEMPTS" ]; do
+		sleep 1
+		ATTEMPT=$((ATTEMPT + 1))
+		log_postinstall "Check Dante Controller receipt (attempt $ATTEMPT/$MAX_ATTEMPTS)"
+		if pkgutil --pkgs 2>/dev/null | grep -q "^${DC_PKG_ID}$"; then
+			sleep 3  # Additional delay for Installer cleanup
+			log_postinstall "Launching Dante Controller"
+			open "$DC_APP_PATH"
+			return 1
+		fi
+	done
+
+	log_postinstall "Failed to launch Dante Controller"
+	return 0
+}
+
+# Prompt user to launch Dante Controller after installation
+ALERT_RESULT=$(display_alert "'messageText' 'Installation Complete' 'informativeText' 'Dante Controller has been installed successfully. Would you like to launch the application now?' 'alertStyle' 1 'firstButtonTitle' 'Launch' 'secondButtonTitle' 'Cancel'")
+if [[ "$ALERT_RESULT" == "1" ]]; then
+	echo "Launching Dante Controller in the background"
+	launch_dc &
+fi
+
+echo "Finished running Dante Controller postinstall script"
+
+exit 0

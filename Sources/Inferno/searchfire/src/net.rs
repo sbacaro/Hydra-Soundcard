@@ -154,7 +154,7 @@ impl MulticastSocketEx<Ipv4Addr> for tokio::net::UdpSocket {
 				self.as_raw_fd(),
 				libc::IPPROTO_IP,
 				libc::IP_MULTICAST_IF,
-				&u32::from(iface) as *const _ as *const _,
+				&u32::from_ne_bytes(iface.octets()) as *const _ as *const _,
 				std::mem::size_of::<u32>() as libc::socklen_t,
 			);
 			if res == 0 {

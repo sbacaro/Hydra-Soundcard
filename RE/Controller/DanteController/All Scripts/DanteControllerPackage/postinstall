@@ -1,0 +1,6 @@
+#!/bin/sh
+
+# Register Dante Controller app as a user for Conmon shared Service
+/Library/Application\ Support/Audinate/ConMon.bundle/Contents/Resources/use.sh -a com.audinate.dante.controller
+
+exit 0

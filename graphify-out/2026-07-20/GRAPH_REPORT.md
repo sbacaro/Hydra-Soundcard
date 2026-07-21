@@ -4,159 +4,162 @@
 - cluster-only mode — file stats not available
 
 ## Summary
-- 3912 nodes · 9445 edges · 232 communities (187 shown, 45 thin omitted)
-- Extraction: 95% EXTRACTED · 5% INFERRED · 0% AMBIGUOUS · INFERRED: 497 edges (avg confidence: 0.8)
+- 3930 nodes · 9479 edges · 261 communities (185 shown, 76 thin omitted)
+- Extraction: 95% EXTRACTED · 5% INFERRED · 0% AMBIGUOUS · INFERRED: 491 edges (avg confidence: 0.8)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `64c881f7`
+- Built from commit: `76a0f92e`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
 ## Community Hubs (Navigation)
 - Hydra.c
 - WSMessage
-- FlowsTransmitter
-- DaemonClient
 - ProcessTapManager
-- TransmitMulticasts
-- Sendable
+- DaemonClient
 - Hydra
 - Kind
+- StripManager
+- channels_subscriber.rs
+- Sendable
+- Foundation
+- String
+- String
+- MatrixStore
 - OSCMessage
-- PtpClock
-- ClockOverlay
-- Equatable
-- Identifiable
+- GridView
+- proto_arc.rs
 - CodingKeys
+- CoreMIDIBackend
+- View
 - BroadcasterHandle
 - Service
 - DeviceServer
-- String
 - flows_rx.rs
-- channels_subscriber.rs
-- Aes67Manager
-- VirtualInterfaceInfo
-- HiQnet
-- ring_buffer.rs
-- HUI
-- Foundation
-- View
-- GridView
-- Value
-- SurfaceBridge
-- MultiIpIoError
-- InstallerState
-- View
-- DeviceInfo
-- RouteManager
-- MatrixStore
-- .start
-- bytes.rs
-- Result
-- InstallManager
 - Aes67ParserExtraTests
-- ResponderMemoryEntry
-- SidebarView
+- SharedPluginHost
+- Value
+- Aes67Manager
+- HiQnet
+- ModuleManager
+- ring_buffer.rs
+- Int
+- SurfaceBridge
+- Discovery
+- TransmitMulticasts
+- DeviceInfo
+- View
+- RouteManager
 - NdiManager
-- StripManager
-- proto_arc.rs
-- PluginHost
-- SwiftUI
-- BridgeManager
-- .emit
-- GridEntry
+- Result
+- .start
 - Updater
-- .pairs
-- Component
 - ChannelRing
+- ResponderMemoryEntry
+- BridgeManager
 - T
+- PluginHost
+- PtpClock
+- InstallerState
+- FlowsTransmitter
+- .emit
+- ClockOverlay
+- FlowChainCard
+- Aes67Tx
+- InstallerWindowDelegate
 - .new
 - SettingsView.swift
+- GridEntry
+- run_server
 - PolyphaseResampler
-- CoreMIDIBackend
+- PtpParsingTests
 - DeviceManager
-- PoolTxTap
-- SharedPluginHost
-- Ipv6Interface
-- GridView.swift
-- ModuleRx
+- .start
+- .pairs
+- SurfaceManager
+- MdnsClient
+- AppInfo
+- SidebarView
 - MetricsReporter
-- run_server
-- DeviceOutputTap
-- InstallerWindowDelegate
-- ResampleServoTests
-- DiscoveryBuilder
-- ExternalBuffer<T>
-- Snapshot
-- run_server
+- InstallManager
 - Aes67Stream
-- ModuleManager
-- ChainTap
-- HydraRT
 - MenuBarPanel.swift
-- Cow
-- ChainHandle
+- ResampleServoTests
+- DeviceMDNSResponder
+- DiscoveryBuilder
 - RealTimeSamplesReceiver
+- ExternalBuffer<T>
+- run_server
+- HiQnetServer
+- bytes.rs
+- Cow
+- flows_tx.rs
+- AppDelegate
+- String
 - DanteClockBrowser
 - log
-- StateStorage
-- Message
-- HiQnetServer
-- String
-- media_clock.rs
 - UdpSocketWrapper
+- PatchPoint
+- Message
+- media_clock.rs
 - .impl_run
 - InfernoManager
-- SurfaceManager
+- SwiftUI
+- DeviceOutputTap
+- Component
 - .backplaneDeviceID
-- AppKit
-- AudioEngine
-- paginate_make_response
-- FlowChainCard
-- ExternalBuffering
+- InterfaceStore
+- ComponentStatus
+- CodingKeys
 - MediaClock
 - hydra_ndi.c
+- HydraEvent
 - Headers/hydra_plugin_shm.h
 - ChannelsSubscriberInternal<P, B>
-- .new_realtime
 - BroadcasterBuilder
+- AppKit
+- loopback_trx.rs
 - Connection
-- Coordinator
-- SidebarTab
-- CodingKeys
-- AppDelegate
+- Context
 - EnginePresence
-- FlowEndpointKind
+- wrapped_diff
+- .new_realtime
 - PositionReportDestination
 - .menuBarWave
-- WindowAccessor
 - DataType
-- HydraApp/SidebarView.swift
+- AudioEngine
+- Connection
 - include/hydra_plugin_shm.h
 - HiQnetDiscovery
-- wrapped_diff
-- common.rs
-- Aes67Tests
+- samples_utils.rs
+- make_channel_change_notification
 - RealTimeBoxReceiver
 - CommandPalette
-- ContentView
+- common.rs
+- run_server
+- Flow
 - DanteClockBrowser
 - DanteClockBrowser
 - build_and_install.sh
+- Coordinator
 - release.sh
-- .shutdown
+- run_future_in_new_thread
 - hydra-plugin-host.build/DerivedSources/GeneratedAssetSymbols.swift
 - install_local.sh
 - GFAD
 - SubObject
-- DaemonService
+- ContentView
 - generate_xcodeproj.rb
+- Diagnostics
 - StripGridView.swift
 - TLSW
-- BridgeRole
-- ShakeEffect
+- MultiIpIoError
+- WindowAccessor
+- Theme.swift
+- PatchScene
 - bridges_install.sh
+- NodeKind
 - peaks_of_buffers
 - proto_cmc.rs
 - RBOutput<T, P>
@@ -164,15 +167,12 @@
 - render
 - NetworkUtils.swift
 - CHLCD
-- RecordingInfo
+- iface_v6_name_to_index
 - build_pkg.sh
-- EditorTarget
 - SlotsCtl
 - main.rs
 - Option
-- .new
 - set_current_thread_realtime
-- GHAsset
 - PackageDescription
 - bridges_uninstall.sh
 - fetch_vst3sdk.sh
@@ -188,9 +188,18 @@
 - FlowInfo
 - Set
 - Binding
-- Color
 - Content
 - FlowInfo
+- Void
+- Bool
+- CGFloat
+- CGRect
+- CGSize
+- Content
+- Context
+- Int
+- Set
+- Void
 - CGFloat
 - CGSize
 - Color
@@ -206,14 +215,34 @@
 - URL
 - Content
 - LocalizedStringKey
+- Set
+- Double
+- Float
+- Int32
+- UInt16
+- URL
+- UUID
 - Double
 - Int32
 - Process
 - URL
 - Void
 - FlowInfo
+- Bool
+- Color
+- Context
+- String
 - Self
 - Vec
+- Option
+- Receiver
+- SocketAddr
+- UdpSocket
+- BTreeSet
+- Error
+- NonZeroU32
+- Vec
+- FlowEndpointKind
 
 ## God Nodes (most connected - your core abstractions)
 1. `WSMessage` - 135 edges
@@ -222,10 +251,10 @@
 4. `log()` - 71 edges
 5. `Kind` - 70 edges
 6. `MatrixStore` - 68 edges
-7. `View` - 61 edges
-8. `HydraCore` - 60 edges
-9. `CodingKeys` - 57 edges
-10. `StripManager` - 48 edges
+7. `HydraCore` - 60 edges
+8. `CodingKeys` - 57 edges
+9. `StripManager` - 48 edges
+10. `View` - 47 edges
 
 ## Surprising Connections (you probably didn't know these)
 - `LanguagePicker` --references--> `View`  [EXTRACTED]
@@ -242,11 +271,11 @@
 ## Import Cycles
 - 2-file cycle: `Sources/Inferno/inferno_aoip/src/device_server/flows_tx.rs -> Sources/Inferno/inferno_aoip/src/device_server/mod.rs -> Sources/Inferno/inferno_aoip/src/device_server/flows_tx.rs`
 - 3-file cycle: `Sources/Inferno/inferno_aoip/src/device_server/channels_subscriber.rs -> Sources/Inferno/inferno_aoip/src/device_server/flows_rx.rs -> Sources/Inferno/inferno_aoip/src/device_server/mod.rs -> Sources/Inferno/inferno_aoip/src/device_server/channels_subscriber.rs`
-- 3-file cycle: `Sources/Inferno/inferno_aoip/src/device_server/flows_tx.rs -> Sources/Inferno/inferno_aoip/src/device_server/mod.rs -> Sources/Inferno/inferno_aoip/src/device_server/tx_multicasts.rs -> Sources/Inferno/inferno_aoip/src/device_server/flows_tx.rs`
 - 3-file cycle: `Sources/Inferno/inferno_aoip/src/device_server/flows_tx.rs -> Sources/Inferno/inferno_aoip/src/device_server/mod.rs -> Sources/Inferno/inferno_aoip/src/device_server/mdns_server.rs -> Sources/Inferno/inferno_aoip/src/device_server/flows_tx.rs`
+- 3-file cycle: `Sources/Inferno/inferno_aoip/src/device_server/flows_tx.rs -> Sources/Inferno/inferno_aoip/src/device_server/mod.rs -> Sources/Inferno/inferno_aoip/src/device_server/tx_multicasts.rs -> Sources/Inferno/inferno_aoip/src/device_server/flows_tx.rs`
 - 4-file cycle: `Sources/Inferno/inferno_aoip/src/device_server/flows_tx.rs -> Sources/Inferno/inferno_aoip/src/device_server/mod.rs -> Sources/Inferno/inferno_aoip/src/device_server/tx_multicasts.rs -> Sources/Inferno/inferno_aoip/src/device_server/mdns_server.rs -> Sources/Inferno/inferno_aoip/src/device_server/flows_tx.rs`
 
-## Communities (232 total, 45 thin omitted)
+## Communities (261 total, 76 thin omitted)
 
 ### Community 0 - "Hydra.c"
 Cohesion: 0.09
@@ -254,549 +283,541 @@ Nodes (85): AudioObjectPropertyAddress, AudioServerPlugInClientInfo, AudioServer
 
 ### Community 1 - "WSMessage"
 Cohesion: 0.03
-Nodes (77): Aes67Payload, Encoder, EventsPayload, LevelsPayload, MatrixPayload, Connection, Float, HydraEvent (+69 more)
+Nodes (80): Aes67Payload, Encoder, LevelsPayload, MatrixPayload, SceneRefPayload, ScenesPayload, Connection, Float (+72 more)
 
-### Community 2 - "FlowsTransmitter"
-Cohesion: 0.05
-Nodes (56): AtomicSample, LongClockDiff, SmallRng, Command, Flow, FlowData, FlowInfo, FlowsTransmitter (+48 more)
+### Community 2 - "ProcessTapManager"
+Cohesion: 0.06
+Nodes (34): AudioObjectPropertySelector, NSRunningApplication, ResponsibleFn, ConnectionIndex, Gain, PatchMatrix, Bool, Connection (+26 more)
 
 ### Community 3 - "DaemonClient"
 Cohesion: 0.07
-Nodes (24): GridEntry, Observation, Set, ConnectionState, connected, connecting, disconnected, ConnMeters (+16 more)
+Nodes (23): GridEntry, Observation, ConnectionState, connected, connecting, disconnected, ConnMeters, DaemonClient (+15 more)
 
-### Community 4 - "ProcessTapManager"
+### Community 4 - "Hydra"
 Cohesion: 0.06
-Nodes (33): AudioObjectPropertySelector, NSRunningApplication, ResponsibleFn, ConnectionIndex, Gain, PatchMatrix, Bool, Connection (+25 more)
+Nodes (16): Float, BridgeSpec, Hydra, SurfacePreset, Bool, Int, String, PatchValidation (+8 more)
 
-### Community 5 - "TransmitMulticasts"
-Cohesion: 0.06
-Nodes (50): RecordType, DeviceMDNSResponder, in_addr_type(), kv(), multicast_ip_to_name(), Arc, BTreeMap, Ipv4Addr (+42 more)
-
-### Community 6 - "Sendable"
-Cohesion: 0.12
-Nodes (13): Sendable, SurfacePreset, Bool, AppInfo, AppsPayload, InterfacesPayload, SaveScenePayload, SceneRefPayload (+5 more)
-
-### Community 7 - "Hydra"
-Cohesion: 0.06
-Nodes (15): Hydra, Double, Float, Int32, UInt16, URL, UUID, PatchValidation (+7 more)
-
-### Community 8 - "Kind"
+### Community 5 - "Kind"
 Cohesion: 0.03
 Nodes (68): Kind, aes67, applyScene, apps, bridges, config, connectSurfaceConsole, createInterface (+60 more)
 
-### Community 9 - "OSCMessage"
-Cohesion: 0.08
-Nodes (24): OSCArg, float, int, string, OSCMessage, OSCParser, Data, Float (+16 more)
+### Community 6 - "StripManager"
+Cohesion: 0.07
+Nodes (34): InsertRowView, Int, StripInfo, StripsPayload, VSTChainInfo, VSTPayload, VSTPlugin, ChainTap (+26 more)
 
-### Community 10 - "PtpClock"
+### Community 7 - "channels_subscriber.rs"
 Cohesion: 0.09
-Nodes (19): PtpParsing, ArraySlice, Bool, Double, Int, UInt8, Master, PtpClock (+11 more)
+Nodes (43): ChannelOtherEnd, ChannelsBuffering, ChannelsSubscriber, ChannelsSubscriberInternal, ChannelSubscription, Command, ExternalBuffering, Flow (+35 more)
 
-### Community 11 - "ClockOverlay"
-Cohesion: 0.08
-Nodes (31): c_int, ClockId, JoinError, OverlayReceiveError, AsyncClient, blocking_send_recv(), BlockingClient, client_socket_path() (+23 more)
+### Community 8 - "Sendable"
+Cohesion: 0.10
+Nodes (34): Codable, Equatable, Identifiable, Sendable, BridgeInfo, BridgeRole, both, input (+26 more)
 
-### Community 12 - "Equatable"
+### Community 9 - "Foundation"
 Cohesion: 0.09
-Nodes (43): Codable, Decoder, Double, Equatable, InsertRowView, Int, SubscribeStreamPayload, ChannelScope (+35 more)
+Nodes (14): Accelerate, AVFoundation, CoreAudio, Foundation, HydraCore, HydraNDIShim, HydraRT, HydraSurface (+6 more)
 
-### Community 13 - "Identifiable"
-Cohesion: 0.06
-Nodes (30): Identifiable, OptionSet, BridgeSpec, Int, Channel, Connection, HydraEvent, Kind (+22 more)
+### Community 10 - "String"
+Cohesion: 0.07
+Nodes (25): CaseIterable, PluginPickerSheet, StripInfo, ViewMode, category, flat, vendor, PluginCategory (+17 more)
 
-### Community 14 - "CodingKeys"
+### Community 11 - "String"
+Cohesion: 0.10
+Nodes (26): Decoder, Double, ChannelLabelsPayload, ChannelScope, input, output, ConfigPayload, CreateInterfacePayload (+18 more)
+
+### Community 12 - "MatrixStore"
+Cohesion: 0.10
+Nodes (23): AudioBufferList, ContiguousArray, os_unfair_lock, Snapshot, Conn, EngineTap, InMeter, MatrixStore (+15 more)
+
+### Community 13 - "OSCMessage"
+Cohesion: 0.10
+Nodes (18): OSCArg, float, int, string, OSCMessage, OSCParser, Data, Float (+10 more)
+
+### Community 14 - "GridView"
+Cohesion: 0.10
+Nodes (26): Axis, Bool, CGFloat, CGRect, CGSize, GeometryEffect, GraphicsContext, GroupDef (+18 more)
+
+### Community 15 - "proto_arc.rs"
+Cohesion: 0.07
+Nodes (34): InItem, Iterator, OutItem, ChannelDescriptor, common_channels_descriptor_new_matches_device_info(), CommonChannelsDescriptor, Descriptor2, deserialize_items() (+26 more)
+
+### Community 16 - "CodingKeys"
 Cohesion: 0.04
 Nodes (48): CodingKeys, aes67TX, appTapMakeupDB, backplaneDeviceName, backplaneInstalled, base, category, channelIndex (+40 more)
 
-### Community 15 - "BroadcasterHandle"
+### Community 17 - "CoreMIDIBackend"
 Cohesion: 0.08
-Nodes (24): Display, Formatter, BroadcasterBuilderError, Error, ServiceDnsPacketBuilderError, BroadcasterHandle, BroadcasterHandleDrop, BroadcasterHandleInner (+16 more)
+Nodes (29): Addr, BTreeSet, CoreMIDI, CustomStringConvertible, Error, Ipv6Addr, MIDIEndpointRef, MIDIPacketList (+21 more)
 
-### Community 16 - "Service"
-Cohesion: 0.06
-Nodes (28): DnsMessage, IntoName, IpAddr, Ord, Ordering, PartialOrd, ServiceBuilderError, Borrow (+20 more)
+### Community 18 - "View"
+Cohesion: 0.10
+Nodes (32): BridgeInfo, BridgeRole, ChannelFocus, ChannelScope, Color, ConnMeters, DaemonClient, Font (+24 more)
 
-### Community 17 - "DeviceServer"
+### Community 19 - "BroadcasterHandle"
+Cohesion: 0.14
+Nodes (14): IntoName, BroadcasterHandle, BroadcasterHandleDrop, BroadcasterHandleInner, Arc, Drop, F, JoinHandle (+6 more)
+
+### Community 20 - "Service"
+Cohesion: 0.08
+Nodes (21): DnsMessage, IpAddr, Ord, Ordering, PartialOrd, Borrow, BTreeSet, Deref (+13 more)
+
+### Community 21 - "DeviceServer"
 Cohesion: 0.11
 Nodes (29): Fn, DeviceServer, Arc, Atomic, AtomicUsize, B, Box, BTreeMap (+21 more)
 
-### Community 18 - "String"
-Cohesion: 0.08
-Nodes (18): PluginCategory, all, dynamics, eqFilter, favorites, instruments, masteringTools, modulation (+10 more)
-
-### Community 19 - "flows_rx.rs"
+### Community 22 - "flows_rx.rs"
 Cohesion: 0.13
-Nodes (31): AtomicI32, Poll, Channel, Command, FlowInfo, FlowsReceiver, FlowsReceiver<P>, FlowsReceiverInternal (+23 more)
+Nodes (29): AtomicI32, Poll, Channel, Command, FlowInfo, FlowsReceiver, FlowsReceiver<P>, FlowsReceiverInternal (+21 more)
 
-### Community 20 - "channels_subscriber.rs"
+### Community 23 - "Aes67ParserExtraTests"
 Cohesion: 0.10
-Nodes (31): ChannelOtherEnd, ChannelsSubscriber, ChannelsSubscriberInternal, ChannelSubscription, Command, Flow, FlowSource, MulticastFlow (+23 more)
+Nodes (10): SDPParser, Data, Aes67ParserExtraTests, Data, Int, UInt8, Aes67Tests, Bool (+2 more)
 
-### Community 21 - "Aes67Manager"
-Cohesion: 0.09
-Nodes (22): DispatchQueue, Int16, NWBrowser, NWParameters, streams, Aes67Manager, Aes67Rx, MulticastReceiver (+14 more)
-
-### Community 22 - "VirtualInterfaceInfo"
+### Community 24 - "SharedPluginHost"
 Cohesion: 0.12
-Nodes (13): ChannelLabelsPayload, VirtualInterfaceInfo, PatchScene, hydraSupportURL(), InterfaceStore, LabelStore, SceneStore, Bool (+5 more)
+Nodes (19): ChainHandle, ChainSpec, SharedPluginHost, Any, Bool, DispatchSourceTimer, Double, Float (+11 more)
 
-### Community 23 - "HiQnet"
-Cohesion: 0.18
+### Community 25 - "Value"
+Cohesion: 0.08
+Nodes (26): Int16, Int8, Binding, Bool, DispatchWorkItem, TimeInterval, Void, SyncedValue (+18 more)
+
+### Community 26 - "Aes67Manager"
+Cohesion: 0.11
+Nodes (18): NWBrowser, Aes67Manager, Aes67Rx, MulticastReceiver, Bool, Data, Date, DispatchSourceRead (+10 more)
+
+### Community 27 - "HiQnet"
+Cohesion: 0.19
 Nodes (11): Address, Array, Flags, Frame, HiQnet, Subscription, Int, UInt32 (+3 more)
 
-### Community 24 - "ring_buffer.rs"
+### Community 28 - "ModuleManager"
+Cohesion: 0.12
+Nodes (20): CChar, HydraModule, HydraModuleABI, moduleHostDeliver(), moduleHostLog(), moduleHostSourcesChanged(), ModuleManager, ModuleRx (+12 more)
+
+### Community 29 - "ring_buffer.rs"
 Cohesion: 0.18
 Nodes (30): ExactSizeIterator, for_in_ring(), new_owned(), non_sequential_write_single_read(), ReadResult, FnMut, Item, test_close_items_until_after_reset() (+22 more)
 
-### Community 25 - "HUI"
+### Community 30 - "Int"
 Cohesion: 0.10
 Nodes (20): Int, Decoder, Event, fader, ping, scribble, switchState, HUI (+12 more)
 
-### Community 26 - "Foundation"
-Cohesion: 0.12
-Nodes (7): AVFoundation, Foundation, HydraCore, HydraSurface, MetricKit, DaemonContext, Testing
-
-### Community 27 - "View"
-Cohesion: 0.11
-Nodes (28): BridgeInfo, BridgeRole, ChannelFocus, ChannelScope, ConnMeters, DaemonClient, Font, GridSelection (+20 more)
-
-### Community 28 - "GridView"
-Cohesion: 0.15
-Nodes (14): GroupDef, AxisItem, channel, group, AxisLayout, ChannelFocus, GridView, SignalMark (+6 more)
-
-### Community 29 - "Value"
-Cohesion: 0.08
-Nodes (25): Int8, Binding, Bool, DispatchWorkItem, TimeInterval, Void, SyncedValue, Double (+17 more)
-
-### Community 30 - "SurfaceBridge"
+### Community 31 - "SurfaceBridge"
 Cohesion: 0.15
 Nodes (13): AnyObject, Never, MIDIBackend, Config, SlotKey, SurfaceBridge, Bool, Int (+5 more)
 
-### Community 31 - "MultiIpIoError"
-Cohesion: 0.11
-Nodes (26): DnsRecordType, Discovery, discovery_packet(), DiscoveryBuilderError, DiscoveryHandle, DiscoveryHandleDrop, DiscoveryHandleInner, Drop (+18 more)
+### Community 32 - "Discovery"
+Cohesion: 0.19
+Nodes (17): DnsRecordType, Discovery, discovery_packet(), DiscoveryHandle, query_packet(), DnsName, DnsResponse, Duration (+9 more)
 
-### Community 32 - "InstallerState"
-Cohesion: 0.09
-Nodes (18): ComponentCatalog, FooterView, Bool, DateFormatter, InstallerState, InstallerStep, complete, install (+10 more)
-
-### Community 33 - "View"
-Cohesion: 0.09
-Nodes (14): AboutView, LocalizedStringKey, View, SurfaceConfigSheet, Int, Bool, Void, WelcomeSheet (+6 more)
+### Community 33 - "TransmitMulticasts"
+Cohesion: 0.12
+Nodes (23): Bundle, Arc, AtomicBool, AtomicU32, BTreeMap, Error, Ipv4Addr, Mutex (+15 more)
 
 ### Community 34 - "DeviceInfo"
 Cohesion: 0.11
 Nodes (25): MacAddr, Channel, DeviceInfo, dummy_device_info(), five_ms_at_48000_hz(), large_values_no_overflow(), one_second_at_44100_hz(), one_second_at_48000_hz() (+17 more)
 
-### Community 35 - "RouteManager"
+### Community 35 - "View"
+Cohesion: 0.09
+Nodes (14): AboutView, LocalizedStringKey, View, SurfaceConfigSheet, Int, Bool, Void, WelcomeSheet (+6 more)
+
+### Community 36 - "RouteManager"
 Cohesion: 0.16
 Nodes (12): BridgeManager, DeviceManager, DeviceOutputTap, MatrixStore, FlowInfo, RouteManager, Bool, PatchPoint (+4 more)
 
-### Community 36 - "MatrixStore"
-Cohesion: 0.16
-Nodes (11): os_unfair_lock, Snapshot, EngineTap, MatrixStore, Bool, Connection, DispatchWorkItem, Int32 (+3 more)
+### Community 37 - "NdiManager"
+Cohesion: 0.14
+Nodes (13): NdiManager, NdiRx, NdiTx, Bool, DispatchSourceTimer, Double, Float, Int (+5 more)
 
-### Community 37 - ".start"
-Cohesion: 0.13
-Nodes (10): BridgeInfo, BridgesPayload, ConfigPayload, DevicesPayload, FlowsPayload, PhysicalDeviceInfo, DaemonContext, DispatchSourceTimer (+2 more)
-
-### Community 38 - "bytes.rs"
-Cohesion: 0.10
-Nodes (23): Arc, BroadcastReceiver, Mutex, Option, run_server(), align_wpos(), make_u16(), read_0term_str_from_buffer() (+15 more)
-
-### Community 39 - "Result"
+### Community 38 - "Result"
 Cohesion: 0.14
 Nodes (18): Copy, Iface, Socket, InterfacedMdnsSocket, InterfacedMdnsSocket<AsyncUdpSocket, Iface>, InterfacedMdnsSocket<Socket, Iface>, InterfacedMdnsSocket<UdpSocket, Iface>, MdnsSocket (+10 more)
 
-### Community 40 - "InstallManager"
-Cohesion: 0.12
-Nodes (14): Pipe, Diagnostics, InstallManager, InstallResult, failure, success, Phase, failed (+6 more)
+### Community 39 - ".start"
+Cohesion: 0.10
+Nodes (13): DispatchQueue, DaemonContext, DispatchSourceTimer, OscServer, Bool, Int, NWConnection, NWListener (+5 more)
 
-### Community 41 - "Aes67ParserExtraTests"
-Cohesion: 0.14
-Nodes (6): SDPParser, Data, Aes67ParserExtraTests, Data, Int, UInt8
+### Community 40 - "Updater"
+Cohesion: 0.13
+Nodes (17): Decodable, GHAsset, GHRelease, Release, Bool, Data, Error, TimeInterval (+9 more)
+
+### Community 41 - "ChannelRing"
+Cohesion: 0.17
+Nodes (14): Bool, ABLUtil, ChannelRing, Bool, Double, Float, Int, Int64 (+6 more)
 
 ### Community 42 - "ResponderMemoryEntry"
 Cohesion: 0.10
 Nodes (20): Cell, Hash, HashSet, DiscoveryEvent, Arc, Responder, ResponderMemory, ResponderMemoryEntry (+12 more)
 
-### Community 43 - "SidebarView"
-Cohesion: 0.13
-Nodes (12): LocalizedStringKey, ModuleSourceInfo, NdiSourceInfo, PhysicalDeviceInfo, DeviceDetailView, InfoButton, SidebarView, Bool (+4 more)
-
-### Community 44 - "NdiManager"
-Cohesion: 0.15
-Nodes (13): NdiManager, NdiRx, NdiTx, Bool, DispatchSourceTimer, Double, Float, Int (+5 more)
-
-### Community 45 - "StripManager"
-Cohesion: 0.15
-Nodes (13): PluginPrefs, ScanCache, StripManager, Bool, Connection, Date, DispatchSourceTimer, Range (+5 more)
-
-### Community 46 - "proto_arc.rs"
-Cohesion: 0.08
-Nodes (16): ChannelDescriptor, Descriptor2, deserialize_items(), deserialize_items_empty(), DestinationSocketDescriptor, Flags2, FlowDescriptorFooter, FlowDescriptorHeader (+8 more)
-
-### Community 47 - "PluginHost"
-Cohesion: 0.14
-Nodes (15): Darwin, HydraPluginHostABI, ChainCommand, ChainManager, hlog(), PluginHost, PluginSpec, Data (+7 more)
-
-### Community 48 - "SwiftUI"
-Cohesion: 0.09
-Nodes (16): AppLanguageStore, LanguagePicker, Badge, Bool, Color, Grid, gridAccent(), gridGray() (+8 more)
-
-### Community 49 - "BridgeManager"
+### Community 43 - "BridgeManager"
 Cohesion: 0.16
 Nodes (11): BridgeManager, Persisted, PresentBridge, AudioObjectID, Bool, DispatchWorkItem, Double, Int (+3 more)
 
-### Community 50 - ".emit"
+### Community 44 - "T"
+Cohesion: 0.20
+Nodes (19): ExternalBuffer, ExternalBufferParameters, ExternalRBInput, ExternalRBOutput, RBInput, RBInput<T, P>, RBOutput, RingBufferShared (+11 more)
+
+### Community 45 - "PluginHost"
+Cohesion: 0.14
+Nodes (15): Darwin, HydraPluginHostABI, ChainCommand, ChainManager, hlog(), PluginHost, PluginSpec, Data (+7 more)
+
+### Community 46 - "PtpClock"
+Cohesion: 0.22
+Nodes (12): Master, PtpClock, PtpStatus, Snapshot, Data, DispatchSourceTimer, Double, Int (+4 more)
+
+### Community 47 - "InstallerState"
+Cohesion: 0.11
+Nodes (12): FooterView, Bool, InstallerState, InstallerStep, complete, install, license, selection (+4 more)
+
+### Community 48 - "FlowsTransmitter"
+Cohesion: 0.15
+Nodes (13): FlowInfo, FlowsTransmitter, AtomicU32, BTreeMap, Error, FlowHandle, IntoIterator, Ipv4Addr (+5 more)
+
+### Community 49 - ".emit"
 Cohesion: 0.14
 Nodes (14): AVAudioFile, AVAudioPCMBuffer, EventCenter, HydraEvent, String, Void, Recording, RecordingManager (+6 more)
 
-### Community 51 - "GridEntry"
-Cohesion: 0.18
-Nodes (11): Hashable, DeviceViewPatch, SignalDotPublic, Binding, Bool, CGFloat, Color, Int (+3 more)
-
-### Community 52 - "Updater"
+### Community 50 - "ClockOverlay"
 Cohesion: 0.14
-Nodes (14): Release, Bool, Data, Error, TimeInterval, Timer, URL, UpdateError (+6 more)
+Nodes (15): c_int, ClockId, AsyncClient, clock_now_ns(), ClockOverlay, errno(), now_computations(), JoinHandle (+7 more)
 
-### Community 53 - ".pairs"
-Cohesion: 0.10
-Nodes (13): destination, source, ChannelPairing, formatElapsed(), LoadSeverity, critical, elevated, normal (+5 more)
+### Community 51 - "FlowChainCard"
+Cohesion: 0.17
+Nodes (8): FlowInfo, PhysicalDeviceInfo, FlowChainCard, FluxView, Bool, Int, String, DeviceDetailView
 
-### Community 54 - "Component"
-Cohesion: 0.12
-Nodes (19): Component, Bool, Double, AppleScriptResult, InstallerEngine, Bool, Double, Void (+11 more)
+### Community 52 - "Aes67Tx"
+Cohesion: 0.13
+Nodes (15): Aes67Tx, Aes67TxManager, localIPv4Address(), Bool, DispatchSourceTimer, Double, Float, Int (+7 more)
 
-### Community 55 - "ChannelRing"
-Cohesion: 0.18
-Nodes (13): ABLUtil, ChannelRing, Bool, Double, Float, Int, Int64, UnsafeMutablePointer (+5 more)
+### Community 53 - "InstallerWindowDelegate"
+Cohesion: 0.11
+Nodes (17): App, NSApplicationDelegate, NSObject, NSWindowDelegate, HydraApp, Scene, AppDelegate, HydraInstallerApp (+9 more)
 
-### Community 56 - "T"
-Cohesion: 0.21
-Nodes (17): ExternalBuffer, ExternalBufferParameters, ExternalRBInput, ExternalRBOutput, RBInput<T, P>, RBOutput, RingBufferShared, Arc (+9 more)
-
-### Community 57 - ".new"
+### Community 54 - ".new"
 Cohesion: 0.23
 Nodes (17): AtomicU16, FlowControlError, FlowsControlClient, minimal_device_info(), Arc, Box, ByteBuffer, Error (+9 more)
 
-### Community 58 - "SettingsView.swift"
+### Community 55 - "SettingsView.swift"
 Cohesion: 0.11
 Nodes (19): ChannelLabelsPayload, Date, PatchScene, AdvancedSettingsPane, AudioSettingsPane, ControlSettingsPane, GeneralSettingsPane, PluginRow (+11 more)
 
-### Community 59 - "PolyphaseResampler"
+### Community 56 - "GridEntry"
+Cohesion: 0.18
+Nodes (11): PatchPoint, DeviceViewPatch, SignalDotPublic, Binding, Bool, CGFloat, Color, Int (+3 more)
+
+### Community 57 - "run_server"
+Cohesion: 0.14
+Nodes (20): Serialize, Arc, BroadcastReceiver, Mutex, Option, Receiver, Sender, run_server() (+12 more)
+
+### Community 58 - "PolyphaseResampler"
 Cohesion: 0.19
 Nodes (6): PolyphaseResampler, ArraySlice, Double, Float, Int, PolyphaseResamplerTests
 
-### Community 60 - "CoreMIDIBackend"
-Cohesion: 0.14
-Nodes (15): CoreMIDI, CustomStringConvertible, Error, MIDIEndpointRef, MIDIPacketList, check(), CoreMIDIBackend, MIDIError (+7 more)
+### Community 59 - "PtpParsingTests"
+Cohesion: 0.13
+Nodes (7): PtpParsing, ArraySlice, Bool, Double, Int, UInt8, PtpParsingTests
 
-### Community 61 - "DeviceManager"
-Cohesion: 0.17
+### Community 60 - "DeviceManager"
+Cohesion: 0.16
 Nodes (13): DeviceIO, DeviceManager, Present, AudioDeviceIOProcID, AudioObjectID, Bool, Double, Float (+5 more)
 
-### Community 62 - "PoolTxTap"
-Cohesion: 0.15
-Nodes (14): Aes67Tx, localIPv4Address(), Bool, DispatchSourceTimer, Double, Float, Int, NWConnection (+6 more)
-
-### Community 63 - "SharedPluginHost"
-Cohesion: 0.15
-Nodes (10): ChainSpec, SharedPluginHost, Any, DispatchSourceTimer, Double, Process, TimeInterval, UInt64 (+2 more)
-
-### Community 64 - "Ipv6Interface"
-Cohesion: 0.17
-Nodes (14): Addr, Ipv6Addr, Ipv6Interface, IpVersion, MulticastSocketEx, BTreeSet, Error, Ipv4Addr (+6 more)
-
-### Community 65 - "GridView.swift"
+### Community 61 - ".start"
 Cohesion: 0.14
-Nodes (17): Axis, GraphicsContext, NSClickGestureRecognizer, NSGestureRecognizerRepresentable, ObservableObject, CellField, HoverPos, HoverStateRef (+9 more)
+Nodes (16): JoinError, OverlayReceiveError, blocking_send_recv(), BlockingClient, client_socket_path(), Box, Drop, FnMut (+8 more)
 
-### Community 66 - "ModuleRx"
-Cohesion: 0.19
-Nodes (15): CChar, HydraModule, moduleHostDeliver(), moduleHostLog(), moduleHostSourcesChanged(), ModuleRx, ModuleTx, Double (+7 more)
+### Community 62 - ".pairs"
+Cohesion: 0.11
+Nodes (12): destination, ChannelPairing, formatElapsed(), LoadSeverity, critical, elevated, normal, Double (+4 more)
+
+### Community 63 - "SurfaceManager"
+Cohesion: 0.15
+Nodes (6): DaemonContext, DaemonRuntime, Bool, SurfaceManager, DispatchSourceTimer, Void
+
+### Community 64 - "MdnsClient"
+Cohesion: 0.24
+Nodes (14): RecordType, MdnsClient, Arc, Box, BTreeMap, DnsResponse, Duration, Error (+6 more)
+
+### Community 65 - "AppInfo"
+Cohesion: 0.43
+Nodes (4): AppInfo, AppsPayload, SetAppCapturePayload, Int32
+
+### Community 66 - "SidebarView"
+Cohesion: 0.08
+Nodes (23): Aes67Stream, AppInfo, Content, LocalizedStringKey, ModuleSourceInfo, NdiSourceInfo, Color, AppCaptureDetailView (+15 more)
 
 ### Community 67 - "MetricsReporter"
 Cohesion: 0.13
 Nodes (16): Logger, MXDiagnosticPayload, MXMetricManagerSubscriber, MXMetricPayload, MetricsReporter, Data, URL, Category (+8 more)
 
-### Community 68 - "run_server"
-Cohesion: 0.13
-Nodes (19): Arc, BroadcastReceiver, Mutex, Option, Receiver, Sender, run_server(), make_channel_change_notification() (+11 more)
+### Community 68 - "InstallManager"
+Cohesion: 0.16
+Nodes (13): Pipe, InstallManager, InstallResult, failure, success, Phase, failed, idle (+5 more)
 
-### Community 69 - "DeviceOutputTap"
-Cohesion: 0.17
-Nodes (11): CATapDescription, DeviceOutputTap, AudioDeviceIOProcID, AudioObjectID, Bool, Double, Float, Int (+3 more)
+### Community 69 - "Aes67Stream"
+Cohesion: 0.23
+Nodes (12): Aes67Device, Aes67Payload, Aes67Stream, Aes67TxInfo, Announcement, SAPParser, SubscribeStreamPayload, Bool (+4 more)
 
-### Community 70 - "InstallerWindowDelegate"
-Cohesion: 0.14
-Nodes (13): NSApplicationDelegate, NSObject, NSWindowDelegate, AppDelegate, HydraInstallerApp, InstallerWindowDelegate, Reason, close (+5 more)
+### Community 70 - "MenuBarPanel.swift"
+Cohesion: 0.11
+Nodes (13): Carbon, Commands, Notification.Name, UpdateCommands, AboutCommands, Font, MBSectionHeader, MBStatTile (+5 more)
 
 ### Community 71 - "ResampleServoTests"
 Cohesion: 0.15
 Nodes (5): ResampleServo, Bool, Double, Int, ResampleServoTests
 
-### Community 72 - "DiscoveryBuilder"
+### Community 72 - "DeviceMDNSResponder"
+Cohesion: 0.18
+Nodes (13): DeviceMDNSResponder, in_addr_type(), kv(), multicast_ip_to_name(), Arc, BTreeMap, Ipv4Addr, Name (+5 more)
+
+### Community 73 - "DiscoveryBuilder"
 Cohesion: 0.16
 Nodes (9): DiscoveryBuilder, Default, DnsName, Duration, Option, Result, Self, TargetInterfaceV4 (+1 more)
 
-### Community 73 - "ExternalBuffer<T>"
-Cohesion: 0.11
-Nodes (14): ExternalBuffer<Atomic<Sample>>, ExternalBuffer<T>, ExternalBufferParameters<T>, OwnedBuffer<Atomic<Sample>>, OwnedBuffer<T>, ProxyToBuffer, ProxyToSamplesBuffer, RingBufferShared<Sample, P> (+6 more)
+### Community 74 - "RealTimeSamplesReceiver"
+Cohesion: 0.22
+Nodes (16): Channel, Command, get_min_max_end_timestamps(), PeriodicSamplesCollector, RealTimeSamplesReceiver, IntoIterator, Item, Option (+8 more)
 
-### Community 74 - "Snapshot"
-Cohesion: 0.18
-Nodes (11): AudioBufferList, ContiguousArray, Conn, InMeter, NodeTx, Snapshot, Double, Float (+3 more)
+### Community 75 - "ExternalBuffer<T>"
+Cohesion: 0.17
+Nodes (10): ExternalBuffer<Atomic<Sample>>, ExternalBuffer<T>, ExternalBufferParameters<T>, OwnedBuffer<Atomic<Sample>>, ProxyToBuffer, ProxyToSamplesBuffer, RingBufferShared<Sample, P>, Sample (+2 more)
 
-### Community 75 - "run_server"
+### Community 76 - "run_server"
 Cohesion: 0.23
 Nodes (10): PeaksCallback, Multicaster, Multicaster<'s>, Arc, BroadcastReceiver, Option, Receiver, RwLock (+2 more)
 
-### Community 76 - "Aes67Stream"
-Cohesion: 0.25
-Nodes (11): Aes67Device, Aes67Payload, Aes67Stream, Aes67TxInfo, Announcement, SAPParser, Bool, Double (+3 more)
+### Community 77 - "HiQnetServer"
+Cohesion: 0.19
+Nodes (8): HiQnetServer, MeterListener, Bool, NWConnection, NWListener, UInt16, UInt8, Void
 
-### Community 77 - "ModuleManager"
-Cohesion: 0.18
-Nodes (6): ModuleInfo, ModulesPayload, ModuleManager, Bool, DispatchSourceTimer, Set
+### Community 78 - "bytes.rs"
+Cohesion: 0.16
+Nodes (13): align_wpos(), ByteBuffer, Option, test_align_wpos_various_alignments(), test_write_0term_str_or_0_to_bytebuffer_some_and_none(), test_write_0term_str_to_bytebuffer_offset_and_trailing_zero(), test_write_str_to_buffer_empty_string(), test_write_str_to_buffer_exact_fit() (+5 more)
 
-### Community 78 - "ChainTap"
-Cohesion: 0.23
-Nodes (9): ChainTap, EditorRef, StripRoute, Float, Int, Int32, UnsafeMutablePointer, UnsafeMutableRawPointer (+1 more)
-
-### Community 79 - "HydraRT"
-Cohesion: 0.17
-Nodes (8): Accelerate, CoreAudio, HydraModuleABI, HydraNDIShim, HydraRT, HydraVST, Network, Synchronization
-
-### Community 80 - "MenuBarPanel.swift"
-Cohesion: 0.13
-Nodes (12): Commands, ServiceManagement, UpdateCommands, AboutCommands, Font, MBSectionHeader, MBStatTile, MenuBarPanel (+4 more)
-
-### Community 81 - "Cow"
+### Community 79 - "Cow"
 Cohesion: 0.18
 Nodes (7): Cow, Sized, IntoServiceTxt, &'static str, &'static [u8], &'static [u8; N], Vec<u8>
 
-### Community 82 - "ChainHandle"
-Cohesion: 0.26
-Nodes (10): ChainHandle, Bool, Float, hydra_plugin_shm, Int, Int32, UInt32, UnsafeMutablePointer (+2 more)
+### Community 80 - "flows_tx.rs"
+Cohesion: 0.22
+Nodes (16): LongClockDiff, SmallRng, Command, FlowData, FlowsTransmitterInternal, Arc, AtomicBool, AtomicUsize (+8 more)
 
-### Community 83 - "RealTimeSamplesReceiver"
-Cohesion: 0.25
-Nodes (15): Channel, Command, get_min_max_end_timestamps(), PeriodicSamplesCollector, RealTimeSamplesReceiver, IntoIterator, Item, Option (+7 more)
+### Community 81 - "AppDelegate"
+Cohesion: 0.19
+Nodes (7): ObservableObject, DaemonService, AppDelegate, Bool, Notification, NSApplication, NSWindow
 
-### Community 84 - "DanteClockBrowser"
+### Community 82 - "String"
+Cohesion: 0.21
+Nodes (10): ChannelSettings, Arc, Channel, Self, Vec, SavedChannels, SavedChannelsSettings, get_chromecast_name() (+2 more)
+
+### Community 83 - "DanteClockBrowser"
 Cohesion: 0.16
 Nodes (10): NetService, NetServiceBrowser, NetServiceBrowserDelegate, NetServiceDelegate, NSNumber, DanteClockBrowser, Bool, Data (+2 more)
 
-### Community 85 - "log"
-Cohesion: 0.27
-Nodes (8): ObjectIdentifier, log(), Bool, NWConnection, NWListener, UInt16, Void, WebSocketServer
-
-### Community 86 - "StateStorage"
+### Community 84 - "log"
 Cohesion: 0.23
-Nodes (13): Serialize, load_malformed_toml_fails(), load_missing_file_fails(), Box, Error, Result, Self, save_and_load_roundtrip() (+5 more)
+Nodes (9): NWParameters, ObjectIdentifier, log(), Bool, NWConnection, NWListener, UInt16, Void (+1 more)
+
+### Community 85 - "UdpSocketWrapper"
+Cohesion: 0.22
+Nodes (11): Option, Receiver, SocketAddr, create_mio_udp_socket(), create_tokio_udp_socket(), ReceiveBuffer, Ipv4Addr, Result (+3 more)
+
+### Community 86 - "PatchPoint"
+Cohesion: 0.19
+Nodes (8): OptionSet, Channel, Node, NodeDirections, PatchPoint, Bool, Channel, Int
 
 ### Community 87 - "Message"
 Cohesion: 0.11
 Nodes (18): Message, discoInfo, getAttributes, getNetworkInfo, getVDList, goodbye, hello, multiObjectParamSet (+10 more)
 
-### Community 88 - "HiQnetServer"
-Cohesion: 0.22
-Nodes (8): HiQnetServer, MeterListener, Bool, NWConnection, NWListener, UInt16, UInt8, Void
-
-### Community 89 - "String"
-Cohesion: 0.21
-Nodes (10): ChannelSettings, Arc, Channel, Self, Vec, SavedChannels, SavedChannelsSettings, get_chromecast_name() (+2 more)
-
-### Community 90 - "media_clock.rs"
+### Community 88 - "media_clock.rs"
 Cohesion: 0.18
 Nodes (12): async_clock_receiver_to_realtime(), make_shared_media_clock(), media_clock_new_not_ready(), media_clock_update_overlay_becomes_ready(), media_clock_update_overlay_replaces(), Arc, ClockReceiver, PathBuf (+4 more)
 
-### Community 91 - "UdpSocketWrapper"
-Cohesion: 0.22
-Nodes (11): create_mio_udp_socket(), create_tokio_udp_socket(), ReceiveBuffer, Ipv4Addr, Option, Receiver, Result, Self (+3 more)
-
-### Community 92 - ".impl_run"
+### Community 89 - ".impl_run"
 Cohesion: 0.21
 Nodes (12): AsyncUdpSocket, Broadcaster, BroadcasterConfig, Arc, BTreeSet, Option, Receiver, Result (+4 more)
 
-### Community 93 - "InfernoManager"
+### Community 90 - "InfernoManager"
 Cohesion: 0.20
 Nodes (8): ConfigPayload, Int32, Process, InfernoManager, Bool, Int, String, URL
 
-### Community 94 - "SurfaceManager"
-Cohesion: 0.23
-Nodes (3): SurfaceManager, DispatchSourceTimer, Void
+### Community 91 - "SwiftUI"
+Cohesion: 0.13
+Nodes (8): AppLanguageStore, LanguagePicker, Badge, Bool, Color, ContentView, LicenseView, SwiftUI
 
-### Community 95 - ".backplaneDeviceID"
-Cohesion: 0.29
+### Community 92 - "DeviceOutputTap"
+Cohesion: 0.23
+Nodes (9): CATapDescription, DeviceOutputTap, AudioDeviceIOProcID, AudioObjectID, Double, Float, Int, UInt32 (+1 more)
+
+### Community 93 - "Component"
+Cohesion: 0.14
+Nodes (12): Hashable, Component, ComponentCatalog, Bool, Double, ComponentInstallRow, InstallView, Bool (+4 more)
+
+### Community 94 - ".backplaneDeviceID"
+Cohesion: 0.28
 Nodes (6): BackplaneProbe, AudioObjectID, AudioObjectPropertyScope, Bool, Double, Int
 
-### Community 96 - "AppKit"
-Cohesion: 0.15
-Nodes (7): AppKit, Carbon, Combine, CryptoKit, HydraDaemon, os, Notification.Name
+### Community 95 - "InterfaceStore"
+Cohesion: 0.24
+Nodes (6): InterfaceStore, Bool, Connection, Int, Range, UUID
 
-### Community 97 - "AudioEngine"
-Cohesion: 0.17
-Nodes (11): AudioObjectPropertyListenerBlock, HydraSignpost, Aes67TxManager, Void, AudioEngine, EngineMetrics, AudioDeviceIOProcID, AudioObjectID (+3 more)
+### Community 96 - "ComponentStatus"
+Cohesion: 0.22
+Nodes (11): AppleScriptResult, InstallerEngine, Bool, Double, Void, ComponentStatus, failed, installed (+3 more)
 
-### Community 98 - "paginate_make_response"
-Cohesion: 0.28
-Nodes (15): InItem, Iterator, OutItem, extract_start_index(), ItemsInPacketIterator<'a, T>, paginate_make_response(), paginate_respond(), ByteBuffer (+7 more)
+### Community 97 - "CodingKeys"
+Cohesion: 0.13
+Nodes (15): CodingKey, CodingKeys, address, aes67On, channels, devices, flowIndex, interfaceID (+7 more)
 
-### Community 99 - "FlowChainCard"
-Cohesion: 0.27
-Nodes (5): FlowChainCard, Bool, Int, String, Void
-
-### Community 100 - "ExternalBuffering"
-Cohesion: 0.33
-Nodes (10): ChannelsBuffering, ExternalBuffering, OwnedBuffering, Arc, Atomic, Clock, ClockDiff, Sample (+2 more)
-
-### Community 101 - "MediaClock"
+### Community 98 - "MediaClock"
 Cohesion: 0.25
 Nodes (8): FineClock, MediaClock, Clock, Duration, LongClock, Option, timestamp_to_clock_value(), Timestamp
 
-### Community 102 - "hydra_ndi.c"
+### Community 99 - "hydra_ndi.c"
 Cohesion: 0.14
 Nodes (4): hndi_source_t, hndi_find_sources(), hndi_load(), try_dlopen()
 
-### Community 103 - "Headers/hydra_plugin_shm.h"
+### Community 100 - "HydraEvent"
+Cohesion: 0.17
+Nodes (11): Color, HydraEvent, Kind, error, info, installed, resourceLost, resourceRestored (+3 more)
+
+### Community 101 - "Headers/hydra_plugin_shm.h"
 Cohesion: 0.18
 Nodes (7): hydra_plugin_cmd, hydra_plugin_shm, hydra_plugin_shm_bytes(), hydra_plugin_shm_cmd(), hydra_plugin_shm_input(), hydra_plugin_shm_output(), hydra_plugin_shm_slot_floats()
 
-### Community 104 - "ChannelsSubscriberInternal<P, B>"
+### Community 102 - "ChannelsSubscriberInternal<P, B>"
 Cohesion: 0.27
 Nodes (4): ChannelsSubscriberInternal<P, B>, Flow<P>, IntoIterator, Item
 
-### Community 105 - ".new_realtime"
-Cohesion: 0.21
-Nodes (9): Arc, Box, Future, Output, Pin, SamplesCallback, Self, Send (+1 more)
-
-### Community 106 - "BroadcasterBuilder"
+### Community 103 - "BroadcasterBuilder"
 Cohesion: 0.22
 Nodes (7): BroadcasterBuilder, BTreeSet, Default, Result, Self, TargetInterfaceV4, TargetInterfaceV6
 
-### Community 107 - "Connection"
+### Community 104 - "AppKit"
+Cohesion: 0.18
+Nodes (6): AppKit, Combine, CryptoKit, HydraDaemon, os, ServiceManagement
+
+### Community 105 - "loopback_trx.rs"
+Cohesion: 0.22
+Nodes (13): AtomicSample, compare_samples(), find_samples_offset(), make_settings(), Arc, AtomicBool, JoinHandle, Option (+5 more)
+
+### Community 106 - "Connection"
 Cohesion: 0.26
 Nodes (6): BinarySerde, Connection, make_packet(), RemoteInfo, Option, SocketAddr
 
-### Community 108 - "Coordinator"
-Cohesion: 0.21
-Nodes (8): Binding, Context, Notification, NSSearchField, NSSearchFieldDelegate, Coordinator, SearchField, String
+### Community 107 - "Context"
+Cohesion: 0.23
+Nodes (7): Context, NSClickGestureRecognizer, NSGestureRecognizerRepresentable, NSSearchField, NSVisualEffectView, RightClickGesture, VisualEffectView
 
-### Community 109 - "SidebarTab"
-Cohesion: 0.14
-Nodes (12): CaseIterable, Color, PluginPickerSheet, StripInfo, ViewMode, category, flat, vendor (+4 more)
-
-### Community 110 - "CodingKeys"
-Cohesion: 0.14
-Nodes (14): CodingKey, CodingKeys, address, aes67On, channels, devices, flowIndex, interfaceID (+6 more)
-
-### Community 111 - "AppDelegate"
-Cohesion: 0.29
-Nodes (5): AppDelegate, Bool, Notification, NSApplication, NSWindow
-
-### Community 112 - "EnginePresence"
+### Community 108 - "EnginePresence"
 Cohesion: 0.19
 Nodes (7): EnginePresence, noBackplane, offline, running, stopped, Bool, EnginePresenceTests
 
-### Community 113 - "FlowEndpointKind"
-Cohesion: 0.33
-Nodes (6): FlowEndpointKind, app, bridge, device, deviceInput, deviceOutput
+### Community 109 - "wrapped_diff"
+Cohesion: 0.22
+Nodes (7): Clock, ClockDiff, wrapped_diff(), Channel<P>, PeriodicSamplesCollector<P>, RealTimeSamplesReceiver<P>, Clock
 
-### Community 114 - "PositionReportDestination"
-Cohesion: 0.18
-Nodes (6): ExternalRBInput<T>, PositionReportDestination, RingBufferShared<T, P>, AtomicUsize, Self, Vec
+### Community 110 - ".new_realtime"
+Cohesion: 0.23
+Nodes (9): Arc, Box, Future, Output, Pin, SamplesCallback, Self, Send (+1 more)
 
-### Community 115 - ".menuBarWave"
+### Community 111 - "PositionReportDestination"
+Cohesion: 0.12
+Nodes (10): ExternalRBInput<T>, OwnedBuffer<T>, PositionReportDestination, RingBufferShared<T, P>, AtomicUsize, FnOnce, Option, R (+2 more)
+
+### Community 112 - ".menuBarWave"
 Cohesion: 0.23
 Nodes (10): CGPoint, NSImage, Path, Shape, MenuBarStatusLabel, BrandMark, IconPack, CGFloat (+2 more)
 
-### Community 116 - "WindowAccessor"
-Cohesion: 0.22
-Nodes (9): NSView, NSViewRepresentable, NSVisualEffectView, Context, NSWindow, Void, WindowAccessor, Context (+1 more)
-
-### Community 117 - "DataType"
+### Community 113 - "DataType"
 Cohesion: 0.15
 Nodes (13): DataType, block, byte, float32, float64, long, long64, string (+5 more)
 
-### Community 118 - "HydraApp/SidebarView.swift"
-Cohesion: 0.23
-Nodes (9): Aes67Stream, AppInfo, Content, AppCaptureDetailView, DetailHeader, detailMono(), detailRow(), InfoPopoverButton (+1 more)
+### Community 114 - "AudioEngine"
+Cohesion: 0.24
+Nodes (9): AudioObjectPropertyListenerBlock, HydraSignpost, AudioEngine, EngineMetrics, AudioDeviceIOProcID, AudioObjectID, Bool, Double (+1 more)
 
-### Community 119 - "include/hydra_plugin_shm.h"
+### Community 115 - "Connection"
+Cohesion: 0.23
+Nodes (3): Connection, Float, ModelsTests
+
+### Community 116 - "include/hydra_plugin_shm.h"
 Cohesion: 0.24
 Nodes (7): hydra_plugin_cmd, hydra_plugin_shm, hydra_plugin_shm_bytes(), hydra_plugin_shm_cmd(), hydra_plugin_shm_input(), hydra_plugin_shm_output(), hydra_plugin_shm_slot_floats()
 
-### Community 120 - "HiQnetDiscovery"
+### Community 117 - "HiQnetDiscovery"
 Cohesion: 0.30
 Nodes (5): HiQnetDiscovery, DispatchSourceRead, Int32, UInt8, Void
 
-### Community 121 - "wrapped_diff"
-Cohesion: 0.21
-Nodes (8): Clock, ClockDiff, wrapped_diff(), Channel<P>, PeriodicSamplesCollector<P>, RealTimeSamplesReceiver<P>, Clock, Sample
-
-### Community 122 - "common.rs"
-Cohesion: 0.09
-Nodes (5): log_and_forget_err(), log_and_forget_ok(), LogAndForget, Result<T, E>, SamplesReader
-
-### Community 123 - "Aes67Tests"
+### Community 119 - "make_channel_change_notification"
 Cohesion: 0.23
-Nodes (4): Aes67Tests, Bool, Data, UInt8
+Nodes (10): make_channel_change_notification(), make_channel_change_notification_empty_iterator(), make_channel_change_notification_returns_start_code_and_opcode(), make_packet(), make_packet_produces_correct_header_bytes(), make_packet_total_length_equals_header_length_plus_content_len(), IntoIterator, Item (+2 more)
 
-### Community 124 - "RealTimeBoxReceiver"
+### Community 120 - "RealTimeBoxReceiver"
 Cohesion: 0.33
 Nodes (8): AtomicOptionBox, channel(), RealTimeBoxReceiver, RealTimeBoxSender, RealTimeBoxSender<T>, Arc, Box, Shared
 
-### Community 125 - "CommandPalette"
+### Community 121 - "CommandPalette"
 Cohesion: 0.24
 Nodes (7): Element, Array, CommandPalette, PaletteAction, Bool, Int, Void
 
-### Community 126 - "ContentView"
+### Community 122 - "common.rs"
 Cohesion: 0.22
-Nodes (5): NavigationSplitViewVisibility, ContentView, Binding, Bool, Color
+Nodes (4): log_and_forget_err(), log_and_forget_ok(), LogAndForget, Result<T, E>
 
-### Community 127 - "DanteClockBrowser"
+### Community 123 - "run_server"
+Cohesion: 0.22
+Nodes (10): Arc, BroadcastReceiver, Mutex, Option, run_server(), make_u16(), read_0term_str_from_buffer(), Box (+2 more)
+
+### Community 124 - "Flow"
+Cohesion: 0.38
+Nodes (5): Flow, FlowsTransmitterInternal<P>, Clock, LongClock, UdpSocket
+
+### Community 125 - "DanteClockBrowser"
 Cohesion: 0.18
 Nodes (10): DanteClockBrowser, -initOBJC_DESIGNATED_INITIALIZER, -netServiceBrowserdidFindServicemoreComing, -netServiceBrowserdidRemoveServicemoreComing, -netServicedidNotResolve, -netServiceDidResolveAddress, -netServicedidUpdateTXTRecordData, NSNetServiceBrowserDelegate (+2 more)
 
-### Community 128 - "DanteClockBrowser"
+### Community 126 - "DanteClockBrowser"
 Cohesion: 0.18
 Nodes (10): DanteClockBrowser, -initOBJC_DESIGNATED_INITIALIZER, -netServiceBrowserdidFindServicemoreComing, -netServiceBrowserdidRemoveServicemoreComing, -netServicedidNotResolve, -netServiceDidResolveAddress, -netServicedidUpdateTXTRecordData, NSNetServiceBrowserDelegate (+2 more)
 
-### Community 129 - "build_and_install.sh"
+### Community 127 - "build_and_install.sh"
 Cohesion: 0.60
 Nodes (9): build_driver(), customize_source(), fail(), fetch_source(), install_driver(), log(), require_xcode(), build_and_install.sh script (+1 more)
 
-### Community 130 - "release.sh"
+### Community 128 - "Coordinator"
+Cohesion: 0.29
+Nodes (6): Binding, Notification, NSSearchFieldDelegate, Coordinator, SearchField, String
+
+### Community 129 - "release.sh"
 Cohesion: 0.29
 Nodes (5): fail(), header(), note(), run(), release.sh script
 
-### Community 131 - ".shutdown"
+### Community 130 - "run_future_in_new_thread"
 Cohesion: 0.22
-Nodes (3): DaemonContext, DaemonRuntime, Bool
+Nodes (9): Box, FnOnce, Future, JoinHandle, Output, Pin, Send, run_future_in_new_thread() (+1 more)
 
-### Community 132 - "hydra-plugin-host.build/DerivedSources/GeneratedAssetSymbols.swift"
+### Community 131 - "hydra-plugin-host.build/DerivedSources/GeneratedAssetSymbols.swift"
 Cohesion: 0.22
 Nodes (7): DeveloperToolsSupport, DeveloperToolsSupport.ColorResource, DeveloperToolsSupport.ImageResource, ResourceBundleClass, DeveloperToolsSupport.ColorResource, DeveloperToolsSupport.ImageResource, ResourceBundleClass
 
-### Community 133 - "install_local.sh"
+### Community 132 - "install_local.sh"
 Cohesion: 0.58
 Nodes (8): device_visible(), do_install(), do_status(), do_uninstall(), fail(), log(), restart_coreaudiod(), install_local.sh script
 
-### Community 134 - "GFAD"
+### Community 133 - "GFAD"
 Cohesion: 0.22
 Nodes (9): GFAD, enable, faderMode, faderUByteValue, faderValue, glowColour, glowFunction, motorUByteValue (+1 more)
 
-### Community 135 - "SubObject"
+### Community 134 - "SubObject"
 Cohesion: 0.22
 Nodes (8): SubObject, fader, lcd, onSw, selSw, soloSw, Bool, Int
 
-### Community 136 - "DaemonService"
-Cohesion: 0.25
-Nodes (4): App, DaemonService, HydraApp, Scene
+### Community 135 - "ContentView"
+Cohesion: 0.32
+Nodes (4): NavigationSplitViewVisibility, ContentView, Binding, Bool
 
-### Community 137 - "generate_xcodeproj.rb"
+### Community 136 - "generate_xcodeproj.rb"
 Cohesion: 0.36
 Nodes (4): c_framework(), common!(), each_config(), sync_dir()
 
@@ -808,80 +829,80 @@ Nodes (7): linearToDb(), MeterColumn, StripCardView, StripGridView, StripMeters,
 Cohesion: 0.25
 Nodes (8): TLSW, ledOutputColour, offColour, onColour, pressedValue, releasedValue, switchMode, switchStatus
 
-### Community 140 - "BridgeRole"
+### Community 140 - "MultiIpIoError"
+Cohesion: 0.09
+Nodes (22): Display, Formatter, BroadcasterBuilderError, Error, ServiceBuilderError, ServiceDnsPacketBuilderError, DiscoveryBuilderError, DiscoveryHandleDrop (+14 more)
+
+### Community 141 - "WindowAccessor"
 Cohesion: 0.38
-Nodes (5): BridgeRole, both, input, output, SetBridgeRolePayload
+Nodes (5): NSView, NSViewRepresentable, Context, Void, WindowAccessor
 
-### Community 141 - "ShakeEffect"
-Cohesion: 0.33
-Nodes (5): CGFloat, CGSize, GeometryEffect, ProjectionTransform, ShakeEffect
+### Community 142 - "Theme.swift"
+Cohesion: 0.52
+Nodes (6): Grid, gridAccent(), gridGray(), CGFloat, Color, Theme
 
-### Community 142 - "bridges_install.sh"
+### Community 144 - "bridges_install.sh"
 Cohesion: 0.53
 Nodes (5): ALL, fail(), log(), selected(), bridges_install.sh script
 
-### Community 143 - "peaks_of_buffers"
+### Community 145 - "NodeKind"
+Cohesion: 0.33
+Nodes (6): NodeKind, aes67, app, backplane, physicalDevice, vst
+
+### Community 146 - "peaks_of_buffers"
 Cohesion: 0.40
 Nodes (5): peaks_of_buffers(), Arc, P, Sample, Vec
 
-### Community 146 - "build_installer.sh"
+### Community 149 - "build_installer.sh"
 Cohesion: 0.70
 Nodes (4): build_installer_for_arch(), fail(), log(), build_installer.sh script
 
-### Community 147 - "render"
+### Community 150 - "render"
 Cohesion: 0.60
 Nodes (4): _lerp(), main(), Render the Hydra mark at resolution S×S (RGBA, transparent corners)., render()
 
-### Community 148 - "NetworkUtils.swift"
+### Community 151 - "NetworkUtils.swift"
 Cohesion: 0.40
 Nodes (4): NetworkUtils, Set, String, SystemConfiguration
 
-### Community 149 - "CHLCD"
+### Community 152 - "CHLCD"
 Cohesion: 0.40
 Nodes (5): CHLCD, channelName, ledColourOutput, mode, text
 
-### Community 150 - "RecordingInfo"
-Cohesion: 0.47
-Nodes (3): RecordingInfo, RecordingsPayload, Date
+### Community 153 - "iface_v6_name_to_index"
+Cohesion: 0.50
+Nodes (4): iface_v6_name_to_index(), Error, NonZeroU32, Result
 
-### Community 151 - "build_pkg.sh"
+### Community 154 - "build_pkg.sh"
 Cohesion: 0.83
 Nodes (3): fail(), log(), build_pkg.sh script
 
-### Community 152 - "EditorTarget"
-Cohesion: 0.50
-Nodes (4): EditorTarget, local, none, remote
-
-### Community 153 - "SlotsCtl"
+### Community 155 - "SlotsCtl"
 Cohesion: 0.50
 Nodes (4): SlotsCtl, currentSlotSel, refreshCurrentSel, slotAssignments
 
-### Community 156 - ".new"
-Cohesion: 0.50
-Nodes (3): common_channels_descriptor_new_matches_device_info(), CommonChannelsDescriptor, Self
-
-### Community 157 - "set_current_thread_realtime"
+### Community 158 - "set_current_thread_realtime"
 Cohesion: 0.50
 Nodes (3): Error, Result, set_current_thread_realtime()
 
-### Community 158 - "GHAsset"
-Cohesion: 1.00
-Nodes (3): Decodable, GHAsset, GHRelease
+### Community 260 - "FlowEndpointKind"
+Cohesion: 0.33
+Nodes (6): FlowEndpointKind, app, bridge, device, deviceInput, deviceOutput
 
 ## Knowledge Gaps
 - **404 isolated node(s):** `Script-5523C934D0F4E104405D721B.sh script`, `Script-C641665DE93AF2886FB53446.sh script`, `ResourceBundleClass`, `DeveloperToolsSupport.ColorResource`, `DeveloperToolsSupport.ImageResource` (+399 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **45 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **76 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `String` connect `String` to `Ipv6Interface`, `DeviceInfo`, `MetricsReporter`, `FlowsTransmitter`, `TransmitMulticasts`, `SubObject`, `Identifiable`, `CodingKeys`, `Service`, `Cow`, `channels_subscriber.rs`, `StateStorage`?**
-  _High betweenness centrality (0.365) - this node is a cross-community bridge._
-- **Why does `DeviceInfo` connect `DeviceInfo` to `FlowsTransmitter`, `run_server`, `TransmitMulticasts`, `bytes.rs`, `.new_realtime`, `run_server`, `DeviceServer`, `flows_rx.rs`, `channels_subscriber.rs`, `StateStorage`, `String`, `.new`, `.new`?**
-  _High betweenness centrality (0.164) - this node is a cross-community bridge._
-- **Why does `NodeKind` connect `Identifiable` to `String`, `Equatable`, `SidebarTab`, `Sendable`?**
-  _High betweenness centrality (0.118) - this node is a cross-community bridge._
+- **Why does `String` connect `String` to `MdnsClient`, `CodingKeys`, `DeviceInfo`, `MetricsReporter`, `HydraEvent`, `TransmitMulticasts`, `SubObject`, `channels_subscriber.rs`, `DeviceMDNSResponder`, `Cow`, `FlowsTransmitter`, `NodeKind`, `Service`, `run_server`?**
+  _High betweenness centrality (0.336) - this node is a cross-community bridge._
+- **Why does `DeviceInfo` connect `DeviceInfo` to `MdnsClient`, `TransmitMulticasts`, `channels_subscriber.rs`, `DeviceMDNSResponder`, `run_server`, `.new_realtime`, `proto_arc.rs`, `FlowsTransmitter`, `flows_tx.rs`, `String`, `DeviceServer`, `flows_rx.rs`, `.new`, `run_server`, `run_server`?**
+  _High betweenness centrality (0.175) - this node is a cross-community bridge._
+- **Why does `NodeKind` connect `NodeKind` to `Sendable`, `String`, `String`, `PatchPoint`?**
+  _High betweenness centrality (0.116) - this node is a cross-community bridge._
 - **Are the 6 inferred relationships involving `DaemonClient` (e.g. with `Aes67Payload` and `ChannelLabelsPayload`) actually correct?**
   _`DaemonClient` has 6 INFERRED edges - model-reasoned connections that need verification._
 - **What connects `Script-5523C934D0F4E104405D721B.sh script`, `Script-C641665DE93AF2886FB53446.sh script`, `ResourceBundleClass` to the rest of the system?**
@@ -889,4 +910,4 @@ _Questions this graph is uniquely positioned to answer:_
 - **Should `Hydra.c` be split into smaller, more focused modules?**
   _Cohesion score 0.08622620380739082 - nodes in this community are weakly interconnected._
 - **Should `WSMessage` be split into smaller, more focused modules?**
-  _Cohesion score 0.02664576802507837 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.025712949976624593 - nodes in this community are weakly interconnected._

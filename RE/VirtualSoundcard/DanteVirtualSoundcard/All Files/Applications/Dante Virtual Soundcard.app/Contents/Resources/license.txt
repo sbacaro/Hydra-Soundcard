@@ -1,0 +1,8 @@
+Name                      : license.txt
+UTI                       : public.plain-text
+Kind                      : Text
+Owner                     : root (0)
+Group                     : admin (80)
+Mode                      : -rw-r--r-- (0100644)
+Size                      : 7684
+Unverified CRC-32         : 645509382

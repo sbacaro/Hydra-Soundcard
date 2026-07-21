@@ -23,8 +23,7 @@ optional, for Gatekeeper on *first* install — see below).
 
 ## Cutting a release
 
-1. Bump the version in `Scripts/generate_xcodeproj.rb` (`MARKETING` / `BUILD_NUM`)
-   and in `Sources/HydraCore/HydraConstants.swift` (`Hydra.version`). Commit.
+1. Bump the version in `Sources/HydraCore/HydraConstants.swift` (`Hydra.version` — single source of truth; build scripts dynamically consume this version). Run `ruby Scripts/generate_xcodeproj.rb` if regenerating Xcode project. Commit.
 2. Use the helper (asks push-only vs. full), or tag manually:
 
    ```bash

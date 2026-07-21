@@ -1,0 +1,11 @@
+Name                      : libffmpeg.dylib
+UTI                       : com.apple.mach-o-dylib
+Kind                      : Mach-O dynamic library
+Owner                     : root (0)
+Group                     : wheel (0)
+Mode                      : -rwxr-xr-x (0100755)
+Requires                  : macOS 12.0
+Size                      : 1492576
+Executable                : arm64
+Signing Digest            : 487A2237A8D21CC7DE3E40C23F8909B2ACF6EE1D (arm64)
+Signing Identity          : identifier libffmpeg and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = P4WCR6Y822

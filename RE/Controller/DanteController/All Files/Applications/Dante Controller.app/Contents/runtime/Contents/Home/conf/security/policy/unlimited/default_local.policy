@@ -1,0 +1,8 @@
+Name                      : default_local.policy
+UTI                       : public.data
+Kind                      : Document
+Owner                     : root (0)
+Group                     : wheel (0)
+Mode                      : -rw-r--r-- (0100644)
+Size                      : 193
+Unverified CRC-32         : 1948439167

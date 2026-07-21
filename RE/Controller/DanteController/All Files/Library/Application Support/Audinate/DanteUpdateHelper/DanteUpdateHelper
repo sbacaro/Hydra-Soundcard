@@ -1,0 +1,13 @@
+Name                      : DanteUpdateHelper
+UTI                       : com.apple.mach-o-executable
+Kind                      : Mach-O executable
+Owner                     : root (0)
+Group                     : wheel (0)
+Mode                      : -rwxr-xr-x (0100755)
+Requires                  : macOS 10.15
+Size                      : 25345024
+Executable                : arm64 • x86_64
+Signing Digest            : 1518CC976B29B5FCEEDCF7A4DE94405D2C31502A (arm64)
+Signing Digest            : AC5A97318B0F81F70657FFC09BADAD55389D0E19 (x86_64)
+Signing Identity          : anchor apple generic and identifier DanteUpdateHelper and (certificate leaf[field.1.2.840.113635.100.6.1.9] /* exists */ or certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = P4WCR6Y822)
+Entitlement               : com.apple.application-identifier

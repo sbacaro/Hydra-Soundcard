@@ -8,7 +8,7 @@
 
 Route any source to any destination — apps, hardware, plug‑ins and the network — in one visual matrix.
 
-[![Version](https://img.shields.io/badge/version-2.1.18-2997ff)](CHANGELOG.md)
+[![Version](https://img.shields.io/badge/version-2.1.19-2997ff)](CHANGELOG.md)
 [![License](https://img.shields.io/badge/license-GPL--3.0-blue)](LICENSE)
 [![Platform](https://img.shields.io/badge/macOS-26%20Tahoe-1d1d1f)](#system-requirements)
 [![Swift](https://img.shields.io/badge/Swift-6-orange)](#build--run)

@@ -1,0 +1,10 @@
+Name                      : Info.plist
+UTI                       : com.apple.xml-property-list
+Kind                      : XML property list
+Owner                     : root (0)
+Group                     : wheel (0)
+Mode                      : -rwxr-xr-x (0100755)
+Bundle Identifier         : com.audinate.dante.DanteActivator
+Bundle Version            : 2.7.2 (2.7.2.4)
+Size                      : 17210
+Unverified CRC-32         : 3161820829

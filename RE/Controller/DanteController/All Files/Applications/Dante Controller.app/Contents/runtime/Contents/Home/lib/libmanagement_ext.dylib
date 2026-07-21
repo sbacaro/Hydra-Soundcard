@@ -1,0 +1,11 @@
+Name                      : libmanagement_ext.dylib
+UTI                       : com.apple.mach-o-dylib
+Kind                      : Mach-O dynamic library
+Owner                     : root (0)
+Group                     : wheel (0)
+Mode                      : -rw-r--r-- (0100644)
+Requires                  : macOS 11.0
+Size                      : 73984
+Executable                : arm64
+Signing Digest            : D56F52D4A9433E187A0EAEFDA8ED60F1930BBB0D (arm64)
+Signing Identity          : identifier "libmanagement_ext" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = P4WCR6Y822

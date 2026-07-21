@@ -1,0 +1,11 @@
+Name                      : libDanteController.dylib
+UTI                       : com.apple.mach-o-dylib
+Kind                      : Mach-O dynamic library
+Owner                     : root (0)
+Group                     : wheel (0)
+Mode                      : -rwxr-xr-x (0100755)
+Requires                  : macOS 11.0
+Size                      : 9582160
+Executable                : arm64
+Signing Digest            : DE485A27BCAA700A4056DB32EAF57966975CAA8E (arm64)
+Signing Identity          : identifier libDanteController and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = P4WCR6Y822

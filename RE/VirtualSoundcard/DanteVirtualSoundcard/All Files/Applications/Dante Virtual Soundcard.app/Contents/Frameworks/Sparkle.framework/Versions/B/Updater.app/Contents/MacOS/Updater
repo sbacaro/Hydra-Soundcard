@@ -1,0 +1,12 @@
+Name                      : Updater
+UTI                       : com.apple.mach-o-executable
+Kind                      : Mach-O executable
+Owner                     : root (0)
+Group                     : admin (80)
+Mode                      : -rwxr-xr-x (0100755)
+Requires                  : macOS 10.13
+Size                      : 274752
+Executable                : arm64 • x86_64
+Signing Digest            : FEF9CEAE8E0BCBD0E5367D0B41F3BF9A69E6665D (arm64)
+Signing Digest            : 73FF59755413BF9AC1C56D9C9003B0A2A2DFF503 (x86_64)
+Signing Identity          : identifier "org.sparkle-project.Sparkle.Updater" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = P4WCR6Y822

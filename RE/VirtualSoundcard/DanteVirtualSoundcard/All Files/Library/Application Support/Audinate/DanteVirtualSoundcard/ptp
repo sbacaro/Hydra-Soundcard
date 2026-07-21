@@ -1,0 +1,12 @@
+Name                      : ptp
+UTI                       : com.apple.mach-o-executable
+Kind                      : Mach-O executable
+Owner                     : root (0)
+Group                     : admin (80)
+Mode                      : -rwxr-x--- (0100750)
+Requires                  : macOS 10.13
+Size                      : 3202528
+Executable                : arm64 • x86_64
+Signing Digest            : 7631E07224D5635DB5845D622FB9D439D82336C2 (arm64)
+Signing Digest            : C682B7BCAD50099D26145FC401A2FDAA683E2BA8 (x86_64)
+Signing Identity          : identifier ptp and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = P4WCR6Y822

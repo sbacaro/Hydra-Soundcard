@@ -1,0 +1,10 @@
+Name                      : Info.plist
+UTI                       : com.apple.xml-property-list
+Kind                      : XML property list
+Owner                     : root (0)
+Group                     : wheel (0)
+Mode                      : -rw-r--r-- (0100644)
+Bundle Identifier         : com.audinate.dante.DanteController
+Bundle Version            : 4.18.0.11 (4.18.0.11)
+Size                      : 1670
+Unverified CRC-32         : 4046333794

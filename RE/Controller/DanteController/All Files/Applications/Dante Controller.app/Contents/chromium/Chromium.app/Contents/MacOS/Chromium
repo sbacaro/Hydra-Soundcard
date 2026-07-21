@@ -1,0 +1,15 @@
+Name                      : Chromium
+UTI                       : com.apple.mach-o-executable
+Kind                      : Mach-O executable
+Owner                     : root (0)
+Group                     : wheel (0)
+Mode                      : -rwxr-xr-x (0100755)
+Requires                  : macOS 12.0
+Size                      : 71248
+Executable                : arm64
+Signing Digest            : 140CE1A3F38E35F1BD3AB154BA9B38AECA661E38 (arm64)
+Signing Identity          : identifier "org.chromium.Chromium" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = P4WCR6Y822
+Entitlement               : com.apple.security.cs.allow-dyld-environment-variables
+Entitlement               : com.apple.security.cs.allow-jit
+Entitlement               : com.apple.security.cs.allow-unsigned-executable-memory
+Entitlement               : com.apple.security.cs.disable-library-validation

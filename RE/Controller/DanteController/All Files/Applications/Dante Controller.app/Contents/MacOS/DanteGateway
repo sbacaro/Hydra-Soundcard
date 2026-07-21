@@ -1,0 +1,16 @@
+Name                      : DanteGateway
+UTI                       : com.apple.mach-o-executable
+Kind                      : Mach-O executable
+Owner                     : root (0)
+Group                     : wheel (0)
+Mode                      : -rwxr-xr-x (0100755)
+Requires                  : macOS 11.0
+Size                      : 16894368
+Executable                : arm64
+Signing Digest            : 87DDC37DE035F6FAE31C3EA1529C20116437E07F (arm64)
+Signing Identity          : identifier DanteGateway and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = P4WCR6Y822
+Entitlement               : com.apple.security.cs.allow-dyld-environment-variables
+Entitlement               : com.apple.security.cs.allow-jit
+Entitlement               : com.apple.security.cs.allow-unsigned-executable-memory
+Entitlement               : com.apple.security.cs.disable-executable-page-protection
+Entitlement               : com.apple.security.cs.disable-library-validation

@@ -1,0 +1,50 @@
+#!/bin/bash
+
+echo "Starting Dante Controller preinstall script"
+
+source installer_common.sh
+
+get_dc_pid()
+{
+	echo $(pgrep -x "Dante Controller")
+}
+
+DC_PID=$(get_dc_pid)
+if [ -n "$DC_PID" ]; then
+	echo "Dante Controller is currently running. Attempting to close it"
+
+	# Warn the user that Dante Controller will be closed
+    ALERT_RESULT=$(display_alert "'messageText' 'Dante Controller is open' 'informativeText' 'Dante Controller will be closed automatically before the installation continues.' 'alertStyle' 1 'firstButtonTitle' 'Close Dante Controller' 'secondButtonTitle' 'Abort Installation'")
+	if [[ "$ALERT_RESULT" == "2" ]]; then
+		echo "User cancelled installation"
+		exit 1
+	fi
+
+	MAX_TRIES=5
+	COUNT=0
+	while true; do
+		# Close DC similar to quitting it via the menu bar item
+        osascript -e 'quit app "Dante Controller"'
+		sleep 3
+		DC_PID=$(get_dc_pid)
+		if [ -z "$DC_PID" ]; then
+			echo "Dante Controller has closed"
+			break
+		fi
+
+		COUNT=$((COUNT + 1))
+		if [ "$COUNT" -ge "$MAX_TRIES" ]; then
+			echo "Dante Controller is still running. Aborting installation"
+			$(display_alert "'messageText' 'Dante Controller is open' 'informativeText' 'Dante Controller could not be closed automatically. Please close the application manually and then retry the installation.' 'alertStyle' 1 'firstButtonTitle' 'Continue'")
+			exit 1
+		fi
+	done
+fi
+
+echo "Cleaning up existing Dante Controller installation"
+rm -rf "$DC_APP_PATH"
+pkgutil --forget "$DC_PKG_ID"
+
+echo "Finished running Dante Controller preinstall script"
+
+exit 0

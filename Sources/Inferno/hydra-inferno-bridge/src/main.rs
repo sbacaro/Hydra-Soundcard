@@ -111,6 +111,9 @@ async fn main() {
     // or a network interface name ("en0") — both work.
     config_map.insert("BIND_IP".to_string(),        args.bind_ip.clone());
     config_map.insert("NAME".to_string(),            "Hydra Soundcard".to_string());
+    config_map.insert("MANUFACTURER".to_string(),    "Hydra Audio".to_string());
+    config_map.insert("MODEL_NAME".to_string(),      "Hydra Soundcard".to_string());
+    config_map.insert("BOARD_NAME".to_string(),      "Hydra Soundcard".to_string());
     config_map.insert("SAMPLE_RATE".to_string(),    "48000".to_string());
     config_map.insert("RX_CHANNELS".to_string(),    channels.to_string());
     config_map.insert("TX_CHANNELS".to_string(),    channels.to_string());

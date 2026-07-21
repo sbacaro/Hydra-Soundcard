@@ -37,8 +37,10 @@ settings:
     SWIFT_VERSION: "6.0"
     SWIFT_APPROACHABLE_CONCURRENCY: YES
     SWIFT_STRICT_CONCURRENCY: complete
-    MARKETING_VERSION: "2.1.18"
-    CURRENT_PROJECT_VERSION: "2.1.18"
+    # Single source of truth for version is Sources/HydraCore/HydraConstants.swift (Hydra.version).
+    # ruby Scripts/generate_xcodeproj.rb dynamically parses HydraConstants.swift when building.
+    MARKETING_VERSION: "2.1.19"
+    CURRENT_PROJECT_VERSION: "2.1.19"
     ALWAYS_SEARCH_USER_PATHS: NO
     CLANG_ENABLE_OBJC_WEAK: YES
     GENERATE_INFOPLIST_FILE: YES

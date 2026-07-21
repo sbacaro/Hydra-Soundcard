@@ -1,0 +1,12 @@
+Name                      : libipc.dylib
+UTI                       : com.apple.mach-o-dylib
+Kind                      : Mach-O dynamic library
+Owner                     : root (0)
+Group                     : wheel (0)
+Mode                      : -rwxr-xr-x (0100755)
+Requires                  : macOS 12.0
+Size                      : 1944016
+Executable                : arm64 • x86_64
+Signing Digest            : 3257AE070730551C5F07D88BC4694F7EF69282F9 (arm64)
+Signing Digest            : 92DB4D9A9B140418584296CCD4BD1BE0A0F657C4 (x86_64)
+Signing Identity          : identifier libipc and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = K436KHQ6D5

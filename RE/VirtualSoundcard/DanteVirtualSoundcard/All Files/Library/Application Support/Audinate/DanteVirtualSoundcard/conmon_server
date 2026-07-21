@@ -1,0 +1,12 @@
+Name                      : conmon_server
+UTI                       : com.apple.mach-o-executable
+Kind                      : Mach-O executable
+Owner                     : root (0)
+Group                     : admin (80)
+Mode                      : -rwxr-x--- (0100750)
+Requires                  : macOS 10.13
+Size                      : 1425280
+Executable                : arm64 • x86_64
+Signing Digest            : A051AB5CE9BBBA22745A64620563198B087837FD (arm64)
+Signing Digest            : BB4E5754A6CB0BC0DFFD66A3E023D3D14264A3F2 (x86_64)
+Signing Identity          : identifier "conmon_server" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = P4WCR6Y822

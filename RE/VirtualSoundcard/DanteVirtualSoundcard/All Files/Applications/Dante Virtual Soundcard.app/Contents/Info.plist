@@ -1,0 +1,10 @@
+Name                      : Info.plist
+UTI                       : com.apple.xml-property-list
+Kind                      : XML property list
+Owner                     : root (0)
+Group                     : admin (80)
+Mode                      : -rw-r--r-- (0100644)
+Bundle Identifier         : com.audinate.DanteVirtualSoundcard
+Bundle Version            : 4.5.2 (4.5.2.3)
+Size                      : 1940
+Unverified CRC-32         : 4213959349

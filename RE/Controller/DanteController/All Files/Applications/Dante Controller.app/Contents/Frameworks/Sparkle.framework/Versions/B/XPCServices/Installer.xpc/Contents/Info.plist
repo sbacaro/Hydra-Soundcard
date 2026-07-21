@@ -1,0 +1,10 @@
+Name                      : Info.plist
+UTI                       : com.apple.xml-property-list
+Kind                      : XML property list
+Owner                     : root (0)
+Group                     : wheel (0)
+Mode                      : -rw-r--r-- (0100644)
+Bundle Identifier         : org.sparkle-project.InstallerLauncher
+Bundle Version            : 2.2.1 (2017)
+Size                      : 1609
+Unverified CRC-32         : 2462167468
